@@ -150,4 +150,47 @@ class Quick_And_Easy_FAQs_Admin {
 
     }
 
+    /**
+     * Register FAQ Group custom taxonomy
+     *
+     * @since     1.0.0
+     */
+    function register_faqs_group_taxonomy() {
+
+        $labels = array(
+            'name'                       => _x( 'FAQ Groups', 'Taxonomy General Name', 'quick-and-easy-faqs' ),
+            'singular_name'              => _x( 'FAQ Group', 'Taxonomy Singular Name', 'quick-and-easy-faqs' ),
+            'menu_name'                  => __( 'FAQ Group', 'quick-and-easy-faqs' ),
+            'all_items'                  => __( 'All FAQ Groups', 'quick-and-easy-faqs' ),
+            'parent_item'                => __( 'Parent FAQ Group', 'quick-and-easy-faqs' ),
+            'parent_item_colon'          => __( 'Parent FAQ Group:', 'quick-and-easy-faqs' ),
+            'new_item_name'              => __( 'New FAQ Group Name', 'quick-and-easy-faqs' ),
+            'add_new_item'               => __( 'Add New FAQ Group', 'quick-and-easy-faqs' ),
+            'edit_item'                  => __( 'Edit FAQ Group', 'quick-and-easy-faqs' ),
+            'update_item'                => __( 'Update FAQ Group', 'quick-and-easy-faqs' ),
+            'view_item'                  => __( 'View FAQ Group', 'quick-and-easy-faqs' ),
+            'separate_items_with_commas' => __( 'Separate FAQ Groups with commas', 'quick-and-easy-faqs' ),
+            'add_or_remove_items'        => __( 'Add or remove FAQ Groups', 'quick-and-easy-faqs' ),
+            'choose_from_most_used'      => __( 'Choose from the most used', 'quick-and-easy-faqs' ),
+            'popular_items'              => __( 'Popular FAQ Groups', 'quick-and-easy-faqs' ),
+            'search_items'               => __( 'Search FAQ Groups', 'quick-and-easy-faqs' ),
+            'not_found'                  => __( 'Not Found', 'quick-and-easy-faqs' ),
+        );
+
+        $args = array(
+            'labels'                     => $labels,
+            'hierarchical'               => true,
+            'public'                     => true,
+            'show_ui'                    => true,
+            'show_admin_column'          => true,
+            'show_in_nav_menus'          => false,
+            'show_tagcloud'              => false,
+            'rewrite'                    => false,
+        );
+
+        register_taxonomy( 'faq-group', array( 'faq' ), $args );
+
+    }
+
+
 }
