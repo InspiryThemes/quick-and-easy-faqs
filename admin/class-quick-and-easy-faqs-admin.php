@@ -100,4 +100,54 @@ class Quick_And_Easy_FAQs_Admin {
 
 	}
 
+
+    /**
+     * Register FAQs custom post type
+     *
+     * @since     1.0.0
+     */
+    public function register_faqs_post_type() {
+
+        $labels = array(
+            'name'                => _x( 'FAQs', 'Post Type General Name', 'quick-and-easy-faqs' ),
+            'singular_name'       => _x( 'FAQ', 'Post Type Singular Name', 'quick-and-easy-faqs' ),
+            'menu_name'           => __( 'FAQs', 'quick-and-easy-faqs' ),
+            'name_admin_bar'      => __( 'FAQs', 'quick-and-easy-faqs' ),
+            'parent_item_colon'   => __( 'Parent FAQ:', 'quick-and-easy-faqs' ),
+            'all_items'           => __( 'All FAQs', 'quick-and-easy-faqs' ),
+            'add_new_item'        => __( 'Add New FAQ', 'quick-and-easy-faqs' ),
+            'add_new'             => __( 'Add New', 'quick-and-easy-faqs' ),
+            'new_item'            => __( 'New FAQ', 'quick-and-easy-faqs' ),
+            'edit_item'           => __( 'Edit FAQ', 'quick-and-easy-faqs' ),
+            'update_item'         => __( 'Update FAQ', 'quick-and-easy-faqs' ),
+            'view_item'           => __( 'View FAQ', 'quick-and-easy-faqs' ),
+            'search_items'        => __( 'Search FAQ', 'quick-and-easy-faqs' ),
+            'not_found'           => __( 'Not found', 'quick-and-easy-faqs' ),
+            'not_found_in_trash'  => __( 'Not found in Trash', 'quick-and-easy-faqs' ),
+        );
+
+        $args = array(
+            'label'               => __( 'faq', 'quick-and-easy-faqs' ),
+            'description'         => __( 'Frequently Asked Questions', 'quick-and-easy-faqs' ),
+            'labels'              => $labels,
+            'supports'            => array( 'title', 'editor', ),
+            'hierarchical'        => false,
+            'public'              => true,
+            'show_ui'             => true,
+            'show_in_menu'        => true,
+            'menu_position'       => 5,
+            'menu_icon'           => 'dashicons-format-chat',
+            'show_in_admin_bar'   => false,
+            'show_in_nav_menus'   => false,
+            'can_export'          => true,
+            'has_archive'         => false,
+            'exclude_from_search' => false,
+            'publicly_queryable'  => true,
+            'capability_type'     => 'post',
+        );
+
+        register_post_type( 'faq', $args );
+
+    }
+
 }

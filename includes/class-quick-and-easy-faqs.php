@@ -154,6 +154,7 @@ class Quick_And_Easy_FAQs {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		$this->loader->add_action( 'init', $plugin_admin, 'register_faqs_post_type' );
 
 	}
 
@@ -179,7 +180,7 @@ class Quick_And_Easy_FAQs {
 	 * @since    1.0.0
 	 */
 	public function run() {
-		$this->loader->run();
+        $this->loader->run();
 	}
 
 	/**
@@ -212,5 +213,6 @@ class Quick_And_Easy_FAQs {
 	public function get_version() {
 		return $this->version;
 	}
+
 
 }
