@@ -1,19 +1,13 @@
 <?php
 /**
- * Quick and Easy FAQs
  *
- * This file is read by WordPress to generate the plugin information in the plugin
- * admin area. This file also includes all of the dependencies used by the plugin,
- * registers the activation and deactivation functions, and defines a function
- * that starts the plugin.
- *
- * @link              http://example.com
+ * @link              https://github.com/saqibsarwar/quick-and-easy-faqs
  * @since             1.0.0
  * @package           Quick_And_Easy_FAQs
  *
  * @wordpress-plugin
  * Plugin Name:       Quick and Easy FAQs
- * Plugin URI:        http://example.com/plugin-name-uri/
+ * Plugin URI:        https://github.com/saqibsarwar/quick-and-easy-faqs
  * Description:       A quick and easy way to add FAQs to your site.
  * Version:           1.0.0
  * Author:            M Saqib Sarwar

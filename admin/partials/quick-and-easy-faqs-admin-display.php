@@ -5,7 +5,7 @@
  *
  * This file is used to markup the admin-facing aspects of the plugin.
  *
- * @link       http://example.com
+ * @link       https://github.com/saqibsarwar/quick-and-easy-faqs
  * @since      1.0.0
  *
  * @package    Quick_And_Easy_FAQs

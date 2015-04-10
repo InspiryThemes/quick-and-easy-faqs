@@ -6,7 +6,7 @@
  * A class definition that includes attributes and functions used across both the
  * public-facing side of the site and the admin area.
  *
- * @link       http://example.com
+ * @link       https://github.com/saqibsarwar/quick-and-easy-faqs
  * @since      1.0.0
  *
  * @package    Quick_And_Easy_FAQs
@@ -25,7 +25,7 @@
  * @since      1.0.0
  * @package    Quick_And_Easy_FAQs
  * @subpackage Quick_And_Easy_FAQs/includes
- * @author     Your Name <email@example.com>
+ * @author     M Saqib Sarwar <saqib@inspirythemes.com>
  */
 class Quick_And_Easy_FAQs {
 

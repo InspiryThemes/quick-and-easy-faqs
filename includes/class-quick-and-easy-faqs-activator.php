@@ -3,7 +3,7 @@
 /**
  * Fired during plugin activation
  *
- * @link       http://example.com
+ * @link       https://github.com/saqibsarwar/quick-and-easy-faqs
  * @since      1.0.0
  *
  * @package    Quick_And_Easy_FAQs
@@ -18,7 +18,7 @@
  * @since      1.0.0
  * @package    Quick_And_Easy_FAQs
  * @subpackage Quick_And_Easy_FAQs/includes
- * @author     Your Name <email@example.com>
+ * @author     M Saqib Sarwar <saqib@inspirythemes.com>
  */
 class Quick_And_Easy_FAQs_Activator {
 
