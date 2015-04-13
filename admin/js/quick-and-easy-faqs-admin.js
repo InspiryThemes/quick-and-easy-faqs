@@ -29,4 +29,14 @@
 	 * be doing this, we should try to minimize doing that in our own work.
 	 */
 
+    /**
+     * WordPress color picker for options page
+     */
+    // Add Color Picker to all inputs that have 'color-field' class
+    if( jQuery().wpColorPicker ) {
+        $(function() {
+            $('.color-picker').wpColorPicker();
+        });
+    }
+
 })( jQuery );

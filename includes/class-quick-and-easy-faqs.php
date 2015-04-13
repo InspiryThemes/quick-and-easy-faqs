@@ -156,6 +156,8 @@ class Quick_And_Easy_FAQs {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
         $this->loader->add_action( 'init', $plugin_admin, 'register_faqs_post_type' );
         $this->loader->add_action( 'init', $plugin_admin, 'register_faqs_group_taxonomy' );
+        $this->loader->add_action( 'admin_menu', $plugin_admin, 'add_faqs_options_page' );
+        $this->loader->add_action( 'admin_init', $plugin_admin, 'initialize_faqs_options' );
 
     }
 

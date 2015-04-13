@@ -40,6 +40,15 @@ class Quick_And_Easy_FAQs_Admin {
 	 */
 	private $version;
 
+    /**
+     * FAQs options
+     *
+     * @since    1.0.0
+     * @access   public
+     * @var      array    $options    Contains the plugin options
+     */
+    public $options;
+
 	/**
 	 * Initialize the class and set its properties.
 	 *
@@ -51,6 +60,7 @@ class Quick_And_Easy_FAQs_Admin {
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
+        $this->options = get_option( 'quick_and_easy_faqs_options' );
 
 	}
 
@@ -73,7 +83,11 @@ class Quick_And_Easy_FAQs_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/quick-and-easy-faqs-admin.css', array(), $this->version, 'all' );
+        // Add the color picker css file
+        wp_enqueue_style( 'wp-color-picker' );
+
+        // plugin custom css file
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/quick-and-easy-faqs-admin.css', array( 'wp-color-picker' ), $this->version, 'all' );
 
 	}
 
@@ -96,7 +110,7 @@ class Quick_And_Easy_FAQs_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/quick-and-easy-faqs-admin.js', array( 'jquery' ), $this->version, false );
+        wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/quick-and-easy-faqs-admin.js', array( 'jquery' , 'wp-color-picker' ), $this->version, false );
 
 	}
 
@@ -192,5 +206,179 @@ class Quick_And_Easy_FAQs_Admin {
 
     }
 
+    /**
+     * Add plugin settings page
+     */
+    public function add_faqs_options_page(){
+
+        /**
+         * Add FAQs settings page
+         */
+        add_plugins_page(
+            __( 'Quick and Easy FAQs Settings', 'quick-and-easy-faqs'),
+            __( 'Quick and Easy FAQs', 'quick-and-easy-faqs'),
+            'administrator',
+            'quick_and_easy_faqs',
+            array( $this, 'display_faqs_options_page')
+        );
+
+    }
+
+    /**
+     * Display FAQs settings page
+     */
+    public function display_faqs_options_page() {
+
+        ?>
+        <!-- Create a header in the default WordPress 'wrap' container -->
+        <div class="wrap">
+
+            <!-- Add the icon to the page -->
+            <div id="icon-themes" class="icon32"></div>
+            <h2><?php _e( 'Quick and Easy FAQs Settings', 'quick-and-easy-faqs' ); ?></h2>
+
+            <!-- Make a call to the WordPress function for rendering errors when settings are saved. -->
+            <?php settings_errors(); ?>
+
+            <!-- Create the form that will be used to render our options -->
+            <form method="post" action="options.php">
+                <?php settings_fields( 'quick_and_easy_faqs_options' ); ?>
+                <?php do_settings_sections( 'quick_and_easy_faqs_options' ); ?>
+                <?php submit_button(); ?>
+            </form>
+
+        </div><!-- /.wrap -->
+        <?php
+    }
+
+    /**
+     * Initialize FAQs settings page
+     */
+    public function initialize_faqs_options(){
+
+        // create plugin options if not exist
+        if( false == $this->options ) {
+            add_option( 'quick_and_easy_faqs_options' );
+        }
+
+        /**
+         * Section
+         */
+        add_settings_section(
+            'faqs_toggles_style',                                                       // ID used to identify this section and with which to register options
+            __( 'FAQs Toggle Styles', 'quick-and-easy-faqs'),                           // Title to be displayed on the administration page
+            array( $this, 'faqs_toggles_style_description'),                            // Callback used to render the description of the section
+            'quick_and_easy_faqs_options'                                               // Page on which to add this section of options
+        );
+
+        add_settings_section(
+            'faqs_common_style',
+            __( 'FAQs Common Styles', 'quick-and-easy-faqs'),
+            array( $this, 'faqs_common_style_description'),
+            'quick_and_easy_faqs_options'
+        );
+
+        /**
+         * Fields
+         */
+        add_settings_field(
+            'toggle_question_color',
+            __( 'Question text color', 'quick-and-easy-faqs' ),
+            array( $this, 'faqs_color_option_field' ),
+            'quick_and_easy_faqs_options',
+            'faqs_toggles_style',
+            array(
+                'id' => 'toggle_question_color',
+                'default' => '#333333',
+            )
+        );
+        add_settings_field(
+            'toggle_question_bg_color',
+            __( 'Question background color', 'quick-and-easy-faqs' ),
+            array( $this, 'faqs_color_option_field' ),
+            'quick_and_easy_faqs_options',
+            'faqs_toggles_style',
+            array(
+                'id' => 'toggle_question_bg_color',
+                'default' => '#fafafa',
+            )
+        );
+        add_settings_field(
+            'toggle_answer_color',
+            __( 'Answer text color', 'quick-and-easy-faqs' ),
+            array( $this, 'faqs_color_option_field' ),
+            'quick_and_easy_faqs_options',
+            'faqs_toggles_style',
+            array(
+                'id' => 'toggle_answer_color',
+                'default' => '#333333',
+            )
+        );
+        add_settings_field(
+            'toggle_answer_bg_color',
+            __( 'Answer background color', 'quick-and-easy-faqs' ),
+            array( $this, 'faqs_color_option_field' ),
+            'quick_and_easy_faqs_options',
+            'faqs_toggles_style',
+            array(
+                'id' => 'toggle_answer_bg_color',
+                'default' => '#ffffff',
+            )
+        );
+        add_settings_field(
+            'toggle_border_color',                                                      // ID used to identify the field throughout the theme
+            __( 'Border color', 'quick-and-easy-faqs' ),                                // The label to the left of the option interface element
+            array( $this, 'faqs_color_option_field' ),                                  // The name of the function responsible for rendering the option interface
+            'quick_and_easy_faqs_options',                                              // The page on which this option will be displayed
+            'faqs_toggles_style',                                                       // The name of the section to which this field belongs
+            array(                                                                      // The array of arguments to pass to the callback. In this case, just a description.
+                'id' => 'toggle_border_color',
+                'default' => '#dddddd',
+            )
+        );
+        add_settings_field(
+            'faqs_custom_css',
+            __( 'Custom CSS', 'quick-and-easy-faqs' ),
+            array( $this, 'faqs_textarea_option_field' ),
+            'quick_and_easy_faqs_options',
+            'faqs_common_style',
+            array(
+                'id' => 'faqs_custom_css',
+            )
+        );
+
+        /**
+         * Register Settings
+         */
+        register_setting( 'quick_and_easy_faqs_options', 'quick_and_easy_faqs_options' );
+    }
+
+    public function faqs_toggles_style_description() {
+        echo '<p>'.__( 'These settings only applies to FAQs with toggle style. As FAQs with list style use colors inherited from currently active theme.', 'quick-and-easy-faqs' ).'</p>';
+    }
+
+    public function faqs_common_style_description() {
+        echo '<p>'.__( '', 'quick-and-easy-faqs' ).'</p>';
+    }
+
+    public function faqs_color_option_field( $args ) {
+        $field_id = $args['id'];
+        if( $field_id ) {
+            $val = ( isset( $this->options[ $field_id ] ) ) ? $this->options[ $field_id ] : $args['default'];
+            echo '<input type="text" name="quick_and_easy_faqs_options['.$field_id.']" value="' . $val . '" class="color-picker" >';
+        } else {
+            _e( 'Field id is missing!', 'quick-and-easy-faqs' );
+        }
+    }
+
+    public function faqs_textarea_option_field( $args ) {
+        $field_id = $args['id'];
+        if( $field_id ) {
+            $val = ( isset( $this->options[ $field_id ] ) ) ? $this->options[ $field_id ] : '';
+            echo '<textarea cols="60" rows="8" name="quick_and_easy_faqs_options[' . $field_id . ']" class="custom-css">' . $val . '</textarea>';
+        } else {
+            _e( 'Field id is missing!', 'quick-and-easy-faqs' );
+        }
+    }
 
 }
