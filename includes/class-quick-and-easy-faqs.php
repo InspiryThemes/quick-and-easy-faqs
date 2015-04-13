@@ -324,6 +324,8 @@ class Quick_And_Easy_FAQs {
      * Display faqs in a list
      *
      * @since   1.0.0
+     * @param   array   $attributes     Array of attributes
+     * @return  string  generated html by shortcode
      */
     public function display_faqs_list( $attributes ) {
 
@@ -333,16 +335,22 @@ class Quick_And_Easy_FAQs {
                                     'filter' => null,
                                     ), $attributes ) );
 
+        $filter_array = array();
+
+        // faq groups filter
+        if ( ! empty ( $filter ) ) {
+            $filter_array = explode( ',', $filter );
+        }
+
         ob_start();
 
         if ( $style == 'toggle' ) {
-
+            $this->all_faqs_in_toggles( $filter_array );
         } else {
-
             if ( $grouped == 'yes' ) {
-                $this->list_grouped_faqs( $filter );
+                $this->list_grouped_faqs( $filter_array );
             } else {
-                $this->list_all_faqs( $filter );
+                $this->list_all_faqs( $filter_array );
             }
         }
 
@@ -354,13 +362,67 @@ class Quick_And_Easy_FAQs {
      * Display FAQs in list style
      *
      * @since   1.0.0
+     * @param   Array   $filter_array   Array of faq groups slugs
      */
-    private function list_grouped_faqs( $filter = null ) {
+    private function list_all_faqs( $filter_array ) {
 
-        $filter_array = array();
-        if ( ! empty ( $filter ) ) {
-            $filter_array = explode( ',', $filter );
+        $faqs_query = new WP_Query(array(
+            'post_type' => 'faq',
+            'posts_per_page' => -1,
+        ));
+
+        if ( ! empty ( $filter_array ) ) {
+            $faqs_query['tax_query'] = array(
+                array (
+                    'taxonomy' => 'faq-group',
+                    'field'    => 'slug',
+                    'terms'    => $filter_array,
+                ),
+            );
         }
+
+        // FAQs index
+        if ( $faqs_query->have_posts() ) :
+
+            echo '<div id="qe-faqs-index" class="qe-faqs-index">';
+            echo '<ol class="qe-faqs-index-list">';
+            while ( $faqs_query-> have_posts() ) :
+                $faqs_query->the_post();
+                ?><li><a href="#qe-faq-<?php echo the_ID(); ?>"><?php the_title(); ?></a></li><?php
+            endwhile;
+            echo '</ol>';
+            echo '</div>';
+        endif;
+
+        // rewind faqs loop
+        $faqs_query->rewind_posts();
+
+        // FAQs Contents
+        if ( $faqs_query->have_posts() ) :
+            while ( $faqs_query->have_posts() ) :
+                $faqs_query->the_post();
+                ?>
+                <div id="qe-faq-<?php the_ID(); ?>" class="qe-faq-content">
+                    <h4><i class="fa fa-question-circle"></i> <?php the_title(); ?></h4>
+                    <?php the_content(); ?>
+                    <a class="qe-faq-top" href="#qe-faqs-index"><i class="fa fa-angle-up"></i> <?php _e( 'Back to Index', 'quick-and-easy-faqs'); ?></a>
+                </div>
+            <?php
+            endwhile;
+        endif;
+
+        // All the custom loops ends here so reset the query
+        wp_reset_query();
+
+    }
+
+    /**
+     * Display FAQs in list style
+     *
+     * @since   1.0.0
+     * @param   Array   $filter_array   Array of faq groups slugs
+     */
+    private function list_grouped_faqs( $filter_array ) {
 
         $faq_groups = get_terms( 'faq-group' );
 
@@ -445,13 +507,10 @@ class Quick_And_Easy_FAQs {
      * Display FAQs in list style
      *
      * @since   1.0.0
+     * @param   Array   $filter_array   Array of faq groups slugs
      */
-    private function list_all_faqs( $filter ) {
+    private function all_faqs_in_toggles( $filter_array ) {
 
-        $filter_array = array();
-        if ( ! empty ( $filter ) ) {
-            $filter_array = explode( ',', $filter );
-        }
 
         $faqs_query = new WP_Query(array(
             'post_type' => 'faq',
@@ -468,31 +527,18 @@ class Quick_And_Easy_FAQs {
             );
         }
 
-        // FAQs index
-        if ( $faqs_query->have_posts() ) :
-
-            echo '<div id="qe-faqs-index" class="qe-faqs-index">';
-            echo '<ol class="qe-faqs-index-list">';
-            while ( $faqs_query-> have_posts() ) :
-                $faqs_query->the_post();
-                ?><li><a href="#qe-faq-<?php echo the_ID(); ?>"><?php the_title(); ?></a></li><?php
-            endwhile;
-            echo '</ol>';
-            echo '</div>';
-        endif;
-
-        // rewind faqs loop
-        $faqs_query->rewind_posts();
-
-        // FAQs Contents
+        // FAQs Toggles
         if ( $faqs_query->have_posts() ) :
             while ( $faqs_query->have_posts() ) :
                 $faqs_query->the_post();
                 ?>
-                <div id="qe-faq-<?php the_ID(); ?>" class="qe-faq-content">
-                    <h4><i class="fa fa-question-circle"></i> <?php the_title(); ?></h4>
-                    <?php the_content(); ?>
-                    <a class="qe-faq-top" href="#qe-faqs-index"><i class="fa fa-angle-up"></i> <?php _e( 'Back to Index', 'quick-and-easy-faqs'); ?></a>
+                <div class="qe-faq-toggle">
+                    <div class="qe-toggle-title">
+                        <h4><i class="fa fa-plus-circle"></i> <?php the_title(); ?></h4>
+                    </div>
+                    <div class="qe-toggle-content">
+                        <?php the_content(); ?>
+                    </div>
                 </div>
                 <?php
             endwhile;

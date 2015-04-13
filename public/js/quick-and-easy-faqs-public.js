@@ -29,4 +29,30 @@
 	 * be doing this, we should try to minimize doing that in our own work.
 	 */
 
+
+    /**
+     * FAQs Toggles
+     */
+    $(function() {
+
+        $('.qe-toggle-title').click(function () {
+
+            var parent_toggle = $(this).closest('.qe-faq-toggle');
+
+            if ( parent_toggle.hasClass( 'active' ) ) {
+
+                $(this).find('i.fa').removeClass( 'fa-minus-circle' ).addClass( 'fa-plus-circle' );
+                parent_toggle.removeClass( 'active' ).find( '.qe-toggle-content' ).slideUp( 'fast' );
+
+            } else {
+
+                $(this).find('i.fa').removeClass( 'fa-plus-circle' ).addClass( 'fa-minus-circle' );
+                parent_toggle.addClass( 'active' ).find( '.qe-toggle-content' ).slideDown( 'fast' );
+
+            }
+
+        });
+
+    });
+
 })( jQuery );

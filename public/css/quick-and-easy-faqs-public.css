@@ -1,9 +1,1 @@
-/**
- * All of the CSS for your public-facing functionality should be
- * included in this file.
- */
-
-
-.qe-faq-content {
-    padding-top: 1px;
-}
+.qe-faq-content{padding-top:1px}.qe-faq-toggle{margin-bottom:1px;transition:all .5s}.qe-faq-toggle .qe-toggle-title{background-color:#777;color:#fff;margin:0;height:auto;cursor:pointer;transition:all .5s}.qe-faq-toggle .qe-toggle-title h4{padding:1em;margin:0}.qe-faq-toggle .qe-toggle-content{padding:1.5em 1.5em .3em;margin:0;border:1px solid #ddd;display:none}
