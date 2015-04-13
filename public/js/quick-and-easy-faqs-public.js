@@ -55,4 +55,23 @@
 
     });
 
+    /**
+     * FAQs Filter
+     */
+    $(function() {
+
+        $('.qe-faqs-filter').click( function ( event ) {
+            event.preventDefault();
+            $(this).parents('li').addClass('active').siblings().removeClass('active');
+            var filterSelector = $(this).attr( 'data-filter' );
+            var allFAQs = $( '.qe-faq-toggle' );
+            if ( filterSelector == '*' ) {
+                allFAQs.show();
+            } else {
+                allFAQs.not( filterSelector ).hide().end().filter( filterSelector ).show();
+            }
+        });
+
+    });
+
 })( jQuery );

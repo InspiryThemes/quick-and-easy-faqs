@@ -350,7 +350,9 @@ class Quick_And_Easy_FAQs {
             } else {
                 $this->toggles_for_all_faqs( $filter_array );
             }
-        } else {
+        } else if ( $style == 'sortable' ) {
+            $this->filterable_toggles_faqs();
+        }else {
             if ( $grouped == 'yes' ) {
                 $this->list_grouped_faqs( $filter_array );
             } else {
@@ -615,6 +617,74 @@ class Quick_And_Easy_FAQs {
             wp_reset_query();
 
         }
+
+    }
+
+    /**
+     * Display sortable FAQs in toggle style
+     *
+     * @since   1.0.0
+     */
+    private function filterable_toggles_faqs() {
+
+        ?>
+        <ul class="qe-faqs-filters-container">
+            <li class="active"><a class="qe-faqs-filter" href="#*" data-filter="*"><?php _e( 'All', 'quick-and-easy-faqs') ?></a></li>
+            <?php
+            $faq_groups = get_terms( 'faq-group' );
+            if ( ! empty( $faq_groups ) && ! is_wp_error( $faq_groups ) ) {
+                foreach ( $faq_groups as $faq_group ) {
+                    echo '<li><a class="qe-faqs-filter" href="#<?php echo $faq_group->slug; ?>" data-filter="' . '.' . $faq_group->slug . '">' . $faq_group->name . '</a></li>';
+                }
+            }
+            ?>
+        </ul>
+        <?php
+
+        $faqs_query_args = array(
+            'post_type' => 'faq',
+            'posts_per_page' => -1,
+        );
+
+        $faqs_query = new WP_Query( $faqs_query_args );
+
+        // FAQs Toggles
+        if ( $faqs_query->have_posts() ) :
+
+            echo '<div class="qe-faqs-filterable">';
+
+            while ( $faqs_query->have_posts() ) :
+                $faqs_query->the_post();
+
+                // faq group terms slug needed to be used as classes in html for filterable functionality
+                $faq_group_terms = get_the_terms( get_the_ID(), 'faq-group' );
+                $faq_group_terms_slugs = '';
+                if ( ! empty ( $faq_group_terms ) ) {
+                    foreach ( $faq_group_terms as $term ) {
+                        $faq_group_terms_slugs .= ' ';
+                        $faq_group_terms_slugs .= $term->slug;
+                    }
+                }
+
+                ?>
+                <div class="qe-faq-toggle <?php echo $faq_group_terms_slugs; ?>">
+                    <div class="qe-toggle-title">
+                        <strong><i class="fa fa-plus-circle"></i> <?php the_title(); ?></strong>
+                    </div>
+                    <div class="qe-toggle-content">
+                        <?php the_content(); ?>
+                    </div>
+                </div>
+                <?php
+            endwhile;
+
+            echo '</div>';
+
+        endif;
+
+
+        // All the custom loops ends here so reset the query
+        wp_reset_query();
 
     }
 
