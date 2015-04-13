@@ -345,7 +345,11 @@ class Quick_And_Easy_FAQs {
         ob_start();
 
         if ( $style == 'toggle' ) {
-            $this->all_faqs_in_toggles( $filter_array );
+            if ( $grouped == 'yes' ) {
+                $this->toggles_grouped_faqs( $filter_array );
+            } else {
+                $this->toggles_for_all_faqs( $filter_array );
+            }
         } else {
             if ( $grouped == 'yes' ) {
                 $this->list_grouped_faqs( $filter_array );
@@ -366,13 +370,13 @@ class Quick_And_Easy_FAQs {
      */
     private function list_all_faqs( $filter_array ) {
 
-        $faqs_query = new WP_Query(array(
+        $faqs_query_args = array(
             'post_type' => 'faq',
             'posts_per_page' => -1,
-        ));
+        );
 
         if ( ! empty ( $filter_array ) ) {
-            $faqs_query['tax_query'] = array(
+            $faqs_query_args['tax_query'] = array(
                 array (
                     'taxonomy' => 'faq-group',
                     'field'    => 'slug',
@@ -380,6 +384,8 @@ class Quick_And_Easy_FAQs {
                 ),
             );
         }
+
+        $faqs_query = new WP_Query( $faqs_query_args );
 
         // FAQs index
         if ( $faqs_query->have_posts() ) :
@@ -457,7 +463,7 @@ class Quick_And_Easy_FAQs {
                     // FAQs index
                     if ( $faqs_queries_array[ $query_index ]->have_posts() ) :
                         echo '<h4>' . $faq_group->name . '</h4>';
-                        echo '<ol id="qe-faqs-group-index" class="qe-faqs-group-index qe-faqs-index-list">';
+                        echo '<ol class="qe-faqs-group-index qe-faqs-index-list">';
                         while ( $faqs_queries_array[ $query_index ]-> have_posts() ) :
                             $faqs_queries_array[ $query_index ]->the_post();
                             ?><li><a href="#qe-faq-<?php echo the_ID(); ?>"><?php the_title(); ?></a></li><?php
@@ -504,21 +510,21 @@ class Quick_And_Easy_FAQs {
     }
 
     /**
-     * Display FAQs in list style
+     * Display FAQs in toggle style
      *
      * @since   1.0.0
      * @param   Array   $filter_array   Array of faq groups slugs
      */
-    private function all_faqs_in_toggles( $filter_array ) {
+    private function toggles_for_all_faqs( $filter_array ) {
 
 
-        $faqs_query = new WP_Query(array(
+        $faqs_query_args = array(
             'post_type' => 'faq',
             'posts_per_page' => -1,
-        ));
+        );
 
         if ( ! empty ( $filter_array ) ) {
-            $faqs_query['tax_query'] = array(
+            $faqs_query_args['tax_query'] = array(
                 array (
                     'taxonomy' => 'faq-group',
                     'field'    => 'slug',
@@ -527,6 +533,8 @@ class Quick_And_Easy_FAQs {
             );
         }
 
+        $faqs_query = new WP_Query( $faqs_query_args );
+
         // FAQs Toggles
         if ( $faqs_query->have_posts() ) :
             while ( $faqs_query->have_posts() ) :
@@ -534,7 +542,7 @@ class Quick_And_Easy_FAQs {
                 ?>
                 <div class="qe-faq-toggle">
                     <div class="qe-toggle-title">
-                        <h4><i class="fa fa-plus-circle"></i> <?php the_title(); ?></h4>
+                        <strong><i class="fa fa-plus-circle"></i> <?php the_title(); ?></strong>
                     </div>
                     <div class="qe-toggle-content">
                         <?php the_content(); ?>
@@ -546,6 +554,67 @@ class Quick_And_Easy_FAQs {
 
         // All the custom loops ends here so reset the query
         wp_reset_query();
+
+    }
+
+    /**
+     * Display toggle styles FAQs in groups
+     *
+     * @since   1.0.0
+     * @param   Array   $filter_array   Array of faq groups slugs
+     */
+    private function toggles_grouped_faqs( $filter_array ) {
+
+        $faq_groups = get_terms( 'faq-group' );
+
+        if ( ! empty( $faq_groups ) && ! is_wp_error( $faq_groups ) ) {
+
+            foreach ( $faq_groups as $faq_group ) {
+
+                // display all if filter array is empty OR display only specified groups if filter array contains group slugs
+                if ( empty( $filter_array ) || in_array ( $faq_group->slug , $filter_array ) ) {
+
+                    $faqs_query = new WP_Query( array(
+                            'post_type' => 'faq',
+                            'posts_per_page' => -1,
+                            'tax_query' => array(
+                                array (
+                                    'taxonomy' => 'faq-group',
+                                    'field'    => 'slug',
+                                    'terms'    => $faq_group->slug,
+                                )
+                            ),
+                        )
+                    );
+
+                    // FAQs index
+                    if ( $faqs_query->have_posts() ) :
+                        echo '<h4>' . $faq_group->name . '</h4>';
+                        echo '<div class="qe-faqs-toggles-group">';
+                        while ( $faqs_query->have_posts() ) :
+                            $faqs_query->the_post();
+                            ?>
+                            <div class="qe-faq-toggle">
+                                <div class="qe-toggle-title">
+                                    <strong><i class="fa fa-plus-circle"></i> <?php the_title(); ?></strong>
+                                </div>
+                                <div class="qe-toggle-content">
+                                    <?php the_content(); ?>
+                                </div>
+                            </div>
+                            <?php
+                        endwhile;
+                        echo '</div>';
+                    endif;
+
+                }
+
+            }
+
+            // All the custom loops ends here so reset the query
+            wp_reset_query();
+
+        }
 
     }
 
