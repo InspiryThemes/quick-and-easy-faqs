@@ -158,6 +158,9 @@ class Quick_And_Easy_FAQs {
         $this->loader->add_action( 'init', $plugin_admin, 'register_faqs_group_taxonomy' );
         $this->loader->add_action( 'admin_menu', $plugin_admin, 'add_faqs_options_page' );
         $this->loader->add_action( 'admin_init', $plugin_admin, 'initialize_faqs_options' );
+
+        $this->loader->add_filter( 'plugin_action_links_' . PLUGIN_BASENAME, $plugin_admin, 'faqs_action_links' );
+        
     }
 
 	/**
