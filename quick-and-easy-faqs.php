@@ -66,3 +66,15 @@ function run_quick_and_easy_faqs() {
 
 }
 run_quick_and_easy_faqs();
+
+/**
+ * Add plugin action links
+ *
+ * @param $links
+ * @return array
+ */
+function faqs_action_links( $links ) {
+    $links[] = '<a href="'. get_admin_url( null, 'plugins.php?page=quick_and_easy_faqs' ) .'">' . __( 'Settings', 'quick-and-easy-faqs' ) . '</a>';
+    return $links;
+}
+add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'faqs_action_links' );

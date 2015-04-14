@@ -39,10 +39,8 @@ class Quick_And_Easy_FAQs_Public {
 	 * @param      string    $version    The version of this plugin.
 	 */
 	public function __construct( $plugin_name, $version ) {
-
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
-
 	}
 
 	/**
@@ -80,7 +78,7 @@ class Quick_And_Easy_FAQs_Public {
 
         $faqs_options = get_option( 'quick_and_easy_faqs_options' );
 
-        if ( $faqs_options['faqs_toggle_colors'] == 'custom' ) {
+        if ( $faqs_options && $faqs_options['faqs_toggle_colors'] == 'custom' ) {
 
             $faqs_custom_css = array();
 
@@ -163,11 +161,13 @@ class Quick_And_Easy_FAQs_Public {
         }
 
         // FAQs custom CSS
-        $faqs_custom_css = stripslashes( $faqs_options['faqs_custom_css'] );
-        if( ! empty ( $faqs_custom_css ) ) {
-            echo "\n<style type='text/css' id='faqs-custom-css'>\n";
-            echo $faqs_custom_css . "\n";
-            echo "</style>";
+        if ( $faqs_options ) {
+            $faqs_custom_css = stripslashes( $faqs_options['faqs_custom_css'] );
+            if( ! empty ( $faqs_custom_css ) ) {
+                echo "\n<style type='text/css' id='faqs-custom-css'>\n";
+                echo $faqs_custom_css . "\n";
+                echo "</style>";
+            }
         }
 
     }
@@ -539,7 +539,7 @@ class Quick_And_Easy_FAQs_Public {
             echo '</div>';
 
         endif;
-        
+
 
         // All the custom loops ends here so reset the query
         wp_reset_query();
