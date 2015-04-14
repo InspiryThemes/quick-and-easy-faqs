@@ -19,7 +19,7 @@
  *
  * @package    Quick_And_Easy_FAQs
  * @subpackage Quick_And_Easy_FAQs/includes
- * @author     M Saqib Sarwar <saqib@inspirythemes.com>
+ * @author     M Saqib Sarwar <saqibsarwar@gmail.com>
  */
 class Quick_And_Easy_FAQs_Loader {
 

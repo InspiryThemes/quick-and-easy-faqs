@@ -1,24 +1,15 @@
 <?php
-
 /**
- * The public-facing functionality of the plugin.
  *
  * @link       https://github.com/saqibsarwar/quick-and-easy-faqs
  * @since      1.0.0
  *
  * @package    Quick_And_Easy_FAQs
  * @subpackage Quick_And_Easy_FAQs/public
- */
-
-/**
+ *
  * The public-facing functionality of the plugin.
  *
- * Defines the plugin name, version, and two examples hooks for how to
- * enqueue the admin-specific stylesheet and JavaScript.
- *
- * @package    Quick_And_Easy_FAQs
- * @subpackage Quick_And_Easy_FAQs/public
- * @author     M Saqib Sarwar <saqib@inspirythemes.com>
+ * @author     M Saqib Sarwar <saqibsarwar@gmail.com>
  */
 class Quick_And_Easy_FAQs_Public {
 
@@ -61,18 +52,6 @@ class Quick_And_Easy_FAQs_Public {
 	 */
 	public function enqueue_styles() {
 
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Quick_And_Easy_FAQs_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Quick_And_Easy_FAQs_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
 		wp_enqueue_style( 'font-awesome', plugin_dir_url( __FILE__ ) . 'css/css/font-awesome.min.css', array(), $this->version, 'all' );
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/quick-and-easy-faqs-public.css', array(), $this->version, 'all' );
 
@@ -84,18 +63,6 @@ class Quick_And_Easy_FAQs_Public {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Quick_And_Easy_FAQs_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Quick_And_Easy_FAQs_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/quick-and-easy-faqs-public.js', array( 'jquery' ), $this->version, false );
 
@@ -206,9 +173,7 @@ class Quick_And_Easy_FAQs_Public {
      * @since   1.0.0
      */
     public function register_faqs_shortcodes() {
-
         add_shortcode( 'faqs', array( $this, 'display_faqs_list') );
-
     }
 
     /**
@@ -282,14 +247,13 @@ class Quick_And_Easy_FAQs_Public {
 
         // FAQs index
         if ( $faqs_query->have_posts() ) :
-
             echo '<div id="qe-faqs-index" class="qe-faqs-index">';
-            echo '<ol class="qe-faqs-index-list">';
-            while ( $faqs_query-> have_posts() ) :
-                $faqs_query->the_post();
-                ?><li><a href="#qe-faq-<?php echo the_ID(); ?>"><?php the_title(); ?></a></li><?php
-            endwhile;
-            echo '</ol>';
+                echo '<ol class="qe-faqs-index-list">';
+                    while ( $faqs_query-> have_posts() ) :
+                        $faqs_query->the_post();
+                        ?><li><a href="#qe-faq-<?php the_ID(); ?>"><?php the_title(); ?></a></li><?php
+                    endwhile;
+                echo '</ol>';
             echo '</div>';
         endif;
 

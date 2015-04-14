@@ -18,7 +18,7 @@
  *
  * @package    Quick_And_Easy_FAQs
  * @subpackage Quick_And_Easy_FAQs/admin
- * @author     M Saqib Sarwar <saqib@inspirythemes.com>
+ * @author     M Saqib Sarwar <saqibsarwar@gmail.com>
  */
 class Quick_And_Easy_FAQs_Admin {
 
@@ -70,25 +70,10 @@ class Quick_And_Easy_FAQs_Admin {
 	 * @since    1.0.0
 	 */
 	public function enqueue_styles() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Quick_And_Easy_FAQs_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Quick_And_Easy_FAQs_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
         // Add the color picker css file
         wp_enqueue_style( 'wp-color-picker' );
-
         // plugin custom css file
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/quick-and-easy-faqs-admin.css', array( 'wp-color-picker' ), $this->version, 'all' );
-
 	}
 
 	/**
@@ -97,21 +82,7 @@ class Quick_And_Easy_FAQs_Admin {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Quick_And_Easy_FAQs_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Quick_And_Easy_FAQs_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
         wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/quick-and-easy-faqs-admin.js', array( 'jquery' , 'wp-color-picker' ), $this->version, false );
-
 	}
 
 
@@ -233,8 +204,6 @@ class Quick_And_Easy_FAQs_Admin {
         <!-- Create a header in the default WordPress 'wrap' container -->
         <div class="wrap">
 
-            <!-- Add the icon to the page -->
-            <div id="icon-themes" class="icon32"></div>
             <h2><?php _e( 'Quick and Easy FAQs Settings', 'quick-and-easy-faqs' ); ?></h2>
 
             <!-- Make a call to the WordPress function for rendering errors when settings are saved. -->
@@ -391,14 +360,25 @@ class Quick_And_Easy_FAQs_Admin {
         register_setting( 'quick_and_easy_faqs_options', 'quick_and_easy_faqs_options' );
     }
 
+    /**
+     * FAQs toggle styles section description
+     */
     public function faqs_toggles_style_description() {
         echo '<p>'.__( 'These settings only applies to FAQs with toggle style. As FAQs with list style use colors inherited from currently active theme. ', 'quick-and-easy-faqs' ).'</p>';
     }
 
+    /**
+     * FAQs common styles section description
+     */
     public function faqs_common_style_description() {
         echo '<p>'.__( '', 'quick-and-easy-faqs' ).'</p>';
     }
 
+    /**
+     * Re-usable color options field for FAQs settings
+     *
+     * @param $args array   field arguments
+     */
     public function faqs_color_option_field( $args ) {
         $field_id = $args['id'];
         if( $field_id ) {
@@ -409,6 +389,11 @@ class Quick_And_Easy_FAQs_Admin {
         }
     }
 
+    /**
+     * Re-usable textarea options field for FAQs settings
+     *
+     * @param $args array   field arguments
+     */
     public function faqs_textarea_option_field( $args ) {
         $field_id = $args['id'];
         if( $field_id ) {
@@ -419,6 +404,11 @@ class Quick_And_Easy_FAQs_Admin {
         }
     }
 
+    /**
+     * Re-usable select options field for FAQs settings
+     *
+     * @param $args array   field arguments
+     */
     public function faqs_select_option_field( $args ) {
         $field_id = $args['id'];
         if( $field_id ) {

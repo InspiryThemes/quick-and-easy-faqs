@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The file that defines the core plugin class
  *
@@ -25,8 +24,9 @@
  * @since      1.0.0
  * @package    Quick_And_Easy_FAQs
  * @subpackage Quick_And_Easy_FAQs/includes
- * @author     M Saqib Sarwar <saqib@inspirythemes.com>
+ * @author     M Saqib Sarwar <saqibsarwar@gmail.com>
  */
+
 class Quick_And_Easy_FAQs {
 
 	/**
@@ -220,7 +220,7 @@ class Quick_And_Easy_FAQs {
 	}
 
     /**
-     * To log any thing for debugging purpose
+     * To log any thing for debugging purposes
      *
      * @since   1.0.0
      *
