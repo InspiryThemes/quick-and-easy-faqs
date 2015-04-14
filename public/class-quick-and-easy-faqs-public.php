@@ -102,6 +102,105 @@ class Quick_And_Easy_FAQs_Public {
 	}
 
     /**
+     * Generate custom css for FAQs based on settings
+     */
+    public function faqs_custom_styles () {
+
+        $faqs_options = get_option( 'quick_and_easy_faqs_options' );
+
+        if ( $faqs_options['faqs_toggle_colors'] == 'custom' ) {
+
+            $faqs_custom_css = array();
+
+            // Toggle question color
+            if ( ! empty ( $faqs_options['toggle_question_color'] ) ) {
+                $faqs_custom_css[] = array(
+                    'elements'	=>	'.qe-faq-toggle .qe-toggle-title',
+                    'property'	=>	'color',
+                    'value'		=> 	$faqs_options['toggle_question_color']
+                );
+            }
+
+            // Toggle question color on mouse over
+            if ( ! empty ( $faqs_options['toggle_question_hover_color'] ) ) {
+                $faqs_custom_css[] = array(
+                    'elements'	=>	'.qe-faq-toggle .qe-toggle-title:hover',
+                    'property'	=>	'color',
+                    'value'		=> 	$faqs_options['toggle_question_hover_color']
+                );
+            }
+
+            // Toggle question background
+            if ( ! empty ( $faqs_options['toggle_question_bg_color'] ) ) {
+                $faqs_custom_css[] = array(
+                    'elements'	=>	'.qe-faq-toggle .qe-toggle-title',
+                    'property'	=>	'background-color',
+                    'value'		=> 	$faqs_options['toggle_question_bg_color']
+                );
+            }
+
+            // Toggle question background on mouse over
+            if ( ! empty ( $faqs_options['toggle_question_hover_bg_color'] ) ) {
+                $faqs_custom_css[] = array(
+                    'elements'	=>	'.qe-faq-toggle .qe-toggle-title:hover',
+                    'property'	=>	'background-color',
+                    'value'		=> 	$faqs_options['toggle_question_hover_bg_color']
+                );
+            }
+
+            // Toggle answer color
+            if ( ! empty ( $faqs_options['toggle_answer_color'] ) ) {
+                $faqs_custom_css[] = array(
+                    'elements'	=>	'.qe-faq-toggle .qe-toggle-content',
+                    'property'	=>	'color',
+                    'value'		=> 	$faqs_options['toggle_answer_color']
+                );
+            }
+
+            // Toggle answer background color
+            if ( ! empty ( $faqs_options['toggle_answer_bg_color'] ) ) {
+                $faqs_custom_css[] = array(
+                    'elements'	=>	'.qe-faq-toggle .qe-toggle-content',
+                    'property'	=>	'background-color',
+                    'value'		=> 	$faqs_options['toggle_answer_bg_color']
+                );
+            }
+
+            // Toggle border color
+            if ( ! empty ( $faqs_options['toggle_border_color'] ) ) {
+                $faqs_custom_css[] = array(
+                    'elements'	=>	'.qe-faq-toggle .qe-toggle-content, .qe-faq-toggle .qe-toggle-title',
+                    'property'	=>	'border-color',
+                    'value'		=> 	$faqs_options['toggle_border_color']
+                );
+            }
+
+            // Generate css
+            if( 0 < count ( $faqs_custom_css ) ) {
+                echo "<style type='text/css' id='faqs-custom-colors'>\n";
+                foreach ( $faqs_custom_css as $css_unit ) {
+                    if ( ! empty ( $css_unit[ 'value' ] ) ) {
+                        echo $css_unit['elements']."{\n";
+                        echo $css_unit['property'].":".$css_unit['value'].";\n";
+                        echo "}\n";
+                    }
+                }
+                echo '</style>';
+            }
+
+        }
+
+        // FAQs custom CSS
+        $faqs_custom_css = stripslashes( $faqs_options['faqs_custom_css'] );
+        if( ! empty ( $faqs_custom_css ) ) {
+            echo "\n<style type='text/css' id='faqs-custom-css'>\n";
+            echo $faqs_custom_css . "\n";
+            echo "</style>";
+        }
+
+    }
+
+    /**
      * Register FAQs shortcodes
      *
      * @since   1.0.0

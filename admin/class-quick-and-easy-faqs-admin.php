@@ -282,6 +282,22 @@ class Quick_And_Easy_FAQs_Admin {
          * Fields
          */
         add_settings_field(
+            'faqs_toggle_colors',
+            __( 'FAQs toggle colors', 'quick-and-easy-faqs' ),
+            array( $this, 'faqs_select_option_field' ),
+            'quick_and_easy_faqs_options',
+            'faqs_toggles_style',
+            array(
+                'id' => 'faqs_toggle_colors',
+                'default' => 'default',
+                'description' => __( 'Choose custom colors to apply colors provided in options below.', 'quick-and-easy-faqs' ),
+                'options' => array(
+                    'default' => __( 'Default Colors', 'quick-and-easy-faqs' ),
+                    'custom' => __( 'Custom Colors', 'quick-and-easy-faqs' ),
+                )
+            )
+        );
+        add_settings_field(
             'toggle_question_color',
             __( 'Question text color', 'quick-and-easy-faqs' ),
             array( $this, 'faqs_color_option_field' ),
@@ -289,6 +305,17 @@ class Quick_And_Easy_FAQs_Admin {
             'faqs_toggles_style',
             array(
                 'id' => 'toggle_question_color',
+                'default' => '#333333',
+            )
+        );
+        add_settings_field(
+            'toggle_question_hover_color',
+            __( 'Question text color on mouse over', 'quick-and-easy-faqs' ),
+            array( $this, 'faqs_color_option_field' ),
+            'quick_and_easy_faqs_options',
+            'faqs_toggles_style',
+            array(
+                'id' => 'toggle_question_hover_color',
                 'default' => '#333333',
             )
         );
@@ -301,6 +328,17 @@ class Quick_And_Easy_FAQs_Admin {
             array(
                 'id' => 'toggle_question_bg_color',
                 'default' => '#fafafa',
+            )
+        );
+        add_settings_field(
+            'toggle_question_hover_bg_color',
+            __( 'Question background color on mouse over', 'quick-and-easy-faqs' ),
+            array( $this, 'faqs_color_option_field' ),
+            'quick_and_easy_faqs_options',
+            'faqs_toggles_style',
+            array(
+                'id' => 'toggle_question_hover_bg_color',
+                'default' => '#eaeaea',
             )
         );
         add_settings_field(
@@ -327,7 +365,7 @@ class Quick_And_Easy_FAQs_Admin {
         );
         add_settings_field(
             'toggle_border_color',                                                      // ID used to identify the field throughout the theme
-            __( 'Border color', 'quick-and-easy-faqs' ),                                // The label to the left of the option interface element
+            __( 'Toggle Border color', 'quick-and-easy-faqs' ),                         // The label to the left of the option interface element
             array( $this, 'faqs_color_option_field' ),                                  // The name of the function responsible for rendering the option interface
             'quick_and_easy_faqs_options',                                              // The page on which this option will be displayed
             'faqs_toggles_style',                                                       // The name of the section to which this field belongs
@@ -354,7 +392,7 @@ class Quick_And_Easy_FAQs_Admin {
     }
 
     public function faqs_toggles_style_description() {
-        echo '<p>'.__( 'These settings only applies to FAQs with toggle style. As FAQs with list style use colors inherited from currently active theme.', 'quick-and-easy-faqs' ).'</p>';
+        echo '<p>'.__( 'These settings only applies to FAQs with toggle style. As FAQs with list style use colors inherited from currently active theme. ', 'quick-and-easy-faqs' ).'</p>';
     }
 
     public function faqs_common_style_description() {
@@ -375,7 +413,25 @@ class Quick_And_Easy_FAQs_Admin {
         $field_id = $args['id'];
         if( $field_id ) {
             $val = ( isset( $this->options[ $field_id ] ) ) ? $this->options[ $field_id ] : '';
-            echo '<textarea cols="60" rows="8" name="quick_and_easy_faqs_options[' . $field_id . ']" class="custom-css">' . $val . '</textarea>';
+            echo '<textarea cols="60" rows="8" name="quick_and_easy_faqs_options[' . $field_id . ']" class="faqs-custom-css">' . $val . '</textarea>';
+        } else {
+            _e( 'Field id is missing!', 'quick-and-easy-faqs' );
+        }
+    }
+
+    public function faqs_select_option_field( $args ) {
+        $field_id = $args['id'];
+        if( $field_id ) {
+            $existing_value = ( isset( $this->options[ $field_id ] ) ) ? $this->options[ $field_id ] : '';
+            ?>
+            <select name="<?php echo 'quick_and_easy_faqs_options[' . $field_id . ']'; ?>" class="faqs-select">
+                <?php foreach( $args['options'] as $key => $value ) { ?>
+                    <option value="<?php echo $key; ?>" <?php selected( $existing_value, $key ); ?>><?php echo $value; ?></option>
+                <?php } ?>
+            </select>
+            <br/>
+            <label><?php echo $args['description']; ?></label>
+            <?php
         } else {
             _e( 'Field id is missing!', 'quick-and-easy-faqs' );
         }
