@@ -211,7 +211,7 @@ class Quick_And_Easy_FAQs_Public {
             } else {
                 $this->toggles_for_all_faqs( $filter_array );
             }
-        } else if ( $style == 'sortable' ) {
+        } else if ( $style == 'filterable-toggle' ) {
             $this->filterable_toggles_faqs();
         }else {
             if ( $grouped == 'yes' ) {
@@ -254,7 +254,7 @@ class Quick_And_Easy_FAQs_Public {
         if ( $faqs_query->have_posts() ) :
             echo '<div id="qe-faqs-index" class="qe-faqs-index">';
                 echo '<ol class="qe-faqs-index-list">';
-                    while ( $faqs_query-> have_posts() ) :
+                    while ( $faqs_query->have_posts() ) :
                         $faqs_query->the_post();
                         ?><li><a href="#qe-faq-<?php the_ID(); ?>"><?php the_title(); ?></a></li><?php
                     endwhile;
@@ -326,9 +326,9 @@ class Quick_And_Easy_FAQs_Public {
                     if ( $faqs_queries_array[ $query_index ]->have_posts() ) :
                         echo '<h4>' . $faq_group->name . '</h4>';
                         echo '<ol class="qe-faqs-group-index qe-faqs-index-list">';
-                        while ( $faqs_queries_array[ $query_index ]-> have_posts() ) :
+                        while ( $faqs_queries_array[ $query_index ]->have_posts() ) :
                             $faqs_queries_array[ $query_index ]->the_post();
-                            ?><li><a href="#qe-faq-<?php echo the_ID(); ?>"><?php the_title(); ?></a></li><?php
+                            ?><li><a href="#qe-faq-<?php the_ID(); ?>"><?php the_title(); ?></a></li><?php
                         endwhile;
                         echo '</ol>';
                     endif;
@@ -346,11 +346,9 @@ class Quick_And_Easy_FAQs_Public {
              * Create Contents
              */
             foreach ( $faqs_queries_array as $faqs_query ) {
-
                 $faqs_query->rewind_posts();
-
                 if ( $faqs_query->have_posts() ) :
-                    while ( $faqs_query-> have_posts() ) :
+                    while ( $faqs_query->have_posts() ) :
                         $faqs_query->the_post();
                         ?>
                         <div id="qe-faq-<?php the_ID(); ?>" class="qe-faq-content">
@@ -361,7 +359,6 @@ class Quick_And_Easy_FAQs_Public {
                     <?php
                     endwhile;
                 endif;
-
             }
 
             // All the custom loops ends here so reset the query
@@ -449,7 +446,7 @@ class Quick_And_Easy_FAQs_Public {
                         )
                     );
 
-                    // FAQs index
+                    // FAQs Toggles
                     if ( $faqs_query->have_posts() ) :
                         echo '<h4>' . $faq_group->name . '</h4>';
                         echo '<div class="qe-faqs-toggles-group">';
@@ -464,7 +461,7 @@ class Quick_And_Easy_FAQs_Public {
                                     <?php the_content(); ?>
                                 </div>
                             </div>
-                        <?php
+                            <?php
                         endwhile;
                         echo '</div>';
                     endif;
@@ -535,13 +532,14 @@ class Quick_And_Easy_FAQs_Public {
                         <?php the_content(); ?>
                     </div>
                 </div>
-            <?php
+                <?php
+
             endwhile;
 
             echo '</div>';
 
         endif;
-
+        
 
         // All the custom loops ends here so reset the query
         wp_reset_query();

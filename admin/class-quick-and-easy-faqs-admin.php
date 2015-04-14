@@ -364,14 +364,15 @@ class Quick_And_Easy_FAQs_Admin {
      * FAQs toggle styles section description
      */
     public function faqs_toggles_style_description() {
-        echo '<p>'.__( 'These settings only applies to FAQs with toggle style. As FAQs with list style use colors inherited from currently active theme. ', 'quick-and-easy-faqs' ).'</p>';
+        echo '<p>'. __( 'These settings only applies to FAQs with toggle style. As FAQs with list style use colors inherited from currently active theme.', 'quick-and-easy-faqs' ) . '</p>';
     }
 
     /**
      * FAQs common styles section description
      */
     public function faqs_common_style_description() {
-        echo '<p>'.__( '', 'quick-and-easy-faqs' ).'</p>';
+        //echo '<p>'.__( '', 'quick-and-easy-faqs' ).'</p>';
+        echo '<p></p>';
     }
 
     /**
