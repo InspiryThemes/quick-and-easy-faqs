@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Quick and Easy FAQs\n"
-"POT-Creation-Date: 2015-04-14 13:32+0500\n"
-"PO-Revision-Date: 2015-04-14 13:32+0500\n"
+"POT-Creation-Date: 2015-04-14 20:52+0500\n"
+"PO-Revision-Date: 2015-04-14 20:52+0500\n"
 "Last-Translator: M Saqib Sarwar <saqibsarwar@gmail.com>\n"
 "Language-Team: M Saqib Sarwar <saqibsarwar@gmail.com>\n"
 "Language: en_US\n"
@@ -233,11 +233,15 @@ msgstr ""
 msgid "Field id is missing!"
 msgstr ""
 
+#: admin/class-quick-and-easy-faqs-admin.php:438
+msgid "Settings"
+msgstr ""
+
 #: public/class-quick-and-easy-faqs-public.php:276
-#: public/class-quick-and-easy-faqs-public.php:359
+#: public/class-quick-and-easy-faqs-public.php:357
 msgid "Back to Index"
 msgstr ""
 
-#: public/class-quick-and-easy-faqs-public.php:492
+#: public/class-quick-and-easy-faqs-public.php:489
 msgid "All"
 msgstr ""
