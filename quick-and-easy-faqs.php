@@ -23,7 +23,7 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-define( 'PLUGIN_BASENAME', plugin_basename(__FILE__) );
+define( 'QE_FAQS_PLUGIN_BASENAME', plugin_basename(__FILE__) );
 
 /**
  * The code that runs during plugin activation.

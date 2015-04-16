@@ -135,7 +135,7 @@ class Quick_And_Easy_FAQs {
 	private function set_locale() {
 
 		$plugin_i18n = new Quick_And_Easy_FAQs_i18n();
-		$plugin_i18n->set_domain( $this->get_plugin_name() );
+		$plugin_i18n->set_domain( 'quick-and-easy-faqs' );
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
@@ -159,7 +159,7 @@ class Quick_And_Easy_FAQs {
         $this->loader->add_action( 'admin_menu', $plugin_admin, 'add_faqs_options_page' );
         $this->loader->add_action( 'admin_init', $plugin_admin, 'initialize_faqs_options' );
 
-        $this->loader->add_filter( 'plugin_action_links_' . PLUGIN_BASENAME, $plugin_admin, 'faqs_action_links' );
+        $this->loader->add_filter( 'plugin_action_links_' . QE_FAQS_PLUGIN_BASENAME, $plugin_admin, 'faqs_action_links' );
         
     }
 
