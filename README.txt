@@ -11,11 +11,12 @@ A quick and easy way to add FAQs to your site.
 
 == Description ==
 
-This plugin provides a quick and easy way to add FAQs to your site using shortcodes.
+This plugin facilitates you to easily add FAQs using custom post type and later on display those FAQs using shortcodes. For shortcodes details, Please consult the documentation below.
 
 ### Preview
 
 - [Plugin Preview](http://saqibsarwar.com/plugin-previews/quick-and-easy-faqs/)
+- [GitHub Repository](https://github.com/saqibsarwar/quick-and-easy-faqs)
 
 ### Features
 
@@ -40,7 +41,7 @@ This plugin provides a quick and easy way to add FAQs to your site using shortco
 
 == Installation ==
 
-1. Unzip the download package
+1. Unzip the downloaded package
 1. Upload `quick-and-easy-faqs` to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 
@@ -49,6 +50,9 @@ This plugin provides a quick and easy way to add FAQs to your site using shortco
 == Screenshots ==
 1. Add FAQ
 1. Plugin Settings Page
+1. List style FAQs
+1. Toggle style FAQs in groups
+1. Toggle style FAQs filterable by group
 
 == Changelog ==
 
