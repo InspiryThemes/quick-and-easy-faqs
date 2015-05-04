@@ -9,7 +9,7 @@
  * Plugin Name:       Quick and Easy FAQs
  * Plugin URI:        https://github.com/saqibsarwar/quick-and-easy-faqs
  * Description:       A quick and easy way to add FAQs to your site.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            M Saqib Sarwar
  * Author URI:        http://saqibsarwar.com/
  * License:           GPL-2.0+

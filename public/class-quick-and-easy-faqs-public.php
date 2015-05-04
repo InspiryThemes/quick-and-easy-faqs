@@ -545,6 +545,11 @@ class Quick_And_Easy_FAQs_Public {
 
     }
 
+    /**
+     * Integrate shortcode with Visual Composer
+     *
+     * @since   1.0.1
+     */
     public function integrate_shortcode_with_vc() {
 
         vc_map( array(
