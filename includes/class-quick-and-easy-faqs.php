@@ -179,6 +179,10 @@ class Quick_And_Easy_FAQs {
         $this->loader->add_action( 'init', $plugin_public, 'register_faqs_shortcodes' );
         $this->loader->add_action( 'wp_head', $plugin_public, 'faqs_custom_styles' );
 
+        if ( class_exists('Vc_Manager') ) {
+            $this->loader->add_action( 'vc_before_init', $plugin_public, 'integrate_shortcode_with_vc' );
+        }
+
 	}
 
 	/**

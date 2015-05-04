@@ -545,4 +545,38 @@ class Quick_And_Easy_FAQs_Public {
 
     }
 
+    public function integrate_shortcode_with_vc() {
+
+        vc_map( array(
+            "name" => __( "Quick and Easy FAQs", "quick-and-easy-faqs" ),
+            "description" => __( "Quick and Easy FAQs Plugin", "quick-and-easy-faqs" ),
+            "base" => "faqs",
+            "category" => __( "Content", "quick-and-easy-faqs" ),
+            "params" => array (
+                array(
+                    "type" => "dropdown",
+                    "heading" => __( "Display Style", "quick-and-easy-faqs" ),
+                    "param_name" => "style",
+                    "value" => array(
+                        'Simple List' => 'list',
+                        'Toggle' => 'toggle',
+                        'Filterable Toggle' => 'filterable-toggle',
+                    ),
+                    'admin_label' => true,
+                ),
+                array(
+                    "type" => "dropdown",
+                    "heading" => __( "Display FAQs in Groups", "quick-and-easy-faqs" ),
+                    "param_name" => "grouped",
+                    "value" => array(
+                        __('Yes','framework') => 'yes',
+                        __('No','framework') => 'no',
+                    ),
+                    'admin_label' => true,
+                ),
+            )
+        ) );
+
+    }
+
 }
