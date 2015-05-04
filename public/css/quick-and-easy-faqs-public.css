@@ -7,6 +7,10 @@
 .qe-faq-content i.fa {
   margin-right: 0.3em;
 }
+.qe-faq-content .qe-faq-top {
+  display: inline-block;
+  margin-bottom: 1em;
+}
 .qe-faq-toggle {
   margin-bottom: 2px;
   transition: all 0.5s;
