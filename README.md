@@ -14,6 +14,7 @@ This plugin provides a quick and easy way to add FAQs to your site using shortco
 * Custom CSS box in settings page to override default styles.
 * Translation Ready ( Comes with related pot and po files )
 * RTL ( Right to Left Language ) Support
+* Support for Visual Composer Plugin
 
 ### Documentation
 
@@ -27,6 +28,6 @@ This plugin provides a quick and easy way to add FAQs to your site using shortco
 
 ## Installation
 
-1. Unzip the download package
+1. Unzip the downloaded package
 2. Upload `quick-and-easy-faqs` to the `/wp-content/plugins/` directory
 3. Activate the plugin through the 'Plugins' menu in WordPress

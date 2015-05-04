@@ -2,8 +2,8 @@
 Contributors: saqibsarwar
 Tags: FAQs, FAQ, FAQs list, accordion FAQs, toggle FAQs, filtered FAQs, grouped FAQs
 Requires at least: 4.0
-Tested up to: 4.1
-Stable tag: 1.0.0
+Tested up to: 4.2.1
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -11,9 +11,9 @@ A quick and easy way to add FAQs to your site.
 
 == Description ==
 
-This plugin facilitates you to easily add FAQs using custom post type and later on display those FAQs using shortcodes. For shortcodes details, Please consult the documentation below.
+This plugin provides a quick and easy way add FAQs using custom post type and later on displaying those FAQs using shortcodes. For shortcodes details, Please consult the documentation below.
 
-### Preview
+### Links
 
 - [Plugin Preview](http://saqibsarwar.com/plugin-previews/quick-and-easy-faqs/)
 - [GitHub Repository](https://github.com/saqibsarwar/quick-and-easy-faqs)
@@ -28,6 +28,7 @@ This plugin facilitates you to easily add FAQs using custom post type and later 
 * Custom CSS box in settings page to override default styles.
 * Translation Ready ( Comes with related pot and po files )
 * RTL ( Right to Left Language ) Support
+* Support for Visual Composer Plugin
 
 ### Documentation
 
@@ -55,6 +56,11 @@ This plugin facilitates you to easily add FAQs using custom post type and later 
 1. Toggle style FAQs filterable by group
 
 == Changelog ==
+
+= 1.0.1 =
+* Fixed a spacing issue in filterable FAQs
+* Added Visual Composer Support
+* Added bottom margin to 'Back to Index' link in simple listing
 
 = 1.0.0 =
 * Initial Release
