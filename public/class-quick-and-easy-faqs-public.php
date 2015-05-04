@@ -486,8 +486,7 @@ class Quick_And_Easy_FAQs_Public {
 
         ?>
         <ul class="qe-faqs-filters-container">
-            <li class="active"><a class="qe-faqs-filter" href="#*" data-filter="*"><?php _e( 'All', 'quick-and-easy-faqs') ?></a></li>
-            <?php
+            <li class="active"><a class="qe-faqs-filter" href="#*" data-filter="*"><?php _e( 'All', 'quick-and-easy-faqs') ?></a></li><?php
             $faq_groups = get_terms( 'faq-group' );
             if ( ! empty( $faq_groups ) && ! is_wp_error( $faq_groups ) ) {
                 foreach ( $faq_groups as $faq_group ) {
