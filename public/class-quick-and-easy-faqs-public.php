@@ -490,7 +490,7 @@ class Quick_And_Easy_FAQs_Public {
             $faq_groups = get_terms( 'faq-group' );
             if ( ! empty( $faq_groups ) && ! is_wp_error( $faq_groups ) ) {
                 foreach ( $faq_groups as $faq_group ) {
-                    echo '<li><a class="qe-faqs-filter" href="#<?php echo $faq_group->slug; ?>" data-filter="' . '.' . $faq_group->slug . '">' . $faq_group->name . '</a></li>';
+                    echo '<li><a class="qe-faqs-filter" href="#' . $faq_group->slug . '" data-filter="' . '.' . $faq_group->slug . '">' . $faq_group->name . '</a></li>';
                 }
             }
             ?>
