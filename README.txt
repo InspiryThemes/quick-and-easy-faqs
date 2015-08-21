@@ -57,6 +57,10 @@ This plugin provides a quick and easy way add FAQs using custom post type and la
 
 == Changelog ==
 
+= 1.0.2 =
+* Tested for WordPress 4.3
+* Fixed a syntax error
+
 = 1.0.1 =
 * Fixed a spacing issue in filterable FAQs
 * Added Visual Composer Support
