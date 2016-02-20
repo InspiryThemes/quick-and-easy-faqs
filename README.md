@@ -2,8 +2,6 @@
 
 This plugin provides a quick and easy way to add FAQs to your site using shortcodes.
 
-[Plugin Preview](http://saqibsarwar.com/plugin-previews/quick-and-easy-faqs/)
-
 ### Features
 
 * Easily add FAQs using FAQ custom post type.
@@ -18,13 +16,27 @@ This plugin provides a quick and easy way to add FAQs to your site using shortco
 
 ### Documentation
 
-* Display all FAQs in simple list style. Shortcode `[faqs]`
-* Display all FAQs in simple list style but separated by groups. Shortcode `[faqs grouped="yes"]`
-* Display FAQs in simple list style but filtered by given group slug. Shortcodes `[faqs filter="group-slug"]` or `[faqs filter="group-slug,another-group-slug"]`
-* Display all FAQs in toggle style. Shortcode `[faqs style="toggle"]`
-* Display all FAQs in toggle style but separated by groups. Shortcode `[faqs style="toggle" grouped="yes"]`
-* Display FAQs in toggle style but filtered by given group slug. Shortcode `[faqs style="toggle" filter="group-slug"]` or `[faqs style="toggle" filter="group-slug,another-group-slug"]`
-* Display all FAQs in filterable toggle style. Shortcode `[faqs style="filterable-toggle"]`
+
+* Display all FAQs in simple list style.
+	`[faqs]`
+
+* Display all FAQs in simple list style but separated by groups.
+	`[faqs grouped="yes"]`
+
+* Display FAQs in simple list style but filtered by given group slug.
+	`[faqs filter="group-slug"]` or `[faqs filter="group-slug,another-group-slug"]`
+
+* Display all FAQs in toggle style using following shortcode.
+	`[faqs style="toggle"]`
+
+* Display all FAQs in toggle style but separated by groups.
+	`[faqs style="toggle" grouped="yes"]`
+
+* Display FAQs in toggle style but filtered by given group slug.
+	`[faqs style="toggle" filter="group-slug"]` or `[faqs style="toggle" filter="group-slug,another-group-slug"]`
+
+* Display all FAQs in filterable toggle style.
+	`[faqs style="filterable-toggle"]`
 
 ## Installation
 
