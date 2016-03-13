@@ -399,9 +399,9 @@ class Quick_And_Easy_FAQs_Public {
             while ( $faqs_query->have_posts() ) :
                 $faqs_query->the_post();
                 ?>
-                <div class="qe-faq-toggle">
+                <div class="nojs qe-faq-toggle active">
                     <div class="qe-toggle-title">
-                        <strong><i class="fa fa-plus-circle"></i> <?php the_title(); ?></strong>
+                        <strong><i class="fa fa-minus-circle"></i> <?php the_title(); ?></strong>
                     </div>
                     <div class="qe-toggle-content">
                         <?php the_content(); ?>
@@ -453,9 +453,9 @@ class Quick_And_Easy_FAQs_Public {
                         while ( $faqs_query->have_posts() ) :
                             $faqs_query->the_post();
                             ?>
-                            <div class="qe-faq-toggle">
+                            <div class="nojs qe-faq-toggle active">
                                 <div class="qe-toggle-title">
-                                    <strong><i class="fa fa-plus-circle"></i> <?php the_title(); ?></strong>
+                                    <strong><i class="fa fa-minus-circle"></i> <?php the_title(); ?></strong>
                                 </div>
                                 <div class="qe-toggle-content">
                                     <?php the_content(); ?>

@@ -37,6 +37,9 @@
   border: 1px solid #ddd;
   display: none;
 }
+.nojs.qe-faq-toggle .qe-toggle-content {
+  display: block;
+}
 .qe-faqs-filters-container {
   list-style: none;
   padding: 0;
