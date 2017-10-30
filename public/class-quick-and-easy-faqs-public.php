@@ -292,7 +292,8 @@ class Quick_And_Easy_FAQs_Public {
      */
     private function list_grouped_faqs( $filter_array ) {
 
-        $faq_groups = get_terms( 'faq-group' );
+        $faq_groups = get_terms( array( 'taxonomy' => 'faq-group' ) );
+
 
         if ( ! empty( $faq_groups ) && ! is_wp_error( $faq_groups ) ) {
 
