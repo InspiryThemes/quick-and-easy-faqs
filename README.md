@@ -24,19 +24,19 @@ This plugin provides a quick and easy way to add FAQs to your site using shortco
 	`[faqs grouped='yes']`
 
 * Display FAQs in simple list style but filtered by given group slug.
-	`[faqs filter="group-slug"]` or `[faqs filter="group-slug,another-group-slug"]`
+	`[faqs filter='group-slug']` or `[faqs filter='group-slug,another-group-slug']`
 
 * Display all FAQs in toggle style using following shortcode.
-	`[faqs style="toggle"]`
+	`[faqs style='toggle']`
 
 * Display all FAQs in toggle style but separated by groups.
-	`[faqs style="toggle" grouped="yes"]`
+	`[faqs style='toggle' grouped='yes']`
 
 * Display FAQs in toggle style but filtered by given group slug.
-	`[faqs style="toggle" filter="group-slug"]` or `[faqs style="toggle" filter="group-slug,another-group-slug"]`
+	`[faqs style='toggle' filter='group-slug']` or `[faqs style='toggle' filter='group-slug,another-group-slug']`
 
 * Display all FAQs in filterable toggle style.
-	`[faqs style="filterable-toggle"]`
+	`[faqs style='filterable-toggle']`
 
 ## Installation
 

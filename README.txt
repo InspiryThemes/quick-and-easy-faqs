@@ -1,9 +1,9 @@
 === Quick and Easy FAQs ===
-Contributors: saqibsarwar
+Contributors: saqibsarwar, inspirythemes
 Tags: FAQs, FAQ, FAQs list, accordion FAQs, toggle FAQs, filtered FAQs, grouped FAQs
 Requires at least: 4.0
-Tested up to: 4.4
-Stable tag: 1.0.3
+Tested up to: 4.8
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,22 +31,22 @@ This plugin provides a quick and easy way add FAQs using custom post type and la
 	`[faqs]`
 
 * Display all FAQs in simple list style but separated by groups.
-	`[faqs grouped="yes"]`
+	`[faqs grouped='yes']`
 
 * Display FAQs in simple list style but filtered by given group slug.
-	`[faqs filter="group-slug"]` or `[faqs filter="group-slug,another-group-slug"]`
+	`[faqs filter='group-slug']` or `[faqs filter='group-slug,another-group-slug']`
 
 * Display all FAQs in toggle style using following shortcode.
-	`[faqs style="toggle"]`
+	`[faqs style='toggle']`
 
 * Display all FAQs in toggle style but separated by groups.
-	`[faqs style="toggle" grouped="yes"]`
+	`[faqs style='toggle' grouped='yes']`
 
 * Display FAQs in toggle style but filtered by given group slug.
-	`[faqs style="toggle" filter="group-slug"]` or `[faqs style="toggle" filter="group-slug,another-group-slug"]`
+	`[faqs style='toggle' filter='group-slug']` or `[faqs style='toggle' filter='group-slug,another-group-slug']`
 
 * Display all FAQs in filterable toggle style.
-	`[faqs style="filterable-toggle"]`
+	`[faqs style='filterable-toggle']`
 
 ### Links
 
@@ -68,6 +68,9 @@ This plugin provides a quick and easy way add FAQs using custom post type and la
 1. Toggle style FAQs filterable by group
 
 == Changelog ==
+
+= 1.0.4 =
+* Tested for WordPress 4.8
 
 = 1.0.3 =
 * Tested for WordPress 4.4
