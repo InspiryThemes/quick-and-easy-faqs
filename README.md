@@ -21,7 +21,7 @@ This plugin provides a quick and easy way to add FAQs to your site using shortco
 	`[faqs]`
 
 * Display all FAQs in simple list style but separated by groups.
-	`[faqs grouped="yes"]`
+	`[faqs grouped='yes']`
 
 * Display FAQs in simple list style but filtered by given group slug.
 	`[faqs filter="group-slug"]` or `[faqs filter="group-slug,another-group-slug"]`
