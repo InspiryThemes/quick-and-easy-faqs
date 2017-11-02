@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Quick and Easy FAQs\n"
-"POT-Creation-Date: 2015-04-16 22:16+0500\n"
-"PO-Revision-Date: 2015-04-16 22:16+0500\n"
-"Last-Translator: Inspiry Themes <info@inspirythemes.com>\n"
+"POT-Creation-Date: 2017-11-02 17:28+0500\n"
+"PO-Revision-Date: 2017-11-02 17:28+0500\n"
+"Last-Translator: M Saqib Sarwar <saqib@inspirythemes.com>\n"
 "Language-Team: Inspiry Themes <info@inspirythemes.com>\n"
 "Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.4\n"
+"X-Generator: Poedit 1.8.11\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
@@ -31,15 +31,12 @@ msgstr ""
 
 #: admin/class-quick-and-easy-faqs-admin.php:99
 #: admin/class-quick-and-easy-faqs-admin.php:100
+#: admin/class-quick-and-easy-faqs-admin.php:102
 msgid "FAQs"
 msgstr ""
 
 #: admin/class-quick-and-easy-faqs-admin.php:101
 msgid "Parent FAQ:"
-msgstr ""
-
-#: admin/class-quick-and-easy-faqs-admin.php:102
-msgid "All FAQs"
 msgstr ""
 
 #: admin/class-quick-and-easy-faqs-admin.php:103
@@ -97,7 +94,7 @@ msgid "FAQ Group"
 msgstr ""
 
 #: admin/class-quick-and-easy-faqs-admin.php:148
-msgid "FAQ Group"
+msgid "Groups"
 msgstr ""
 
 #: admin/class-quick-and-easy-faqs-admin.php:149
@@ -156,92 +153,120 @@ msgstr ""
 msgid "Not Found"
 msgstr ""
 
-#: admin/class-quick-and-easy-faqs-admin.php:189
-#: admin/class-quick-and-easy-faqs-admin.php:207
+#: admin/class-quick-and-easy-faqs-admin.php:191
+msgid "Quick & Easy Settings"
+msgstr ""
+
+#: admin/class-quick-and-easy-faqs-admin.php:192
+#: admin/class-quick-and-easy-faqs-admin.php:441
+msgid "Settings"
+msgstr ""
+
+#: admin/class-quick-and-easy-faqs-admin.php:209
 msgid "Quick and Easy FAQs Settings"
 msgstr ""
 
-#: admin/class-quick-and-easy-faqs-admin.php:190
-msgid "Quick and Easy FAQs"
-msgstr ""
-
-#: admin/class-quick-and-easy-faqs-admin.php:238
+#: admin/class-quick-and-easy-faqs-admin.php:240
 msgid "FAQs Toggle Styles"
 msgstr ""
 
-#: admin/class-quick-and-easy-faqs-admin.php:245
+#: admin/class-quick-and-easy-faqs-admin.php:247
 msgid "FAQs Common Styles"
 msgstr ""
 
-#: admin/class-quick-and-easy-faqs-admin.php:255
+#: admin/class-quick-and-easy-faqs-admin.php:257
 msgid "FAQs toggle colors"
 msgstr ""
 
-#: admin/class-quick-and-easy-faqs-admin.php:262
+#: admin/class-quick-and-easy-faqs-admin.php:264
 msgid "Choose custom colors to apply colors provided in options below."
 msgstr ""
 
-#: admin/class-quick-and-easy-faqs-admin.php:264
+#: admin/class-quick-and-easy-faqs-admin.php:266
 msgid "Default Colors"
 msgstr ""
 
-#: admin/class-quick-and-easy-faqs-admin.php:265
+#: admin/class-quick-and-easy-faqs-admin.php:267
 msgid "Custom Colors"
 msgstr ""
 
-#: admin/class-quick-and-easy-faqs-admin.php:271
+#: admin/class-quick-and-easy-faqs-admin.php:273
 msgid "Question text color"
 msgstr ""
 
-#: admin/class-quick-and-easy-faqs-admin.php:282
+#: admin/class-quick-and-easy-faqs-admin.php:284
 msgid "Question text color on mouse over"
 msgstr ""
 
-#: admin/class-quick-and-easy-faqs-admin.php:293
+#: admin/class-quick-and-easy-faqs-admin.php:295
 msgid "Question background color"
 msgstr ""
 
-#: admin/class-quick-and-easy-faqs-admin.php:304
+#: admin/class-quick-and-easy-faqs-admin.php:306
 msgid "Question background color on mouse over"
 msgstr ""
 
-#: admin/class-quick-and-easy-faqs-admin.php:315
+#: admin/class-quick-and-easy-faqs-admin.php:317
 msgid "Answer text color"
 msgstr ""
 
-#: admin/class-quick-and-easy-faqs-admin.php:326
+#: admin/class-quick-and-easy-faqs-admin.php:328
 msgid "Answer background color"
 msgstr ""
 
-#: admin/class-quick-and-easy-faqs-admin.php:337
+#: admin/class-quick-and-easy-faqs-admin.php:339
 msgid "Toggle Border color"
 msgstr ""
 
-#: admin/class-quick-and-easy-faqs-admin.php:348
+#: admin/class-quick-and-easy-faqs-admin.php:350
 msgid "Custom CSS"
 msgstr ""
 
-#: admin/class-quick-and-easy-faqs-admin.php:367
+#: admin/class-quick-and-easy-faqs-admin.php:369
 msgid ""
 "These settings only applies to FAQs with toggle style. As FAQs with list "
 "style use colors inherited from currently active theme."
 msgstr ""
 
-#: admin/class-quick-and-easy-faqs-admin.php:389
-#: admin/class-quick-and-easy-faqs-admin.php:404
-#: admin/class-quick-and-easy-faqs-admin.php:427
+#: admin/class-quick-and-easy-faqs-admin.php:392
+#: admin/class-quick-and-easy-faqs-admin.php:407
+#: admin/class-quick-and-easy-faqs-admin.php:430
 msgid "Field id is missing!"
 msgstr ""
 
-#: admin/class-quick-and-easy-faqs-admin.php:438
-msgid "Settings"
-msgstr ""
-
 #: public/class-quick-and-easy-faqs-public.php:276
-#: public/class-quick-and-easy-faqs-public.php:357
+#: public/class-quick-and-easy-faqs-public.php:358
 msgid "Back to Index"
 msgstr ""
 
-#: public/class-quick-and-easy-faqs-public.php:489
+#: public/class-quick-and-easy-faqs-public.php:490
 msgid "All"
+msgstr ""
+
+#: public/class-quick-and-easy-faqs-public.php:557
+msgid "Quick and Easy FAQs"
+msgstr ""
+
+#: public/class-quick-and-easy-faqs-public.php:558
+msgid "Quick and Easy FAQs Plugin"
+msgstr ""
+
+#: public/class-quick-and-easy-faqs-public.php:560
+msgid "Content"
+msgstr ""
+
+#: public/class-quick-and-easy-faqs-public.php:564
+msgid "Display Style"
+msgstr ""
+
+#: public/class-quick-and-easy-faqs-public.php:575
+msgid "Display FAQs in Groups"
+msgstr ""
+
+#: public/class-quick-and-easy-faqs-public.php:578
+msgid "Yes"
+msgstr ""
+
+#: public/class-quick-and-easy-faqs-public.php:579
+msgid "No"
 msgstr ""
