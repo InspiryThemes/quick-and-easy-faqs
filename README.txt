@@ -62,13 +62,13 @@ This plugin provides a quick and easy way add FAQs using custom post type and la
 
 == Screenshots ==
 1. FAQs
-1. Add/Edit FAQ
-1. FAQ Groups
-1. FAQs Settings
-1. Simple FAQs
-1. Filterable Toggle FAQs
-1. Grouped FAQs
-1. Grouped Toggle FAQs
+2. Add/Edit FAQ
+3. FAQ Groups
+4. FAQs Settings
+5. Simple FAQs
+6. Filterable Toggle FAQs
+7. Grouped FAQs
+8. Grouped Toggle FAQs
 
 == Changelog ==
 
