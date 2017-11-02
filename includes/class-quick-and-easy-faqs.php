@@ -12,21 +12,6 @@
  * @subpackage Quick_And_Easy_FAQs/includes
  */
 
-/**
- * The core plugin class.
- *
- * This is used to define internationalization, admin-specific hooks, and
- * public-facing site hooks.
- *
- * Also maintains the unique identifier of this plugin as well as the current
- * version of the plugin.
- *
- * @since      1.0.0
- * @package    Quick_And_Easy_FAQs
- * @subpackage Quick_And_Easy_FAQs/includes
- * @author     M Saqib Sarwar <saqibsarwar@gmail.com>
- */
-
 class Quick_And_Easy_FAQs {
 
 	/**
@@ -118,6 +103,7 @@ class Quick_And_Easy_FAQs {
 		 * side of the site.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-quick-and-easy-faqs-public.php';
+
 
 		$this->loader = new Quick_And_Easy_FAQs_Loader();
 

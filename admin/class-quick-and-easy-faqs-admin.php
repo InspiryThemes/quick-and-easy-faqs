@@ -99,7 +99,7 @@ class Quick_And_Easy_FAQs_Admin {
             'menu_name'           => __( 'FAQs', 'quick-and-easy-faqs' ),
             'name_admin_bar'      => __( 'FAQs', 'quick-and-easy-faqs' ),
             'parent_item_colon'   => __( 'Parent FAQ:', 'quick-and-easy-faqs' ),
-            'all_items'           => __( 'All FAQs', 'quick-and-easy-faqs' ),
+            'all_items'           => __( 'FAQs', 'quick-and-easy-faqs' ),
             'add_new_item'        => __( 'Add New FAQ', 'quick-and-easy-faqs' ),
             'add_new'             => __( 'Add New', 'quick-and-easy-faqs' ),
             'new_item'            => __( 'New FAQ', 'quick-and-easy-faqs' ),
@@ -145,7 +145,7 @@ class Quick_And_Easy_FAQs_Admin {
         $labels = array(
             'name'                       => _x( 'FAQ Groups', 'Taxonomy General Name', 'quick-and-easy-faqs' ),
             'singular_name'              => _x( 'FAQ Group', 'Taxonomy Singular Name', 'quick-and-easy-faqs' ),
-            'menu_name'                  => __( 'FAQ Group', 'quick-and-easy-faqs' ),
+            'menu_name'                  => __( 'Groups', 'quick-and-easy-faqs' ),
             'all_items'                  => __( 'All FAQ Groups', 'quick-and-easy-faqs' ),
             'parent_item'                => __( 'Parent FAQ Group', 'quick-and-easy-faqs' ),
             'parent_item_colon'          => __( 'Parent FAQ Group:', 'quick-and-easy-faqs' ),
@@ -162,16 +162,17 @@ class Quick_And_Easy_FAQs_Admin {
             'not_found'                  => __( 'Not Found', 'quick-and-easy-faqs' ),
         );
 
-        $args = array(
-            'labels'                     => apply_filters( 'qe_faq_group_labels', $labels ),
-            'hierarchical'               => true,
-            'public'                     => false,
-            'rewrite'                    => false,
-            'show_ui'                    => true,
-            'show_admin_column'          => true,
-            'show_in_nav_menus'          => false,
-            'show_tagcloud'              => false,
-        );
+	    $args = array(
+		    'labels'            => apply_filters( 'qe_faq_group_labels', $labels ),
+		    'hierarchical'      => true,
+		    'public'            => false,
+		    'rewrite'           => false,
+		    'show_ui'           => true,
+		    'show_in_menu' 		=> 'edit.php?post_type=faq',
+		    'show_admin_column' => true,
+		    'show_in_nav_menus' => false,
+		    'show_tagcloud'     => false,
+	    );
 
         register_taxonomy( 'faq-group', array( 'faq' ), apply_filters( 'qe_register_faq_group_arguments', $args ) );
 
@@ -185,13 +186,14 @@ class Quick_And_Easy_FAQs_Admin {
         /**
          * Add FAQs settings page
          */
-        add_plugins_page(
-            __( 'Quick and Easy FAQs Settings', 'quick-and-easy-faqs'),
-            __( 'Quick and Easy FAQs', 'quick-and-easy-faqs'),
-            'administrator',
-            'quick_and_easy_faqs',
-            array( $this, 'display_faqs_options_page')
-        );
+	    add_submenu_page(
+		    'edit.php?post_type=faq',
+		    __( 'Quick & Easy Settings', 'quick-and-easy-faqs' ),
+		    __( 'Settings', 'quick-and-easy-faqs' ),
+		    'manage_options',
+		    'quick_and_easy_faqs',
+		    array( $this, 'display_faqs_options_page')
+	    );
 
     }
 
@@ -384,7 +386,8 @@ class Quick_And_Easy_FAQs_Admin {
         $field_id = $args['id'];
         if( $field_id ) {
             $val = ( isset( $this->options[ $field_id ] ) ) ? $this->options[ $field_id ] : $args['default'];
-            echo '<input type="text" name="quick_and_easy_faqs_options['.$field_id.']" value="' . $val . '" class="color-picker" >';
+            $default_color = $args['default'];
+            echo '<input type="text" name="quick_and_easy_faqs_options['.$field_id.']" value="' . $val . '" class="color-picker" data-default-color="' . $default_color . '">';
         } else {
             _e( 'Field id is missing!', 'quick-and-easy-faqs' );
         }
