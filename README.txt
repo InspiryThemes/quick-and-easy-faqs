@@ -2,8 +2,8 @@
 Contributors: inspirythemes, saqibsarwar
 Tags: FAQs, FAQ, FAQs list, accordion FAQs, toggle FAQs, filtered FAQs, grouped FAQs
 Requires at least: 4.0
-Tested up to: 4.8
-Stable tag: 1.0.4
+Tested up to: 4.9
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -68,6 +68,11 @@ This plugin provides a quick and easy way add FAQs using custom post type and la
 1. Toggle style FAQs filterable by group
 
 == Changelog ==
+
+= 1.1.0 =
+* Re-Organised admin menu
+* Added default color support for color settings
+* Tested for WordPress 4.9
 
 = 1.0.4 =
 * Tested for WordPress 4.8
