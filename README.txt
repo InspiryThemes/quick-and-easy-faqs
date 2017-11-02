@@ -1,5 +1,5 @@
 === Quick and Easy FAQs ===
-Contributors: saqibsarwar, inspirythemes
+Contributors: inspirythemes, saqibsarwar
 Tags: FAQs, FAQ, FAQs list, accordion FAQs, toggle FAQs, filtered FAQs, grouped FAQs
 Requires at least: 4.0
 Tested up to: 4.8
@@ -50,7 +50,7 @@ This plugin provides a quick and easy way add FAQs using custom post type and la
 
 ### Links
 
-- [GitHub Repository](https://github.com/saqibsarwar/quick-and-easy-faqs)
+- [GitHub Repository](https://github.com/inspirythemes/quick-and-easy-faqs)
 
 == Installation ==
 

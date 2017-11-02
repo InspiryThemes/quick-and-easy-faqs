@@ -6,7 +6,7 @@
  * Loads and defines the internationalization files for this plugin
  * so that it is ready for translation.
  *
- * @link       https://github.com/saqibsarwar/quick-and-easy-faqs
+ * @link       https://github.com/inspirythemes/quick-and-easy-faqs
  * @since      1.0.0
  *
  * @package    Quick_And_Easy_FAQs
@@ -22,7 +22,7 @@
  * @since      1.0.0
  * @package    Quick_And_Easy_FAQs
  * @subpackage Quick_And_Easy_FAQs/includes
- * @author     M Saqib Sarwar <saqibsarwar@gmail.com>
+ * @author     Inspiry Themes <info@inspirythemes.com>
  */
 class Quick_And_Easy_FAQs_i18n {
 
