@@ -3,7 +3,7 @@ Contributors: inspirythemes, saqibsarwar
 Tags: FAQs, FAQ, FAQs list, accordion FAQs, toggle FAQs, filtered FAQs, grouped FAQs
 Requires at least: 4.0
 Tested up to: 4.9
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -71,6 +71,9 @@ This plugin provides a quick and easy way add FAQs using custom post type and la
 8. Grouped Toggle FAQs
 
 == Changelog ==
+
+= 1.1.2 =
+* Fixed CSS precedence bug appeared in last update.
 
 = 1.1.1 =
 * Optimised CSS and JS files loading to only when shortcode is being used.

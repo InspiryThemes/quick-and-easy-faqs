@@ -32,6 +32,14 @@ class Quick_And_Easy_FAQs_Public {
 	private $version;
 
 	/**
+	 * Is shortcode being used or not
+	 *
+	 * @since    1.1.2
+	 * @var bool
+	 */
+	private $shortcode_being_used;
+
+	/**
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
@@ -41,6 +49,7 @@ class Quick_And_Easy_FAQs_Public {
 	public function __construct( $plugin_name, $version ) {
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
+		$this->shortcode_being_used = false;
 	}
 
 	/**
@@ -50,13 +59,18 @@ class Quick_And_Easy_FAQs_Public {
 	 */
 	public function enqueue_styles() {
 
-		wp_enqueue_style( 'font-awesome', plugin_dir_url( __FILE__ ) . 'css/css/font-awesome.min.css', array(), $this->version, 'all' );
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/quick-and-easy-faqs-public.css', array(), $this->version, 'all' );
+		if ( $this->is_shortcode_being_used() ) {
+			wp_enqueue_style( 'font-awesome', plugin_dir_url( __FILE__ ) . 'css/css/font-awesome.min.css', array(), $this->version, 'all' );
+			wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/quick-and-easy-faqs-public.css', array(), $this->version, 'all' );
 
-        // if rtl is enabled
-        if ( is_rtl() ) {
-            wp_enqueue_style( $this->plugin_name . '-rtl', plugin_dir_url( __FILE__ ) . 'css/quick-and-easy-faqs-public-rtl.css', array( $this->plugin_name, 'font-awesome' ), $this->version, 'all' );
-        }
+			// if rtl is enabled
+			if ( is_rtl() ) {
+				wp_enqueue_style( $this->plugin_name . '-rtl', plugin_dir_url( __FILE__ ) . 'css/quick-and-easy-faqs-public-rtl.css', array(
+					$this->plugin_name,
+					'font-awesome'
+				), $this->version, 'all' );
+			}
+		}
 
 	}
 
@@ -67,8 +81,27 @@ class Quick_And_Easy_FAQs_Public {
 	 */
 	public function enqueue_scripts() {
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/quick-and-easy-faqs-public.js', array( 'jquery' ), $this->version, false );
+		if ( $this->is_shortcode_being_used() ) {
+			wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/quick-and-easy-faqs-public.js', array( 'jquery' ), $this->version, false );
+		}
 
+	}
+
+	/**
+	 * @return bool
+	 */
+	private function is_shortcode_being_used() {
+
+		if ( $this->shortcode_being_used ) {
+			return true;
+		} else {
+			global $post;
+			if ( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'faqs' ) ) {
+				$this->shortcode_being_used = true;
+				return true;
+			}
+			return false;
+		}
 	}
 
     /**
