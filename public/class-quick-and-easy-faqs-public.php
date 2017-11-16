@@ -50,9 +50,14 @@ class Quick_And_Easy_FAQs_Public {
 	 */
 	public function enqueue_styles() {
 
-		wp_register_style( 'font-awesome', plugin_dir_url( __FILE__ ) . 'css/css/font-awesome.min.css', array(), $this->version, 'all' );
-		wp_register_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/quick-and-easy-faqs-public.css', array(), $this->version, 'all' );
-		wp_register_style( $this->plugin_name . '-rtl', plugin_dir_url( __FILE__ ) . 'css/quick-and-easy-faqs-public-rtl.css', array( $this->plugin_name, 'font-awesome' ), $this->version, 'all' );
+		wp_enqueue_style( 'font-awesome', plugin_dir_url( __FILE__ ) . 'css/css/font-awesome.min.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/quick-and-easy-faqs-public.css', array(), $this->version, 'all' );
+
+        // if rtl is enabled
+        if ( is_rtl() ) {
+            wp_enqueue_style( $this->plugin_name . '-rtl', plugin_dir_url( __FILE__ ) . 'css/quick-and-easy-faqs-public-rtl.css', array( $this->plugin_name, 'font-awesome' ), $this->version, 'all' );
+        }
+
 	}
 
 	/**
@@ -62,7 +67,7 @@ class Quick_And_Easy_FAQs_Public {
 	 */
 	public function enqueue_scripts() {
 
-		wp_register_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/quick-and-easy-faqs-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/quick-and-easy-faqs-public.js', array( 'jquery' ), $this->version, false );
 
 	}
 
@@ -184,15 +189,6 @@ class Quick_And_Easy_FAQs_Public {
      * @return  string  generated html by shortcode
      */
     public function display_faqs_list( $attributes ) {
-
-	    wp_enqueue_style( 'font-awesome' );
-	    wp_enqueue_style( $this->plugin_name );
-	    wp_enqueue_script( $this->plugin_name );
-
-	    // if rtl is enabled
-	    if ( is_rtl() ) {
-		    wp_enqueue_style( $this->plugin_name . '-rtl' );
-	    }
 
         extract( shortcode_atts( array(
             'style' => 'list',
