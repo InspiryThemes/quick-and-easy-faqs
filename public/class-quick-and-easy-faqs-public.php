@@ -304,7 +304,7 @@ class Quick_And_Easy_FAQs_Public {
                 $faqs_query->the_post();
                 ?>
                 <div id="qe-faq-<?php the_ID(); ?>" class="qe-faq-content">
-                    <h4 class="qe-faq-content-title"><i class="fa fa-question-circle"></i> <?php the_title(); ?></h4>
+                    <h4 class="qe-faq-question-title"><i class="fa fa-question-circle"></i> <?php the_title(); ?></h4>
                     <?php the_content(); ?>
                     <a class="qe-faq-top" href="#qe-faqs-index"><i class="fa fa-angle-up"></i> <?php _e( 'Back to Index', 'quick-and-easy-faqs'); ?></a>
                 </div>
@@ -358,7 +358,7 @@ class Quick_And_Easy_FAQs_Public {
 
                     // FAQs index
                     if ( $faqs_queries_array[ $query_index ]->have_posts() ) :
-                        echo '<h4 class="qe-faqs-index-title">' . $faq_group->name . '</h4>';
+                        echo '<h4 class="qe-faqs-group-title">' . $faq_group->name . '</h4>';
                         echo '<ol class="qe-faqs-group-index qe-faqs-index-list">';
                         while ( $faqs_queries_array[ $query_index ]->have_posts() ) :
                             $faqs_queries_array[ $query_index ]->the_post();
@@ -386,7 +386,7 @@ class Quick_And_Easy_FAQs_Public {
                         $faqs_query->the_post();
                         ?>
                         <div id="qe-faq-<?php the_ID(); ?>" class="qe-faq-content">
-                            <h4 class="qe-faq-content-title"><i class="fa fa-question-circle"></i> <?php the_title(); ?></h4>
+                            <h4 class="qe-faq-question-title"><i class="fa fa-question-circle"></i> <?php the_title(); ?></h4>
                             <?php the_content(); ?>
                             <a class="qe-faq-top" href="#qe-faqs-index"><i class="fa fa-angle-up"></i> <?php _e( 'Back to Index', 'quick-and-easy-faqs'); ?></a>
                         </div>
