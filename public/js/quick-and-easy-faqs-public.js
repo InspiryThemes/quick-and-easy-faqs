@@ -2,6 +2,18 @@
 	'use strict';
 
     /**
+     * FAQ's setup
+     * 
+     * Remove .nojs from .qe-faq-toggle elements, and collapse all expanded
+     * elements
+     */
+    $(function() {
+	var all_toggles = $('.qe-faq-toggle');
+	all_toggles.removeClass( 'nojs active' );
+	all_toggles.find('i.fa').removeClass( 'fa-minus-circle' ).addClass( 'fa-plus-circle' );
+    });
+
+    /**
      * FAQs Toggles
      */
     $(function() {
