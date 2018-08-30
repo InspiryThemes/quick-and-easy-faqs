@@ -566,9 +566,9 @@ class Quick_And_Easy_FAQs_Public {
                 }
 
                 ?>
-                <div class="qe-faq-toggle <?php echo $faq_group_terms_slugs; ?>">
+                <div class="nojs qe-faq-toggle active <?php echo $faq_group_terms_slugs; ?>">
                     <div class="qe-toggle-title">
-                        <strong><i class="fa fa-plus-circle"></i> <?php the_title(); ?></strong>
+                        <strong><i class="fa fa-minus-circle"></i> <?php the_title(); ?></strong>
                     </div>
                     <div class="qe-toggle-content">
                         <?php the_content(); ?>
