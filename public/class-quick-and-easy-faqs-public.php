@@ -525,9 +525,11 @@ class Quick_And_Easy_FAQs_Public {
             $faq_groups = get_terms( 'faq-group' );
             if ( ! empty( $faq_groups ) && ! is_wp_error( $faq_groups ) ) {
                 foreach ( $faq_groups as $faq_group ) {
-	                if( empty( $filter_array ) || in_array( $faq_group->slug, $filter_array ) ) {
+	                if( empty( $filter_array ) ) {
 		                echo '<li><a class="qe-faqs-filter" href="#' . $faq_group->slug . '" data-filter="' . '.' . $faq_group->slug . '">' . $faq_group->name . '</a></li>';
-	                }
+	                } elseif ( is_array( $filter_array ) && in_array( $faq_group->slug, $filter_array ) ) {
+		                echo '<li><a class="qe-faqs-filter" href="#' . $faq_group->slug . '" data-filter="' . '.' . $faq_group->slug . '">' . $faq_group->name . '</a></li>';
+					}
                 }
             }
             ?>
@@ -536,14 +538,17 @@ class Quick_And_Easy_FAQs_Public {
         $faqs_query_args = array(
             'post_type' => 'faq',
             'posts_per_page' => -1,
-            'tax_query' => array(
-	            array(
-		            'taxonomy' => 'faq-group',
-		            'field'    => 'slug',
-		            'terms'    => $filter_array
-	            ),
-            ),
         );
+
+	    if ( ! empty( $filter_array ) && is_array( $filter_array ) ) {
+		    $faqs_query_args[ 'tax_query' ] = array(
+			    array(
+				    'taxonomy' => 'faq-group',
+				    'field'    => 'slug',
+				    'terms'    => $filter_array
+			    ),
+		    );
+	    }
 
         $faqs_query = new WP_Query( $faqs_query_args );
 
