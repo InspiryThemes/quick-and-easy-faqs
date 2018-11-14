@@ -9,7 +9,7 @@
  * Plugin Name:       Quick and Easy FAQs
  * Plugin URI:        https://github.com/inspirythemes/quick-and-easy-faqs
  * Description:       A quick and easy way to add FAQs to your site.
- * Version:           1.1.2
+ * Version:           1.1.3
  * Author:            Inspiry Themes
  * Author URI:        https://inspirythemes.com/
  * License:           GPL-2.0+
