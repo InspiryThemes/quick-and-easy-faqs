@@ -1,0 +1,293 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Quick and Easy FAQs\n"
+"POT-Creation-Date: 2018-11-14 18:30+0500\n"
+"PO-Revision-Date: 2018-11-14 18:31+0500\n"
+"Last-Translator: M Saqib Sarwar <saqib@inspirythemes.com>\n"
+"Language-Team: M Saqib Sarwar <saqib@inspirythemes.com>\n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.1.1\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: quick-and-easy-faqs.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: admin/class-quick-and-easy-faqs-admin.php:97
+msgctxt "Post Type General Name"
+msgid "FAQs"
+msgstr "FAQ"
+
+#: admin/class-quick-and-easy-faqs-admin.php:98
+msgctxt "Post Type Singular Name"
+msgid "FAQ"
+msgstr "FAQ"
+
+#: admin/class-quick-and-easy-faqs-admin.php:99
+#: admin/class-quick-and-easy-faqs-admin.php:100
+#: admin/class-quick-and-easy-faqs-admin.php:102
+msgid "FAQs"
+msgstr "FAQ"
+
+#: admin/class-quick-and-easy-faqs-admin.php:101
+msgid "Parent FAQ:"
+msgstr "Parent FAQ:"
+
+#: admin/class-quick-and-easy-faqs-admin.php:103
+msgid "Add New FAQ"
+msgstr "Aggiungi nuova FAQ"
+
+#: admin/class-quick-and-easy-faqs-admin.php:104
+msgid "Add New"
+msgstr "Aggiungi Nuovo"
+
+#: admin/class-quick-and-easy-faqs-admin.php:105
+msgid "New FAQ"
+msgstr "Nuova FAQ"
+
+#: admin/class-quick-and-easy-faqs-admin.php:106
+msgid "Edit FAQ"
+msgstr "Modifica FAQ"
+
+#: admin/class-quick-and-easy-faqs-admin.php:107
+msgid "Update FAQ"
+msgstr "Aggiorna FAQ"
+
+#: admin/class-quick-and-easy-faqs-admin.php:108
+msgid "View FAQ"
+msgstr "Visualizza FAQ"
+
+#: admin/class-quick-and-easy-faqs-admin.php:109
+msgid "Search FAQ"
+msgstr "Cerca FAQ"
+
+#: admin/class-quick-and-easy-faqs-admin.php:110
+msgid "Not found"
+msgstr "Non trovato"
+
+#: admin/class-quick-and-easy-faqs-admin.php:111
+msgid "Not found in Trash"
+msgstr "Non trovato nel cestino"
+
+#: admin/class-quick-and-easy-faqs-admin.php:115
+msgid "faq"
+msgstr "faq"
+
+#: admin/class-quick-and-easy-faqs-admin.php:116
+msgid "Frequently Asked Questions"
+msgstr "Domande frequenti"
+
+#: admin/class-quick-and-easy-faqs-admin.php:146
+msgctxt "Taxonomy General Name"
+msgid "FAQ Groups"
+msgstr "Gruppi FAQ"
+
+#: admin/class-quick-and-easy-faqs-admin.php:147
+msgctxt "Taxonomy Singular Name"
+msgid "FAQ Group"
+msgstr "Gruppo FAQ"
+
+#: admin/class-quick-and-easy-faqs-admin.php:148
+msgid "Groups"
+msgstr "Gruppi"
+
+#: admin/class-quick-and-easy-faqs-admin.php:149
+msgid "All FAQ Groups"
+msgstr ""
+
+#: admin/class-quick-and-easy-faqs-admin.php:150
+msgid "Parent FAQ Group"
+msgstr "Parent FAQ Group"
+
+#: admin/class-quick-and-easy-faqs-admin.php:151
+msgid "Parent FAQ Group:"
+msgstr "Parent FAQ Group:"
+
+#: admin/class-quick-and-easy-faqs-admin.php:152
+msgid "New FAQ Group Name"
+msgstr ""
+
+#: admin/class-quick-and-easy-faqs-admin.php:153
+msgid "Add New FAQ Group"
+msgstr "Aggiungi nuovo gruppo di FAQ"
+
+#: admin/class-quick-and-easy-faqs-admin.php:154
+msgid "Edit FAQ Group"
+msgstr "Modifica gruppo FAQ"
+
+#: admin/class-quick-and-easy-faqs-admin.php:155
+msgid "Update FAQ Group"
+msgstr ""
+
+#: admin/class-quick-and-easy-faqs-admin.php:156
+msgid "View FAQ Group"
+msgstr ""
+
+#: admin/class-quick-and-easy-faqs-admin.php:157
+msgid "Separate FAQ Groups with commas"
+msgstr "Separa i gruppi con le virgole"
+
+#: admin/class-quick-and-easy-faqs-admin.php:158
+msgid "Add or remove FAQ Groups"
+msgstr "Aggiungi o rimuovi gruppo FAQ"
+
+#: admin/class-quick-and-easy-faqs-admin.php:159
+msgid "Choose from the most used"
+msgstr "Scegli tra le più usate"
+
+#: admin/class-quick-and-easy-faqs-admin.php:160
+msgid "Popular FAQ Groups"
+msgstr "Gruppi popolari FAQ"
+
+#: admin/class-quick-and-easy-faqs-admin.php:161
+msgid "Search FAQ Groups"
+msgstr "Cerca Gruppi FAQ"
+
+#: admin/class-quick-and-easy-faqs-admin.php:162
+msgid "Not Found"
+msgstr "Non trovato"
+
+#: admin/class-quick-and-easy-faqs-admin.php:191
+msgid "Quick & Easy Settings"
+msgstr "Impostazioni"
+
+#: admin/class-quick-and-easy-faqs-admin.php:192
+#: admin/class-quick-and-easy-faqs-admin.php:441
+msgid "Settings"
+msgstr "Impostazioni"
+
+#: admin/class-quick-and-easy-faqs-admin.php:209
+msgid "Quick and Easy FAQs Settings"
+msgstr "Quick and Easy FAQs Settings"
+
+#: admin/class-quick-and-easy-faqs-admin.php:240
+msgid "FAQs Toggle Styles"
+msgstr ""
+
+#: admin/class-quick-and-easy-faqs-admin.php:247
+msgid "FAQs Common Styles"
+msgstr "Stili comuni FAQ"
+
+#: admin/class-quick-and-easy-faqs-admin.php:257
+msgid "FAQs toggle colors"
+msgstr "Seleziona i colori FAQ"
+
+#: admin/class-quick-and-easy-faqs-admin.php:264
+msgid "Choose custom colors to apply colors provided in options below."
+msgstr ""
+
+#: admin/class-quick-and-easy-faqs-admin.php:266
+msgid "Default Colors"
+msgstr ""
+
+#: admin/class-quick-and-easy-faqs-admin.php:267
+msgid "Custom Colors"
+msgstr "Colori personalizzati"
+
+#: admin/class-quick-and-easy-faqs-admin.php:273
+msgid "Question text color"
+msgstr "Colore del testo domanda"
+
+#: admin/class-quick-and-easy-faqs-admin.php:284
+msgid "Question text color on mouse over"
+msgstr ""
+
+#: admin/class-quick-and-easy-faqs-admin.php:295
+msgid "Question background color"
+msgstr "Colore di sfondo di domanda"
+
+#: admin/class-quick-and-easy-faqs-admin.php:306
+msgid "Question background color on mouse over"
+msgstr "Colore di sfondo di domanda sul mouse sopra"
+
+#: admin/class-quick-and-easy-faqs-admin.php:317
+msgid "Answer text color"
+msgstr ""
+
+#: admin/class-quick-and-easy-faqs-admin.php:328
+msgid "Answer background color"
+msgstr "Colore di sfondo risposta"
+
+#: admin/class-quick-and-easy-faqs-admin.php:339
+msgid "Toggle Border color"
+msgstr ""
+
+#: admin/class-quick-and-easy-faqs-admin.php:350
+msgid "Custom CSS"
+msgstr "CSS personalizzato"
+
+#: admin/class-quick-and-easy-faqs-admin.php:369
+msgid ""
+"These settings only applies to FAQs with toggle style. As FAQs with list "
+"style use colors inherited from currently active theme."
+msgstr ""
+"These settings only applies to FAQs with toggle style. As FAQs with list "
+"style use colors inherited from currently active theme."
+
+#: admin/class-quick-and-easy-faqs-admin.php:392
+#: admin/class-quick-and-easy-faqs-admin.php:407
+#: admin/class-quick-and-easy-faqs-admin.php:430
+msgid "Field id is missing!"
+msgstr "Il campo Codice Immobile mancante!"
+
+#: public/class-quick-and-easy-faqs-public.php:309
+#: public/class-quick-and-easy-faqs-public.php:391
+msgid "Back to Index"
+msgstr "Torna all’indice"
+
+#: public/class-quick-and-easy-faqs-public.php:524
+msgid "All"
+msgstr "Tutti"
+
+#. Plugin Name of the plugin/theme
+#: public/class-quick-and-easy-faqs-public.php:604
+msgid "Quick and Easy FAQs"
+msgstr ""
+
+#: public/class-quick-and-easy-faqs-public.php:605
+msgid "Quick and Easy FAQs Plugin"
+msgstr "Quick and Easy FAQs Plugin"
+
+#: public/class-quick-and-easy-faqs-public.php:607
+msgid "Content"
+msgstr "Contenuto"
+
+#: public/class-quick-and-easy-faqs-public.php:611
+msgid "Display Style"
+msgstr "Stile di visualizzazione"
+
+#: public/class-quick-and-easy-faqs-public.php:622
+msgid "Display FAQs in Groups"
+msgstr "Visualizzare le domande frequenti in gruppi"
+
+#: public/class-quick-and-easy-faqs-public.php:625
+msgid "Yes"
+msgstr "Sì"
+
+#: public/class-quick-and-easy-faqs-public.php:626
+msgid "No"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://github.com/inspirythemes/quick-and-easy-faqs"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "A quick and easy way to add FAQs to your site."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Inspiry Themes"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://inspirythemes.com/"
+msgstr ""
