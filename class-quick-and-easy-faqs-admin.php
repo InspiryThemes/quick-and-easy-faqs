@@ -209,6 +209,8 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
                 'exclude_from_search' => true,
                 'publicly_queryable'  => false,
                 'capability_type'     => 'post',
+                'show_in_rest'        => true,
+                'rest_base'           => apply_filters( 'inspiry_faq_rest_base', __( 'faqs', 'quick-and-easy-faqs' ) ),
             );
 
             register_post_type( 'faq', apply_filters( 'qe_register_faq_arguments', $args) );
@@ -252,6 +254,8 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
                 'show_admin_column' => true,
                 'show_in_nav_menus' => false,
                 'show_tagcloud'     => false,
+                'show_in_rest'        => true,
+                'rest_base'           => apply_filters( 'inspiry_faq_group_rest_base', __( 'faq_groups', 'quick-and-easy-faqs' ) ),
             );
 
             register_taxonomy( 'faq-group', array( 'faq' ), apply_filters( 'qe_register_faq_group_arguments', $args ) );
@@ -520,6 +524,23 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
         public function faqs_action_links( $links ) {
             $links[] = '<a href="'. get_admin_url( null, 'plugins.php?page=quick_and_easy_faqs' ) .'">' . __( 'Settings', 'quick-and-easy-faqs' ) . '</a>';
             return $links;
+        } 
+        
+        /**
+         * To log any thing for debugging purposes
+         *
+         * @since   1.0.0
+         *
+         * @param   mixed   $message    message to be logged
+         */
+        public static function log( $message ) {
+            if( WP_DEBUG === true ){
+                if( is_array( $message ) || is_object( $message ) ){
+                    error_log( print_r( $message, true ) );
+                } else {
+                    error_log( $message );
+                }
+            }
         }
 
     }
