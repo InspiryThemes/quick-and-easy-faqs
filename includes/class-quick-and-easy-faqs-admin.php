@@ -88,8 +88,8 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
         }
 
         public function qe_admin_hooks_execution() {
-            register_activation_hook( __FILE__, array( $this, 'activate_quick_and_easy_faqs' ) ); 
-            register_deactivation_hook( __FILE__, array( $this, 'deactivate_quick_and_easy_faqs' ) );
+            register_activation_hook( __FILE__, array( $this, 'qe_faqs_activation' ) ); 
+            register_deactivation_hook( __FILE__, array( $this, 'qe_faqs_deactivation' ) );
 
             add_action( 'admin_enqueue_scripts', array( $this, 'qe_admin_enqueue_styles' ) );
             add_action( 'admin_enqueue_scripts', array( $this, 'qe_admin_enqueue_scripts' ) );
@@ -97,7 +97,7 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
             add_action( 'init', array( $this, 'register_faqs_group_taxonomy' ) );
             add_action( 'admin_menu', array( $this, 'add_faqs_options_page' ) );
             add_action( 'admin_init', array( $this, 'initialize_faqs_options' ) );
-            add_action( 'plugins_loaded', array( $this, 'load_plugin_textdomain' ) );
+            add_action( 'plugins_loaded', array( $this, 'qe_faqs_load_textdomain' ) );
 
             add_filter( 'plugin_action_links_' . QE_FAQS_PLUGIN_BASENAME, array( $this, 'faqs_action_links' ) );
         }
@@ -106,7 +106,7 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
          * The code that runs during plugin activation.
          * This action is documented in includes/class-quick-and-easy-faqs-activator.php
          */
-        public function activate_quick_and_easy_faqs() {
+        public function qe_faqs_activation() {
             
         }
 
@@ -114,7 +114,7 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
          * The code that runs during plugin deactivation.
          * This action is documented in includes/class-quick-and-easy-faqs-deactivator.php
          */
-        public function deactivate_quick_and_easy_faqs() {
+        public function qe_faqs_deactivation() {
             
         }
 
@@ -123,7 +123,7 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
          *
          * @since    1.0.0
          */
-        public function load_plugin_textdomain() {
+        public function qe_faqs_load_textdomain() {
 
             load_plugin_textdomain(
                 $this->domain,
@@ -142,7 +142,7 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
             // Add the color picker css file
             wp_enqueue_style( 'wp-color-picker' );
             // plugin custom css file
-            wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'assets/css/quick-and-easy-faqs-admin.css', array( 'wp-color-picker' ), $this->version, 'all' );
+            wp_enqueue_style( $this->plugin_name, dirname( plugin_dir_url( __FILE__ ) ) . '/css/quick-and-easy-faqs-admin.css', array( 'wp-color-picker' ), $this->version, 'all' );
         }
 
         /**
@@ -151,7 +151,7 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
          * @since    1.0.0
          */
         public function qe_admin_enqueue_scripts() {
-            wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'assets/js/quick-and-easy-faqs-admin.js', array( 'jquery' , 'wp-color-picker' ), $this->version, false );
+            wp_enqueue_script( $this->plugin_name, dirname( plugin_dir_url( __FILE__ ) ) . '/js/quick-and-easy-faqs-admin.js', array( 'jquery' , 'wp-color-picker' ), $this->version, false );
         }
 
 
