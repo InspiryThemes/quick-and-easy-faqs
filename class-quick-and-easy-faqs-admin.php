@@ -43,6 +43,15 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
         private $version;
 
         /**
+         * The domain specified for this plugin.
+         *
+         * @since    1.0.0
+         * @access   private
+         * @var      string    $domain    The domain identifier for this plugin.
+         */
+        private $domain;
+
+        /**
          * FAQs options
          *
          * @since    1.0.0
@@ -88,6 +97,9 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
             add_action( 'admin_menu', array( $this, 'add_faqs_options_page' ) );
             add_action( 'admin_init', array( $this, 'initialize_faqs_options' ) );
 
+            $plugin_domain = $this->set_domain( 'quick-and-easy-faqs' );
+            add_action( 'plugins_loaded', $plugin_domain, array( $this, 'load_plugin_textdomain' ) );
+
             add_filter( 'plugin_action_links_' . QE_FAQS_PLUGIN_BASENAME, array( $this, 'faqs_action_links' ) );
         }
 
@@ -105,6 +117,31 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
          */
         public function deactivate_quick_and_easy_faqs() {
             
+        }
+
+        /**
+         * Load the plugin text domain for translation.
+         *
+         * @since    1.0.0
+         */
+        public function load_plugin_textdomain() {
+
+            load_plugin_textdomain(
+                $this->domain,
+                false,
+                dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
+            );
+
+        }
+
+        /**
+         * Set the domain equal to that of the specified domain.
+         *
+         * @since    1.0.0
+         * @param    string    $domain    The domain that represents the locale of this plugin.
+         */
+        public function set_domain( $domain ) {
+            $this->domain = $domain;
         }
 
         /**
