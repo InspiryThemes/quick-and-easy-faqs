@@ -23,7 +23,12 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+/**
+ * Global Constants to be used throughout the plugin
+ */
 define( 'QE_FAQS_PLUGIN_BASENAME', plugin_basename(__FILE__) );
+define( 'QE_FAQS_PLUGIN_NAME', 'quick-and-easy-faqs' );
+define( 'QE_FAQS_PLUGIN_VERSION', '1.2' );
 
 /**
  * The code that runs during plugin activation.
