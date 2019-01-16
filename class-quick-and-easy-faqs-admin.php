@@ -73,6 +73,7 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
 
             $this->plugin_name = QE_FAQS_PLUGIN_NAME;
             $this->version = QE_FAQS_PLUGIN_VERSION;
+            $this->domain = QE_FAQS_PLUGIN_NAME;
             $this->options = get_option( 'quick_and_easy_faqs_options' );
             $this->qe_admin_hooks_execution();
 
@@ -96,9 +97,7 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
             add_action( 'init', array( $this, 'register_faqs_group_taxonomy' ) );
             add_action( 'admin_menu', array( $this, 'add_faqs_options_page' ) );
             add_action( 'admin_init', array( $this, 'initialize_faqs_options' ) );
-
-            $plugin_domain = $this->set_domain( 'quick-and-easy-faqs' );
-            add_action( 'plugins_loaded', $plugin_domain, array( $this, 'load_plugin_textdomain' ) );
+            add_action( 'plugins_loaded', array( $this, 'load_plugin_textdomain' ) );
 
             add_filter( 'plugin_action_links_' . QE_FAQS_PLUGIN_BASENAME, array( $this, 'faqs_action_links' ) );
         }
@@ -128,20 +127,10 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
 
             load_plugin_textdomain(
                 $this->domain,
-                false,
-                dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
+                false, 
+                dirname( plugin_basename( __FILE__ ) ) . '/languages/'
             );
 
-        }
-
-        /**
-         * Set the domain equal to that of the specified domain.
-         *
-         * @since    1.0.0
-         * @param    string    $domain    The domain that represents the locale of this plugin.
-         */
-        public function set_domain( $domain ) {
-            $this->domain = $domain;
         }
 
         /**
