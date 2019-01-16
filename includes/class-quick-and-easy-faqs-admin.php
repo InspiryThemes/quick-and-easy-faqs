@@ -128,7 +128,7 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
             load_plugin_textdomain(
                 $this->domain,
                 false, 
-                dirname( plugin_basename( __FILE__ ) ) . '/languages/'
+                dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
             );
 
         }
