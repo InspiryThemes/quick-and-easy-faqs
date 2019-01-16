@@ -28,48 +28,14 @@ if ( ! defined( 'WPINC' ) ) {
  */
 define( 'QE_FAQS_PLUGIN_BASENAME', plugin_basename(__FILE__) );
 define( 'QE_FAQS_PLUGIN_NAME', 'quick-and-easy-faqs' );
-define( 'QE_FAQS_PLUGIN_VERSION', '1.2' );
+define( 'QE_FAQS_PLUGIN_VERSION', '1.1.3' );
 
 /**
- * The code that runs during plugin activation.
- * This action is documented in includes/class-quick-and-easy-faqs-activator.php
+ * Loading core class for the admin (backend) side
  */
-function activate_quick_and_easy_faqs() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-quick-and-easy-faqs-activator.php';
-	Quick_And_Easy_FAQs_Activator::activate();
-}
+require plugin_dir_path( __FILE__ ) . 'class-quick-and-easy-faqs-admin.php';
 
 /**
- * The code that runs during plugin deactivation.
- * This action is documented in includes/class-quick-and-easy-faqs-deactivator.php
+ * Loading core class for the public (frontend) side
  */
-function deactivate_quick_and_easy_faqs() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-quick-and-easy-faqs-deactivator.php';
-	Quick_And_Easy_FAQs_Deactivator::deactivate();
-}
-
-register_activation_hook( __FILE__, 'activate_quick_and_easy_faqs' );
-register_deactivation_hook( __FILE__, 'deactivate_quick_and_easy_faqs' );
-
-/**
- * The core plugin class that is used to define internationalization,
- * admin-specific hooks, and public-facing site hooks.
- */
-require plugin_dir_path( __FILE__ ) . 'includes/class-quick-and-easy-faqs.php';
-
-/**
- * Begins execution of the plugin.
- *
- * Since everything within the plugin is registered via hooks,
- * then kicking off the plugin from this point in the file does
- * not affect the page life cycle.
- *
- * @since    1.0.0
- */
-function run_quick_and_easy_faqs() {
-
-	$plugin = new Quick_And_Easy_FAQs();
-	$plugin->run();
-
-}
-run_quick_and_easy_faqs();
+require plugin_dir_path( __FILE__ ) . 'class-quick-and-easy-faqs-public.php';
