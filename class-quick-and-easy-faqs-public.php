@@ -84,12 +84,12 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Public' ) ) {
         public function qe_public_enqueue_styles() {
 
             if ( $this->is_shortcode_being_used() ) {
-                wp_enqueue_style( 'font-awesome', plugin_dir_url( __FILE__ ) . 'css/css/font-awesome.min.css', array(), $this->version, 'all' );
-                wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/quick-and-easy-faqs-public.css', array(), $this->version, 'all' );
+                wp_enqueue_style( 'font-awesome', plugin_dir_url( __FILE__ ) . 'assets/css/font-awesome.min.css', array(), $this->version, 'all' );
+                wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'assets/css/quick-and-easy-faqs-public.css', array(), $this->version, 'all' );
 
                 // if rtl is enabled
                 if ( is_rtl() ) {
-                    wp_enqueue_style( $this->plugin_name . '-rtl', plugin_dir_url( __FILE__ ) . 'css/quick-and-easy-faqs-public-rtl.css', array(
+                    wp_enqueue_style( $this->plugin_name . '-rtl', plugin_dir_url( __FILE__ ) . 'assets/css/quick-and-easy-faqs-public-rtl.css', array(
                         $this->plugin_name,
                         'font-awesome'
                     ), $this->version, 'all' );
@@ -106,7 +106,7 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Public' ) ) {
         public function qe_public_enqueue_scripts() {
 
             if ( $this->is_shortcode_being_used() ) {
-                wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/quick-and-easy-faqs-public.js', array( 'jquery' ), $this->version, false );
+                wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'assets/js/quick-and-easy-faqs-public.js', array( 'jquery' ), $this->version, false );
             }
 
         }
@@ -131,7 +131,7 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Public' ) ) {
         /**
          * Generate custom css for FAQs based on settings
          */
-        public function faqs_custom_styles () {
+        public function qe_public_custom_styles () {
 
             $faqs_options = get_option( 'quick_and_easy_faqs_options' );
 

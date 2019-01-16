@@ -116,7 +116,7 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
             // Add the color picker css file
             wp_enqueue_style( 'wp-color-picker' );
             // plugin custom css file
-            wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/quick-and-easy-faqs-admin.css', array( 'wp-color-picker' ), $this->version, 'all' );
+            wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'assets/css/quick-and-easy-faqs-admin.css', array( 'wp-color-picker' ), $this->version, 'all' );
         }
 
         /**
@@ -125,7 +125,7 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
          * @since    1.0.0
          */
         public function qe_admin_enqueue_scripts() {
-            wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/quick-and-easy-faqs-admin.js', array( 'jquery' , 'wp-color-picker' ), $this->version, false );
+            wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'assets/js/quick-and-easy-faqs-admin.js', array( 'jquery' , 'wp-color-picker' ), $this->version, false );
         }
 
 
