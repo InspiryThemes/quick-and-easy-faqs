@@ -99,7 +99,6 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
             add_action( 'admin_init', array( $this, 'initialize_faqs_options' ) );
             add_action( 'plugins_loaded', array( $this, 'qe_faqs_load_textdomain' ) );
 
-            add_filter( 'pre_get_posts', array ( $this, 'inspiry_include_faqs_in_search' ) );
             add_filter( 'plugin_action_links_' . QE_FAQS_PLUGIN_BASENAME, array( $this, 'faqs_action_links' ) );
         }
 
@@ -514,19 +513,7 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
         public function faqs_action_links( $links ) {
             $links[] = '<a href="'. get_admin_url( null, 'plugins.php?page=quick_and_easy_faqs' ) .'">' . __( 'Settings', 'quick-and-easy-faqs' ) . '</a>';
             return $links;
-        }
-
-        public function inspiry_include_faqs_in_search( $query ) {
-    
-            if ( is_search() && $query->is_main_query() && $query->get( 's' ) ){
-                
-                $query->set( 'post_type', array(
-                    'post', 
-                    'page', 
-                    'faq',
-                ) );
-            }
-        }
+        } 
         
         /**
          * To log any thing for debugging purposes
