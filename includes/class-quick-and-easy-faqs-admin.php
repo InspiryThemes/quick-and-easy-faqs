@@ -3,22 +3,8 @@
 /**
  * The admin-specific functionality of the plugin.
  *
- * @link       https://github.com/inspirythemes/quick-and-easy-faqs
- * @since      1.0.0
- *
- * @package    Quick_And_Easy_FAQs
- * @subpackage Quick_And_Easy_FAQs/admin
- */
-
-/**
- * The admin-specific functionality of the plugin.
- *
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the admin-specific stylesheet and JavaScript.
- *
- * @package    Quick_And_Easy_FAQs
- * @subpackage Quick_And_Easy_FAQs/admin
- * @author     Inspiry Themes <info@inspirythemes.com>
  */
 if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
 
@@ -26,37 +12,21 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
 
         /**
          * The ID of this plugin.
-         *
-         * @since    1.0.0
-         * @access   private
-         * @var      string    $plugin_name    The ID of this plugin.
          */
         private $plugin_name;
 
         /**
          * The version of this plugin.
-         *
-         * @since    1.0.0
-         * @access   private
-         * @var      string    $version    The current version of this plugin.
          */
         private $version;
 
         /**
          * The domain specified for this plugin.
-         *
-         * @since    1.0.0
-         * @access   private
-         * @var      string    $domain    The domain identifier for this plugin.
          */
         private $domain;
 
         /**
          * FAQs options
-         *
-         * @since    1.0.0
-         * @access   public
-         * @var      array    $options    Contains the plugin options
          */
         public $options;
 
@@ -64,10 +34,6 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
 
         /**
          * Initialize the class and set its properties.
-         *
-         * @since    1.0.0
-         * @param      string    $plugin_name       The name of this plugin.
-         * @param      string    $version    The version of this plugin.
          */
         public function __construct() {
 
@@ -120,8 +86,6 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
 
         /**
          * Load the plugin text domain for translation.
-         *
-         * @since    1.0.0
          */
         public function qe_faqs_load_textdomain() {
 
@@ -135,8 +99,6 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
 
         /**
          * Register the stylesheets for the admin area.
-         *
-         * @since    1.0.0
          */
         public function qe_admin_enqueue_styles() {
             // Add the color picker css file
@@ -147,8 +109,6 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
 
         /**
          * Register the JavaScript for the admin area.
-         *
-         * @since    1.0.0
          */
         public function qe_admin_enqueue_scripts() {
             wp_enqueue_script( $this->plugin_name, dirname( plugin_dir_url( __FILE__ ) ) . '/js/quick-and-easy-faqs-admin.js', array( 'jquery' , 'wp-color-picker' ), $this->version, false );
@@ -157,8 +117,6 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
 
         /**
          * Register FAQs custom post type
-         *
-         * @since     1.0.0
          */
         public function register_faqs_post_type() {
 
@@ -187,6 +145,7 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
                 'supports'            => apply_filters( 'qe_faq_supports', array( 'title', 'editor' ) ),
                 'hierarchical'        => false,
                 'public'              => false,
+                'exclude_from_search' => false,
                 'show_ui'             => true,
                 'show_in_menu'        => true,
                 'menu_position'       => 10,
@@ -208,8 +167,6 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
 
         /**
          * Register FAQ Group custom taxonomy
-         *
-         * @since     1.0.0
          */
         public function register_faqs_group_taxonomy() {
 
@@ -237,6 +194,7 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
                 'labels'            => apply_filters( 'qe_faq_group_labels', $labels ),
                 'hierarchical'      => true,
                 'public'            => false,
+                'exclude_from_search' => false,
                 'rewrite'           => false,
                 'show_ui'           => true,
                 'show_in_menu' 		=> 'edit.php?post_type=faq',
@@ -452,8 +410,6 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
 
         /**
          * Re-usable color options field for FAQs settings
-         *
-         * @param $args array   field arguments
          */
         public function faqs_color_option_field( $args ) {
             $field_id = $args['id'];
@@ -468,8 +424,6 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
 
         /**
          * Re-usable textarea options field for FAQs settings
-         *
-         * @param $args array   field arguments
          */
         public function faqs_textarea_option_field( $args ) {
             $field_id = $args['id'];
@@ -483,8 +437,6 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
 
         /**
          * Re-usable select options field for FAQs settings
-         *
-         * @param $args array   field arguments
          */
         public function faqs_select_option_field( $args ) {
             $field_id = $args['id'];
@@ -506,9 +458,6 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
 
         /**
          * Add plugin action links
-         *
-         * @param $links
-         * @return array
          */
         public function faqs_action_links( $links ) {
             $links[] = '<a href="'. get_admin_url( null, 'plugins.php?page=quick_and_easy_faqs' ) .'">' . __( 'Settings', 'quick-and-easy-faqs' ) . '</a>';
@@ -517,10 +466,6 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
         
         /**
          * To log any thing for debugging purposes
-         *
-         * @since   1.0.0
-         *
-         * @param   mixed   $message    message to be logged
          */
         public static function log( $message ) {
             if( WP_DEBUG === true ){
@@ -537,8 +482,6 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
 
 /**
  * Returns the main instance of Quick_And_Easy_FAQs_Admin to prevent the need to use globals.
- *
- * @return Quick_And_Easy_FAQs_Admin
  */
 function init_qe_faqs_admin() {
 	return Quick_And_Easy_FAQs_Admin::instance();

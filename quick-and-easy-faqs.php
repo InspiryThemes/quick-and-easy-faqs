@@ -1,11 +1,5 @@
 <?php
 /**
- *
- * @link              https://github.com/inspirythemes/quick-and-easy-faqs
- * @since             1.0.0
- * @package           Quick_And_Easy_FAQs
- *
- * @wordpress-plugin
  * Plugin Name:       Quick and Easy FAQs
  * Plugin URI:        https://github.com/inspirythemes/quick-and-easy-faqs
  * Description:       A quick and easy way to add FAQs to your site.

@@ -1,15 +1,6 @@
 <?php
 /**
- *
- * @link       https://github.com/inspirythemes/quick-and-easy-faqs
- * @since      1.0.0
- *
- * @package    Quick_And_Easy_FAQs
- * @subpackage Quick_And_Easy_FAQs/public
- *
  * The public-facing functionality of the plugin.
- *
- * @author     Inspiry Themes <info@inspirythemes.com>
  */
 if ( ! class_exists( 'Quick_And_Easy_FAQs_Public' ) ) {
 
@@ -17,27 +8,16 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Public' ) ) {
 
         /**
          * The ID of this plugin.
-         *
-         * @since    1.0.0
-         * @access   private
-         * @var      string    $plugin_name    The ID of this plugin.
          */
         private $plugin_name;
 
         /**
          * The version of this plugin.
-         *
-         * @since    1.0.0
-         * @access   private
-         * @var      string    $version    The current version of this plugin.
          */
         private $version;
 
         /**
          * Is shortcode being used or not
-         *
-         * @since    1.1.2
-         * @var bool
          */
         private $shortcode_being_used;
         
@@ -45,10 +25,6 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Public' ) ) {
 
         /**
          * Initialize the class and set its properties.
-         *
-         * @since    1.0.0
-         * @param      string    $plugin_name       The name of the plugin.
-         * @param      string    $version    The version of this plugin.
          */
         public function __construct() {
             $this->plugin_name = QE_FAQS_PLUGIN_NAME;
@@ -78,8 +54,6 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Public' ) ) {
 
         /**
          * Register the stylesheets for the public-facing side of the site.
-         *
-         * @since    1.0.0
          */
         public function qe_public_enqueue_styles() {
 
@@ -100,8 +74,6 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Public' ) ) {
 
         /**
          * Register the stylesheets for the public-facing side of the site.
-         *
-         * @since    1.0.0
          */
         public function qe_public_enqueue_scripts() {
 
@@ -231,8 +203,6 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Public' ) ) {
 
         /**
          * Register FAQs shortcodes
-         *
-         * @since   1.0.0
          */
         public function register_faqs_shortcodes() {
             add_shortcode( 'faqs', array( $this, 'display_faqs_list') );
@@ -240,10 +210,6 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Public' ) ) {
 
         /**
          * Display faqs in a list
-         *
-         * @since   1.0.0
-         * @param   array   $attributes     Array of attributes
-         * @return  string  generated html by shortcode
          */
         public function display_faqs_list( $attributes ) {
 
@@ -284,9 +250,6 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Public' ) ) {
 
         /**
          * Display FAQs in list style
-         *
-         * @since   1.0.0
-         * @param   Array   $filter_array   Array of faq groups slugs
          */
         private function list_all_faqs( $filter_array ) {
 
@@ -343,9 +306,6 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Public' ) ) {
 
         /**
          * Display FAQs in list style
-         *
-         * @since   1.0.0
-         * @param   Array   $filter_array   Array of faq groups slugs
          */
         private function list_grouped_faqs( $filter_array ) {
 
@@ -428,9 +388,6 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Public' ) ) {
 
         /**
          * Display FAQs in toggle style
-         *
-         * @since   1.0.0
-         * @param   Array   $filter_array   Array of faq groups slugs
          */
         private function toggles_for_all_faqs( $filter_array ) {
 
@@ -476,9 +433,6 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Public' ) ) {
 
         /**
          * Display toggle styles FAQs in groups
-         *
-         * @since   1.0.0
-         * @param   Array   $filter_array   Array of faq groups slugs
          */
         private function toggles_grouped_faqs( $filter_array ) {
 
@@ -537,10 +491,6 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Public' ) ) {
 
         /**
          * Display sortable FAQs in toggle style
-         *
-         * @param $filter_array array
-         *
-         * @since   1.0.0
          */
         private function filterable_toggles_faqs( $filter_array = null ) {
             ?>
@@ -619,8 +569,6 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Public' ) ) {
 
         /**
          * Integrate shortcode with Visual Composer
-         *
-         * @since   1.0.1
          */
         public function integrate_shortcode_with_vc() {
 
@@ -662,8 +610,6 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Public' ) ) {
 
 /**
  * Returns the main instance of Quick_And_Easy_FAQs_Public to prevent the need to use globals.
- *
- * @return Quick_And_Easy_FAQs_Public
  */
 function init_qe_faqs_public() {
 	return Quick_And_Easy_FAQs_Public::instance();
