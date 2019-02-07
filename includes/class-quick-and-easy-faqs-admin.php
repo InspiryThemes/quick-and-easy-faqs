@@ -41,7 +41,7 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
             $this->version = QE_FAQS_PLUGIN_VERSION;
             $this->domain = QE_FAQS_PLUGIN_NAME;
             $this->options = get_option( 'quick_and_easy_faqs_options' );
-            $this->qe_admin_hooks_execution();
+            $this->admin_hooks_execution();
 
         }
 
@@ -53,17 +53,17 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
             return self::$_instance;
         }
 
-        public function qe_admin_hooks_execution() {
-            register_activation_hook( __FILE__, array( $this, 'qe_faqs_activation' ) ); 
-            register_deactivation_hook( __FILE__, array( $this, 'qe_faqs_deactivation' ) );
+        public function admin_hooks_execution() {
+            register_activation_hook( __FILE__, array( $this, 'faqs_activation' ) ); 
+            register_deactivation_hook( __FILE__, array( $this, 'faqs_deactivation' ) );
 
-            add_action( 'admin_enqueue_scripts', array( $this, 'qe_admin_enqueue_styles' ) );
-            add_action( 'admin_enqueue_scripts', array( $this, 'qe_admin_enqueue_scripts' ) );
+            add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_styles' ) );
+            add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
             add_action( 'init', array( $this, 'register_faqs_post_type' ) );
             add_action( 'init', array( $this, 'register_faqs_group_taxonomy' ) );
             add_action( 'admin_menu', array( $this, 'add_faqs_options_page' ) );
             add_action( 'admin_init', array( $this, 'initialize_faqs_options' ) );
-            add_action( 'plugins_loaded', array( $this, 'qe_faqs_load_textdomain' ) );
+            add_action( 'plugins_loaded', array( $this, 'faqs_load_textdomain' ) );
 
             add_filter( 'plugin_action_links_' . QE_FAQS_PLUGIN_BASENAME, array( $this, 'faqs_action_links' ) );
         }
@@ -72,7 +72,7 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
          * The code that runs during plugin activation.
          * This action is documented in includes/class-quick-and-easy-faqs-activator.php
          */
-        public function qe_faqs_activation() {
+        public function faqs_activation() {
             
         }
 
@@ -80,14 +80,14 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
          * The code that runs during plugin deactivation.
          * This action is documented in includes/class-quick-and-easy-faqs-deactivator.php
          */
-        public function qe_faqs_deactivation() {
+        public function faqs_deactivation() {
             
         }
 
         /**
          * Load the plugin text domain for translation.
          */
-        public function qe_faqs_load_textdomain() {
+        public function faqs_load_textdomain() {
 
             load_plugin_textdomain(
                 $this->domain,
@@ -100,7 +100,7 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
         /**
          * Register the stylesheets for the admin area.
          */
-        public function qe_admin_enqueue_styles() {
+        public function admin_enqueue_styles() {
             // Add the color picker css file
             wp_enqueue_style( 'wp-color-picker' );
             // plugin custom css file
@@ -110,7 +110,7 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
         /**
          * Register the JavaScript for the admin area.
          */
-        public function qe_admin_enqueue_scripts() {
+        public function admin_enqueue_scripts() {
             wp_enqueue_script( $this->plugin_name, dirname( plugin_dir_url( __FILE__ ) ) . '/js/quick-and-easy-faqs-admin.js', array( 'jquery' , 'wp-color-picker' ), $this->version, false );
         }
 
