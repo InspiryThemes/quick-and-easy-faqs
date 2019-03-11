@@ -30,6 +30,7 @@ define( 'QE_FAQS_PLUGIN_VERSION', '1.1.3' );
 require plugin_dir_path( __FILE__ ) . 'includes/class-admin.php';
 require plugin_dir_path( __FILE__ ) . 'includes/class-faqs-post-type.php';
 require plugin_dir_path( __FILE__ ) . 'includes/class-faqs-settings.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-faqs-shortcode.php';
 
 /**
  * Loading core class for the public (frontend) side
