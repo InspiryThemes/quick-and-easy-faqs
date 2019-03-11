@@ -31,6 +31,7 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-admin.php';
 require plugin_dir_path( __FILE__ ) . 'includes/class-faqs-post-type.php';
 require plugin_dir_path( __FILE__ ) . 'includes/class-faqs-settings.php';
 require plugin_dir_path( __FILE__ ) . 'includes/class-faqs-shortcode.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-faqs-classic-editor.php';
 
 /**
  * Loading core class for the public (frontend) side
