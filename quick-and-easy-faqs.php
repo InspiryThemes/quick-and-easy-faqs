@@ -27,9 +27,14 @@ define( 'QE_FAQS_PLUGIN_VERSION', '1.1.3' );
 /**
  * Loading core class for the admin (backend) side
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-quick-and-easy-faqs-admin.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-admin.php';
+
+/**
+ * Loading core class for the admin (backend) side
+ */
+require plugin_dir_path( __FILE__ ) . 'includes/class-faqs-post-type.php';
 
 /**
  * Loading core class for the public (frontend) side
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-quick-and-easy-faqs-public.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-public.php';
