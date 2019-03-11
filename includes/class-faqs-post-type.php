@@ -48,8 +48,8 @@ if ( ! class_exists( 'FAQs_Post_Type_And_Taxonomy' ) ) {
             $args = array(
                 'label'               => __( 'faq', 'quick-and-easy-faqs' ),
                 'description'         => __( 'Frequently Asked Questions', 'quick-and-easy-faqs' ),
-                'labels'              => apply_filters( 'qe_faq_labels', $labels),
-                'supports'            => apply_filters( 'qe_faq_supports', array( 'title', 'editor' ) ),
+                'labels'              => apply_filters( 'inspiry_faq_labels', $labels),
+                'supports'            => apply_filters( 'inspiry_faq_supports', array( 'title', 'editor' ) ),
                 'hierarchical'        => false,
                 'public'              => false,
                 'exclude_from_search' => false,
@@ -68,7 +68,7 @@ if ( ! class_exists( 'FAQs_Post_Type_And_Taxonomy' ) ) {
                 'rest_base'           => apply_filters( 'inspiry_faq_rest_base', __( 'faqs', 'quick-and-easy-faqs' ) ),
             );
 
-            register_post_type( 'faq', apply_filters( 'qe_register_faq_arguments', $args) );
+            register_post_type( 'faq', apply_filters( 'inspiry_register_faq_arguments', $args) );
 
         }
 
@@ -98,7 +98,7 @@ if ( ! class_exists( 'FAQs_Post_Type_And_Taxonomy' ) ) {
             );
 
             $args = array(
-                'labels'              => apply_filters( 'qe_faq_group_labels', $labels ),
+                'labels'              => apply_filters( 'inspiry_faq_group_labels', $labels ),
                 'hierarchical'        => true,
                 'public'              => false,
                 'exclude_from_search' => false,
@@ -112,7 +112,7 @@ if ( ! class_exists( 'FAQs_Post_Type_And_Taxonomy' ) ) {
                 'rest_base'           => apply_filters( 'inspiry_faq_group_rest_base', __( 'faq_groups', 'quick-and-easy-faqs' ) ),
             );
 
-            register_taxonomy( 'faq-group', array( 'faq' ), apply_filters( 'qe_register_faq_group_arguments', $args ) );
+            register_taxonomy( 'faq-group', array( 'faq' ), apply_filters( 'inspiry_register_faq_group_arguments', $args ) );
 
         }
 

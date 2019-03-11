@@ -24,7 +24,7 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Public' ) ) {
         public function __construct() {
             $this->plugin_name = QE_FAQS_PLUGIN_NAME;
             $this->version = QE_FAQS_PLUGIN_VERSION;
-            $this->qe_public_hooks_execution();
+            $this->execute_public_hooks();
         }
 
         public static function instance() {
@@ -35,18 +35,18 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Public' ) ) {
             return self::$_instance;
         }
 
-        public function qe_public_hooks_execution() {
+        public function execute_public_hooks() {
 
-            add_action( 'wp_enqueue_scripts', array( $this, 'qe_public_enqueue_styles' ) );
-            add_action( 'wp_enqueue_scripts', array( $this, 'qe_public_enqueue_scripts' ) );
-            add_action( 'wp_head', array( $this, 'qe_public_custom_styles' ) );
-            
+            add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_public_styles' ) );
+            add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_public_scripts' ) );
+            add_action( 'wp_head', array( $this, 'add_public_custom_styles' ) );
+
         }
 
         /**
          * Register the stylesheets for the public-facing side of the site.
          */
-        public function qe_public_enqueue_styles() {
+        public function enqueue_public_styles() {
 
             $shortcodebeingused = new FAQs_Shortcode();
             if ( $shortcodebeingused->is_shortcode_being_used() ) {
@@ -67,7 +67,7 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Public' ) ) {
         /**
          * Register the stylesheets for the public-facing side of the site.
          */
-        public function qe_public_enqueue_scripts() {
+        public function enqueue_public_scripts() {
 
             $shortcodebeingused = new FAQs_Shortcode();
             if ( $shortcodebeingused->is_shortcode_being_used() ) {
@@ -79,7 +79,7 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Public' ) ) {
         /**
          * Generate custom css for FAQs based on settings
          */
-        public function qe_public_custom_styles () {
+        public function add_public_custom_styles() {
 
             $faqs_options = get_option( 'quick_and_easy_faqs_options' );
 
@@ -184,11 +184,11 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Public' ) ) {
 /**
  * Returns the main instance of Quick_And_Easy_FAQs_Public to prevent the need to use globals.
  */
-function init_qe_faqs_public() {
+function init_FAQs_Public() {
 	return Quick_And_Easy_FAQs_Public::instance();
 }
 
 /**
  * Get it running
  */
-init_qe_faqs_public();
+init_FAQs_Public();

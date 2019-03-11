@@ -35,7 +35,7 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
             $this->plugin_name = QE_FAQS_PLUGIN_NAME;
             $this->version = QE_FAQS_PLUGIN_VERSION;
             $this->domain = QE_FAQS_PLUGIN_NAME;
-            $this->admin_hooks_execution();
+            $this->execute_admin_hooks();
 
         }
 
@@ -47,12 +47,12 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
             return self::$_instance;
         }
 
-        public function admin_hooks_execution() {
+        public function execute_admin_hooks() {
             register_activation_hook( __FILE__, array( $this, 'faqs_activation' ) ); 
             register_deactivation_hook( __FILE__, array( $this, 'faqs_deactivation' ) );
 
-            add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_styles' ) );
-            add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
+            add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
+            add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
             add_action( 'plugins_loaded', array( $this, 'faqs_load_textdomain' ) );
         }
 
@@ -88,7 +88,7 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
         /**
          * Register the stylesheets for the admin area.
          */
-        public function admin_enqueue_styles() {
+        public function enqueue_admin_styles() {
             // Add the color picker css file
             wp_enqueue_style( 'wp-color-picker' );
             // plugin custom css file
@@ -98,7 +98,7 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
         /**
          * Register the JavaScript for the admin area.
          */
-        public function admin_enqueue_scripts() {
+        public function enqueue_admin_scripts() {
             wp_enqueue_script( $this->plugin_name, dirname( plugin_dir_url( __FILE__ ) ) . '/js/admin-scripts.js', array( 'jquery' , 'wp-color-picker' ), $this->version, false );
         }
         
@@ -121,14 +121,14 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
 /**
  * Returns the main instance of Quick_And_Easy_FAQs_Admin to prevent the need to use globals.
  */
-function init_qe_faqs_admin() {
+function init_FAQs_admin() {
 	return Quick_And_Easy_FAQs_Admin::instance();
 }
 
 /**
  * Get it running
  */
-init_qe_faqs_admin();
+init_FAQs_admin();
 
 add_action('pre_get_posts', 'inspiry_push_faq_to_search_results', 99);
 
