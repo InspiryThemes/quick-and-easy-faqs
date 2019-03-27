@@ -1,6 +1,6 @@
 <?php
 /**
- * TinyMCE - Classic Editor Button for the plugin
+ * TinyMCE - Classic Editor Button for FAQs
  */
 if ( ! class_exists( 'FAQs_Add_Classic_Editor_Button' ) ) {
 
@@ -21,14 +21,18 @@ if ( ! class_exists( 'FAQs_Add_Classic_Editor_Button' ) ) {
             return self::$_instance;
         }
 
+        /**
+         * Enqueue TinyMCE Plugin Script with its ID.
+         */
         public function enqueue_plugin_scripts( $plugin_array ) {
-            // Enqueue TinyMCE Plugin Script with its ID.
             $plugin_array['faqs_button'] =  dirname( plugin_dir_url( __FILE__ ) ) . '/js/classic-editor-button.js';
             return $plugin_array;
         }
         
+        /**
+         * Register Button with its ID.
+         */
         public function register_buttons_editor($buttons) {
-            // Register Button with its ID.
             array_push($buttons, 'faqs');
             return $buttons;
         }

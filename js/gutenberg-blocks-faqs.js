@@ -16,7 +16,7 @@ var faqs_svg = wp.element.createElement('svg',
 );
 
 /**
- * FAQs Block
+ * FAQs Blocks
  */
 var el = wp.element.createElement,
     registerBlockType = wp.blocks.registerBlockType,
