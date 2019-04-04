@@ -31,7 +31,7 @@ if ( ! class_exists( 'FAQs_Post_Type_And_Taxonomy' ) ) {
                 'name'                => _x( 'FAQs', 'Post Type General Name', 'quick-and-easy-faqs' ),
                 'singular_name'       => _x( 'FAQ', 'Post Type Singular Name', 'quick-and-easy-faqs' ),
                 'menu_name'           => __( 'FAQs', 'quick-and-easy-faqs' ),
-                'name_admin_bar'      => __( 'FAQs', 'quick-and-easy-faqs' ),
+                'name_admin_bar'      => __( 'FAQ', 'quick-and-easy-faqs' ),
                 'parent_item_colon'   => __( 'Parent FAQ:', 'quick-and-easy-faqs' ),
                 'all_items'           => __( 'FAQs', 'quick-and-easy-faqs' ),
                 'add_new_item'        => __( 'Add New FAQ', 'quick-and-easy-faqs' ),
