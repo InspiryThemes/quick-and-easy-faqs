@@ -48,8 +48,7 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Public' ) ) {
          */
         public function enqueue_public_styles() {
 
-            $shortcodebeingused = new FAQs_Shortcode();
-            if ( $shortcodebeingused->is_shortcode_being_used() ) {
+            if ( FAQs_Shortcode::instance()->is_shortcode_being_used() ) {
                 wp_enqueue_style( 'font-awesome', dirname( plugin_dir_url( __FILE__ ) ) . '/css/font-awesome.min.css', array(), $this->version, 'all' );
                 wp_enqueue_style( $this->plugin_name, dirname( plugin_dir_url( __FILE__ ) ) . '/css/styles-public.css', array(), $this->version, 'all' );
 
@@ -69,8 +68,7 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Public' ) ) {
          */
         public function enqueue_public_scripts() {
 
-            $shortcodebeingused = new FAQs_Shortcode();
-            if ( $shortcodebeingused->is_shortcode_being_used() ) {
+            if ( FAQs_Shortcode::instance()->is_shortcode_being_used() ) {
                 wp_enqueue_script( $this->plugin_name, dirname( plugin_dir_url( __FILE__ ) ) . '/js/public-scripts.js', array( 'jquery' ), $this->version, false );
             }
 
