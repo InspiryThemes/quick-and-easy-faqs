@@ -1,6 +1,6 @@
 # Quick and Easy FAQs Plugin
 
-This plugin provides a quick and easy way to add FAQs to your site using shortcodes.
+This plugin provides a quick and easy way to add FAQs to your website.
 
 ### Features
 
@@ -10,7 +10,7 @@ This plugin provides a quick and easy way to add FAQs to your site using shortco
 * Display FAQs in filterable toggle style.
 * Settings page to change toggle style text, background and border colors.
 * Custom CSS box in settings page to override default styles.
-* Translation Ready ( Comes with related pot and po files )
+* Translation Ready ( Comes with POT file and few partially translated po & mo files )
 * RTL ( Right to Left Language ) Support
 * Support for Visual Composer Plugin
 

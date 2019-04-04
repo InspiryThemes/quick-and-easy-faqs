@@ -1,8 +1,8 @@
 === Quick and Easy FAQs ===
 Contributors: inspirythemes, saqibsarwar
 Tags: FAQs, FAQ, FAQs list, accordion FAQs, toggle FAQs, filtered FAQs, grouped FAQs
-Requires at least: 4.0
-Tested up to: 5.1
+Requires at least: 4.6
+Tested up to: 5.1.1
 Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -73,10 +73,11 @@ This plugin provides a quick and easy way add FAQs using custom post type and la
 == Changelog ==
 
 = 1.2.0 =
-* Re-Organised file and code structure
+* Re-Organised code files for simpler editing
 * Added FAQs option in Classic Editor
-* Added FAQs blocks in Gutenberg
-* Tested for WordPress 5.1
+* Added FAQs basic blocks in Gutenberg Editor
+* Added WPML translation support
+* Tested on WordPress 5.1
 
 = 1.1.3 =
 * Added partially translated language files for Spanish, French, German, Italian, Turkish and Portuguese.
