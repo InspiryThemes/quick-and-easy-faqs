@@ -287,7 +287,7 @@ if ( ! class_exists( 'Add_FAQs_Settings' ) ) {
          * Add plugin action links
          */
         public function faqs_action_links( $links ) {
-            $links[] = '<a href="'. get_admin_url( null, 'plugins.php?page=quick_and_easy_faqs' ) .'">' . __( 'Settings', 'quick-and-easy-faqs' ) . '</a>';
+            $links[] = '<a href="'. get_admin_url( null, 'edit.php?post_type=faq&page=quick_and_easy_faqs' ) .'">' . __( 'Settings', 'quick-and-easy-faqs' ) . '</a>';
             return $links;
         }
 
