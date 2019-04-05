@@ -129,32 +129,3 @@ function init_FAQs_admin() {
  * Get it running
  */
 init_FAQs_admin();
-
-add_action('pre_get_posts', 'inspiry_push_faq_to_search_results', 99);
-
-function inspiry_push_faq_to_search_results( $query ) {
-
-    if ( is_search() && $query->is_main_query() && $query->get( 's' ) ) :
-
-        $post_types = $query->get('post_type');
-
-            if ( empty( $post_types ) ) {
-                $post_types = array(
-                    'post',
-                    'page',
-                );
-                array_push( $post_types, 'faq' );
-            } else {
-                if ( is_array( $post_types ) && ! empty( $post_types ) ) {
-                    array_push( $post_types, 'faq' );
-                }
-            }
-
-        $post_types = array_filter( $post_types );
-        $query->set('post_type', $post_types);
-        
-    endif;
-
-    return $query;
-
-}
