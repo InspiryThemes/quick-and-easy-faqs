@@ -9,8 +9,10 @@ if ( ! class_exists( 'FAQs_Add_Gutenberg_Blocks' ) ) {
         protected static $_instance;
 
         public function __construct() {
-            add_filter( 'block_categories', array( $this, 'add_faqs_block_category' ) );
-            add_action( 'init', array( $this, 'add_all_faqs_block' ) );
+            if ( Quick_And_Easy_FAQs_Admin::is_gutenberg_active() ) {
+                add_filter( 'block_categories', array( $this, 'add_faqs_block_category' ) );
+                add_action( 'init', array( $this, 'add_all_faqs_block' ) );
+            }
         }
 
         public static function instance() {
