@@ -87,6 +87,13 @@ if ( ! class_exists( 'FAQs_Shortcode' ) ) {
 
             ob_start();
 
+	        wp_enqueue_style( 'font-awesome' );
+	        wp_enqueue_style(  $this->plugin_name );
+
+	        if ( is_rtl() ) {
+		        wp_enqueue_style( $this->plugin_name . '-rtl' );
+	        }
+
             if ( $style == 'toggle' ) {
                 if ( $grouped == 'yes' ) {
                     $this->toggles_grouped_faqs( $filter_array );
@@ -102,6 +109,8 @@ if ( ! class_exists( 'FAQs_Shortcode' ) ) {
                     $this->list_all_faqs( $filter_array );
                 }
             }
+
+	        wp_enqueue_script( $this->plugin_name );
 
             return ob_get_clean();
 
