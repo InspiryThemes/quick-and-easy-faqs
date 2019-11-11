@@ -20,21 +20,20 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Global Constants to be used throughout the plugin
  */
-define( 'QE_FAQS_PLUGIN_BASENAME', plugin_basename(__FILE__) );
-define( 'QE_FAQS_PLUGIN_NAME', 'quick-and-easy-faqs' );
-define( 'QE_FAQS_PLUGIN_VERSION', '1.2.4' );
+define( 'QUICK_AND_EASY_FAQS_VERSION', '1.2.4' );
 
 /**
- * Loading core class for the admin (backend) side
+ * The core plugin class that is used to define all site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-faqs-admin.php';
-require plugin_dir_path( __FILE__ ) . 'includes/class-faqs-post-type.php';
-require plugin_dir_path( __FILE__ ) . 'includes/class-faqs-settings.php';
-require plugin_dir_path( __FILE__ ) . 'includes/class-faqs-shortcode.php';
-require plugin_dir_path( __FILE__ ) . 'includes/class-faqs-classic-editor.php';
-require plugin_dir_path( __FILE__ ) . 'includes/class-faqs-gutenberg-editor.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-quick-and-easy-faqs.php';
 
 /**
- * Loading core class for the public (frontend) side
+ * Since everything within the plugin is registered via hooks,
+ * then kicking off the plugin from this point in the file does not affect the page life cycle.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-faqs-public.php';
+function run_quick_and_easy_faqs() {
+
+	return Quick_And_Easy_Faqs::instance();
+
+}
+run_quick_and_easy_faqs();
