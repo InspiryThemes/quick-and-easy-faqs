@@ -6,9 +6,10 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the admin-specific stylesheet and JavaScript.
  */
-if ( ! class_exists( 'Add_FAQs_Settings' ) ) {
 
-	class Add_FAQs_Settings {
+namespace Quick_And_Easy_Faqs;
+
+class Settings {
 
 		/**
 		 * FAQs options
@@ -278,4 +279,3 @@ if ( ! class_exists( 'Add_FAQs_Settings' ) ) {
 
 	}
 
-}

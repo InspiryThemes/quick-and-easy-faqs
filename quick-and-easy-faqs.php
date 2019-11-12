@@ -27,13 +27,15 @@ define( 'QUICK_AND_EASY_FAQS_VERSION', '1.2.4' );
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-quick-and-easy-faqs.php';
 
+use Quick_And_Easy_Faqs\Faqs;
+
 /**
  * Since everything within the plugin is registered via hooks,
  * then kicking off the plugin from this point in the file does not affect the page life cycle.
  */
 function run_quick_and_easy_faqs() {
 
-	return Quick_And_Easy_Faqs::instance();
+	return Faqs::instance();
 
 }
 run_quick_and_easy_faqs();

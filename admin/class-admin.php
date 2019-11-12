@@ -6,9 +6,10 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the admin-specific stylesheet and JavaScript.
  */
-if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
 
-	class Quick_And_Easy_FAQs_Admin {
+namespace Quick_And_Easy_Faqs;
+
+class Admin {
 
 		/**
 		 * The ID of this plugin.
@@ -114,4 +115,3 @@ if ( ! class_exists( 'Quick_And_Easy_FAQs_Admin' ) ) {
 		}
 
 	}
-}

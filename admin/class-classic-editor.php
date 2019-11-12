@@ -2,9 +2,10 @@
 /**
  * TinyMCE - Classic Editor Button for FAQs
  */
-if ( ! class_exists( 'FAQs_Add_Classic_Editor_Button' ) ) {
 
-	class FAQs_Add_Classic_Editor_Button {
+namespace Quick_And_Easy_Faqs;
+
+class Classic_Editor {
 
 
 		/**
@@ -26,4 +27,4 @@ if ( ! class_exists( 'FAQs_Add_Classic_Editor_Button' ) ) {
 		}
 
 	}
-}
+

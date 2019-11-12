@@ -7,7 +7,10 @@
  * public-facing side of the site and the admin area. Also maintains the unique identifier
  * of this plugin as well as the current version of the plugin.
  */
-class Quick_And_Easy_Faqs {
+
+namespace Quick_And_Easy_Faqs;
+
+class Faqs {
 
 	/**
 	 * The unique identifier of this plugin.
@@ -57,11 +60,11 @@ class Quick_And_Easy_Faqs {
 	 */
 	private function load_admin_dependencies() {
 
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-faqs-admin.php';
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-faqs-post-type.php';
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-faqs-settings.php';
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-faqs-classic-editor.php';
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-faqs-gutenberg-editor.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-admin.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-register-post-and-taxonomy.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-settings.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-classic-editor.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-gutenberg-editor.php';
 
 	}
 
@@ -70,8 +73,8 @@ class Quick_And_Easy_Faqs {
 	 */
 	private function load_public_dependencies() {
 
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-faqs-public.php';
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-faqs-shortcode.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-frontend.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-shortcode.php';
 
 	}
 
@@ -93,25 +96,25 @@ class Quick_And_Easy_Faqs {
 	 */
 	private function define_admin_hooks() {
 
-		$post_type = new FAQs_Post_Type_And_Taxonomy();
+		$post_type = new Register_Post_And_Taxonomy();
 		add_action( 'init', [ $post_type, 'register_faqs_post_type' ] );
 		add_action( 'init', [ $post_type, 'register_faqs_group_taxonomy' ] );
 
-		$plugin_admin = new Quick_And_Easy_FAQs_Admin( $this->plugin_name, $this->version );
+		$plugin_admin = new Admin( $this->plugin_name, $this->version );
 		add_action( 'admin_enqueue_scripts', [ $plugin_admin, 'enqueue_admin_styles' ] );
 		add_action( 'admin_enqueue_scripts', [ $plugin_admin, 'enqueue_admin_scripts' ] );
 
-		$classic_editor = new FAQs_Add_Classic_Editor_Button();
+		$classic_editor = new Classic_Editor();
 		add_filter( 'mce_external_plugins', [ $classic_editor, 'enqueue_plugin_scripts' ] );
 		add_filter( 'mce_buttons', [ $classic_editor, 'register_buttons_editor' ] );
 
-		$gutenberg_button = new FAQs_Add_Gutenberg_Blocks();
-		if ( Quick_And_Easy_FAQs_Admin::is_gutenberg_active() ) {
+		$gutenberg_button = new Gutenberg_Editor();
+		if ( Admin::is_gutenberg_active() ) {
 			add_filter( 'block_categories', [ $gutenberg_button, 'add_faqs_block_category' ] );
 			add_action( 'init', [ $gutenberg_button, 'add_all_faqs_block' ] );
 		}
 
-		$faq_settings = new Add_FAQs_Settings();
+		$faq_settings = new Settings();
 		add_action( 'admin_menu', [ $faq_settings, 'add_faqs_options_page' ] );
 		add_action( 'admin_init', [ $faq_settings, 'initialize_faqs_options' ] );
 		add_filter( 'plugin_action_links_' . $this->plugin_name, [ $faq_settings, 'faqs_action_links' ] );
@@ -122,13 +125,13 @@ class Quick_And_Easy_Faqs {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new Quick_And_Easy_Faqs_Public( $this->plugin_name, $this->version );
+		$plugin_public = new Frontend( $this->plugin_name, $this->version );
 		add_action( 'wp_enqueue_scripts', [ $plugin_public, 'enqueue_public_styles' ] );
 		add_action( 'wp_enqueue_scripts', [ $plugin_public, 'enqueue_public_scripts' ] );
 		add_action( 'wp_head', [ $plugin_public, 'add_public_custom_styles' ] );
 
 
-		$faqs_shortcodes = new FAQs_Shortcode( $this->plugin_name, $this->version );
+		$faqs_shortcodes = new Shortcodes( $this->plugin_name, $this->version );
 		add_action( 'init', [ $faqs_shortcodes, 'register_faqs_shortcodes' ] );
 
 		if ( class_exists( 'Vc_Manager' ) ) {
