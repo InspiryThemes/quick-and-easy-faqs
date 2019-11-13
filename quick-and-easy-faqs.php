@@ -25,9 +25,9 @@ define( 'QUICK_AND_EASY_FAQS_VERSION', '1.2.4' );
 /**
  * The core plugin class that is used to define all site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-quick-and-easy-faqs.php';
+require plugin_dir_path( __FILE__ ) . 'includes/autoload.php';
 
-use Quick_And_Easy_Faqs\Faqs;
+use Quick_And_Easy_Faqs\Includes\Faqs;
 
 /**
  * Since everything within the plugin is registered via hooks,
@@ -39,3 +39,4 @@ function run_quick_and_easy_faqs() {
 
 }
 run_quick_and_easy_faqs();
+

@@ -3,9 +3,9 @@
  * The public-facing functionality of the plugin.
  */
 
-namespace Quick_And_Easy_Faqs;
+namespace Quick_And_Easy_Faqs\Frontend;
 
-class Shortcodes {
+class Shortcode {
 
 	/**
 	 * The ID of this plugin.
@@ -185,7 +185,8 @@ class Shortcodes {
 				// display all if filter array is empty OR display only specified groups if filter array contains group slugs
 				if ( empty( $filter_array ) || in_array( $faq_group->slug, $filter_array ) ) {
 
-					$faqs_queries_array[ $query_index ] = new WP_Query( array(
+					$faqs_queries_array[ $query_index ] = new \WP_Query(
+						array(
 							'post_type'      => 'faq',
 							'posts_per_page' => - 1,
 							'tax_query'      => array(
@@ -193,12 +194,12 @@ class Shortcodes {
 									'taxonomy' => 'faq-group',
 									'field'    => 'slug',
 									'terms'    => $faq_group->slug,
-								)
+								),
 							),
 						)
 					);
 
-					// FAQs index
+					// FAQs index.
 					if ( $faqs_queries_array[ $query_index ]->have_posts() ) :
 						echo '<h4 class="qe-faqs-group-title">' . $faq_group->name . '</h4>';
 						echo '<ol class="qe-faqs-group-index qe-faqs-index-list">';

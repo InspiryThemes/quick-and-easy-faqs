@@ -4,7 +4,7 @@
  * The public-facing functionality of the plugin.
  */
 
-namespace Quick_And_Easy_Faqs;
+namespace Quick_And_Easy_Faqs\Frontend;
 
 class Frontend {
 
@@ -36,13 +36,13 @@ class Frontend {
 		//if ( FAQs_Shortcode::instance()->is_shortcode_being_used() ) {
 		wp_register_style(
 			'font-awesome',
-			dirname( plugin_dir_url( __FILE__ ) ) . '/public/css/font-awesome.min.css',
+			dirname( plugin_dir_url( __FILE__ ) ) . '/frontend/css/font-awesome.min.css',
 			array(),
 			$this->version, 'all'
 		);
 		wp_register_style(
 			$this->plugin_name,
-			dirname( plugin_dir_url( __FILE__ ) ) . '/public/css/styles-public.css',
+			dirname( plugin_dir_url( __FILE__ ) ) . '/frontend/css/styles-public.css',
 			array(),
 			$this->version,
 			'all'
@@ -67,7 +67,7 @@ class Frontend {
 		//if ( FAQs_Shortcode::instance()->is_shortcode_being_used() ) {
 		wp_register_script(
 			$this->plugin_name,
-			dirname( plugin_dir_url( __FILE__ ) ) . '/public/js/public-scripts.js',
+			dirname( plugin_dir_url( __FILE__ ) ) . '/frontend/js/public-scripts.js',
 			array( 'jquery' ),
 			$this->version,
 			true

@@ -8,7 +8,15 @@
  * of this plugin as well as the current version of the plugin.
  */
 
-namespace Quick_And_Easy_Faqs;
+namespace Quick_And_Easy_Faqs\Includes;
+
+use Quick_And_Easy_Faqs\Admin\Admin;
+use Quick_And_Easy_Faqs\Admin\Settings;
+use Quick_And_Easy_Faqs\Admin\Gutenberg_Editor;
+use Quick_And_Easy_Faqs\Admin\Classic_Editor;
+use Quick_And_Easy_Faqs\Admin\Register_Post_And_Taxonomy;
+use Quick_And_Easy_Faqs\Frontend\Frontend;
+use Quick_And_Easy_Faqs\Frontend\Shortcode;
 
 class Faqs {
 
@@ -36,8 +44,6 @@ class Faqs {
 
 		$this->plugin_name = 'quick-and-easy-faqs';
 
-		$this->load_admin_dependencies();
-		$this->load_public_dependencies();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
 
@@ -52,30 +58,8 @@ class Faqs {
 		if ( is_null( self::$qae_instance ) ) {
 			self::$qae_instance = new self();
 		}
+
 		return self::$qae_instance;
-	}
-
-	/**
-	 * Load the admin dependencies for this plugin.
-	 */
-	private function load_admin_dependencies() {
-
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-admin.php';
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-register-post-and-taxonomy.php';
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-settings.php';
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-classic-editor.php';
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-gutenberg-editor.php';
-
-	}
-
-	/**
-	 * Load the admin dependencies for this plugin.
-	 */
-	private function load_public_dependencies() {
-
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-frontend.php';
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-shortcode.php';
-
 	}
 
 	/**
@@ -88,7 +72,6 @@ class Faqs {
 			false,
 			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);
-
 	}
 
 	/**
@@ -131,7 +114,7 @@ class Faqs {
 		add_action( 'wp_head', [ $plugin_public, 'add_public_custom_styles' ] );
 
 
-		$faqs_shortcodes = new Shortcodes( $this->plugin_name, $this->version );
+		$faqs_shortcodes = new Shortcode( $this->plugin_name, $this->version );
 		add_action( 'init', [ $faqs_shortcodes, 'register_faqs_shortcodes' ] );
 
 		if ( class_exists( 'Vc_Manager' ) ) {
