@@ -98,9 +98,8 @@ class Faqs {
 		}
 
 		$faq_settings = new Settings();
+		add_action( 'admin_menu', [ $faq_settings, 'booking_settings_init' ] );
 		add_action( 'admin_menu', [ $faq_settings, 'add_faqs_options_page' ] );
-		add_action( 'admin_init', [ $faq_settings, 'initialize_faqs_options' ] );
-		add_filter( 'plugin_action_links_' . $this->plugin_name, [ $faq_settings, 'faqs_action_links' ] );
 	}
 
 	/**
