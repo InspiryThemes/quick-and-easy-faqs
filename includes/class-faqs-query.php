@@ -12,7 +12,7 @@ class Faqs_Query {
 	 *
 	 * @var array $faqs_query
 	 */
-	private $faqs_query;
+	protected $faqs_query;
 
 	/**
 	 * Holds the value of display type of faqs.
@@ -36,32 +36,10 @@ class Faqs_Query {
 	 */
 	public function __construct( $display = '', $filters = false || [] ) {
 
-		$this->display    = $display;
-		$this->filters    = $filters;
-		$this->faqs_query = $this->query_build();
-	}
+		$this->display = $display;
+		$this->filters = $filters;
 
-	/**
-	 * Build the basic query for faqs.
-	 */
-	protected function query_build() {
-
-		$query = [
-			'post_type'      => 'faq',
-			'posts_per_page' => - 1,
-		];
-
-		if ( is_array( $this->filters ) && ! empty( $this->filters ) ) {
-
-			$query['tax_query'] = [
-
-				[
-					'taxonomy' => 'faq-group',
-					'field'    => 'slug',
-					'terms'    => $this->filters,
-				],
-			];
-		} elseif ( $this->filters || 'grouped' === $this->display ) {
+		if ( $this->filters ) {
 
 			$terms = get_terms(
 				[
@@ -71,39 +49,37 @@ class Faqs_Query {
 			);
 
 			$this->filters = $terms;
+		}
 
-			if ( ! empty( $terms ) ) {
 
-				$query['tax_query'] = [
-					[
-						'taxonomy' => 'faq-group',
-						'field'    => 'slug',
-						'terms'    => $terms,
-					],
-				];
-			}
+		$this->faqs_query = $this->query_build();
+	}
+
+	/**
+	 * Build the basic query for faqs.
+	 */
+	protected function query_build() {
+
+
+
+		$query = [
+			'post_type'      => 'faq',
+			'posts_per_page' => - 1,
+		];
+
+		if ( $this->filters ) {
+
+			$query['tax_query'] = [
+				[
+					'taxonomy' => 'faq-group',
+					'field'    => 'slug',
+					'terms'    => $this->filters,
+				],
+			];
 		}
 
 		return $query;
 	}
-
-	/**
-	 * Build and render the faqs
-	 *
-	 * @param string $id Html Post ID.
-	 * @param string $class Html class.
-	 */
-	protected function build_faqs_structure( $id, $class = 'faq-content' ) {
-		?>
-		<div id="qaef-<?php echo esc_attr( $id ); ?>" class="qe-<?php echo esc_attr( $class ); ?>">
-			<div class="qe-toggle-title">
-				<h4><i class="fa fa-plus-circle"></i><?php echo esc_html( get_the_title( $id ) ); ?></h4>
-			</div>
-			<div class="qe-<?php echo esc_attr( $class ); ?>"><?php echo get_the_content( $id ); ?></div>
-		</div>
-		<?php
-	}
-
 
 	/**
 	 * Build and render the faqs
@@ -138,7 +114,6 @@ class Faqs_Query {
 		echo '</ol></div>';
 	}
 
-
 	/**
 	 * Render the faqs title
 	 *
@@ -164,9 +139,77 @@ class Faqs_Query {
 
 			$this->build_titles_structure( $faq_terms_posts );
 
-		} else {
+		} elseif ( '' === $this->display ) {
+
 			$this->build_titles_structure( $faqs_posts_ids );
 		}
+	}
+
+	/**
+	 * Build and render the faqs filters
+	 */
+	protected function build_faqs_filter_structure() {
+
+		if ( $this->filters ) {
+			?>
+			<ul class="qe-faqs-filters-container">
+				<li><a class="qe-faqs-filter" href="#" data-filter="*"><?php esc_html_e( 'All', 'quick-and-easy-faqs' ); ?></a></li>
+				<?php
+				foreach ( $this->filters as $term ) {
+					echo '<li><a class="qe-faqs-filter" href="#' . esc_attr( $term ) . '" data-filter=".' . esc_attr( $term ) . '">' . esc_html( ucwords( str_replace( '-', ' ', $term ) ) ) . '</a></li>';
+				}
+				?>
+			</ul>
+			<?php
+		}
+	}
+
+	/**
+	 * Get and render the faqs icon
+	 *
+	 * @return string HTML.
+	 */
+	protected function get_the_icon() {
+
+		if ( empty( $this->display ) || 'grouped' === $this->display ) {
+			$class = 'fa fa-question-circle';
+		} else {
+			$class = 'fa fa-minus-circle';
+		}
+
+		return '<i class="' . esc_attr( $class ) . '"></i> ';
+	}
+
+	/**
+	 * Build and render the faqs
+	 *
+	 * @param string $id Html Post ID.
+	 * @param string $class Html class.
+	 */
+	protected function build_faqs_structure( $id, $class = '' ) {
+
+		$terms_slugs = [];
+		$terms       = get_the_terms( $id, 'faq-group' );
+
+		if ( $terms && ! is_wp_error( $terms ) ) {
+
+			foreach ( $terms as $term ) {
+				$terms_slugs[] = $term->slug;
+			}
+		}
+		?>
+		<div id="qaef-<?php echo esc_attr( $id ); ?>" class="qe-faq-<?php echo esc_attr( $class ) . ' ' . esc_attr( implode( ' ', $terms_slugs ) ); ?>">
+			<div class="qe-<?php echo esc_attr( $class ); ?>-title">
+                <h4>
+					<?php
+					echo wp_kses( $this->get_the_icon(), [ 'i' => [ 'class' => [] ] ] );
+					echo esc_html( get_the_title( $id ) );
+					?>
+                </h4>
+			</div>
+			<div class="qe-<?php echo esc_attr( $class ); ?>-content"><?php echo wp_kses_post( get_the_content( $id ) ); ?></div>
+		</div>
+		<?php
 	}
 
 	/**
@@ -180,26 +223,19 @@ class Faqs_Query {
 
 			$faqs_array     = $faq_posts->posts;
 			$faqs_posts_ids = wp_list_pluck( $faqs_array, 'ID' );
+
+			$this->build_faqs_filter_structure();
+
 			$this->render_faqs_title( $faqs_posts_ids );
 
 			while ( $faq_posts->have_posts() ) :
+
 				$faq_posts->the_post();
 
-				switch ( $this->display ) {
+				$this->build_faqs_structure( get_the_ID(), $this->display );
 
-					case 'toggle':
-						$this->build_faqs_structure( get_the_ID(), 'faq-toggle' );
-						break;
-
-					case 'accordion':
-						$this->build_faqs_structure( get_the_ID(), 'faq-toggle' );
-						break;
-
-					default:
-						$this->build_faqs_structure( get_the_ID() );
-						break;
-				};
 			endwhile;
+
 		endif;
 
 		// All the custom loops ends here so reset the query.

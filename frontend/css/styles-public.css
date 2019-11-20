@@ -24,6 +24,10 @@
   transition: all 0.2s;
   padding: 1em;
 }
+.qe-faq-toggle .qe-toggle-title h4{
+	font-size: inherit;
+	margin: 0;
+}
 .qe-faq-toggle .qe-toggle-title i.fa {
   margin-right: 0.5em;
 }
