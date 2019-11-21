@@ -67,7 +67,7 @@ class Frontend {
 		//if ( FAQs_Shortcode::instance()->is_shortcode_being_used() ) {
 		wp_register_script(
 			$this->plugin_name,
-			dirname( plugin_dir_url( __FILE__ ) ) . '/frontend/js/public-scripts.js',
+			dirname( plugin_dir_url( __FILE__ ) ) . '/frontend/js/scripts.js',
 			array( 'jquery' ),
 			$this->version,
 			true
