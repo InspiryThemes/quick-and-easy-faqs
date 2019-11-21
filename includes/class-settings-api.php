@@ -112,8 +112,15 @@ class Settings_API {
 				add_option( $section['id'] );
 			}
 			if ( isset( $section['desc'] ) && ! empty( $section['desc'] ) ) {
+
 				$section['desc'] = '<div class="inside">' . $section['desc'] . '</div>';
-				$callback        = create_function( '', 'echo "' . str_replace( '"', '\"', $section['desc'] ) . '";' );
+
+				$callback = function () use ( $section ) {
+					if ( isset( $section['desc'] ) ) {
+						echo wp_kses_post( str_replace( '"', '\"', $section['desc'] ) );
+					}
+				};
+
 			} elseif ( isset( $section['callback'] ) ) {
 				$callback = $section['callback'];
 			} else {
