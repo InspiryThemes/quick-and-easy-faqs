@@ -109,8 +109,10 @@ class Shortcode {
 		extract(
 			shortcode_atts(
 				[
-					'style'  => '',
-					'filter' => false,
+					'style'   => '',
+					'filter'  => false,
+					'orderby' => 'date',
+					'order'   => 'DESC',
 				],
 				$attributes,
 				'faqs'
@@ -131,7 +133,7 @@ class Shortcode {
 			wp_enqueue_style( $this->plugin_name . '-rtl' );
 		}
 
-		$faqs_query = new Faqs_Query( $style, $filter );
+		$faqs_query = new Faqs_Query( $style, $filter, $orderby, $order );
 		$faqs_query->render();
 
 		wp_localize_script(
