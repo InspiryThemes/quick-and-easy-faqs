@@ -37,9 +37,9 @@ class Settings {
 	}
 
 	/**
-	 * Init Booking Settings.
+	 * Init Settings.
 	 */
-	public function booking_settings_init() {
+	public function settings_init() {
 
 		// set the settings.
 		$this->settings_api->set_sections( $this->get_settings_sections() );
@@ -63,7 +63,7 @@ class Settings {
 			__( 'Settings', 'quick-and-easy-faqs' ),
 			'manage_options',
 			'quick_and_easy_faqs',
-			array( $this, 'booking_settings_page' )
+			array( $this, 'settings_page' )
 		);
 
 	}
@@ -167,7 +167,7 @@ class Settings {
 	/**
 	 * Returns all setting page
 	 */
-	public function booking_settings_page() {
+	public function settings_page() {
 		echo '<div class="wrap">';
 		echo '<h2>' . esc_html__( 'Quick and Easy FAQs Settings', 'quick-and-easy-faqs' ) . '</h2><br />';
 		settings_errors();

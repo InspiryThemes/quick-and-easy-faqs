@@ -98,7 +98,7 @@ class Faqs {
 		}
 
 		$faq_settings = new Settings();
-		add_action( 'admin_menu', [ $faq_settings, 'booking_settings_init' ] );
+		add_action( 'admin_menu', [ $faq_settings, 'settings_init' ] );
 		add_action( 'admin_menu', [ $faq_settings, 'add_faqs_options_page' ] );
 	}
 
