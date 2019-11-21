@@ -82,6 +82,27 @@ class Faqs_Query {
 	}
 
 	/**
+	 * Build post terms slugs array
+	 *
+	 * @param int $id Holds the faq post ID.
+	 *
+	 * @return array terms array.
+	 */
+	protected function get_terms_slugs( $id ) {
+		$terms_slugs = [];
+		$terms       = get_the_terms( $id, 'faq-group' );
+
+		if ( $terms && ! is_wp_error( $terms ) ) {
+
+			foreach ( $terms as $term ) {
+				$terms_slugs[] = $term->slug;
+			}
+		}
+
+		return $terms_slugs;
+	}
+
+	/**
 	 * Build and render the faqs
 	 *
 	 * @param array $faq_terms_posts Holds the faq terms as slug and faqs ids as associative array.
@@ -97,15 +118,18 @@ class Faqs_Query {
 				echo '<h4 class="qe-faqs-group-title">' . esc_html( ucwords( str_replace( '-', ' ', $slug ) ) ) . '</h4>';
 
 				foreach ( $faq_ids as $id ) {
+
+					$terms_slugs = $this->get_terms_slugs( $id );
 					?>
-					<li>
+					<li class="<?php echo esc_attr( implode( ' ', $terms_slugs ) ); ?>">
 						<a href="#qaef-<?php echo esc_attr( $id ); ?>"><?php echo esc_html( get_the_title( $id ) ); ?></a>
 					</li>
 					<?php
 				}
 			} else {
+				$terms_slugs = $this->get_terms_slugs( $faq_ids );
 				?>
-				<li>
+				<li class="<?php echo esc_attr( implode( ' ', $terms_slugs ) ); ?>">
 					<a href="#qaef-<?php echo esc_attr( $faq_ids ); ?>"><?php echo esc_html( get_the_title( $faq_ids ) ); ?></a>
 				</li>
 				<?php
@@ -188,24 +212,22 @@ class Faqs_Query {
 	 */
 	protected function build_faqs_structure( $id, $class = '' ) {
 
-		$terms_slugs = [];
-		$terms       = get_the_terms( $id, 'faq-group' );
+		$terms_slugs = $this->get_terms_slugs( $id );
 
-		if ( $terms && ! is_wp_error( $terms ) ) {
-
-			foreach ( $terms as $term ) {
-				$terms_slugs[] = $term->slug;
-			}
+		if ( 'accordion' === $class || 'grouped-accordion' === $class || 'grouped-toggle' === $class ) {
+			$class = 'toggle';
+		} elseif ( empty( $class ) ) {
+			$class = 'list';
 		}
 		?>
 		<div id="qaef-<?php echo esc_attr( $id ); ?>" class="qe-faq-<?php echo esc_attr( $class ) . ' ' . esc_attr( implode( ' ', $terms_slugs ) ); ?>">
 			<div class="qe-<?php echo esc_attr( $class ); ?>-title">
-                <h4>
+				<h4>
 					<?php
 					echo wp_kses( $this->get_the_icon(), [ 'i' => [ 'class' => [] ] ] );
 					echo esc_html( get_the_title( $id ) );
 					?>
-                </h4>
+				</h4>
 			</div>
 			<div class="qe-<?php echo esc_attr( $class ); ?>-content"><?php echo wp_kses_post( get_the_content( $id ) ); ?></div>
 		</div>
