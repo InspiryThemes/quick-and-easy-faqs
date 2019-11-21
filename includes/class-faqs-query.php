@@ -39,7 +39,7 @@ class Faqs_Query {
 		$this->display = $display;
 		$this->filters = $filters;
 
-		if ( $this->filters ) {
+		if ( $this->filters && ! is_array( $this->filters ) ) {
 
 			$terms = get_terms(
 				[

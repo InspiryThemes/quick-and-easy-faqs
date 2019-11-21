@@ -83,6 +83,10 @@ class Shortcode {
 			unset( $attr['grouped'] );
 		}
 
+		if ( isset( $attr['filter'] ) && 'group-slug' === $attr['filter'] ) {
+			$attr['filter'] = true;
+		}
+
 		return $attr;
 	}
 
