@@ -31,7 +31,7 @@ class Faqs_Query {
 	/**
 	 * Initialize the class and set its properties.
 	 *
-	 * @param string       $display Display type of plugin.
+	 * @param string $display Display type of plugin.
 	 * @param bool | array $filters The filters of this plugin.
 	 */
 	public function __construct( $display = '', $filters = false || [] ) {
@@ -61,7 +61,6 @@ class Faqs_Query {
 	protected function query_build() {
 
 
-
 		$query = [
 			'post_type'      => 'faq',
 			'posts_per_page' => - 1,
@@ -82,7 +81,7 @@ class Faqs_Query {
 	}
 
 	/**
-	 * Build post terms slugs array
+	 * Helper function to build faq terms slugs array
 	 *
 	 * @param int $id Holds the faq post ID.
 	 *
@@ -100,6 +99,32 @@ class Faqs_Query {
 		}
 
 		return $terms_slugs;
+	}
+
+	/**
+	 * Helper function to build term faqs ids array
+	 *
+	 * @param array $faqs_posts_ids Holds the faq post IDs.
+	 *
+	 * @return array terms array.
+	 */
+	protected function get_term_faqs_ids( $faqs_posts_ids ) {
+
+		$faq_terms_posts = [];
+
+		foreach ( $faqs_posts_ids as $id ) {
+
+			$terms = get_the_terms( $id, 'faq-group' );
+
+			if ( $terms && ! is_wp_error( $terms ) ) {
+
+				foreach ( $terms as $term ) {
+					$faq_terms_posts[ $term->slug ][] = $id;
+				}
+			}
+		}
+
+		return $faq_terms_posts;
 	}
 
 	/**
@@ -147,19 +172,7 @@ class Faqs_Query {
 
 		if ( 'grouped' === $this->display ) {
 
-			$faq_terms_posts = [];
-
-			foreach ( $faqs_posts_ids as $id ) {
-
-				$terms = get_the_terms( $id, 'faq-group' );
-
-				if ( $terms && ! is_wp_error( $terms ) ) {
-
-					foreach ( $terms as $term ) {
-						$faq_terms_posts[ $term->slug ][] = $id;
-					}
-				}
-			}
+			$faq_terms_posts = $this->get_term_faqs_ids( $faqs_posts_ids );
 
 			$this->build_titles_structure( $faq_terms_posts );
 
@@ -207,31 +220,53 @@ class Faqs_Query {
 	/**
 	 * Build and render the faqs
 	 *
-	 * @param string $id Html Post ID.
-	 * @param string $class Html class.
+	 * @param int $id Holds the faq post id.
 	 */
-	protected function build_faqs_structure( $id, $class = '' ) {
+	protected function build_faqs_structure( $id ) {
+
+		if ( empty( $this->display ) ) {
+			$class = 'list';
+		} else {
+			$class = 'toggle';
+		}
 
 		$terms_slugs = $this->get_terms_slugs( $id );
-
-		if ( 'accordion' === $class || 'grouped-accordion' === $class || 'grouped-toggle' === $class ) {
-			$class = 'toggle';
-		} elseif ( empty( $class ) ) {
-			$class = 'list';
-		}
 		?>
-		<div id="qaef-<?php echo esc_attr( $id ); ?>" class="qe-faq-<?php echo esc_attr( $class ) . ' ' . esc_attr( implode( ' ', $terms_slugs ) ); ?>">
-			<div class="qe-<?php echo esc_attr( $class ); ?>-title">
-				<h4>
+        <div id="qaef-<?php echo esc_attr( $id ); ?>" class="qe-faq-<?php echo esc_attr( $class ) . ' ' . esc_attr( implode( ' ', $terms_slugs ) ); ?>">
+            <div class="qe-<?php echo esc_attr( $class ); ?>-title">
+                <h4>
 					<?php
 					echo wp_kses( $this->get_the_icon(), [ 'i' => [ 'class' => [] ] ] );
 					echo esc_html( get_the_title( $id ) );
 					?>
-				</h4>
-			</div>
-			<div class="qe-<?php echo esc_attr( $class ); ?>-content"><?php echo wp_kses_post( get_the_content( $id ) ); ?></div>
-		</div>
+                </h4>
+            </div>
+            <div class="qe-<?php echo esc_attr( $class ); ?>-content"><?php echo wp_kses_post( get_the_content( $id ) ); ?></div>
+        </div>
 		<?php
+	}
+
+	/**
+	 * Build and render the faqs
+	 *
+	 * @param int | array $ids Html Post IDs.
+	 */
+	protected function render_faqs( $ids ) {
+
+		if ( is_array( $ids ) ) {
+
+			$faq_terms_posts = $this->get_term_faqs_ids( $ids );
+
+			foreach ( $faq_terms_posts as $slug => $faq_ids ) {
+				echo '<h3 class="qe-faqs-group-title">' . esc_html( ucwords( str_replace( '-', ' ', $slug ) ) ) . '</h3>';
+				foreach ( $faq_ids as $id ) {
+					$this->build_faqs_structure( $id );
+				}
+			}
+		} else {
+
+			$this->build_faqs_structure( $ids );
+		}
 	}
 
 	/**
@@ -250,13 +285,17 @@ class Faqs_Query {
 
 			$this->render_faqs_title( $faqs_posts_ids );
 
-			while ( $faq_posts->have_posts() ) :
+			if ( 'grouped-accordion' === $this->display || 'grouped-toggle' === $this->display ) {
+				$this->render_faqs( $faqs_posts_ids );
+			} else {
+				while ( $faq_posts->have_posts() ) :
 
-				$faq_posts->the_post();
+					$faq_posts->the_post();
 
-				$this->build_faqs_structure( get_the_ID(), $this->display );
+					$this->render_faqs( get_the_ID() );
 
-			endwhile;
+				endwhile;
+			}
 
 		endif;
 

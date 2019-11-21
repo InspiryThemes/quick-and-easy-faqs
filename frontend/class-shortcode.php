@@ -78,6 +78,11 @@ class Shortcode {
 			$attr['filter'] = true;
 		}
 
+		if ( isset( $attr['style'] ) && 'toggle' === $attr['style'] && isset( $attr['grouped'] ) && 'yes' === $attr['grouped'] ) {
+			$attr['style'] = 'grouped-toggle';
+			unset( $attr['grouped'] );
+		}
+
 		if ( isset( $attr['grouped'] ) && 'yes' === $attr['grouped'] ) {
 			$attr['style'] = 'grouped';
 			unset( $attr['grouped'] );
