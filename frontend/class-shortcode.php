@@ -79,7 +79,7 @@ class Shortcode {
 		}
 
 		if ( isset( $attr['style'] ) && 'toggle' === $attr['style'] && isset( $attr['grouped'] ) && 'yes' === $attr['grouped'] ) {
-			$attr['style'] = 'grouped-toggle';
+			$attr['style'] = 'toggle-grouped';
 			unset( $attr['grouped'] );
 		}
 
@@ -134,6 +134,14 @@ class Shortcode {
 		$faqs_query = new Faqs_Query( $style, $filter );
 		$faqs_query->render();
 
+		wp_localize_script(
+			$this->plugin_name,
+			'qaef_object',
+			array(
+				'ajaxurl' => admin_url( 'admin-ajax.php' ),
+				'style'   => $style,
+			)
+		);
 		wp_enqueue_script( $this->plugin_name );
 
 		return ob_get_clean();

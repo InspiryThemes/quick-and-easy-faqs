@@ -20,6 +20,10 @@
 
         var parent_toggle = $(this).closest('.qe-faq-toggle');
 
+        if('accordion' === qaef_object.style || 'accordion-grouped' === qaef_object.style ){
+            parent_toggle.siblings().removeClass('active').find('.qe-toggle-content').slideUp('fast');
+            parent_toggle.siblings().find('i.fa').removeClass('fa-minus-circle').addClass('fa-plus-circle');
+        }
         if (parent_toggle.hasClass('active')) {
 
             $(this).find('i.fa').removeClass('fa-minus-circle').addClass('fa-plus-circle');

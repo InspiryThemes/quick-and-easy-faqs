@@ -241,7 +241,7 @@ class Faqs_Query {
 					?>
                 </h4>
             </div>
-            <div class="qe-<?php echo esc_attr( $class ); ?>-content"><?php echo wp_kses_post( get_the_content( $id ) ); ?></div>
+            <div class="qe-<?php echo esc_attr( $class ); ?>-content"><?php echo wp_kses_post( get_post_field('post_content', $id) ); ?></div>
         </div>
 		<?php
 	}
@@ -285,7 +285,8 @@ class Faqs_Query {
 
 			$this->render_faqs_title( $faqs_posts_ids );
 
-			if ( 'grouped-accordion' === $this->display || 'grouped-toggle' === $this->display ) {
+			if ( 'accordion-grouped' === $this->display || 'toggle-grouped' === $this->display ) {
+
 				$this->render_faqs( $faqs_posts_ids );
 			} else {
 				while ( $faq_posts->have_posts() ) :
