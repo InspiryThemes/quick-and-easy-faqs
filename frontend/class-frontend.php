@@ -103,14 +103,13 @@ class Frontend {
 	 * Generate custom css for FAQs based on settings
 	 */
 	public function add_public_custom_styles() {
+		$faqs_options = get_option( 'qaef_typography' );
 
-		$faqs_options = get_option( 'quick_and_easy_faqs_options' );
-
-		if ( $faqs_options && 'custom' === $faqs_options['faqs_toggle_colors'] ) {
+		if ( 'custom' === $this->get_option( 'faqs_toggle_colors', 'qaef_typography' ) ) {
 
 			$faqs_custom_css = array();
 
-			// Toggle question color
+			// Toggle question color.
 			if ( ! empty( $faqs_options['toggle_question_color'] ) ) {
 				$faqs_custom_css[] = array(
 					'elements' => '.qe-faq-toggle .qe-toggle-title',
@@ -119,7 +118,7 @@ class Frontend {
 				);
 			}
 
-			// Toggle question color on mouse over
+			// Toggle question color on mouse .
 			if ( ! empty( $faqs_options['toggle_question_hover_color'] ) ) {
 				$faqs_custom_css[] = array(
 					'elements' => '.qe-faq-toggle .qe-toggle-title:hover',
@@ -128,7 +127,7 @@ class Frontend {
 				);
 			}
 
-			// Toggle question background
+			// Toggle question background.
 			if ( ! empty( $faqs_options['toggle_question_bg_color'] ) ) {
 				$faqs_custom_css[] = array(
 					'elements' => '.qe-faq-toggle .qe-toggle-title',
@@ -137,7 +136,7 @@ class Frontend {
 				);
 			}
 
-			// Toggle question background on mouse over
+			// Toggle question background on mouse over.
 			if ( ! empty( $faqs_options['toggle_question_hover_bg_color'] ) ) {
 				$faqs_custom_css[] = array(
 					'elements' => '.qe-faq-toggle .qe-toggle-title:hover',
@@ -146,51 +145,51 @@ class Frontend {
 				);
 			}
 
-			// Toggle answer color
+			// Toggle answer color.
 			if ( ! empty( $faqs_options['toggle_answer_color'] ) ) {
 				$faqs_custom_css[] = array(
 					'elements' => '.qe-faq-toggle .qe-toggle-content',
 					'property' => 'color',
-					'value'    => $faqs_options['toggle_answer_color']
+					'value'    => $faqs_options['toggle_answer_color'],
 				);
 			}
 
-			// Toggle answer background color
+			// Toggle answer background color.
 			if ( ! empty( $faqs_options['toggle_answer_bg_color'] ) ) {
 				$faqs_custom_css[] = array(
 					'elements' => '.qe-faq-toggle .qe-toggle-content',
 					'property' => 'background-color',
-					'value'    => $faqs_options['toggle_answer_bg_color']
+					'value'    => $faqs_options['toggle_answer_bg_color'],
 				);
 			}
 
-			// Toggle border color
+			// Toggle border color.
 			if ( ! empty( $faqs_options['toggle_border_color'] ) ) {
 				$faqs_custom_css[] = array(
 					'elements' => '.qe-faq-toggle .qe-toggle-content, .qe-faq-toggle .qe-toggle-title',
 					'property' => 'border-color',
-					'value'    => $faqs_options['toggle_border_color']
+					'value'    => $faqs_options['toggle_border_color'],
 				);
 			}
 
-			// Generate css
+			// Generate css.
 			if ( 0 < count( $faqs_custom_css ) ) {
 				echo "<style type='text/css' id='faqs-custom-colors'>\n";
 				foreach ( $faqs_custom_css as $css_unit ) {
 					if ( ! empty ( $css_unit['value'] ) ) {
 						echo $css_unit['elements'] . "{\n";
-						echo $css_unit['property'] . ":" . $css_unit['value'] . ";\n";
+						echo $css_unit['property'] . ':' . $css_unit['value'] . ";\n";
 						echo "}\n";
 					}
 				}
 				echo '</style>';
 			}
-
 		}
 
 		// FAQs custom CSS.
-		if ( $faqs_options ) {
-			$faqs_custom_css = stripslashes( $faqs_options['faqs_custom_css'] );
+		$faqs_custom_css = $this->get_option( 'faqs_custom_css', 'qaef_typography' );
+		if ( $faqs_custom_css ) {
+			$faqs_custom_css = stripslashes( $faqs_custom_css );
 			if ( ! empty( $faqs_custom_css ) ) {
 				echo "\n<style type='text/css' id='faqs-custom-css'>\n";
 				echo $faqs_custom_css . "\n";
