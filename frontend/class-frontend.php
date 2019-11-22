@@ -33,12 +33,12 @@ class Frontend {
 	 */
 	public function enqueue_public_styles() {
 
-		//if ( FAQs_Shortcode::instance()->is_shortcode_being_used() ) {
 		wp_register_style(
 			'font-awesome',
 			dirname( plugin_dir_url( __FILE__ ) ) . '/frontend/css/font-awesome.min.css',
 			array(),
-			$this->version, 'all'
+			$this->version,
+			'all'
 		);
 		wp_register_style(
 			$this->plugin_name,
@@ -48,14 +48,19 @@ class Frontend {
 			'all'
 		);
 
-		// if rtl is enabled
+		// if rtl is enabled.
 		if ( is_rtl() ) {
-			wp_register_style( $this->plugin_name . '-rtl', dirname( plugin_dir_url( __FILE__ ) ) . '/public/css/styles-public-rtl.css', array(
-				$this->plugin_name,
-				'font-awesome'
-			), $this->version, 'all' );
+			wp_register_style(
+				$this->plugin_name . '-rtl',
+				dirname( plugin_dir_url( __FILE__ ) ) . '/public/css/styles-public-rtl.css',
+				array(
+					$this->plugin_name,
+					'font-awesome',
+				),
+				$this->version,
+				'all'
+			);
 		}
-		//}
 
 	}
 
@@ -64,7 +69,6 @@ class Frontend {
 	 */
 	public function enqueue_public_scripts() {
 
-		//if ( FAQs_Shortcode::instance()->is_shortcode_being_used() ) {
 		wp_register_script(
 			$this->plugin_name,
 			dirname( plugin_dir_url( __FILE__ ) ) . '/frontend/js/scripts.js',
@@ -72,7 +76,6 @@ class Frontend {
 			$this->version,
 			true
 		);
-		//}
 
 	}
 
