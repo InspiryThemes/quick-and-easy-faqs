@@ -110,7 +110,7 @@ class Faqs {
 		$plugin_public = new Frontend( $this->plugin_name, $this->version );
 		add_action( 'wp_enqueue_scripts', [ $plugin_public, 'enqueue_public_styles' ] );
 		add_action( 'wp_enqueue_scripts', [ $plugin_public, 'enqueue_public_scripts' ] );
-		add_action( 'wp_head', [ $plugin_public, 'add_public_custom_styles' ] );
+		add_action( 'wp_enqueue_scripts', [ $plugin_public, 'add_public_custom_styles' ] );
 
 
 		$faqs_shortcodes = new Shortcode( $this->plugin_name, $this->version );

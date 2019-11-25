@@ -156,29 +156,23 @@ class Frontend extends Utilities {
 
 			// Generate css.
 			if ( 0 < count( $faqs_custom_css ) ) {
-				echo "<style type='text/css' id='faqs-custom-colors'>\n";
+				$faqs_css = '';
 				foreach ( $faqs_custom_css as $css_unit ) {
-					if ( ! empty ( $css_unit['value'] ) ) {
-						echo $css_unit['elements'] . "{\n";
-						echo $css_unit['property'] . ':' . $css_unit['value'] . ";\n";
-						echo "}\n";
+					if ( ! empty( $css_unit['value'] ) ) {
+						$faqs_css .= $css_unit['elements'] . "{\n";
+						$faqs_css .= $css_unit['property'] . ':' . $css_unit['value'] . ";\n";
+						$faqs_css .= "}\n";
 					}
 				}
-				echo '</style>';
+				wp_add_inline_style( $this->plugin_name, $faqs_css );
 			}
 		}
 
 		// FAQs custom CSS.
 		$faqs_custom_css = $this->get_option( 'faqs_custom_css', 'qaef_typography' );
 		if ( $faqs_custom_css ) {
-			$faqs_custom_css = stripslashes( $faqs_custom_css );
-			if ( ! empty( $faqs_custom_css ) ) {
-				echo "\n<style type='text/css' id='faqs-custom-css'>\n";
-				echo $faqs_custom_css . "\n";
-				echo "</style>";
-			}
+			wp_add_inline_style( $this->plugin_name, $faqs_custom_css );
 		}
-
 	}
 
 }
