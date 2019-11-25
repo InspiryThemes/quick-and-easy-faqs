@@ -181,6 +181,8 @@ class Settings {
 		echo '<div id="qaef-settings-wrapper">';
 		$this->settings_api->show_forms();
 		echo '</div>';
+		echo '<div id="qaef-adv-section">';
+		echo '</div>';
 		echo '</div>';
 	}
 
