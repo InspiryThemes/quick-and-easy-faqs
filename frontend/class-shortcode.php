@@ -121,7 +121,7 @@ class Shortcode extends Utilities {
 		);
 
 		// faq groups filter.
-		if ( isset( $filter ) && ! empty( $filter ) && true !== $filter ) {
+		if ( isset( $filter ) && ! empty( $filter ) && 'true' !== $filter ) {
 			$filter = explode( ',', $filter );
 		}
 

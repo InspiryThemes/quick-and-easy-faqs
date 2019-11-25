@@ -246,7 +246,7 @@ class Faqs_Query extends Utilities {
 	 */
 	protected function build_faqs_structure( $id ) {
 
-		if ( empty( $this->display ) ) {
+		if ( empty( $this->display ) || 'grouped' === $this->display ) {
 			$class = 'list';
 		} else {
 			$class = 'toggle';
