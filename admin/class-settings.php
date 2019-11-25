@@ -97,6 +97,12 @@ class Settings {
 	private function get_settings_fields() {
 
 		$settings_fields['qaef_basics'] = [
+			[
+				'name'  => 'faqs_fontawesome_style',
+				'label' => __( 'Disable Fontawesome Stylesheet', 'quick-and-easy-faqs' ),
+				'desc'  => __( 'This option is provided to prevent the default fontawesome stylesheet load duplication. If the current theme has its own fontawesome stylesheet then you can disable the plugin one.', 'quick-and-easy-faqs' ),
+				'type'  => 'checkbox',
+			],
 		];
 
 		$settings_fields['qaef_typography'] = [
