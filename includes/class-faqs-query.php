@@ -2,10 +2,12 @@
 
 namespace Quick_And_Easy_Faqs\Includes;
 
+use Quick_And_Easy_Faqs\Includes\Utilities;
+
 /**
  * This class holds all the faqs query related members and methods.
  */
-class Faqs_Query {
+class Faqs_Query extends Utilities {
 
 	/**
 	 * Holds the query of faqs.
@@ -251,18 +253,29 @@ class Faqs_Query {
 		}
 
 		$terms_slugs = $this->get_terms_slugs( $id );
+
+		$back_to_index = $this->get_option( 'faqs_hide_back_index', 'qaef_basics' );
+
 		?>
-        <div id="qaef-<?php echo esc_attr( $id ); ?>" class="qe-faq-<?php echo esc_attr( $class ) . ' ' . esc_attr( implode( ' ', $terms_slugs ) ); ?>">
-            <div class="qe-<?php echo esc_attr( $class ); ?>-title">
-                <h4>
+		<div id="qaef-<?php echo esc_attr( $id ); ?>" class="qe-faq-<?php echo esc_attr( $class ) . ' ' . esc_attr( implode( ' ', $terms_slugs ) ); ?>">
+			<div class="qe-<?php echo esc_attr( $class ); ?>-title">
+				<h4>
 					<?php
 					echo wp_kses( $this->get_the_icon(), [ 'i' => [ 'class' => [] ] ] );
 					echo esc_html( get_the_title( $id ) );
 					?>
-                </h4>
-            </div>
-            <div class="qe-<?php echo esc_attr( $class ); ?>-content"><?php echo wp_kses_post( get_post_field('post_content', $id) ); ?></div>
-        </div>
+				</h4>
+			</div>
+			<div class="qe-<?php echo esc_attr( $class ); ?>-content">
+				<?php
+				echo wp_kses_post( get_post_field( 'post_content', $id ) );
+
+				if ( ( empty( $this->display ) || 'grouped' === $this->display ) && 'on' !== $back_to_index ) {
+					echo '<br /><a class="qe-faq-top" href="#qe-faqs-index"><i class="fa fa-angle-up"></i> ' . esc_html__( 'Back to Index', 'quick-and-easy-faqs' ) . '</a>';
+				}
+				?>
+			</div>
+		</div>
 		<?php
 	}
 

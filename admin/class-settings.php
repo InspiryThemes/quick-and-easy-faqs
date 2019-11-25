@@ -103,6 +103,12 @@ class Settings {
 				'desc'  => __( 'This option is provided to prevent the default fontawesome stylesheet load duplication. If the current theme has its own fontawesome stylesheet then you can disable the plugin one.', 'quick-and-easy-faqs' ),
 				'type'  => 'checkbox',
 			],
+			[
+				'name'  => 'faqs_hide_back_index',
+				'label' => __( 'Hide Back to Index', 'quick-and-easy-faqs' ),
+				'desc'  => __( 'This option will hide the back to index text.', 'quick-and-easy-faqs' ),
+				'type'  => 'checkbox',
+			],
 		];
 
 		$settings_fields['qaef_typography'] = [
