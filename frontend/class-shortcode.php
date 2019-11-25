@@ -128,7 +128,7 @@ class Shortcode extends Utilities {
 		ob_start();
 
 		$faqs_fa_style = $this->get_option( 'faqs_fontawesome_style', 'qaef_basics' );
-		if ( empty( $faqs_fa_style ) || 'on' === $faqs_fa_style ) {
+		if ( 'on' !== $faqs_fa_style ) {
 			wp_enqueue_style( 'font-awesome' );
 		}
 
