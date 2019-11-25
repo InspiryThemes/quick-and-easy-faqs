@@ -12,13 +12,24 @@ class Frontend extends Utilities {
 
 	/**
 	 * The ID of this plugin.
+	 *
+	 * @var string $plugin_name
 	 */
 	private $plugin_name;
 
 	/**
 	 * The version of this plugin.
+	 *
+	 * @var integer $version
 	 */
 	private $version;
+
+	/**
+	 * The older version styles.
+	 *
+	 * @var bool $old_style
+	 */
+	private $old_style;
 
 	/**
 	 * Initialize the class and set its properties.
@@ -27,7 +38,9 @@ class Frontend extends Utilities {
 
 		$this->plugin_name = $plugin_name;
 		$this->version     = $version;
+		$this->old_style   = true;
 
+		$this->old_public_custom_styles_fallback();
 	}
 
 	/**
@@ -79,6 +92,22 @@ class Frontend extends Utilities {
 			true
 		);
 
+	}
+
+	/**
+	 * Generate custom css for FAQs based on settings
+	 */
+	private function old_public_custom_styles_fallback() {
+
+		$old_settings = get_option( 'quick_and_easy_faqs_options' );
+		$faqs_options = get_option( 'qaef_typography' );
+
+		if ( empty( $faqs_options ) && ! empty( $old_settings ) && $this->old_style ) {
+
+			update_option( 'qaef_typography', $old_settings );
+
+			$this->old_style = false;
+		}
 	}
 
 	/**
