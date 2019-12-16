@@ -88,30 +88,40 @@ class Admin {
 		 */
 		public function enqueue_admin_styles() {
 
-			// Add the color picker css file
-			wp_enqueue_style( 'wp-color-picker' );
+			$screen = get_current_screen();
+			if( 'faq_page_quick_and_easy_faqs' === $screen->id){
 
-			// plugin custom css file
-			wp_enqueue_style(
-				$this->plugin_name,
-				dirname( plugin_dir_url( __FILE__ ) ) . '/admin/css/styles-admin.css',
-				array( 'wp-color-picker' ),
-				$this->version,
-				'all'
-			);
+				// Add the color picker css file
+				wp_enqueue_style( 'wp-color-picker' );
+
+				// plugin custom css file
+				wp_enqueue_style(
+					$this->plugin_name,
+					dirname( plugin_dir_url( __FILE__ ) ) . '/admin/css/styles-admin.css',
+					[ 'wp-color-picker' ],
+					$this->version,
+					'all'
+				);
+			}
 		}
 
 		/**
 		 * Register the JavaScript for the admin area.
 		 */
 		public function enqueue_admin_scripts() {
-			wp_enqueue_script(
-				$this->plugin_name,
-				dirname( plugin_dir_url( __FILE__ ) ) . '/admin/js/admin-scripts.js',
-				[ 'jquery', 'wp-color-picker' ],
-				$this->version,
-				false
-			);
+
+			$screen = get_current_screen();
+
+			if ( 'faq_page_quick_and_easy_faqs' === $screen->id ) {
+
+				wp_enqueue_script(
+					$this->plugin_name,
+					dirname( plugin_dir_url( __FILE__ ) ) . '/admin/js/admin-scripts.js',
+					[ 'jquery', 'wp-color-picker' ],
+					$this->version,
+					false
+				);
+			}
 		}
 
 	}
