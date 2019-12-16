@@ -72,6 +72,15 @@ This plugin provides a quick and easy way add FAQs using custom post type and la
 
 == Changelog ==
 
+= 1.3.0 =
+* Refactored the code for better performance and easier to maintain
+* Accordion support added
+* Fontawesome enable/disable option added
+* Faqs reorder support added
+* Back to index show/hide option added
+* WordPress do_shortcode support added
+
+
 = 1.2.4 =
 * Tested for WordPress 5.2.2
 
