@@ -268,7 +268,7 @@ class Faqs_Query extends Utilities {
 			</div>
 			<div class="qe-<?php echo esc_attr( $class ); ?>-content">
 				<?php
-				echo wp_kses_post( get_post_field( 'post_content', $id ) );
+				echo do_shortcode(get_post_field('post_content', $id));
 
 				if ( ( empty( $this->display ) || 'grouped' === $this->display ) && 'on' !== $back_to_index ) {
 					echo '<br /><a class="qe-faq-top" href="#qe-faqs-index"><i class="fa fa-angle-up"></i> ' . esc_html__( 'Back to Index', 'quick-and-easy-faqs' ) . '</a>';
