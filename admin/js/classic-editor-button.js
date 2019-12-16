@@ -32,11 +32,23 @@
                         }
                     },
                     {
+                        text: 'Display Accordion Styled FAQs',
+                        onclick: function() {
+                            ed.execCommand('mceInsertContent', 0, '[faqs style="accordion"]');
+                        }
+                    },
+                    {
                         text: 'Display Filterable Toggle Styled FAQs',
                         onclick: function() {
                             ed.execCommand('mceInsertContent', 0, '[faqs style="filterable-toggle"]');
                         }
-                    } 
+                    },
+                    {
+                        text: 'Display Filterable Accordion Styled FAQs',
+                        onclick: function() {
+                            ed.execCommand('mceInsertContent', 0, '[faqs style="accordion" filter="true"]');
+                        }
+                    }
                 ]
             });
 

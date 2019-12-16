@@ -64,7 +64,21 @@ registerBlockType( 'quick-and-easy-faqs/faqs-toggle',
     }
 );
 
-registerBlockType( 'quick-and-easy-faqs/faqs-filterable-toggle', 
+registerBlockType( 'quick-and-easy-faqs/faqs-accordion',
+    {
+        title: 'FAQs (Accordion Style)',
+        icon: faqs_svg,
+        category: 'quick-and-easy-faqs',
+        edit: function() {
+            return el( 'div', { style: blockStyle }, '[faqs style="accordion"]' );
+        },
+        save: function() {
+            return el( 'div', { style: blockStyle }, '[faqs style="accordion"]' );
+        },
+    }
+);
+
+registerBlockType( 'quick-and-easy-faqs/faqs-filterable-toggle',
     {
         title: 'FAQs (Filterable Toggle)',
         icon: faqs_svg,
@@ -74,6 +88,20 @@ registerBlockType( 'quick-and-easy-faqs/faqs-filterable-toggle',
         },
         save: function() {
             return el( 'div', { style: blockStyle }, '[faqs style="filterable-toggle"]' );
+        },
+    }
+);
+
+registerBlockType( 'quick-and-easy-faqs/faqs-filterable-accordion',
+    {
+        title: 'FAQs (Filterable Accordion)',
+        icon: faqs_svg,
+        category: 'quick-and-easy-faqs',
+        edit: function() {
+            return el( 'div', { style: blockStyle }, '[faqs style="accordion" filter="true"]' );
+        },
+        save: function() {
+            return el( 'div', { style: blockStyle }, '[faqs style="accordion" filter="true"]' );
         },
     }
 );
