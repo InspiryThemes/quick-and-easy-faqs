@@ -51,6 +51,9 @@ This plugin provides a quick and easy way add FAQs using custom post type and la
 * Display FAQs in toggle style but filtered by given group slug.
 	`[faqs style="toggle" filter="true"]` or `[faqs style="toggle" filter="group-slug,another-group-slug"]`
 
+* Display FAQs in any order you want. For more details, follow [this guide](https://developer.wordpress.org/reference/classes/wp_query/#order-orderby-parameters)
+    	`[faqs order="ASC" orderby="name"]`
+
 
 ### Links
 
