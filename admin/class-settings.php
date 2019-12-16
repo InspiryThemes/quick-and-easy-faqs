@@ -99,14 +99,14 @@ class Settings {
 		$settings_fields['qaef_basics'] = [
 			[
 				'name'  => 'faqs_fontawesome_style',
-				'label' => __( 'Disable Fontawesome Stylesheet', 'quick-and-easy-faqs' ),
-				'desc'  => __( 'This option is provided to prevent the default fontawesome stylesheet load duplication. If the current theme has its own fontawesome stylesheet then you can disable the plugin one.', 'quick-and-easy-faqs' ),
+				'label' => __( 'Disable Font Awesome Stylesheet', 'quick-and-easy-faqs' ),
+				'desc'  => __( 'Checking this box will disable FAQs plugin based Font Awesome stylesheet.', 'quick-and-easy-faqs' ),
 				'type'  => 'checkbox',
 			],
 			[
 				'name'  => 'faqs_hide_back_index',
-				'label' => __( 'Hide Back to Index', 'quick-and-easy-faqs' ),
-				'desc'  => __( 'This option will hide the back to index text.', 'quick-and-easy-faqs' ),
+				'label' => __( 'Hide Back to Index Link', 'quick-and-easy-faqs' ),
+				'desc'  => __( 'Checking this box will hide Back to Index Link.', 'quick-and-easy-faqs' ),
 				'type'  => 'checkbox',
 			],
 		];
