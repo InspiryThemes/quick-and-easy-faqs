@@ -21,22 +21,28 @@ This plugin provides a quick and easy way to add FAQs to your website.
 	`[faqs]`
 
 * Display all FAQs in simple list style but separated by groups.
-	`[faqs grouped="yes"]`
+	`[faqs style="grouped"]`
 
 * Display FAQs in simple list style but filtered by given group slug.
-	`[faqs filter="group-slug"]` or `[faqs filter="group-slug,another-group-slug"]`
+	`[faqs filter="true"]` or `[faqs filter="group-slug,another-group-slug"]`
 
 * Display all FAQs in toggle style using following shortcode.
 	`[faqs style="toggle"]`
 
+* Display all FAQs in accordion style using following shortcode.
+	`[faqs style="accordion"]`
+
 * Display all FAQs in toggle style but separated by groups.
-	`[faqs style="toggle" grouped="yes"]`
+	`[faqs style="toggle-grouped"]`
+
+* Display all FAQs in accordion style but separated by groups.
+    	`[faqs style="accordion-grouped"]`
 
 * Display FAQs in toggle style but filtered by given group slug.
-	`[faqs style="toggle" filter="group-slug"]` or `[faqs style="toggle" filter="group-slug,another-group-slug"]`
+	`[faqs style="toggle" filter="true"]` or `[faqs style="toggle" filter="group-slug,another-group-slug"]`
 
-* Display all FAQs in filterable toggle style.
-	`[faqs style="filterable-toggle"]`
+* Display FAQs in any order you want. For more details, follow [this guide](https://developer.wordpress.org/reference/classes/wp_query/#order-orderby-parameters)
+    	`[faqs order="ASC" orderby="name"]`
 
 ## Installation
 
