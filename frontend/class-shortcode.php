@@ -110,7 +110,7 @@ class Shortcode extends Utilities {
 		extract(
 			shortcode_atts(
 				[
-					'style'   => '',
+					'style'   => '',    // Possible Values: toggle, accordion, toggle-grouped, accordion-grouped
 					'filter'  => false,
 					'orderby' => 'date',
 					'order'   => 'DESC',
@@ -179,19 +179,51 @@ class Shortcode extends Utilities {
 						'heading'     => __( 'Display Style', 'quick-and-easy-faqs' ),
 						'param_name'  => 'style',
 						'value'       => [
-							'Simple List'       => 'list',
+							'Default'           => '',
 							'Toggle'            => 'toggle',
-							'Filterable Toggle' => 'filterable-toggle',
+							'Accordion'         => 'accordion',
+							'Toggle Grouped'    => 'toggle-grouped',
+							'Accordion Grouped' => 'accordion-grouped',
 						],
 						'admin_label' => true,
 					],
 					[
 						'type'        => 'dropdown',
-						'heading'     => __( 'Display FAQs in Groups', 'quick-and-easy-faqs' ),
-						'param_name'  => 'grouped',
+						'heading'     => __( 'FAQs Filters', 'quick-and-easy-faqs' ),
+						'param_name'  => 'filter',
 						'value'       => [
-							__( 'Yes', 'framework' ) => 'yes',
-							__( 'No', 'framework' )  => 'no',
+							'Default'  => '',
+							'Yes'  => 'true',
+							'No'  => 'false',
+						],
+						'admin_label' => true,
+					],
+					[
+						'type'        => 'dropdown',
+						'heading'     => __( 'FAQs Order', 'quick-and-easy-faqs' ),
+						'param_name'  => 'order',
+						'value'       => [
+							'Default'  => '',
+							'Ascending'  => 'ASC',
+							'Descending'  => 'DESC',
+						],
+						'admin_label' => true,
+					],
+					[
+						'type'        => 'dropdown',
+						'heading'     => __( 'FAQs Order By', 'quick-and-easy-faqs' ),
+						'param_name'  => 'orderby',
+						'value'       => [
+							'Default'  => '',
+							'ID'  => 'ID',
+							'Author'  => 'author',
+							'Title'  => 'title',
+							'Name'  => 'name',
+							'Type'  => 'type',
+							'Date'  => 'date',
+							'Modified'  => 'modified',
+							'Parent'  => 'parent',
+							'Random'  => 'rand',
 						],
 						'admin_label' => true,
 					],
