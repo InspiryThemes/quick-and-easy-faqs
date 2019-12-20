@@ -42,17 +42,17 @@ registerBlockType( 'quick-and-easy-faqs/faqs-grouped',
         icon: faqs_svg,
         category: 'quick-and-easy-faqs',
         edit: function() {
-            return el( 'div', { style: blockStyle }, '[faqs grouped="yes"]' );
+            return el( 'div', { style: blockStyle }, '[faqs style="grouped"]' );
         },
         save: function() {
-            return el( 'div', { style: blockStyle }, '[faqs grouped="yes"]' );
+            return el( 'div', { style: blockStyle }, '[faqs style="grouped"]' );
         },
     }
 );
 
 registerBlockType( 'quick-and-easy-faqs/faqs-toggle', 
     {
-        title: 'FAQs (Toggle Style)',
+        title: 'FAQs Toggle',
         icon: faqs_svg,
         category: 'quick-and-easy-faqs',
         edit: function() {
@@ -66,7 +66,7 @@ registerBlockType( 'quick-and-easy-faqs/faqs-toggle',
 
 registerBlockType( 'quick-and-easy-faqs/faqs-accordion',
     {
-        title: 'FAQs (Accordion Style)',
+        title: 'FAQs Accordion',
         icon: faqs_svg,
         category: 'quick-and-easy-faqs',
         edit: function() {
@@ -74,27 +74,55 @@ registerBlockType( 'quick-and-easy-faqs/faqs-accordion',
         },
         save: function() {
             return el( 'div', { style: blockStyle }, '[faqs style="accordion"]' );
+        },
+    }
+);
+
+registerBlockType( 'quick-and-easy-faqs/faqs-toggle-grouped',
+    {
+        title: 'FAQs Toggle Grouped',
+        icon: faqs_svg,
+        category: 'quick-and-easy-faqs',
+        edit: function() {
+            return el( 'div', { style: blockStyle }, '[faqs style="toggle-grouped"]' );
+        },
+        save: function() {
+            return el( 'div', { style: blockStyle }, '[faqs style="toggle-grouped"]' );
+        },
+    }
+);
+
+registerBlockType( 'quick-and-easy-faqs/faqs-accordion-grouped',
+    {
+        title: 'FAQs Accordion Grouped',
+        icon: faqs_svg,
+        category: 'quick-and-easy-faqs',
+        edit: function() {
+            return el( 'div', { style: blockStyle }, '[faqs style="accordion-grouped"]' );
+        },
+        save: function() {
+            return el( 'div', { style: blockStyle }, '[faqs style="accordion-grouped"]' );
         },
     }
 );
 
 registerBlockType( 'quick-and-easy-faqs/faqs-filterable-toggle',
     {
-        title: 'FAQs (Filterable Toggle)',
+        title: 'FAQs Filterable Toggle',
         icon: faqs_svg,
         category: 'quick-and-easy-faqs',
         edit: function() {
-            return el( 'div', { style: blockStyle }, '[faqs style="filterable-toggle"]' );
+            return el( 'div', { style: blockStyle }, '[faqs style="toggle" filter="true"]' );
         },
         save: function() {
-            return el( 'div', { style: blockStyle }, '[faqs style="filterable-toggle"]' );
+            return el( 'div', { style: blockStyle }, '[faqs style="toggle" filter="true"]' );
         },
     }
 );
 
 registerBlockType( 'quick-and-easy-faqs/faqs-filterable-accordion',
     {
-        title: 'FAQs (Filterable Accordion)',
+        title: 'FAQs Filterable Accordion',
         icon: faqs_svg,
         category: 'quick-and-easy-faqs',
         edit: function() {
@@ -102,6 +130,91 @@ registerBlockType( 'quick-and-easy-faqs/faqs-filterable-accordion',
         },
         save: function() {
             return el( 'div', { style: blockStyle }, '[faqs style="accordion" filter="true"]' );
+        },
+    }
+);
+
+registerBlockType( 'quick-and-easy-faqs/faqs-orderby-title-asc',
+    {
+        title: 'FAQs Order By Title (ASC)',
+        icon: faqs_svg,
+        category: 'quick-and-easy-faqs',
+        edit: function() {
+            return el( 'div', { style: blockStyle }, '[faqs order="ASC" orderby="title"]' );
+        },
+        save: function() {
+            return el( 'div', { style: blockStyle }, '[faqs order="ASC" orderby="title"]' );
+        },
+    }
+);
+
+registerBlockType( 'quick-and-easy-faqs/faqs-orderby-title-desc',
+    {
+        title: 'FAQs Order By Title (DESC)',
+        icon: faqs_svg,
+        category: 'quick-and-easy-faqs',
+        edit: function() {
+            return el( 'div', { style: blockStyle }, '[faqs order="DESC" orderby="title"]' );
+        },
+        save: function() {
+            return el( 'div', { style: blockStyle }, '[faqs order="DESC" orderby="title"]' );
+        },
+    }
+);
+
+registerBlockType( 'quick-and-easy-faqs/faqs-toggle-orderby-title-asc',
+    {
+        title: 'FAQs Toggle Order By Title (ASC)',
+        icon: faqs_svg,
+        category: 'quick-and-easy-faqs',
+        edit: function() {
+            return el( 'div', { style: blockStyle }, '[faqs style="toggle" order="ASC" orderby="title"]' );
+        },
+        save: function() {
+            return el( 'div', { style: blockStyle }, '[faqs style="toggle" order="ASC" orderby="title"]' );
+        },
+    }
+);
+
+registerBlockType( 'quick-and-easy-faqs/faqs-accordion-orderby-title-asc',
+    {
+        title: 'FAQs Accordion Order By Title (ASC)',
+        icon: faqs_svg,
+        category: 'quick-and-easy-faqs',
+        edit: function() {
+            return el( 'div', { style: blockStyle }, '[faqs style="accordion" order="ASC" orderby="title"]' );
+        },
+        save: function() {
+            return el( 'div', { style: blockStyle }, '[faqs style="accordion" order="ASC" orderby="title"]' );
+        },
+    }
+);
+
+
+registerBlockType( 'quick-and-easy-faqs/faqs-toggle-orderby-title-desc',
+    {
+        title: 'FAQs Toggle Order By Title (DESC)',
+        icon: faqs_svg,
+        category: 'quick-and-easy-faqs',
+        edit: function() {
+            return el( 'div', { style: blockStyle }, '[faqs style="toggle" order="DESC" orderby="title"]' );
+        },
+        save: function() {
+            return el( 'div', { style: blockStyle }, '[faqs style="toggle" order="DESC" orderby="title"]' );
+        },
+    }
+);
+
+registerBlockType( 'quick-and-easy-faqs/faqs-accordion-orderby-title-desc',
+    {
+        title: 'FAQs Accordion Order By Title (DESC)',
+        icon: faqs_svg,
+        category: 'quick-and-easy-faqs',
+        edit: function() {
+            return el( 'div', { style: blockStyle }, '[faqs style="accordion" order="DESC" orderby="title"]' );
+        },
+        save: function() {
+            return el( 'div', { style: blockStyle }, '[faqs style="accordion" order="DESC" orderby="title"]' );
         },
     }
 );

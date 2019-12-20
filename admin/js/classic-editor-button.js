@@ -14,39 +14,87 @@
                 icon  : false,
                 menu: [
                     {
-                        text: 'Display FAQs Only',
+                        text: 'FAQs',
                         onclick: function() {
                             ed.execCommand('mceInsertContent', 0, '[faqs]');
                         }
                     },
                     {
-                        text: 'Display Grouped FAQs',
+                        text: 'FAQs Grouped',
                         onclick: function() {
-                            ed.execCommand('mceInsertContent', 0, '[faqs grouped="yes"]');
+                            ed.execCommand('mceInsertContent', 0, '[faqs style="grouped"]');
                         }
                     },
                     {
-                        text: 'Display Toggle Styled FAQs',
+                        text: 'FAQs Toggle',
                         onclick: function() {
                             ed.execCommand('mceInsertContent', 0, '[faqs style="toggle"]');
                         }
                     },
                     {
-                        text: 'Display Accordion Styled FAQs',
+                        text: 'FAQs Accordion',
                         onclick: function() {
                             ed.execCommand('mceInsertContent', 0, '[faqs style="accordion"]');
                         }
                     },
                     {
-                        text: 'Display Filterable Toggle Styled FAQs',
+                        text: 'FAQs Toggle Grouped',
                         onclick: function() {
-                            ed.execCommand('mceInsertContent', 0, '[faqs style="filterable-toggle"]');
+                            ed.execCommand('mceInsertContent', 0, '[faqs style="toggle-grouped"]');
                         }
                     },
                     {
-                        text: 'Display Filterable Accordion Styled FAQs',
+                        text: 'FAQs Accordion Grouped',
+                        onclick: function() {
+                            ed.execCommand('mceInsertContent', 0, '[faqs style="accordion-grouped"]');
+                        }
+                    },
+                    {
+                        text: 'FAQs Filterable Toggle',
+                        onclick: function() {
+                            ed.execCommand('mceInsertContent', 0, '[faqs style="toggle" filter="true"]');
+                        }
+                    },
+                    {
+                        text: 'FAQs Filterable Accordion',
                         onclick: function() {
                             ed.execCommand('mceInsertContent', 0, '[faqs style="accordion" filter="true"]');
+                        }
+                    },
+                    {
+                        text: 'FAQs Order By Title (ASC)',
+                        onclick: function() {
+                            ed.execCommand('mceInsertContent', 0, '[faqs order="ASC" orderby="title"]');
+                        }
+                    },
+                    {
+                        text: 'FAQs Order By Title (DESC)',
+                        onclick: function() {
+                            ed.execCommand('mceInsertContent', 0, '[faqs order="DESC" orderby="title"]');
+                        }
+                    },
+                    {
+                        text: 'FAQs Toggle Order By Title (ASC)',
+                        onclick: function() {
+                            ed.execCommand('mceInsertContent', 0, '[faqs style="toggle" order="ASC" orderby="title"]');
+                        }
+                    },
+                    {
+                        text: 'FAQs Toggle Order By Title (DESC)',
+                        onclick: function() {
+                            ed.execCommand('mceInsertContent', 0, '[faqs style="toggle" order="DESC" orderby="title"]');
+                        }
+                    },
+                    {
+                        text: 'FAQs Accordion Order By Title (ASC)',
+                        onclick: function() {
+                            ed.execCommand('mceInsertContent', 0, '[faqs style="accordion" order="ASC" orderby="title"]');
+                        }
+                    },
+                    {
+                        text: 'FAQs Accordion Order By Title (DESC)',
+                        onclick: function() {
+                            ed.execCommand('mceInsertContent', 0, '[faqs style="accordion" order="DESC" orderby="title"]');
                         }
                     }
                 ]

@@ -56,7 +56,77 @@ class Gutenberg_Editor {
 		);
 
 		register_block_type(
+			'quick-and-easy-faqs/faqs-accordion',
+			array(
+				'editor_script' => 'quick-and-easy-faqs-block',
+			)
+		);
+
+		register_block_type(
+			'quick-and-easy-faqs/faqs-toggle-grouped',
+			array(
+				'editor_script' => 'quick-and-easy-faqs-block',
+			)
+		);
+
+		register_block_type(
+			'quick-and-easy-faqs/faqs-accordion-grouped',
+			array(
+				'editor_script' => 'quick-and-easy-faqs-block',
+			)
+		);
+
+		register_block_type(
 			'quick-and-easy-faqs/faqs-filterable-toggle',
+			array(
+				'editor_script' => 'quick-and-easy-faqs-block',
+			)
+		);
+
+		register_block_type(
+			'quick-and-easy-faqs/faqs-filterable-accordion',
+			array(
+				'editor_script' => 'quick-and-easy-faqs-block',
+			)
+		);
+
+		register_block_type(
+			'quick-and-easy-faqs/faqs-orderby-title-asc',
+			array(
+				'editor_script' => 'quick-and-easy-faqs-block',
+			)
+		);
+
+		register_block_type(
+			'quick-and-easy-faqs/faqs-orderby-title-desc',
+			array(
+				'editor_script' => 'quick-and-easy-faqs-block',
+			)
+		);
+
+		register_block_type(
+			'quick-and-easy-faqs/faqs-toggle-orderby-title-asc',
+			array(
+				'editor_script' => 'quick-and-easy-faqs-block',
+			)
+		);
+
+		register_block_type(
+			'quick-and-easy-faqs/faqs-toggle-orderby-title-desc',
+			array(
+				'editor_script' => 'quick-and-easy-faqs-block',
+			)
+		);
+
+		register_block_type(
+			'quick-and-easy-faqs/faqs-accordion-orderby-title-asc',
+			array(
+				'editor_script' => 'quick-and-easy-faqs-block',
+			)
+		);
+
+		register_block_type(
+			'quick-and-easy-faqs/faqs-accordion-orderby-title-desc',
 			array(
 				'editor_script' => 'quick-and-easy-faqs-block',
 			)
