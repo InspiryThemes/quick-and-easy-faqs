@@ -182,6 +182,7 @@ class Shortcode extends Utilities {
 							'Default'           => '',
 							'Toggle'            => 'toggle',
 							'Accordion'         => 'accordion',
+							'Grouped'         => 'grouped',
 							'Toggle Grouped'    => 'toggle-grouped',
 							'Accordion Grouped' => 'accordion-grouped',
 						],
