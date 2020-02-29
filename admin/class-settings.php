@@ -99,14 +99,14 @@ class Settings {
 		$settings_fields['qaef_basics'] = [
 			[
 				'name'  => 'faqs_fontawesome_style',
-				'label' => __( 'Disable Font Awesome Stylesheet', 'quick-and-easy-faqs' ),
-				'desc'  => __( 'Checking this box will disable FAQs plugin based Font Awesome stylesheet.', 'quick-and-easy-faqs' ),
+				'label' => __( 'FAQs Plugin Based Font Awesome Stylesheet', 'quick-and-easy-faqs' ),
+				'desc'  => __( 'Disable', 'quick-and-easy-faqs' ),
 				'type'  => 'checkbox',
 			],
 			[
 				'name'  => 'faqs_hide_back_index',
-				'label' => __( 'Hide Back to Index Link', 'quick-and-easy-faqs' ),
-				'desc'  => __( 'Checking this box will hide Back to Index Link.', 'quick-and-easy-faqs' ),
+				'label' => __( 'Back to Index Link', 'quick-and-easy-faqs' ),
+				'desc'  => __( 'Hide', 'quick-and-easy-faqs' ),
 				'type'  => 'checkbox',
 			],
 		];
