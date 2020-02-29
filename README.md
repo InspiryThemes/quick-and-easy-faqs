@@ -1,42 +1,53 @@
 # Quick and Easy FAQs Plugin
 
-This plugin provides a quick and easy way to add FAQs to your website.
+This plugin provides a quick and easy way add FAQs using custom post type and later on displaying those FAQs using Gutenberg Blocks or shortcodes.
 
 ### Features
 
 * Easily add FAQs using FAQ custom post type.
-* Display FAQs in simple list style.
-* Display FAQs in toggle ( independent form of accordion ) style.
-* Display FAQs in filterable toggle style.
-* Settings page to change toggle style text, background and border colors.
+* Display FAQs in simple list style, accordion style or toggle style.
+* Display FAQs in groups.
+* Display FAQs in filterable groups.
+* Display FAQs in sorted order by title or date.
+* Settings page to customize colors and other stuff.
 * Custom CSS box in settings page to override default styles.
-* Translation Ready ( Comes with POT file and few partially translated po & mo files )
+* Translation Ready ( Comes with POT file and PO & MO translation files for few main languages )
 * RTL ( Right to Left Language ) Support
 * Support for Visual Composer Plugin
 
 ### Documentation
 
+* `[faqs]` Display all FAQs in simple list style.
 
-* Display all FAQs in simple list style.
-	`[faqs]`
+* `[faqs order="ASC" orderby="title"]` Display all FAQs in simple list style and order by ascending title.
 
-* Display all FAQs in simple list style but separated by groups.
-	`[faqs grouped="yes"]`
+* `[faqs order="DESC" orderby="title"]` Display all FAQs in simple list style and order by descending title.
 
-* Display FAQs in simple list style but filtered by given group slug.
-	`[faqs filter="group-slug"]` or `[faqs filter="group-slug,another-group-slug"]`
+* `[faqs style="grouped"]` Display all FAQs in simple list style that are separated by groups.
 
-* Display all FAQs in toggle style using following shortcode.
-	`[faqs style="toggle"]`
+* `[faqs filter="true"]` Display FAQs in simple list style that are filterable by all available groups.
 
-* Display all FAQs in toggle style but separated by groups.
-	`[faqs style="toggle" grouped="yes"]`
+* `[faqs filter="group-slug,another-group-slug"]` Display FAQs in simple list style that are filterable by only given group slugs.
 
-* Display FAQs in toggle style but filtered by given group slug.
-	`[faqs style="toggle" filter="group-slug"]` or `[faqs style="toggle" filter="group-slug,another-group-slug"]`
+* `[faqs style="toggle"]` Display all FAQs in toggle style.
 
-* Display all FAQs in filterable toggle style.
-	`[faqs style="filterable-toggle"]`
+* `[faqs style="toggle" filter="true"]` Display all FAQs in toggle style and filterable by all available groups.
+
+* `[faqs style="toggle-grouped"]` Display all FAQs in toggle style and grouped by all available groups.
+
+* `[faqs style="toggle" order="ASC" orderby="title"]` Display all FAQs in toggle style and order by ascending title.
+
+* `[faqs style="toggle" order="DESC" orderby="title"]` Display all FAQs in toggle style and order by descending title.
+
+* `[faqs style="accordion"]` Display all FAQs in accordion style.
+
+* `[faqs style="accordion" filter="true"]` Display all FAQs in accordion style and filterable by all available groups.
+
+* `[faqs style="accordion-grouped"]` Display all FAQs in accordion style and grouped by all available groups.
+
+* `[faqs style="accordion" order="ASC" orderby="title"]` Display all FAQs in accordion style and order by ascending title.
+
+* `[faqs style="accordion" order="DESC" orderby="title"]` Display all FAQs in accordion style and order by descending title.
 
 ## Installation
 
