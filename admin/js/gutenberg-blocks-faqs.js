@@ -38,7 +38,7 @@ registerBlockType( 'quick-and-easy-faqs/faqs-only',
 
 registerBlockType( 'quick-and-easy-faqs/faqs-grouped', 
     {
-        title: 'FAQs Group',
+        title: 'FAQs Grouped',
         icon: faqs_svg,
         category: 'quick-and-easy-faqs',
         edit: function() {
