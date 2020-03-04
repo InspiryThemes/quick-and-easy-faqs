@@ -17,8 +17,9 @@ use Quick_And_Easy_Faqs\Admin\Classic_Editor;
 use Quick_And_Easy_Faqs\Admin\Register_Post_And_Taxonomy;
 use Quick_And_Easy_Faqs\Frontend\Frontend;
 use Quick_And_Easy_Faqs\Frontend\Shortcode;
+use Quick_And_Easy_Faqs\Includes\Utilities;
 
-class Faqs {
+class Faqs  extends Utilities {
 
 	/**
 	 * The unique identifier of this plugin.
@@ -119,6 +120,86 @@ class Faqs {
 		if ( class_exists( 'Vc_Manager' ) ) {
 			add_action( 'vc_before_init', [ $faqs_shortcodes, 'integrate_shortcode_with_vc' ] );
 		}
+
+	}
+
+
+	/**
+	 * Display faqs programmatically
+	 *
+	 * @param  array $style faq style.
+	 * @param  array $filter faq filter.
+	 * @param  array $orderby faq orderby.
+	 * @param  array $order faq order.
+	 *
+	 * @return bool true on success or false on failure.
+	 */
+	public function do_shortcode( $style = '', $filter = 'false', $orderby = '', $order = '' ) {
+
+		// faq groups filter.
+		if ( isset( $filter ) && ! empty( $filter ) && 'true' != $filter ) {
+			$filter = explode( ',', $filter );
+		}
+
+		ob_start();
+
+		$faqs_fa_style = $this->get_option( 'faqs_fontawesome_style', 'qaef_basics' );
+
+		if ( 'on' !== $faqs_fa_style ) {
+			wp_enqueue_style(
+				'font-awesome',
+				dirname( plugin_dir_url( __FILE__ ) ) . '/frontend/css/font-awesome.min.css',
+				array(),
+				$this->version,
+				'all'
+			);
+		}
+
+		wp_enqueue_style(
+			$this->plugin_name,
+			dirname( plugin_dir_url( __FILE__ ) ) . '/frontend/css/styles-public.css',
+			array(),
+			$this->version,
+			'all'
+		);
+
+		// if rtl is enabled.
+		if ( is_rtl() ) {
+			wp_enqueue_style(
+				$this->plugin_name . '-rtl',
+				dirname( plugin_dir_url( __FILE__ ) ) . '/public/css/styles-public-rtl.css',
+				array(
+					$this->plugin_name,
+					'font-awesome',
+				),
+				$this->version,
+				'all'
+			);
+		}
+
+		$faqs_query = new Faqs_Query( $style, $filter, $orderby, $order );
+		$faqs_query->render();
+
+
+		wp_register_script(
+			$this->plugin_name,
+			dirname( plugin_dir_url( __FILE__ ) ) . '/frontend/js/scripts.js',
+			array( 'jquery' ),
+			$this->version,
+			true
+		);
+
+		wp_localize_script(
+			$this->plugin_name,
+			'qaef_object',
+			array(
+				'ajaxurl' => admin_url( 'admin-ajax.php' ),
+				'style'   => $style,
+			)
+		);
+		wp_enqueue_script( $this->plugin_name );
+
+		return ob_get_clean();
 
 	}
 }
