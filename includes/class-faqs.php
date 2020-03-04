@@ -124,12 +124,12 @@ class FAQs  extends Utilities {
 
 
 	/**
-	 * Display faqs programmatically
+	 * Display faqs using code
 	 *
-	 * @param  array $style faq style.
-	 * @param  array $filter faq filter.
-	 * @param  array $orderby faq orderby.
-	 * @param  array $order faq order.
+	 * @param   string  $style      'toggle' | 'accordion' | 'toggle-grouped' | 'accordion-grouped'
+	 * @param   array   $filter     true | false
+	 * @param   string  $orderby    'date' | 'title'
+	 * @param   string  $order      'ASC' | 'DESC'
 	 *
 	 * @return bool true on success or false on failure.
 	 */
@@ -176,7 +176,7 @@ class FAQs  extends Utilities {
 			);
 		}
 
-		$faqs_query = new Faqs_Query( $style, $filter, $orderby, $order );
+		$faqs_query = new FAQs_Query( $style, $filter, $orderby, $order );
 		$faqs_query->render();
 
 		wp_register_script(

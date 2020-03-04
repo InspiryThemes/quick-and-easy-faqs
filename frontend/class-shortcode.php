@@ -5,7 +5,7 @@
 
 namespace Quick_And_Easy_Faqs\Frontend;
 
-use Quick_And_Easy_Faqs\Includes\Faqs_Query;
+use Quick_And_Easy_Faqs\Includes\FAQs_Query;
 use Quick_And_Easy_Faqs\Includes\Utilities;
 
 class Shortcode extends Utilities {
@@ -99,7 +99,7 @@ class Shortcode extends Utilities {
 
 		ob_start();
 
-		$faqs_query = new Faqs_Query( $style, $filter, $orderby, $order );
+		$faqs_query = new FAQs_Query( $style, $filter, $orderby, $order );
 		$faqs_query->render();
 
 		wp_localize_script(

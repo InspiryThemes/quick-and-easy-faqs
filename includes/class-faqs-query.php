@@ -7,7 +7,7 @@ use Quick_And_Easy_Faqs\Includes\Utilities;
 /**
  * This class holds all the faqs query related members and methods.
  */
-class Faqs_Query extends Utilities {
+class FAQs_Query extends Utilities {
 
 	/**
 	 * Holds the query of faqs.
