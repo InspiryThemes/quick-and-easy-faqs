@@ -69,6 +69,8 @@ If you want to "Display Faqs Programmatically" then you can use the following co
 ?>
 ```
 
+You can find further filters here - https://developer.wordpress.org/reference/classes/wp_query/#order-orderby-parameters
+
 ## Installation
 
 1. Unzip the downloaded package
