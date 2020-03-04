@@ -8,6 +8,24 @@ namespace Quick_And_Easy_Faqs\Includes;
 
 class Utilities {
 
+
+	/**
+	 * The version of this plugin.
+	 *
+	 * @var bool $shortcode_being_used
+	 */
+	private $shortcode_being_used;
+
+	/**
+	 * Initialize the class and set its properties.
+	 *
+	 * @var string $plugin_name
+	 * @var string $version
+	 */
+	public function __construct() {
+		$this->shortcode_being_used = false;
+	}
+
 	/**
 	 * Get the value of a settings field
 	 *

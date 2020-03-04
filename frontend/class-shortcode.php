@@ -25,13 +25,6 @@ class Shortcode extends Utilities {
 	private $version;
 
 	/**
-	 * The version of this plugin.
-	 *
-	 * @var bool $shortcode_being_used
-	 */
-	private $shortcode_being_used;
-
-	/**
 	 * Initialize the class and set its properties.
 	 *
 	 * @var string $plugin_name
