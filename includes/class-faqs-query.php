@@ -335,7 +335,7 @@ class Faqs_Query extends Utilities {
 		endif;
 
 		// All the custom loops ends here so reset the query.
-		wp_reset_query();
+		wp_reset_postdata();
 	}
 
 }

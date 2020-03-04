@@ -48,7 +48,7 @@ class Faqs  extends Utilities {
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
 
-		add_action( 'plugins_loaded', [ $this, 'set_locale' ] );
+		add_action( 'plugins_loaded', array( $this, 'set_locale' ) );
 
 	}
 
@@ -81,26 +81,26 @@ class Faqs  extends Utilities {
 	private function define_admin_hooks() {
 
 		$post_type = new Register_Post_And_Taxonomy();
-		add_action( 'init', [ $post_type, 'register_faqs_post_type' ] );
-		add_action( 'init', [ $post_type, 'register_faqs_group_taxonomy' ] );
+		add_action( 'init', array( $post_type, 'register_faqs_post_type' ) );
+		add_action( 'init', array( $post_type, 'register_faqs_group_taxonomy' ) );
 
 		$plugin_admin = new Admin( $this->plugin_name, $this->version );
-		add_action( 'admin_enqueue_scripts', [ $plugin_admin, 'enqueue_admin_styles' ] );
-		add_action( 'admin_enqueue_scripts', [ $plugin_admin, 'enqueue_admin_scripts' ] );
+		add_action( 'admin_enqueue_scripts', array( $plugin_admin, 'enqueue_admin_styles' ) );
+		add_action( 'admin_enqueue_scripts', array( $plugin_admin, 'enqueue_admin_scripts' ) );
 
 		$classic_editor = new Classic_Editor();
-		add_filter( 'mce_external_plugins', [ $classic_editor, 'enqueue_plugin_scripts' ] );
-		add_filter( 'mce_buttons', [ $classic_editor, 'register_buttons_editor' ] );
+		add_filter( 'mce_external_plugins', array( $classic_editor, 'enqueue_plugin_scripts' ) );
+		add_filter( 'mce_buttons', array( $classic_editor, 'register_buttons_editor' ) );
 
 		$gutenberg_button = new Gutenberg_Editor();
 		if ( Admin::is_gutenberg_active() ) {
-			add_filter( 'block_categories', [ $gutenberg_button, 'add_faqs_block_category' ] );
-			add_action( 'init', [ $gutenberg_button, 'add_all_faqs_block' ] );
+			add_filter( 'block_categories', array( $gutenberg_button, 'add_faqs_block_category' ) );
+			add_action( 'init', array( $gutenberg_button, 'add_all_faqs_block' ) );
 		}
 
 		$faq_settings = new Settings();
-		add_action( 'admin_menu', [ $faq_settings, 'settings_init' ] );
-		add_action( 'admin_menu', [ $faq_settings, 'add_faqs_options_page' ] );
+		add_action( 'admin_menu', array( $faq_settings, 'settings_init' ) );
+		add_action( 'admin_menu', array( $faq_settings, 'add_faqs_options_page' ) );
 	}
 
 	/**
@@ -109,16 +109,15 @@ class Faqs  extends Utilities {
 	private function define_public_hooks() {
 
 		$plugin_public = new Frontend( $this->plugin_name, $this->version );
-		add_action( 'wp_enqueue_scripts', [ $plugin_public, 'enqueue_public_styles' ] );
-		add_action( 'wp_enqueue_scripts', [ $plugin_public, 'enqueue_public_scripts' ] );
-		add_action( 'wp_enqueue_scripts', [ $plugin_public, 'add_public_custom_styles' ] );
-
+		add_action( 'wp_enqueue_scripts', array( $plugin_public, 'enqueue_public_styles' ) );
+		add_action( 'wp_enqueue_scripts', array( $plugin_public, 'enqueue_public_scripts' ) );
+		add_action( 'wp_enqueue_scripts', array( $plugin_public, 'add_public_custom_styles' ) );
 
 		$faqs_shortcodes = new Shortcode( $this->plugin_name, $this->version );
-		add_action( 'init', [ $faqs_shortcodes, 'register_faqs_shortcodes' ] );
+		add_action( 'init', array( $faqs_shortcodes, 'register_faqs_shortcodes' ) );
 
 		if ( class_exists( 'Vc_Manager' ) ) {
-			add_action( 'vc_before_init', [ $faqs_shortcodes, 'integrate_shortcode_with_vc' ] );
+			add_action( 'vc_before_init', array( $faqs_shortcodes, 'integrate_shortcode_with_vc' ) );
 		}
 
 	}
@@ -179,7 +178,6 @@ class Faqs  extends Utilities {
 
 		$faqs_query = new Faqs_Query( $style, $filter, $orderby, $order );
 		$faqs_query->render();
-
 
 		wp_register_script(
 			$this->plugin_name,

@@ -74,17 +74,17 @@ class Settings {
 	 * @return array section fields
 	 */
 	private function get_settings_sections() {
-		$sections = [
-			[
+		$sections = array(
+			array(
 				'id'    => 'qaef_basics',
 				'title' => __( 'Basic', 'quick-and-easy-faqs' ),
-			],
-			[
+			),
+			array(
 				'id'    => 'qaef_typography',
 				'title' => __( 'Typography', 'quick-and-easy-faqs' ),
 				'desc'  => esc_html__( 'These settings only applies to FAQs with toggle style. As FAQs with list style use colors inherited from currently active theme.', 'quick-and-easy-faqs' ),
-			],
-		];
+			),
+		);
 
 		return $sections;
 	}
@@ -96,81 +96,81 @@ class Settings {
 	 */
 	private function get_settings_fields() {
 
-		$settings_fields['qaef_basics'] = [
-			[
+		$settings_fields['qaef_basics'] = array(
+			array(
 				'name'  => 'faqs_fontawesome_style',
 				'label' => __( 'FAQs Plugin Based Font Awesome Stylesheet', 'quick-and-easy-faqs' ),
 				'desc'  => __( 'Disable', 'quick-and-easy-faqs' ),
 				'type'  => 'checkbox',
-			],
-			[
+			),
+			array(
 				'name'  => 'faqs_hide_back_index',
 				'label' => __( 'Back to Index Link', 'quick-and-easy-faqs' ),
 				'desc'  => __( 'Hide', 'quick-and-easy-faqs' ),
 				'type'  => 'checkbox',
-			],
-		];
+			),
+		);
 
-		$settings_fields['qaef_typography'] = [
-			[
+		$settings_fields['qaef_typography'] = array(
+			array(
 				'name'    => 'faqs_toggle_colors',
 				'label'   => __( 'FAQs toggle colors', 'quick-and-easy-faqs' ),
 				'default' => 'default',
 				'desc'    => __( 'Choose custom colors to apply colors provided in options below.', 'quick-and-easy-faqs' ),
 				'type'    => 'select',
-				'options' => [
+				'options' => array(
 					'default' => __( 'Default Colors', 'quick-and-easy-faqs' ),
 					'custom'  => __( 'Custom Colors', 'quick-and-easy-faqs' ),
-				],
-			],
-			[
+				),
+			),
+			array(
 				'name'    => 'toggle_question_color',
 				'label'   => __( 'Question text color', 'quick-and-easy-faqs' ),
 				'type'    => 'color',
 				'default' => '#333333',
-			],
-			[
+			),
+			array(
 				'name'    => 'toggle_question_hover_color',
 				'label'   => __( 'Question text color on mouse over', 'quick-and-easy-faqs' ),
 				'type'    => 'color',
 				'default' => '#333333',
-			],
-			[
+			),
+			array(
 				'name'    => 'toggle_question_bg_color',
 				'label'   => __( 'Question background color', 'quick-and-easy-faqs' ),
 				'type'    => 'color',
 				'default' => '#fafafa',
-			],
-			[
+			),
+			array(
 				'name'    => 'toggle_question_hover_bg_color',
 				'label'   => __( 'Question background color on mouse over', 'quick-and-easy-faqs' ),
 				'type'    => 'color',
 				'default' => '#eaeaea',
-			],
-			[
+			),
+			array(
 				'name'    => 'toggle_answer_color',
 				'label'   => __( 'Answer text color', 'quick-and-easy-faqs' ),
 				'type'    => 'color',
 				'default' => '#333333',
-			],
-			[
+			),
+			array(
 				'name'    => 'toggle_answer_bg_color',
 				'label'   => __( 'Answer background color', 'quick-and-easy-faqs' ),
 				'type'    => 'color',
 				'default' => '#ffffff',
-			],
-			[
+			),
+			array(
 				'name'    => 'toggle_border_color',
 				'label'   => __( 'Toggle Border color', 'quick-and-easy-faqs' ),
 				'type'    => 'color',
 				'default' => '#dddddd',
-			],
-			[
+			),
+			array(
 				'name'  => 'faqs_custom_css',
 				'label' => __( 'Custom CSS', 'quick-and-easy-faqs' ),
 				'type'  => 'textarea',
-			],
-		];
+			),
+		);
 
 		return $settings_fields;
 	}

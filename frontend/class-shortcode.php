@@ -81,12 +81,12 @@ class Shortcode extends Utilities {
 
 		extract(
 			shortcode_atts(
-				[
+				array(
 					'style'   => '',    // Possible Values: toggle, accordion, toggle-grouped, accordion-grouped
 					'filter'  => false,
 					'orderby' => 'date',
 					'order'   => 'DESC',
-				],
+				),
 				$attributes,
 				'faqs'
 			)
@@ -129,68 +129,68 @@ class Shortcode extends Utilities {
 	public function integrate_shortcode_with_vc() {
 
 		vc_map(
-			[
+			array(
 				'name'        => __( 'Quick and Easy FAQs', 'quick-and-easy-faqs' ),
 				'description' => __( 'Quick and Easy FAQs Plugin', 'quick-and-easy-faqs' ),
 				'base'        => 'faqs',
 				'category'    => __( 'Content', 'quick-and-easy-faqs' ),
-				'params'      => [
-					[
+				'params'      => array(
+					array(
 						'type'        => 'dropdown',
 						'heading'     => __( 'Display Style', 'quick-and-easy-faqs' ),
 						'param_name'  => 'style',
-						'value'       => [
+						'value'       => array(
 							'Default'           => '',
 							'Toggle'            => 'toggle',
 							'Accordion'         => 'accordion',
-							'Grouped'         => 'grouped',
+							'Grouped'           => 'grouped',
 							'Toggle Grouped'    => 'toggle-grouped',
 							'Accordion Grouped' => 'accordion-grouped',
-						],
+						),
 						'admin_label' => true,
-					],
-					[
+					),
+					array(
 						'type'        => 'dropdown',
 						'heading'     => __( 'FAQs Filters', 'quick-and-easy-faqs' ),
 						'param_name'  => 'filter',
-						'value'       => [
-							'Default'  => '',
-							'Yes'  => 'true',
-							'No'  => 'false',
-						],
+						'value'       => array(
+							'Default' => '',
+							'Yes'     => 'true',
+							'No'      => 'false',
+						),
 						'admin_label' => true,
-					],
-					[
+					),
+					array(
 						'type'        => 'dropdown',
 						'heading'     => __( 'FAQs Order', 'quick-and-easy-faqs' ),
 						'param_name'  => 'order',
-						'value'       => [
-							'Default'  => '',
+						'value'       => array(
+							'Default'    => '',
 							'Ascending'  => 'ASC',
-							'Descending'  => 'DESC',
-						],
+							'Descending' => 'DESC',
+						),
 						'admin_label' => true,
-					],
-					[
+					),
+					array(
 						'type'        => 'dropdown',
 						'heading'     => __( 'FAQs Order By', 'quick-and-easy-faqs' ),
 						'param_name'  => 'orderby',
-						'value'       => [
+						'value'       => array(
 							'Default'  => '',
-							'ID'  => 'ID',
-							'Author'  => 'author',
-							'Title'  => 'title',
-							'Name'  => 'name',
-							'Type'  => 'type',
-							'Date'  => 'date',
-							'Modified'  => 'modified',
-							'Parent'  => 'parent',
-							'Random'  => 'rand',
-						],
+							'ID'       => 'ID',
+							'Author'   => 'author',
+							'Title'    => 'title',
+							'Name'     => 'name',
+							'Type'     => 'type',
+							'Date'     => 'date',
+							'Modified' => 'modified',
+							'Parent'   => 'parent',
+							'Random'   => 'rand',
+						),
 						'admin_label' => true,
-					],
-				],
-			]
+					),
+				),
+			)
 		);
 
 	}
