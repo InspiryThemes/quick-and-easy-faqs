@@ -104,6 +104,12 @@ You can find further filters here - https://developer.wordpress.org/reference/cl
 
 == Changelog ==
 
+= 1.3.1 =
+* HTML and Shortcodes support added in faq's contents section
+* Minor Style issues fixed
+* Custom code support added
+* Styles and Scripts inclusion improved
+
 = 1.3.0 =
 * Refactored the code for better performance and easier maintenance
 * FAQs Accordion support added

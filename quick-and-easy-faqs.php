@@ -20,7 +20,7 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Global Constants to be used throughout the plugin
  */
-define( 'QUICK_AND_EASY_FAQS_VERSION', '1.3.0' );
+define( 'QUICK_AND_EASY_FAQS_VERSION', '1.3.1' );
 
 /**
  * The core plugin class that is used to define all site hooks.
