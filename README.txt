@@ -63,16 +63,16 @@ This plugin provides a quick and easy way add FAQs using custom post type and la
 ~~~
 <?php
 /**
-	 * Display faqs programmatically
+	 * Display FAQs using Code
 	 *
-	 * @param  string $style   Possible Values: toggle, accordion, toggle-grouped, accordion-grouped
-	 * @param  array $filter true | false.
-	 * @param  string $orderby 'date'.
-	 * @param  string $order faq 'ASC'.
+	 * @param   string  $style      'toggle' | 'accordion' | 'toggle-grouped' | 'accordion-grouped'
+	 * @param   array   $filter     true | false
+	 * @param   string  $orderby    'date' | 'title'
+	 * @param   string  $order      'ASC' | 'DESC'
 	 */
 
-    use Quick_And_Easy_Faqs\Includes\Faqs;
-    $faqs = new Faqs();
+    use Quick_And_Easy_Faqs\Includes\FAQs;
+    $faqs = new FAQs();
     echo $faqs->do_shortcode(  $style,  $filter,  $orderby,  $order  );
 ?>
 ~~~
