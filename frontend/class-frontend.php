@@ -123,7 +123,7 @@ class Frontend extends Utilities {
 			// Toggle question color.
 			if ( ! empty( $faqs_options['toggle_question_color'] ) ) {
 				$faqs_custom_css[] = array(
-					'elements' => '.qe-faq-toggle .qe-toggle-title',
+					'elements' => '.qe-faq-toggle .qe-toggle-title h4, .qe-faq-list .qe-list-title h4',
 					'property' => 'color',
 					'value'    => $faqs_options['toggle_question_color'],
 				);
@@ -132,7 +132,7 @@ class Frontend extends Utilities {
 			// Toggle question color on mouse .
 			if ( ! empty( $faqs_options['toggle_question_hover_color'] ) ) {
 				$faqs_custom_css[] = array(
-					'elements' => '.qe-faq-toggle .qe-toggle-title:hover',
+					'elements' => '.qe-faq-toggle .qe-toggle-title:hover h4, .qe-faq-list .qe-list-title:hover h4',
 					'property' => 'color',
 					'value'    => $faqs_options['toggle_question_hover_color'],
 				);
@@ -159,7 +159,7 @@ class Frontend extends Utilities {
 			// Toggle answer color.
 			if ( ! empty( $faqs_options['toggle_answer_color'] ) ) {
 				$faqs_custom_css[] = array(
-					'elements' => '.qe-faq-toggle .qe-toggle-content',
+					'elements' => '.qe-faq-toggle .qe-toggle-content, .qe-faq-list .qe-list-content',
 					'property' => 'color',
 					'value'    => $faqs_options['toggle_answer_color'],
 				);
@@ -168,7 +168,7 @@ class Frontend extends Utilities {
 			// Toggle answer background color.
 			if ( ! empty( $faqs_options['toggle_answer_bg_color'] ) ) {
 				$faqs_custom_css[] = array(
-					'elements' => '.qe-faq-toggle .qe-toggle-content',
+					'elements' => '.qe-faq-toggle .qe-toggle-content, .qe-faq-list .qe-list-content',
 					'property' => 'background-color',
 					'value'    => $faqs_options['toggle_answer_bg_color'],
 				);
