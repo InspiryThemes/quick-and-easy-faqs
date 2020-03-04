@@ -19,7 +19,7 @@ use Quick_And_Easy_Faqs\Frontend\Frontend;
 use Quick_And_Easy_Faqs\Frontend\Shortcode;
 use Quick_And_Easy_Faqs\Includes\Utilities;
 
-class Faqs  extends Utilities {
+class FAQs  extends Utilities {
 
 	/**
 	 * The unique identifier of this plugin.

@@ -27,7 +27,7 @@ define( 'QUICK_AND_EASY_FAQS_VERSION', '1.3.1' );
  */
 require plugin_dir_path( __FILE__ ) . 'includes/autoload.php';
 
-use Quick_And_Easy_Faqs\Includes\Faqs;
+use Quick_And_Easy_Faqs\Includes\FAQs;
 
 /**
  * Since everything within the plugin is registered via hooks,
@@ -35,7 +35,7 @@ use Quick_And_Easy_Faqs\Includes\Faqs;
  */
 function run_quick_and_easy_faqs() {
 
-	return Faqs::instance();
+	return FAQs::instance();
 
 }
 run_quick_and_easy_faqs();
