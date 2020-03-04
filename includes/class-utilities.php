@@ -27,4 +27,23 @@ class Utilities {
 
 		return $default;
 	}
+
+	/**
+	 * Check if the faqs shortcode is used in WordPress contents
+	 *
+	 * @return bool
+	 */
+	protected function is_shortcode_being_used() {
+
+		if ( $this->shortcode_being_used ) {
+			return true;
+		} else {
+			global $post;
+			if ( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'faqs' ) ) {
+				$this->shortcode_being_used = true;
+				return true;
+			}
+			return false;
+		}
+	}
 }

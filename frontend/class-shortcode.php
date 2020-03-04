@@ -45,27 +45,6 @@ class Shortcode extends Utilities {
 	}
 
 	/**
-	 * Check if shortcode is added in the post.
-	 *
-	 * @return bool
-	 */
-	public function is_shortcode_being_used() {
-
-		if ( $this->shortcode_being_used ) {
-			return true;
-		} else {
-			global $post;
-			if ( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'faqs' ) ) {
-				$this->shortcode_being_used = true;
-
-				return true;
-			}
-
-			return false;
-		}
-	}
-
-	/**
 	 * Check if old short code is used.
 	 *
 	 * @param  array $attr short code attr values.
@@ -126,17 +105,6 @@ class Shortcode extends Utilities {
 		}
 
 		ob_start();
-
-		$faqs_fa_style = $this->get_option( 'faqs_fontawesome_style', 'qaef_basics' );
-		if ( 'on' !== $faqs_fa_style ) {
-			wp_enqueue_style( 'font-awesome' );
-		}
-
-		wp_enqueue_style( $this->plugin_name );
-
-		if ( is_rtl() ) {
-			wp_enqueue_style( $this->plugin_name . '-rtl' );
-		}
 
 		$faqs_query = new Faqs_Query( $style, $filter, $orderby, $order );
 		$faqs_query->render();

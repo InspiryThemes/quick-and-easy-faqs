@@ -48,14 +48,23 @@ class Frontend extends Utilities {
 	 */
 	public function enqueue_public_styles() {
 
-		wp_register_style(
-			'font-awesome',
-			dirname( plugin_dir_url( __FILE__ ) ) . '/frontend/css/font-awesome.min.css',
-			array(),
-			$this->version,
-			'all'
-		);
-		wp_register_style(
+		if ( ! $this->is_shortcode_being_used() ) {
+			return;
+		}
+
+		$faqs_fa_style = $this->get_option( 'faqs_fontawesome_style', 'qaef_basics' );
+
+		if ( 'on' !== $faqs_fa_style ) {
+			wp_enqueue_style(
+				'font-awesome',
+				dirname( plugin_dir_url( __FILE__ ) ) . '/frontend/css/font-awesome.min.css',
+				array(),
+				$this->version,
+				'all'
+			);
+		}
+
+		wp_enqueue_style(
 			$this->plugin_name,
 			dirname( plugin_dir_url( __FILE__ ) ) . '/frontend/css/styles-public.css',
 			array(),
@@ -65,7 +74,7 @@ class Frontend extends Utilities {
 
 		// if rtl is enabled.
 		if ( is_rtl() ) {
-			wp_register_style(
+			wp_enqueue_style(
 				$this->plugin_name . '-rtl',
 				dirname( plugin_dir_url( __FILE__ ) ) . '/public/css/styles-public-rtl.css',
 				array(
@@ -84,6 +93,9 @@ class Frontend extends Utilities {
 	 */
 	public function enqueue_public_scripts() {
 
+		if ( ! $this->is_shortcode_being_used() ) {
+			return;
+		}
 		wp_register_script(
 			$this->plugin_name,
 			dirname( plugin_dir_url( __FILE__ ) ) . '/frontend/js/scripts.js',
