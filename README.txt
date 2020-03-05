@@ -1,9 +1,9 @@
 === Quick and Easy FAQs ===
 Contributors: inspirythemes, saqibsarwar
-Tags: FAQs, FAQ, FAQs list, accordion FAQs, toggle FAQs, filtered FAQs, grouped FAQs, FAQs Order By Title
+Tags: FAQs, FAQ, FAQs list, accordion FAQs, toggle FAQs, filtered FAQs, grouped FAQs, FAQs Block, Gutenberg FAQs, FAQs Order, FAQs Sorting
 Requires at least: 5.0
 Tested up to: 5.3.2
-Stable tag: 1.3.0
+Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -62,7 +62,7 @@ This plugin provides a quick and easy way add FAQs using custom post type and la
 
 ~~~
 <?php
-/**
+    /**
 	 * Display FAQs using Code
 	 *
 	 * @param   string  $style      'toggle' | 'accordion' | 'toggle-grouped' | 'accordion-grouped'
@@ -97,18 +97,19 @@ You can find further filters here - https://developer.wordpress.org/reference/cl
 2. Add/Edit FAQ
 3. FAQ Groups
 4. FAQs Settings
-5. Simple FAQs
-6. Filterable Toggle FAQs
+5. FAQs Settings
+6. Simple FAQs
 7. Grouped FAQs
-8. Grouped Toggle FAQs
+8. FAQs Toggle
+9. FAQs Accordion
 
 == Changelog ==
 
 = 1.3.1 =
-* HTML and Shortcodes support added in faq's contents section
-* Minor Style issues fixed
-* Custom code support added
+* HTML and shortcodes support added in FAQ's contents section
+* Custom code support added to display FAQs in PHP templates
 * Styles and Scripts inclusion improved
+* Minor fixes/improvements in styles
 
 = 1.3.0 =
 * Refactored the code for better performance and easier maintenance
