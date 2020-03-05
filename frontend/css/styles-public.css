@@ -15,7 +15,7 @@
   margin-bottom: 1em;
 }
 
-.qe-faq-toggle {
+.entry-content .qe-faq-toggle {
   margin-bottom: 2px;
   transition: all 0.5s;
 }
