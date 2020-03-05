@@ -5,7 +5,7 @@
 
 namespace Quick_And_Easy_Faqs\Frontend;
 
-use Quick_And_Easy_Faqs\Includes\Faqs_Query;
+use Quick_And_Easy_Faqs\Includes\FAQs_Query;
 use Quick_And_Easy_Faqs\Includes\Utilities;
 
 class Shortcode extends Utilities {
@@ -25,13 +25,6 @@ class Shortcode extends Utilities {
 	private $version;
 
 	/**
-	 * The version of this plugin.
-	 *
-	 * @var bool $shortcode_being_used
-	 */
-	private $shortcode_being_used;
-
-	/**
 	 * Initialize the class and set its properties.
 	 *
 	 * @var string $plugin_name
@@ -42,27 +35,6 @@ class Shortcode extends Utilities {
 		$this->plugin_name          = $plugin_name;
 		$this->version              = $version;
 		$this->shortcode_being_used = false;
-	}
-
-	/**
-	 * Check if shortcode is added in the post.
-	 *
-	 * @return bool
-	 */
-	public function is_shortcode_being_used() {
-
-		if ( $this->shortcode_being_used ) {
-			return true;
-		} else {
-			global $post;
-			if ( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'faqs' ) ) {
-				$this->shortcode_being_used = true;
-
-				return true;
-			}
-
-			return false;
-		}
 	}
 
 	/**
@@ -109,12 +81,12 @@ class Shortcode extends Utilities {
 
 		extract(
 			shortcode_atts(
-				[
+				array(
 					'style'   => '',    // Possible Values: toggle, accordion, toggle-grouped, accordion-grouped
 					'filter'  => false,
 					'orderby' => 'date',
 					'order'   => 'DESC',
-				],
+				),
 				$attributes,
 				'faqs'
 			)
@@ -127,18 +99,7 @@ class Shortcode extends Utilities {
 
 		ob_start();
 
-		$faqs_fa_style = $this->get_option( 'faqs_fontawesome_style', 'qaef_basics' );
-		if ( 'on' !== $faqs_fa_style ) {
-			wp_enqueue_style( 'font-awesome' );
-		}
-
-		wp_enqueue_style( $this->plugin_name );
-
-		if ( is_rtl() ) {
-			wp_enqueue_style( $this->plugin_name . '-rtl' );
-		}
-
-		$faqs_query = new Faqs_Query( $style, $filter, $orderby, $order );
+		$faqs_query = new FAQs_Query( $style, $filter, $orderby, $order );
 		$faqs_query->render();
 
 		wp_localize_script(
@@ -168,68 +129,68 @@ class Shortcode extends Utilities {
 	public function integrate_shortcode_with_vc() {
 
 		vc_map(
-			[
+			array(
 				'name'        => __( 'Quick and Easy FAQs', 'quick-and-easy-faqs' ),
 				'description' => __( 'Quick and Easy FAQs Plugin', 'quick-and-easy-faqs' ),
 				'base'        => 'faqs',
 				'category'    => __( 'Content', 'quick-and-easy-faqs' ),
-				'params'      => [
-					[
+				'params'      => array(
+					array(
 						'type'        => 'dropdown',
 						'heading'     => __( 'Display Style', 'quick-and-easy-faqs' ),
 						'param_name'  => 'style',
-						'value'       => [
+						'value'       => array(
 							'Default'           => '',
 							'Toggle'            => 'toggle',
 							'Accordion'         => 'accordion',
-							'Grouped'         => 'grouped',
+							'Grouped'           => 'grouped',
 							'Toggle Grouped'    => 'toggle-grouped',
 							'Accordion Grouped' => 'accordion-grouped',
-						],
+						),
 						'admin_label' => true,
-					],
-					[
+					),
+					array(
 						'type'        => 'dropdown',
 						'heading'     => __( 'FAQs Filters', 'quick-and-easy-faqs' ),
 						'param_name'  => 'filter',
-						'value'       => [
-							'Default'  => '',
-							'Yes'  => 'true',
-							'No'  => 'false',
-						],
+						'value'       => array(
+							'Default' => '',
+							'Yes'     => 'true',
+							'No'      => 'false',
+						),
 						'admin_label' => true,
-					],
-					[
+					),
+					array(
 						'type'        => 'dropdown',
 						'heading'     => __( 'FAQs Order', 'quick-and-easy-faqs' ),
 						'param_name'  => 'order',
-						'value'       => [
-							'Default'  => '',
+						'value'       => array(
+							'Default'    => '',
 							'Ascending'  => 'ASC',
-							'Descending'  => 'DESC',
-						],
+							'Descending' => 'DESC',
+						),
 						'admin_label' => true,
-					],
-					[
+					),
+					array(
 						'type'        => 'dropdown',
 						'heading'     => __( 'FAQs Order By', 'quick-and-easy-faqs' ),
 						'param_name'  => 'orderby',
-						'value'       => [
+						'value'       => array(
 							'Default'  => '',
-							'ID'  => 'ID',
-							'Author'  => 'author',
-							'Title'  => 'title',
-							'Name'  => 'name',
-							'Type'  => 'type',
-							'Date'  => 'date',
-							'Modified'  => 'modified',
-							'Parent'  => 'parent',
-							'Random'  => 'rand',
-						],
+							'ID'       => 'ID',
+							'Author'   => 'author',
+							'Title'    => 'title',
+							'Name'     => 'name',
+							'Type'     => 'type',
+							'Date'     => 'date',
+							'Modified' => 'modified',
+							'Parent'   => 'parent',
+							'Random'   => 'rand',
+						),
 						'admin_label' => true,
-					],
-				],
-			]
+					),
+				),
+			)
 		);
 
 	}

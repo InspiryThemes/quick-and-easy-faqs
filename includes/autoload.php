@@ -47,8 +47,7 @@ spl_autoload_register(
 		// If the file exists in the specified path, then include it.
 		if ( file_exists( $filepath ) ) {
 			include_once $filepath;
-		}
-		else {
+		} else {
 			wp_die(
 				esc_html__( "The file attempting to be loaded at $filepath does not exist.", 'quick-and-easy-faqs' )
 			);

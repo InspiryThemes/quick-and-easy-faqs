@@ -7,7 +7,7 @@ use Quick_And_Easy_Faqs\Includes\Utilities;
 /**
  * This class holds all the faqs query related members and methods.
  */
-class Faqs_Query extends Utilities {
+class FAQs_Query extends Utilities {
 
 	/**
 	 * Holds the query of faqs.
@@ -52,7 +52,7 @@ class Faqs_Query extends Utilities {
 	 * @param string       $orderby Faqs posts order by.
 	 * @param string       $order Faqs posts order.
 	 */
-	public function __construct( $display = '', $filters = false || [], $orderby = 'date', $order = 'DESC' ) {
+	public function __construct( $display = '', $filters = false || array(), $orderby = 'date', $order = 'DESC' ) {
 
 		$this->display = $display;
 		$this->filters = $filters;
@@ -62,15 +62,14 @@ class Faqs_Query extends Utilities {
 		if ( $this->filters && ! is_array( $this->filters ) ) {
 
 			$terms = get_terms(
-				[
+				array(
 					'taxonomy' => 'faq-group',
 					'fields'   => 'slugs',
-				]
+				)
 			);
 
 			$this->filters = $terms;
 		}
-
 
 		$this->faqs_query = $this->query_build();
 	}
@@ -80,23 +79,22 @@ class Faqs_Query extends Utilities {
 	 */
 	protected function query_build() {
 
-
-		$query = [
+		$query = array(
 			'post_type'      => 'faq',
 			'posts_per_page' => - 1,
 			'orderby'        => $this->orderby,
 			'order'          => $this->order,
-		];
+		);
 
 		if ( $this->filters ) {
 
-			$query['tax_query'] = [
-				[
+			$query['tax_query'] = array(
+				array(
 					'taxonomy' => 'faq-group',
 					'field'    => 'slug',
 					'terms'    => $this->filters,
-				],
-			];
+				),
+			);
 		}
 
 		return $query;
@@ -110,7 +108,7 @@ class Faqs_Query extends Utilities {
 	 * @return array terms array.
 	 */
 	protected function get_terms_slugs( $id ) {
-		$terms_slugs = [];
+		$terms_slugs = array();
 		$terms       = get_the_terms( $id, 'faq-group' );
 
 		if ( $terms && ! is_wp_error( $terms ) ) {
@@ -132,7 +130,7 @@ class Faqs_Query extends Utilities {
 	 */
 	protected function get_term_faqs_ids( $faqs_posts_ids ) {
 
-		$faq_terms_posts = [];
+		$faq_terms_posts = array();
 
 		foreach ( $faqs_posts_ids as $id ) {
 
@@ -215,7 +213,10 @@ class Faqs_Query extends Utilities {
 				<li><a class="qe-faqs-filter" href="#" data-filter="*"><?php esc_html_e( 'All', 'quick-and-easy-faqs' ); ?></a></li>
 				<?php
 				foreach ( $this->filters as $term ) {
-					echo '<li><a class="qe-faqs-filter" href="#' . esc_attr( $term ) . '" data-filter=".' . esc_attr( $term ) . '">' . esc_html( ucwords( str_replace( '-', ' ', $term ) ) ) . '</a></li>';
+					$term_object = get_term_by( 'slug', $term, 'faq-group' );
+					if ( $term_object ) {
+						echo '<li><a class="qe-faqs-filter" href="#' . esc_attr( $term ) . '" data-filter=".' . esc_attr( $term ) . '">' . esc_html( $term_object->name ) . '</a></li>';
+					}
 				}
 				?>
 			</ul>
@@ -261,15 +262,18 @@ class Faqs_Query extends Utilities {
 			<div class="qe-<?php echo esc_attr( $class ); ?>-title">
 				<h4>
 					<?php
-					echo wp_kses( $this->get_the_icon(), [ 'i' => [ 'class' => [] ] ] );
+					echo wp_kses( $this->get_the_icon(), array( 'i' => array( 'class' => array() ) ) );
 					echo esc_html( get_the_title( $id ) );
 					?>
 				</h4>
 			</div>
 			<div class="qe-<?php echo esc_attr( $class ); ?>-content">
 				<?php
-				echo do_shortcode(get_post_field('post_content', $id));
-
+				$content_post = get_post( $id );
+				$content      = $content_post->post_content;
+				$content      = apply_filters( 'the_content', $content );
+				$content      = str_replace( ']]>', ']]&gt;', $content );
+				echo wp_kses_post( $content );
 				if ( ( empty( $this->display ) || 'grouped' === $this->display ) && 'on' !== $back_to_index ) {
 					echo '<br /><a class="qe-faq-top" href="#qe-faqs-index"><i class="fa fa-angle-up"></i> ' . esc_html__( 'Back to Index', 'quick-and-easy-faqs' ) . '</a>';
 				}
@@ -334,7 +338,7 @@ class Faqs_Query extends Utilities {
 		endif;
 
 		// All the custom loops ends here so reset the query.
-		wp_reset_query();
+		wp_reset_postdata();
 	}
 
 }

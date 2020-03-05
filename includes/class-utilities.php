@@ -8,6 +8,24 @@ namespace Quick_And_Easy_Faqs\Includes;
 
 class Utilities {
 
+
+	/**
+	 * The version of this plugin.
+	 *
+	 * @var bool $shortcode_being_used
+	 */
+	private $shortcode_being_used;
+
+	/**
+	 * Initialize the class and set its properties.
+	 *
+	 * @var string $plugin_name
+	 * @var string $version
+	 */
+	public function __construct() {
+		$this->shortcode_being_used = false;
+	}
+
 	/**
 	 * Get the value of a settings field
 	 *
@@ -26,5 +44,24 @@ class Utilities {
 		}
 
 		return $default;
+	}
+
+	/**
+	 * Check if the faqs shortcode is used in WordPress contents
+	 *
+	 * @return bool
+	 */
+	protected function is_shortcode_being_used() {
+
+		if ( $this->shortcode_being_used ) {
+			return true;
+		} else {
+			global $post;
+			if ( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'faqs' ) ) {
+				$this->shortcode_being_used = true;
+				return true;
+			}
+			return false;
+		}
 	}
 }

@@ -60,6 +60,25 @@ This plugin provides a quick and easy way add FAQs using custom post type and la
 
 * `[faqs style="accordion" order="DESC" orderby="title"]` Display all FAQs in accordion style and order by descending title.
 
+~~~
+<?php
+/**
+	 * Display FAQs using Code
+	 *
+	 * @param   string  $style      'toggle' | 'accordion' | 'toggle-grouped' | 'accordion-grouped'
+	 * @param   array   $filter     true | false
+	 * @param   string  $orderby    'date' | 'title'
+	 * @param   string  $order      'ASC' | 'DESC'
+	 */
+
+    use Quick_And_Easy_Faqs\Includes\FAQs;
+    $faqs = new FAQs();
+    echo $faqs->get_faqs_markup(  $style,  $filter,  $orderby,  $order  );
+?>
+~~~
+
+You can find further filters here - https://developer.wordpress.org/reference/classes/wp_query/#order-orderby-parameters
+
 
 ### Links
 
@@ -84,6 +103,12 @@ This plugin provides a quick and easy way add FAQs using custom post type and la
 8. Grouped Toggle FAQs
 
 == Changelog ==
+
+= 1.3.1 =
+* HTML and Shortcodes support added in faq's contents section
+* Minor Style issues fixed
+* Custom code support added
+* Styles and Scripts inclusion improved
 
 = 1.3.0 =
 * Refactored the code for better performance and easier maintenance

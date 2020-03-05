@@ -49,6 +49,28 @@ This plugin provides a quick and easy way add FAQs using custom post type and la
 
 * `[faqs style="accordion" order="DESC" orderby="title"]` Display all FAQs in accordion style and order by descending title.
 
+If you want to "Display Faqs Programmatically" then you can use the following code.
+
+```
+
+<?php
+/**
+	 * Display faqs programmatically
+	 *
+	 * @param  string $style   Possible Values: toggle, accordion, toggle-grouped, accordion-grouped
+	 * @param  array $filter true | false.
+	 * @param  string $orderby 'date'.
+	 * @param  string $order faq 'ASC'.
+	 */
+
+    use Quick_And_Easy_Faqs\Includes\Faqs;
+    $faqs = new Faqs();
+    echo $faqs->do_shortcode(  $style,  $filter,  $orderby,  $order  );
+?>
+```
+
+You can find further filters here - https://developer.wordpress.org/reference/classes/wp_query/#order-orderby-parameters
+
 ## Installation
 
 1. Unzip the downloaded package
