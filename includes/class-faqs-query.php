@@ -213,7 +213,10 @@ class FAQs_Query extends Utilities {
 				<li><a class="qe-faqs-filter" href="#" data-filter="*"><?php esc_html_e( 'All', 'quick-and-easy-faqs' ); ?></a></li>
 				<?php
 				foreach ( $this->filters as $term ) {
-					echo '<li><a class="qe-faqs-filter" href="#' . esc_attr( $term ) . '" data-filter=".' . esc_attr( $term ) . '">' . esc_html( ucwords( str_replace( '-', ' ', $term ) ) ) . '</a></li>';
+					$term_object = get_term_by( 'slug', $term, 'faq-group' );
+					if ( $term_object ) {
+						echo '<li><a class="qe-faqs-filter" href="#' . esc_attr( $term ) . '" data-filter=".' . esc_attr( $term ) . '">' . esc_html( $term_object->name ) . '</a></li>';
+					}
 				}
 				?>
 			</ul>
