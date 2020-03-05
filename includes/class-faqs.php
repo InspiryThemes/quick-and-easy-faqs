@@ -133,7 +133,7 @@ class FAQs  extends Utilities {
 	 *
 	 * @return bool true on success or false on failure.
 	 */
-	public function do_shortcode( $style = '', $filter = 'false', $orderby = '', $order = '' ) {
+	public function get_faqs_markup( $style = '', $filter = 'false', $orderby = '', $order = '' ) {
 
 		// faq groups filter.
 		if ( isset( $filter ) && ! empty( $filter ) && 'true' != $filter ) {

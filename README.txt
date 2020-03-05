@@ -73,7 +73,7 @@ This plugin provides a quick and easy way add FAQs using custom post type and la
 
     use Quick_And_Easy_Faqs\Includes\FAQs;
     $faqs = new FAQs();
-    echo $faqs->do_shortcode(  $style,  $filter,  $orderby,  $order  );
+    echo $faqs->get_faqs_markup(  $style,  $filter,  $orderby,  $order  );
 ?>
 ~~~
 
