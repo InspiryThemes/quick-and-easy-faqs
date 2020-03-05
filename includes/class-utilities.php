@@ -4,7 +4,7 @@
  * public-facing side of the site and the admin area.
  */
 
-namespace Quick_And_Easy_Faqs\Includes;
+namespace Quick_And_Easy_FAQs\Includes;
 
 class Utilities {
 

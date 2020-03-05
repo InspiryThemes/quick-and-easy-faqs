@@ -7,9 +7,9 @@
  * enqueue the admin-specific stylesheet and JavaScript.
  */
 
-namespace Quick_And_Easy_Faqs\Admin;
+namespace Quick_And_Easy_FAQs\Admin;
 
-use Quick_And_Easy_Faqs\Includes\Settings_API;
+use Quick_And_Easy_FAQs\Includes\Settings_API;
 
 class Settings {
 

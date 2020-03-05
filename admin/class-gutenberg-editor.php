@@ -3,7 +3,7 @@
  * Gutenberg Blocks for FAQs
  */
 
-namespace Quick_And_Easy_Faqs\Admin;
+namespace Quick_And_Easy_FAQs\Admin;
 
 class Gutenberg_Editor {
 

@@ -3,7 +3,7 @@
  * TinyMCE - Classic Editor Button for FAQs
  */
 
-namespace Quick_And_Easy_Faqs\Admin;
+namespace Quick_And_Easy_FAQs\Admin;
 
 class Classic_Editor {
 

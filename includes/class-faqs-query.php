@@ -1,8 +1,8 @@
 <?php
 
-namespace Quick_And_Easy_Faqs\Includes;
+namespace Quick_And_Easy_FAQs\Includes;
 
-use Quick_And_Easy_Faqs\Includes\Utilities;
+use Quick_And_Easy_FAQs\Includes\Utilities;
 
 /**
  * This class holds all the faqs query related members and methods.
