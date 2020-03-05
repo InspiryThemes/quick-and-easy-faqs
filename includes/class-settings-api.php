@@ -2,7 +2,7 @@
 /**
  * WeDevs Settings API wrapper class
  */
-namespace Quick_And_Easy_Faqs\Includes;
+namespace Quick_And_Easy_FAQs\Includes;
 
 class Settings_API {
 	/**

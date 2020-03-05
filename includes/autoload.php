@@ -3,7 +3,7 @@
  * Dynamically loads the class attempting to be instantiated elsewhere in the
  * plugin by looking at the $class_name parameter being passed as an argument.
  *
- * The argument should be in the form: Quick_And_Easy_Faqs\Namespace. The
+ * The argument should be in the form: Quick_And_Easy_FAQs\Namespace. The
  * function will then break the fully-qualified class name into its pieces and
  * will then build a file to the path based on the namespace.
  *
@@ -14,7 +14,7 @@
 
 spl_autoload_register(
 	function ( $class_name ) {
-		if ( false === strpos( $class_name, 'Quick_And_Easy_Faqs' ) ) {
+		if ( false === strpos( $class_name, 'Quick_And_Easy_FAQs' ) ) {
 			return;
 		}
 

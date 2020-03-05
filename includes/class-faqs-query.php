@@ -1,8 +1,8 @@
 <?php
 
-namespace Quick_And_Easy_Faqs\Includes;
+namespace Quick_And_Easy_FAQs\Includes;
 
-use Quick_And_Easy_Faqs\Includes\Utilities;
+use Quick_And_Easy_FAQs\Includes\Utilities;
 
 /**
  * This class holds all the faqs query related members and methods.
@@ -49,8 +49,8 @@ class FAQs_Query extends Utilities {
 	 *
 	 * @param string       $display Display type of plugin.
 	 * @param bool | array $filters The filters of this plugin.
-	 * @param string       $orderby Faqs posts order by.
-	 * @param string       $order Faqs posts order.
+	 * @param string       $orderby FAQs posts order by.
+	 * @param string       $order FAQs posts order.
 	 */
 	public function __construct( $display = '', $filters = false || array(), $orderby = 'date', $order = 'DESC' ) {
 
@@ -186,7 +186,7 @@ class FAQs_Query extends Utilities {
 	/**
 	 * Render the faqs title
 	 *
-	 * @param array $faqs_posts_ids Faqs posts ids.
+	 * @param array $faqs_posts_ids FAQs posts ids.
 	 */
 	protected function render_faqs_title( $faqs_posts_ids ) {
 

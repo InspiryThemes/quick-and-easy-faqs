@@ -71,7 +71,7 @@ This plugin provides a quick and easy way add FAQs using custom post type and la
 	 * @param   string  $order      'ASC' | 'DESC'
 	 */
 
-    use Quick_And_Easy_Faqs\Includes\FAQs;
+    use Quick_And_Easy_FAQs\Includes\FAQs;
     $faqs = new FAQs();
     echo $faqs->get_faqs_markup(  $style,  $filter,  $orderby,  $order  );
 ?>
@@ -113,7 +113,7 @@ You can find further filters here - https://developer.wordpress.org/reference/cl
 = 1.3.0 =
 * Refactored the code for better performance and easier maintenance
 * FAQs Accordion support added
-* Faqs Order By support added
+* FAQs Order By support added
 * WordPress do_shortcode support added
 * Improved Gutenberg support
 * Font Awesome enable/disable option added

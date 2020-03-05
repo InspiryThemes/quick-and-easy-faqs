@@ -7,7 +7,7 @@
  * enqueue the admin-specific stylesheet and JavaScript.
  */
 
-namespace Quick_And_Easy_Faqs\Admin;
+namespace Quick_And_Easy_FAQs\Admin;
 
 class Admin {
 

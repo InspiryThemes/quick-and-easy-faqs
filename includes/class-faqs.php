@@ -8,16 +8,16 @@
  * of this plugin as well as the current version of the plugin.
  */
 
-namespace Quick_And_Easy_Faqs\Includes;
+namespace Quick_And_Easy_FAQs\Includes;
 
-use Quick_And_Easy_Faqs\Admin\Admin;
-use Quick_And_Easy_Faqs\Admin\Settings;
-use Quick_And_Easy_Faqs\Admin\Gutenberg_Editor;
-use Quick_And_Easy_Faqs\Admin\Classic_Editor;
-use Quick_And_Easy_Faqs\Admin\Register_Post_And_Taxonomy;
-use Quick_And_Easy_Faqs\Frontend\Frontend;
-use Quick_And_Easy_Faqs\Frontend\Shortcode;
-use Quick_And_Easy_Faqs\Includes\Utilities;
+use Quick_And_Easy_FAQs\Admin\Admin;
+use Quick_And_Easy_FAQs\Admin\Settings;
+use Quick_And_Easy_FAQs\Admin\Gutenberg_Editor;
+use Quick_And_Easy_FAQs\Admin\Classic_Editor;
+use Quick_And_Easy_FAQs\Admin\Register_Post_And_Taxonomy;
+use Quick_And_Easy_FAQs\Frontend\Frontend;
+use Quick_And_Easy_FAQs\Frontend\Shortcode;
+use Quick_And_Easy_FAQs\Includes\Utilities;
 
 class FAQs  extends Utilities {
 

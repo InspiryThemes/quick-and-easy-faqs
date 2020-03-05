@@ -3,10 +3,10 @@
  * The public-facing functionality of the plugin.
  */
 
-namespace Quick_And_Easy_Faqs\Frontend;
+namespace Quick_And_Easy_FAQs\Frontend;
 
-use Quick_And_Easy_Faqs\Includes\FAQs_Query;
-use Quick_And_Easy_Faqs\Includes\Utilities;
+use Quick_And_Easy_FAQs\Includes\FAQs_Query;
+use Quick_And_Easy_FAQs\Includes\Utilities;
 
 class Shortcode extends Utilities {
 
