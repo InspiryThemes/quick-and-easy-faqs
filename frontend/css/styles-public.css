@@ -15,9 +15,14 @@
   margin-bottom: 1em;
 }
 
-.entry-content .qe-faq-toggle {
+.qe-faq-toggle {
   margin-bottom: 2px;
   transition: all 0.5s;
+}
+
+/* Fix for twent twenty theme */
+.entry-content .qe-faq-toggle{
+  margin-bottom: 2px;
 }
 
 .qe-faq-toggle .qe-toggle-title {
