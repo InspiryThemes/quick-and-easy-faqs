@@ -3,7 +3,7 @@ Contributors: inspirythemes, saqibsarwar
 Tags: FAQs, FAQ, FAQs list, accordion FAQs, toggle FAQs, filtered FAQs, grouped FAQs, FAQs Block, Gutenberg FAQs, FAQs Order, FAQs Sorting
 Requires at least: 5.0
 Tested up to: 5.3.2
-Stable tag: 1.3.1
+Stable tag: 1.3.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -60,26 +60,6 @@ This plugin provides a quick and easy way add FAQs using custom post type and la
 
 * `[faqs style="accordion" order="DESC" orderby="title"]` Display all FAQs in accordion style and order by descending title.
 
-~~~
-<?php
-    /**
-	 * Display FAQs using Code
-	 *
-	 * @param   string  $style      'toggle' | 'accordion' | 'toggle-grouped' | 'accordion-grouped'
-	 * @param   array   $filter     true | false
-	 * @param   string  $orderby    'date' | 'title'
-	 * @param   string  $order      'ASC' | 'DESC'
-	 */
-
-    use Quick_And_Easy_FAQs\Includes\FAQs;
-    $faqs = new FAQs();
-    echo $faqs->get_faqs_markup(  $style,  $filter,  $orderby,  $order  );
-?>
-~~~
-
-You can find further filters here - https://developer.wordpress.org/reference/classes/wp_query/#order-orderby-parameters
-
-
 ### Links
 
 - [GitHub Repository](https://github.com/inspirythemes/quick-and-easy-faqs)
@@ -105,9 +85,11 @@ You can find further filters here - https://developer.wordpress.org/reference/cl
 
 == Changelog ==
 
+= 1.3.2 =
+* Improved Simple Grouped FAQs list structure
+
 = 1.3.1 =
 * HTML and shortcodes support added in FAQ's contents section
-* Custom code support added to display FAQs in PHP templates
 * Styles and Scripts inclusion improved
 * Minor fixes/improvements in styles
 
