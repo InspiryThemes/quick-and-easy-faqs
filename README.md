@@ -51,25 +51,6 @@ This plugin provides a quick and easy way add FAQs using custom post type and la
 
 If you want to display FAQs using custom code in php template then you can use the following code.
 
-```
-<?php
-/**
-	 * Display FAQs using Code
-	 *
-	 * @param   string  $style      'toggle' | 'accordion' | 'toggle-grouped' | 'accordion-grouped'
-	 * @param   array   $filter     true | false
-	 * @param   string  $orderby    'date' | 'title'
-	 * @param   string  $order      'ASC' | 'DESC'
-	 */
-
-    use Quick_And_Easy_FAQs\Includes\FAQs;
-    $faqs = new FAQs();
-    echo $faqs->get_faqs_markup(  $style,  $filter,  $orderby,  $order  );
-?>
-```
-
-You can find further filters here - https://developer.wordpress.org/reference/classes/wp_query/#order-orderby-parameters
-
 ## Installation
 
 1. Unzip the downloaded package

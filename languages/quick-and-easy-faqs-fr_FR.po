@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Quick and Easy FAQs\n"
-"POT-Creation-Date: 2020-02-29 08:06+0500\n"
-"PO-Revision-Date: 2020-02-29 08:12+0500\n"
+"POT-Creation-Date: 2020-03-06 19:40+0500\n"
+"PO-Revision-Date: 2020-03-06 19:41+0500\n"
 "Last-Translator: M Saqib Sarwar <saqib@inspirythemes.com>\n"
 "Language-Team: M Saqib Sarwar <saqib@inspirythemes.com>\n"
 "Language: fr_FR\n"
@@ -22,7 +22,7 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
 #. Plugin Name of the plugin/theme
-#: admin/class-gutenberg-editor.php:17 frontend/class-shortcode.php:172
+#: admin/class-gutenberg-editor.php:17 frontend/class-shortcode.php:133
 msgid "Quick and Easy FAQs"
 msgstr "Simple et rapide"
 
@@ -42,8 +42,6 @@ msgid "FAQs"
 msgstr "FAQs"
 
 #: admin/class-register-post-and-taxonomy.php:20
-#| msgctxt "Post Type Singular Name"
-#| msgid "FAQ"
 msgid "FAQ"
 msgstr "FAQ"
 
@@ -204,8 +202,7 @@ msgstr ""
 #: admin/class-settings.php:102
 #, fuzzy
 msgid "FAQs Plugin Based Font Awesome Stylesheet"
-msgstr ""
-"FAQs Feuille de style géniale pour les polices basées sur des plugins"
+msgstr "FAQs Feuille de style géniale pour les polices basées sur des plugins"
 
 #: admin/class-settings.php:103
 msgid "Disable"
@@ -228,8 +225,8 @@ msgstr "Couleurs de bascule FAQ"
 #, fuzzy
 msgid "Choose custom colors to apply colors provided in options below."
 msgstr ""
-"Choisissez des couleurs personnalisées pour appliquer les couleurs "
-"fournies dans les options ci-dessous."
+"Choisissez des couleurs personnalisées pour appliquer les couleurs fournies "
+"dans les options ci-dessous."
 
 #: admin/class-settings.php:122
 msgid "Default Colors"
@@ -280,44 +277,44 @@ msgstr "CSS personnalisé"
 msgid "Quick and Easy FAQs Settings"
 msgstr "Réglages rapides et faciles de la FAQ"
 
-#: frontend/class-shortcode.php:173
+#: frontend/class-shortcode.php:134
 msgid "Quick and Easy FAQs Plugin"
 msgstr "FAQ rapide et facile Plugin"
 
-#: frontend/class-shortcode.php:175
+#: frontend/class-shortcode.php:136
 msgid "Content"
 msgstr "Contenu"
 
-#: frontend/class-shortcode.php:179
+#: frontend/class-shortcode.php:140
 msgid "Display Style"
 msgstr "Style d’affichage"
 
-#: frontend/class-shortcode.php:193
+#: frontend/class-shortcode.php:154
 #, fuzzy
 #| msgid "FAQs toggle colors"
 msgid "FAQs Filters"
 msgstr "Filtres de la FAQ"
 
-#: frontend/class-shortcode.php:204
+#: frontend/class-shortcode.php:165
 #, fuzzy
 msgid "FAQs Order"
 msgstr "FAQ Commande"
 
-#: frontend/class-shortcode.php:215
+#: frontend/class-shortcode.php:176
 #, fuzzy
 msgid "FAQs Order By"
 msgstr "FAQ Classement par"
 
-#: includes/class-faqs-query.php:215
+#: includes/class-faqs-query.php:225
 msgid "All"
 msgstr "Tous"
 
-#: includes/class-faqs-query.php:274
+#: includes/class-faqs-query.php:290
 #, fuzzy
 msgid "Back to Index"
 msgstr "Retour à l'index"
 
-#: includes/class-settings-api.php:352
+#: includes/class-settings-api.php:350
 msgid "Choose File"
 msgstr "Choisissez un fichier"
 

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Quick and Easy FAQs\n"
-"POT-Creation-Date: 2020-02-29 08:06+0500\n"
-"PO-Revision-Date: 2020-02-29 08:09+0500\n"
+"POT-Creation-Date: 2020-03-06 19:40+0500\n"
+"PO-Revision-Date: 2020-03-06 19:40+0500\n"
 "Last-Translator: M Saqib Sarwar <saqib@inspirythemes.com>\n"
 "Language-Team: M Saqib Sarwar <saqib@inspirythemes.com>\n"
 "Language: tr_TR\n"
@@ -22,7 +22,7 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
 #. Plugin Name of the plugin/theme
-#: admin/class-gutenberg-editor.php:17 frontend/class-shortcode.php:172
+#: admin/class-gutenberg-editor.php:17 frontend/class-shortcode.php:133
 #, fuzzy
 msgid "Quick and Easy FAQs"
 msgstr "Hızlı ve Kolay SSS"
@@ -208,8 +208,7 @@ msgid ""
 "style use colors inherited from currently active theme."
 msgstr ""
 "Bu ayarlar yalnızca geçiş tarzı SSS'ler için geçerlidir. Liste stili ile "
-"ilgili SSS olarak, o anda etkin olan temanın miras alınan renkleri "
-"kullanın."
+"ilgili SSS olarak, o anda etkin olan temanın miras alınan renkleri kullanın."
 
 #: admin/class-settings.php:102
 #, fuzzy
@@ -291,44 +290,44 @@ msgstr "Özel CSS"
 msgid "Quick and Easy FAQs Settings"
 msgstr "Hızlı ve Kolay SSS Ayarları"
 
-#: frontend/class-shortcode.php:173
+#: frontend/class-shortcode.php:134
 #, fuzzy
 msgid "Quick and Easy FAQs Plugin"
 msgstr "Hızlı ve Kolay SSS Eklentisi"
 
-#: frontend/class-shortcode.php:175
+#: frontend/class-shortcode.php:136
 msgid "Content"
 msgstr "İçerik"
 
-#: frontend/class-shortcode.php:179
+#: frontend/class-shortcode.php:140
 msgid "Display Style"
 msgstr "Görüntüleme Stili"
 
-#: frontend/class-shortcode.php:193
+#: frontend/class-shortcode.php:154
 #, fuzzy
 msgid "FAQs Filters"
 msgstr "SSS Filtreler"
 
-#: frontend/class-shortcode.php:204
+#: frontend/class-shortcode.php:165
 #, fuzzy
 msgid "FAQs Order"
 msgstr "SSS Sipariş"
 
-#: frontend/class-shortcode.php:215
+#: frontend/class-shortcode.php:176
 #, fuzzy
 msgid "FAQs Order By"
 msgstr "SSS Sipariş Ver"
 
-#: includes/class-faqs-query.php:215
+#: includes/class-faqs-query.php:225
 msgid "All"
 msgstr "Tümü"
 
-#: includes/class-faqs-query.php:274
+#: includes/class-faqs-query.php:290
 #, fuzzy
 msgid "Back to Index"
 msgstr "Dizine Geri Dön"
 
-#: includes/class-settings-api.php:352
+#: includes/class-settings-api.php:350
 msgid "Choose File"
 msgstr "Dosya seçin"
 

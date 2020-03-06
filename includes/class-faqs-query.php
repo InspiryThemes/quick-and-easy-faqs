@@ -154,13 +154,19 @@ class FAQs_Query extends Utilities {
 	 */
 	protected function build_titles_structure( $faq_terms_posts ) {
 
-		echo '<div id="qe-faqs-index" class="qe-faqs-index"><ol class="qe-faqs-index-list">';
+		echo '<div id="qe-faqs-index" class="qe-faqs-index">';
 
 		foreach ( $faq_terms_posts as $slug => $faq_ids ) {
 
 			if ( is_array( $faq_ids ) ) {
 
-				echo '<h4 class="qe-faqs-group-title">' . esc_html( ucwords( str_replace( '-', ' ', $slug ) ) ) . '</h4>';
+				$term_object = get_term_by( 'slug', $slug, 'faq-group' );
+
+				if ( $term_object ) {
+					echo '<h4 class="qe-faqs-group-title">' . esc_html( $term_object->name ) . '</h4>';
+				}
+
+				echo '<ol class="qe-faqs-index-list">';
 
 				foreach ( $faq_ids as $id ) {
 
@@ -171,16 +177,20 @@ class FAQs_Query extends Utilities {
 					</li>
 					<?php
 				}
+
+				echo '</ol>';
 			} else {
 				$terms_slugs = $this->get_terms_slugs( $faq_ids );
 				?>
-				<li class="<?php echo esc_attr( implode( ' ', $terms_slugs ) ); ?>">
-					<a href="#qaef-<?php echo esc_attr( $faq_ids ); ?>"><?php echo esc_html( get_the_title( $faq_ids ) ); ?></a>
-				</li>
+				
+					<li class="<?php echo esc_attr( implode( ' ', $terms_slugs ) ); ?>">
+						<a href="#qaef-<?php echo esc_attr( $faq_ids ); ?>"><?php echo esc_html( get_the_title( $faq_ids ) ); ?></a>
+					</li>
+				
 				<?php
 			}
 		}
-		echo '</ol></div>';
+		echo '</div>';
 	}
 
 	/**
@@ -198,7 +208,9 @@ class FAQs_Query extends Utilities {
 
 		} elseif ( '' === $this->display ) {
 
+			echo '<ol class="qe-faqs-index-list">';
 			$this->build_titles_structure( $faqs_posts_ids );
+			echo '</ol>';
 		}
 	}
 

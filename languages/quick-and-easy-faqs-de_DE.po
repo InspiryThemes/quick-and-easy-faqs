@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Quick and Easy FAQs\n"
-"POT-Creation-Date: 2020-02-29 08:06+0500\n"
-"PO-Revision-Date: 2020-02-29 08:15+0500\n"
+"POT-Creation-Date: 2020-03-06 19:40+0500\n"
+"PO-Revision-Date: 2020-03-06 19:42+0500\n"
 "Last-Translator: M Saqib Sarwar <saqib@inspirythemes.com>\n"
 "Language-Team: M Saqib Sarwar <saqib@inspirythemes.com>\n"
 "Language: de_DE\n"
@@ -22,7 +22,7 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
 #. Plugin Name of the plugin/theme
-#: admin/class-gutenberg-editor.php:17 frontend/class-shortcode.php:172
+#: admin/class-gutenberg-editor.php:17 frontend/class-shortcode.php:133
 #, fuzzy
 msgid "Quick and Easy FAQs"
 msgstr "Schnelle und einfache FAQs"
@@ -295,44 +295,44 @@ msgstr "Benutzerdefiniertes CSS"
 msgid "Quick and Easy FAQs Settings"
 msgstr "Schnelle und einfache FAQ-Einstellungen"
 
-#: frontend/class-shortcode.php:173
+#: frontend/class-shortcode.php:134
 #, fuzzy
 msgid "Quick and Easy FAQs Plugin"
 msgstr "Schnelles und einfaches FAQ-Plugin"
 
-#: frontend/class-shortcode.php:175
+#: frontend/class-shortcode.php:136
 msgid "Content"
 msgstr "Inhalt"
 
-#: frontend/class-shortcode.php:179
+#: frontend/class-shortcode.php:140
 msgid "Display Style"
 msgstr "Anzeigestil"
 
-#: frontend/class-shortcode.php:193
+#: frontend/class-shortcode.php:154
 #, fuzzy
 msgid "FAQs Filters"
 msgstr "FAQs Filter"
 
-#: frontend/class-shortcode.php:204
+#: frontend/class-shortcode.php:165
 #, fuzzy
 msgid "FAQs Order"
 msgstr "FAQs Bestellung"
 
-#: frontend/class-shortcode.php:215
+#: frontend/class-shortcode.php:176
 #, fuzzy
 msgid "FAQs Order By"
 msgstr "FAQs Bestellen nach"
 
-#: includes/class-faqs-query.php:215
+#: includes/class-faqs-query.php:225
 msgid "All"
 msgstr "Alle"
 
-#: includes/class-faqs-query.php:274
+#: includes/class-faqs-query.php:290
 #, fuzzy
 msgid "Back to Index"
 msgstr "Zurück zum Index"
 
-#: includes/class-settings-api.php:352
+#: includes/class-settings-api.php:350
 msgid "Choose File"
 msgstr "Datei wählen"
 
