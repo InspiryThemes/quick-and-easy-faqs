@@ -325,28 +325,31 @@ class FAQs_Query extends Utilities {
 
 		$faq_posts = new \WP_Query( $this->faqs_query );
 
-		if ( $faq_posts->have_posts() ) :
+		$class = 'toggle';
+		if ( empty( $this->display ) || 'grouped' === $this->display ) {
+			$class = 'list';
+		}
 
-			$faqs_array     = $faq_posts->posts;
-			$faqs_posts_ids = wp_list_pluck( $faqs_array, 'ID' );
+		if ( $faq_posts->have_posts() ) : ?>
+            <div class="qae-faqs-container qae-faqs-<?php echo esc_attr( $class ); ?>-container">
+				<?php
+				$faqs_array     = $faq_posts->posts;
+				$faqs_posts_ids = wp_list_pluck( $faqs_array, 'ID' );
 
-			$this->build_faqs_filter_structure();
+				$this->build_faqs_filter_structure();
 
-			$this->render_faqs_title( $faqs_posts_ids );
+				$this->render_faqs_title( $faqs_posts_ids );
 
-			if ( 'accordion-grouped' === $this->display || 'toggle-grouped' === $this->display ) {
-
-				$this->render_faqs( $faqs_posts_ids );
-			} else {
-				while ( $faq_posts->have_posts() ) :
-
-					$faq_posts->the_post();
-
-					$this->render_faqs( get_the_ID() );
-
-				endwhile;
-			}
-
+				if ( 'accordion-grouped' === $this->display || 'toggle-grouped' === $this->display ) {
+					$this->render_faqs( $faqs_posts_ids );
+				} else {
+					while ( $faq_posts->have_posts() ) : $faq_posts->the_post();
+						$this->render_faqs( get_the_ID() );
+					endwhile;
+				}
+				?>
+            </div>
+		<?php
 		endif;
 
 		// All the custom loops ends here so reset the query.
