@@ -45,7 +45,7 @@
         $(this).parents('li').addClass('active').siblings().removeClass('active');
 
         var filterSelector = $(this).attr('data-filter'),
-            allFAQs        = $('.qe-faq-toggle, .qe-faq-list, ol.qe-faqs-index-list li');
+            allFAQs = $(this).closest('.qae-faqs-container').find('.qe-faq-toggle, .qe-faq-list, ol.qe-faqs-index-list li');
 
         if (filterSelector === '*') {
             allFAQs.show();
