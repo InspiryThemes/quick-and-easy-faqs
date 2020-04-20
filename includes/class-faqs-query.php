@@ -307,7 +307,8 @@ class FAQs_Query extends Utilities {
 			$faq_terms_posts = $this->get_term_faqs_ids( $ids );
 
 			foreach ( $faq_terms_posts as $slug => $faq_ids ) {
-				echo '<h3 class="qe-faqs-group-title">' . esc_html( ucwords( str_replace( '-', ' ', $slug ) ) ) . '</h3>';
+				$term_object = get_term_by( 'slug', $slug, 'faq-group' );
+				echo '<h3 class="qe-faqs-group-title">' . esc_html( $term_object->name ) . '</h3>';
 				foreach ( $faq_ids as $id ) {
 					$this->build_faqs_structure( $id );
 				}
