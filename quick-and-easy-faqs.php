@@ -12,6 +12,55 @@
  * Domain Path:       /languages
  */
 
+if ( ! function_exists( 'qaef_fs' ) ) {
+	// Create a helper function for easy SDK access.
+	function qaef_fs() {
+		global $qaef_fs;
+
+		if ( ! isset( $qaef_fs ) ) {
+			// Include Freemius SDK.
+			require_once dirname( __FILE__ ) . '/freemius/start.php';
+
+			$qaef_fs = fs_dynamic_init(
+				array(
+					'id'             => '6081',
+					'slug'           => 'quick-and-easy-faqs',
+					'type'           => 'plugin',
+					'public_key'     => 'pk_265e73b44a00b79f42a7a6ec9669d',
+					'is_premium'     => false,
+					'has_addons'     => false,
+					'has_paid_plans' => false,
+					'menu'           => array(
+						'slug'           => 'quick_and_easy_faqs',
+						'override_exact' => true,
+						'account'        => false,
+						'support'        => false,
+						'contact'        => false,
+						'parent'         => array(
+							'slug' => 'edit.php?post_type=faq',
+						),
+					),
+				),
+			);
+		}
+
+		return $qaef_fs;
+	}
+
+	// Init Freemius.
+	qaef_fs();
+	// Signal that SDK was initiated.
+	do_action( 'qaef_fs_loaded' );
+
+	function qaef_fs_settings_url() {
+		return admin_url( 'edit.php?post_type=faq&page=quick_and_easy_faqs' );
+	}
+
+	qaef_fs()->add_filter( 'connect_url', 'qaef_fs_settings_url' );
+	qaef_fs()->add_filter( 'after_skip_url', 'qaef_fs_settings_url' );
+	qaef_fs()->add_filter( 'after_connect_url', 'qaef_fs_settings_url' );
+	qaef_fs()->add_filter( 'after_pending_connect_url', 'qaef_fs_settings_url' );}
+
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
 	die;
