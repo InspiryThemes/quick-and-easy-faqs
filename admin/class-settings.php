@@ -188,6 +188,26 @@ class Settings {
 		$this->settings_api->show_forms();
 		echo '</div>';
 		echo '<div id="qaef-adv-section">';
+		if ( qaef_fs()->is_not_paying() ) {
+			?>
+			<section>
+			<h2><?php esc_html_e( ' Upgrade to FAQs PRO', 'quick-and-easy-faqs' ); ?></h2>
+			<p><?php esc_html_e( 'Please upgrade to the PRO plan to unlock more awesome features.', 'quick-and-easy-faqs' ); ?>  </p>
+			<ul class="features-list clearfix">
+				<li><?php esc_html_e( 'Show/Hide filters manually', 'quick-and-easy-faqs' ); ?></li>
+				<li><?php esc_html_e( 'Question icon change option', 'quick-and-easy-faqs' ); ?></li>
+				<li><?php esc_html_e( 'Tabs format in filtered faqs display', 'quick-and-easy-faqs' ); ?></li>
+				<li><?php esc_html_e( 'Custom Order Support', 'quick-and-easy-faqs' ); ?></li>
+				<li><?php esc_html_e( 'Font change options for heading and text', 'quick-and-easy-faqs' ); ?></li>
+				<li><?php esc_html_e( 'Social Sharing options', 'quick-and-easy-faqs' ); ?></li>
+				<li><?php esc_html_e( 'WordPress Default FAQs Widget', 'quick-and-easy-faqs' ); ?></li>
+			</ul>	
+			
+			<a class="upgrade-now button button-primary" href="<?php echo esc_url( qaef_fs()->get_upgrade_url() ); ?>"> <?php esc_html_e( 'Upgrade Now!', 'quick-and-easy-faqs' ); ?> </a>
+			
+		</section>
+			<?php
+		}
 		echo '</div>';
 		echo '</div>';
 	}

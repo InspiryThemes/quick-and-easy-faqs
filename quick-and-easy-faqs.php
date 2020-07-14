@@ -12,6 +12,12 @@
  * Domain Path:       /languages
  */
 
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
+
 if ( ! function_exists( 'qaef_fs' ) ) {
 	// Create a helper function for easy SDK access.
 	function qaef_fs() {
@@ -23,24 +29,29 @@ if ( ! function_exists( 'qaef_fs' ) ) {
 
 			$qaef_fs = fs_dynamic_init(
 				array(
-					'id'             => '6081',
-					'slug'           => 'quick-and-easy-faqs',
-					'type'           => 'plugin',
-					'public_key'     => 'pk_265e73b44a00b79f42a7a6ec9669d',
-					'is_premium'     => false,
-					'has_addons'     => false,
-					'has_paid_plans' => false,
-					'menu'           => array(
+					'id'                  => '6081',
+					'slug'                => 'quick-and-easy-faqs',
+					'type'                => 'plugin',
+					'public_key'          => 'pk_265e73b44a00b79f42a7a6ec9669d',
+					'is_premium'          => true,
+					'premium_suffix'      => 'FAQs Professional',
+					// If your plugin is a serviceware, set this option to false.
+					'has_premium_version' => true,
+					'has_addons'          => false,
+					'has_paid_plans'      => true,
+					'menu'                => array(
 						'slug'           => 'quick_and_easy_faqs',
 						'override_exact' => true,
-						'account'        => false,
-						'support'        => false,
 						'contact'        => false,
+						'support'        => false,
 						'parent'         => array(
 							'slug' => 'edit.php?post_type=faq',
 						),
 					),
-				),
+					// Set the SDK to work in a sandbox mode (for development & testing).
+					// IMPORTANT: MAKE SURE TO REMOVE SECRET KEY BEFORE DEPLOYMENT.
+					'secret_key'          => 'sk_A?n{p.Me7ucudS?0{!Vo^]D7<.aw#',
+				)
 			);
 		}
 
@@ -60,11 +71,6 @@ if ( ! function_exists( 'qaef_fs' ) ) {
 	qaef_fs()->add_filter( 'after_skip_url', 'qaef_fs_settings_url' );
 	qaef_fs()->add_filter( 'after_connect_url', 'qaef_fs_settings_url' );
 	qaef_fs()->add_filter( 'after_pending_connect_url', 'qaef_fs_settings_url' );}
-
-// If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die;
-}
 
 /**
  * Global Constants to be used throughout the plugin
