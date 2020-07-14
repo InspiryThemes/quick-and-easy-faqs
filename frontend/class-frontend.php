@@ -57,7 +57,7 @@ class Frontend extends Utilities {
 		if ( 'on' !== $faqs_fa_style ) {
 			wp_enqueue_style(
 				'font-awesome',
-				dirname( plugin_dir_url( __FILE__ ) ) . '/frontend/css/font-awesome.min.css',
+				dirname( plugin_dir_url( __FILE__ ) ) . '/frontend/css/all.min.css',
 				array(),
 				$this->version,
 				'all'
