@@ -256,6 +256,14 @@ class FAQs_Query extends Utilities {
 			$class = 'fa fa-minus-circle';
 		}
 
+		if ( qaef_fs()->is__premium_only() ) {
+			$icon = $this->get_option( 'faqs_question_icon', 'qaef_basics' );
+
+			if ( $icon ) {
+				$class = $icon;
+			}
+		}
+
 		return '<i class="' . esc_attr( $class ) . '"></i> ';
 	}
 

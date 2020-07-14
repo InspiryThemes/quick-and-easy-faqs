@@ -120,6 +120,12 @@ class Settings {
 					'desc'  => __( 'Hide', 'quick-and-easy-faqs' ),
 					'type'  => 'checkbox',
 				),
+				array(
+					'name'  => 'faqs_question_icon',
+					'label' => __( 'Faqs Question Icon', 'quick-and-easy-faqs' ),
+					'desc'  => sprintf( __( 'You can choose any free icon by visiting the %s. You just need to add the Class like %s', 'quick-and-easy-faqs' ), '<a target="_blank" href="https://fontawesome.com/icons?d=gallery&m=free"><strong>' . __('Fontawesome Website', 'quick-and-easy-faqs') . '</strong></a><strong>', '<strong>fa fa-star<strong>'  ),
+					'type'  => 'text',
+				),
 			);
 		}
 
