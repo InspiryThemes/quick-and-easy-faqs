@@ -96,7 +96,7 @@ class Settings {
 	 */
 	private function get_settings_fields() {
 
-		$settings_fields['qaef_basics'] = array(
+		$free_settings = array(
 			array(
 				'name'  => 'faqs_fontawesome_style',
 				'label' => __( 'FAQs Plugin Based Font Awesome Stylesheet', 'quick-and-easy-faqs' ),
@@ -110,6 +110,20 @@ class Settings {
 				'type'  => 'checkbox',
 			),
 		);
+
+		$premium_settings = array();
+		if ( qaef_fs()->is__premium_only() ) {
+			$premium_settings = array(
+				array(
+					'name'  => 'faqs_hide_filters_manually',
+					'label' => __( 'Hide Filters Manually', 'quick-and-easy-faqs' ),
+					'desc'  => __( 'Hide', 'quick-and-easy-faqs' ),
+					'type'  => 'checkbox',
+				),
+			);
+		}
+
+		$settings_fields['qaef_basics'] = array_merge( $free_settings, $premium_settings );
 
 		$settings_fields['qaef_typography'] = array(
 			array(
