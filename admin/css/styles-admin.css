@@ -10,7 +10,7 @@
 }
 
 #qaef-settings-wrapper .form-table th {
-	width: 300px;
+	/* width: 300px; */
 }
 
 #qaef-adv-section {
@@ -27,7 +27,26 @@
 #qaef-adv-section .features-list {
 	list-style: inside;
 }
+
 #qaef-adv-section .upgrade-now {
 	font-size: 16px;
 	margin-left: 10px;
+}
+
+#qaef-settings-wrapper form h2 {
+	display: none;
+}
+
+#qaef-settings-wrapper form .faqs-desc {
+	font-size: 15px;
+}
+
+.faqs-reorder-list .fieldset-wrapper label {
+	border: 1px dashed #82878c;
+	background: #fff;
+	padding: 10px;
+	display: block;
+}
+.faqs-reorder-list .fieldset-wrapper label:not(input) {
+cursor: move;
 }

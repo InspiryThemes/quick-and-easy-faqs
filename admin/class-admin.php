@@ -114,12 +114,15 @@ class Admin {
 
 		if ( 'faq_page_quick_and_easy_faqs' === $screen->id ) {
 
+		
+			wp_enqueue_script('jquery-ui-sortable');
+			
 			wp_enqueue_script(
 				$this->plugin_name,
 				dirname( plugin_dir_url( __FILE__ ) ) . '/admin/js/admin-scripts.js',
 				array( 'jquery', 'wp-color-picker' ),
 				$this->version,
-				false
+				true
 			);
 		}
 	}

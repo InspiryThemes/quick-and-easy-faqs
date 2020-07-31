@@ -80,6 +80,11 @@ class Settings {
 				'title' => __( 'Basic', 'quick-and-easy-faqs' ),
 			),
 			array(
+				'id'    => 'qaef_sortable_list',
+				'title' => __( 'FAQs Sorting', 'quick-and-easy-faqs' ),
+				'desc'  => esc_html__( 'You can sort the faqs by just drag and drop. You can also deselect the faqs which you don"t want to list.', 'quick-and-easy-faqs' ),
+			),
+			array(
 				'id'    => 'qaef_typography',
 				'title' => __( 'Typography', 'quick-and-easy-faqs' ),
 				'desc'  => esc_html__( 'These settings only applies to FAQs with toggle style. As FAQs with list style use colors inherited from currently active theme.', 'quick-and-easy-faqs' ),
@@ -126,10 +131,34 @@ class Settings {
 					'desc'  => sprintf( __( 'You can choose any free icon by visiting the %s. You just need to add the Class like %s', 'quick-and-easy-faqs' ), '<a target="_blank" href="https://fontawesome.com/icons?d=gallery&m=free"><strong>' . __('Fontawesome Website', 'quick-and-easy-faqs') . '</strong></a><strong>', '<strong>fa fa-star<strong>'  ),
 					'type'  => 'text',
 				),
+				
 			);
 		}
 
 		$settings_fields['qaef_basics'] = array_merge( $free_settings, $premium_settings );
+
+		if ( qaef_fs()->is__premium_only() ) {
+
+			$post_type_query  = new \WP_Query(  
+				array (  
+					'post_type'      => 'faq',  
+					'posts_per_page' => -1  
+				)  
+			);   
+			
+			$posts_array      = $post_type_query->posts;   
+			$post_title_array = wp_list_pluck( $posts_array, 'post_title', 'ID' );
+
+			$settings_fields['qaef_sortable_list'] = array(
+				array(
+					'name'    => 'faqs_order_list',
+					'label'   => __( 'FAQs reorder', 'quick-and-easy-faqs' ),
+					'class'   => 'faqs-reorder-list',
+					'type' => 'multicheck',
+					'options' => $post_title_array,
+				),
+			);
+		}
 
 		$settings_fields['qaef_typography'] = array(
 			array(
@@ -191,6 +220,8 @@ class Settings {
 				'type'  => 'textarea',
 			),
 		);
+
+		
 
 		return $settings_fields;
 	}
