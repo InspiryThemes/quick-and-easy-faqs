@@ -14,6 +14,7 @@ use Quick_And_Easy_FAQs\Admin\Admin;
 use Quick_And_Easy_FAQs\Admin\Settings;
 use Quick_And_Easy_FAQs\Admin\Gutenberg_Editor;
 use Quick_And_Easy_FAQs\Admin\Classic_Editor;
+use Quick_And_Easy_FAQs\Admin\FAQs_Widget;
 use Quick_And_Easy_FAQs\Admin\Register_Post_And_Taxonomy;
 use Quick_And_Easy_FAQs\Frontend\Frontend;
 use Quick_And_Easy_FAQs\Frontend\Shortcode;
@@ -101,6 +102,11 @@ class FAQs  extends Utilities {
 		$faq_settings = new Settings();
 		add_action( 'admin_menu', array( $faq_settings, 'settings_init' ) );
 		add_action( 'admin_menu', array( $faq_settings, 'add_faqs_options_page' ) );
+
+		if ( qaef_fs()->is__premium_only() ) {
+			$faq_widget = new FAQs_Widget();
+			add_action( 'widgets_init', array( $faq_widget, 'register_faqs_widget' ) );
+		}
 	}
 
 	/**
@@ -147,7 +153,7 @@ class FAQs  extends Utilities {
 		if ( 'on' !== $faqs_fa_style ) {
 			wp_enqueue_style(
 				'font-awesome',
-				dirname( plugin_dir_url( __FILE__ ) ) . '/frontend/css/font-awesome.min.css',
+				dirname( plugin_dir_url( __FILE__ ) ) . '/frontend/css/all.min.css',
 				array(),
 				$this->version,
 				'all'

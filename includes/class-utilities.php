@@ -35,7 +35,7 @@ class Utilities {
 	 *
 	 * @return mixed
 	 */
-	protected function get_option( $option, $section, $default = '' ) {
+	public function get_option( $option, $section, $default = '' ) {
 
 		$options = get_option( $section );
 
@@ -51,7 +51,7 @@ class Utilities {
 	 *
 	 * @return bool
 	 */
-	protected function is_shortcode_being_used() {
+	public function is_shortcode_being_used() {
 
 		if ( $this->shortcode_being_used ) {
 			return true;
