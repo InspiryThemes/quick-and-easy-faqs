@@ -104,6 +104,17 @@ class FAQs_Query extends Utilities {
 			);
 		}
 
+		if ( qaef_fs()->is__premium_only() ) {
+
+			$enable_sorted = $this->get_option( 'enable_faqs_order_list', 'qaef_sortable_list' );
+			$sorted_array  = $this->get_option( 'faqs_order_list', 'qaef_sortable_list' );
+
+			if ( ! empty( $sorted_array ) && is_array( $sorted_array ) && 'on' === $enable_sorted ) {
+
+				$query['post__in'] = $sorted_array;
+				$query['orderby']  = 'post__in';
+			}
+		}
 		return $query;
 	}
 

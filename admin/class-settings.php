@@ -10,8 +10,9 @@
 namespace Quick_And_Easy_FAQs\Admin;
 
 use Quick_And_Easy_FAQs\Includes\Settings_API;
+use Quick_And_Easy_FAQs\Includes\Utilities;
 
-class Settings {
+class Settings extends Utilities{
 
 	/**
 	 * FAQs options
@@ -128,10 +129,10 @@ class Settings {
 				array(
 					'name'  => 'faqs_question_icon',
 					'label' => __( 'Faqs Question Icon', 'quick-and-easy-faqs' ),
-					'desc'  => sprintf( __( 'You can choose any free icon by visiting the %s. You just need to add the Class like %s', 'quick-and-easy-faqs' ), '<a target="_blank" href="https://fontawesome.com/icons?d=gallery&m=free"><strong>' . __('Fontawesome Website', 'quick-and-easy-faqs') . '</strong></a><strong>', '<strong>fa fa-star<strong>'  ),
+					'desc'  => sprintf( __( 'You can choose any free icon by visiting the %1$s. You just need to add the Class like %2$s', 'quick-and-easy-faqs' ), '<a target="_blank" href="https://fontawesome.com/icons?d=gallery&m=free"><strong>' . __( 'Fontawesome Website', 'quick-and-easy-faqs' ) . '</strong></a><strong>', '<strong>fa fa-star<strong>' ),
 					'type'  => 'text',
 				),
-				
+
 			);
 		}
 
@@ -139,23 +140,46 @@ class Settings {
 
 		if ( qaef_fs()->is__premium_only() ) {
 
-			$post_type_query  = new \WP_Query(  
-				array (  
-					'post_type'      => 'faq',  
-					'posts_per_page' => -1  
-				)  
-			);   
-			
-			$posts_array      = $post_type_query->posts;   
+			$post_type_query = new \WP_Query(
+				array(
+					'post_type'      => 'faq',
+					'posts_per_page' => -1,
+				)
+			);
+
+			$posts_array      = $post_type_query->posts;
 			$post_title_array = wp_list_pluck( $posts_array, 'post_title', 'ID' );
 
+			$sorted_array = $this->get_option( 'faqs_order_list', 'qaef_sortable_list' );
+
+			if ( ! empty( $sorted_array ) && is_array( $sorted_array ) ) {
+				$array_intersect = array_intersect_key( $sorted_array, $post_title_array );
+
+				$temp = array_walk(
+					$array_intersect,
+					function( &$value, $key ) {
+						$value = get_the_title( $value );
+					}
+				);
+
+				$final_array = $array_intersect + $post_title_array;
+			} else {
+
+				$final_array = $post_title_array;
+			}
+
 			$settings_fields['qaef_sortable_list'] = array(
+				array(
+					'name'  => 'enable_faqs_order_list',
+					'label' => __( 'Enable Custom Sorting', 'quick-and-easy-faqs' ),
+					'type'  => 'checkbox',
+				),
 				array(
 					'name'    => 'faqs_order_list',
 					'label'   => __( 'FAQs reorder', 'quick-and-easy-faqs' ),
 					'class'   => 'faqs-reorder-list',
-					'type' => 'multicheck',
-					'options' => $post_title_array,
+					'type'    => 'multicheck',
+					'options' => $final_array,
 				),
 			);
 		}
@@ -220,8 +244,6 @@ class Settings {
 				'type'  => 'textarea',
 			),
 		);
-
-		
 
 		return $settings_fields;
 	}
