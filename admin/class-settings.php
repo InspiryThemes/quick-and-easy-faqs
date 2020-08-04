@@ -129,7 +129,7 @@ class Settings extends Utilities{
 				array(
 					'name'  => 'faqs_question_icon',
 					'label' => __( 'Faqs Question Icon', 'quick-and-easy-faqs' ),
-					'desc'  => sprintf( __( 'You can choose any free icon by visiting the %1$s. You just need to add the Class like %2$s', 'quick-and-easy-faqs' ), '<a target="_blank" href="https://fontawesome.com/icons?d=gallery&m=free"><strong>' . __( 'Fontawesome Website', 'quick-and-easy-faqs' ) . '</strong></a><strong>', '<strong>fa fa-star<strong>' ),
+					'desc'  => sprintf( __( 'You can choose any free icon by visiting the %1$s You just need to add the Class like %2$s', 'quick-and-easy-faqs' ), '<a target="_blank" href="https://fontawesome.com/icons?d=gallery&m=free"><strong>' . __( 'Fontawesome Website', 'quick-and-easy-faqs' ) . '</strong></a><br/>', '<strong>fa fa-star<strong>' ),
 					'type'  => 'text',
 				),
 
@@ -184,16 +184,16 @@ class Settings extends Utilities{
 			);
 		}
 
-		$settings_fields['qaef_typography'] = array(
+		$free_settings = array(
 			array(
 				'name'    => 'faqs_toggle_colors',
 				'label'   => __( 'FAQs toggle colors', 'quick-and-easy-faqs' ),
 				'default' => 'default',
-				'desc'    => __( 'Choose custom colors to apply colors provided in options below.', 'quick-and-easy-faqs' ),
+				'desc'    => __( 'Choose custom styles to apply colors provided in options below.', 'quick-and-easy-faqs' ),
 				'type'    => 'select',
 				'options' => array(
-					'default' => __( 'Default Colors', 'quick-and-easy-faqs' ),
-					'custom'  => __( 'Custom Colors', 'quick-and-easy-faqs' ),
+					'default' => __( 'Default Styles', 'quick-and-easy-faqs' ),
+					'custom'  => __( 'Custom Styles', 'quick-and-easy-faqs' ),
 				),
 			),
 			array(
@@ -244,6 +244,24 @@ class Settings extends Utilities{
 				'type'  => 'textarea',
 			),
 		);
+
+		$premium_settings = array();
+		if ( qaef_fs()->is__premium_only() ) {
+			$premium_settings = array(
+				array(
+					'name'  => 'heading_font_size',
+					'label' => __( 'Question Font Size', 'quick-and-easy-faqs' ),
+					'type'  => 'number',
+				),
+				array(
+					'name'  => 'answer_font_size',
+					'label' => __( 'Answer Font Size', 'quick-and-easy-faqs' ),
+					'type'  => 'number',
+				),
+			);
+		}
+
+		$settings_fields['qaef_typography'] = array_merge(  $free_settings, $premium_settings );
 
 		return $settings_fields;
 	}

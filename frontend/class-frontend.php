@@ -195,6 +195,25 @@ class Frontend extends Utilities {
 				);
 			}
 
+			// Question Font Size.
+			if ( ! empty( $faqs_options['heading_font_size'] ) ) {
+				$faqs_custom_css[] = array(
+					'elements' => '.qe-faq-toggle .qe-toggle-title h4, .qe-faq-list .qe-list-title h4',
+					'property' => 'font-size',
+					'value'    => $faqs_options['heading_font_size'] . 'px !important',
+				);
+			}
+
+			// Answer Font Size.
+			if ( ! empty( $faqs_options['answer_font_size'] ) ) {
+				$faqs_custom_css[] = array(
+					'elements' => 'qe-faq-toggle .qe-toggle-content p, .qe-faq-toggle .qe-toggle-content, .qe-faq-list .qe-list-content',
+					'property' => 'font-size',
+					'value'    => $faqs_options['answer_font_size'] . 'px !important',
+				);
+			}
+
+
 			// Generate css.
 			if ( 0 < count( $faqs_custom_css ) ) {
 				$faqs_css = '';
