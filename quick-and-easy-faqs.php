@@ -18,8 +18,6 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 
-
-
 if ( ! function_exists( 'qaef_fs' ) ) {
 	// Create a helper function for easy SDK access.
 	function qaef_fs() {
@@ -27,18 +25,18 @@ if ( ! function_exists( 'qaef_fs' ) ) {
 
 		if ( ! isset( $qaef_fs ) ) {
 			// Include Freemius SDK.
-			require_once dirname(__FILE__) . '/freemius/start.php';
+			require_once dirname( __FILE__ ) . '/freemius/start.php';
 
 			$qaef_fs = fs_dynamic_init( array(
-				'id'                  => '7005',
-				'slug'                => 'quick-and-easy-faqs',
-				'type'                => 'plugin',
-				'public_key'          => 'pk_fdf2cf72af337764d6ed326340cf5',
-				'is_premium'          => true,
-				'is_premium_only'     => true,
-				'has_addons'          => false,
-				'has_paid_plans'      => true,
-				'menu'                => array(
+				'id'              => '7005',
+				'slug'            => 'quick-and-easy-faqs',
+				'type'            => 'plugin',
+				'public_key'      => 'pk_fdf2cf72af337764d6ed326340cf5',
+				'is_premium'      => true,
+				'is_premium_only' => true,
+				'has_addons'      => false,
+				'has_paid_plans'  => true,
+				'menu'            => array(
 					'slug'           => 'quick_and_easy_faqs',
 					'override_exact' => true,
 					'contact'        => false,
@@ -49,7 +47,7 @@ if ( ! function_exists( 'qaef_fs' ) ) {
 				),
 				// Set the SDK to work in a sandbox mode (for development & testing).
 				// IMPORTANT: MAKE SURE TO REMOVE SECRET KEY BEFORE DEPLOYMENT.
-				'secret_key'          => 'sk_cFHq{}$7i8GE#KSg4y>3+JJ.liqgY',
+				'secret_key'      => 'sk_cFHq{}$7i8GE#KSg4y>3+JJ.liqgY',
 			) );
 		}
 
@@ -65,10 +63,11 @@ if ( ! function_exists( 'qaef_fs' ) ) {
 		return admin_url( 'edit.php?post_type=faq&page=quick_and_easy_faqs' );
 	}
 
-	qaef_fs()->add_filter('connect_url', 'qaef_fs_settings_url');
-	qaef_fs()->add_filter('after_skip_url', 'qaef_fs_settings_url');
-	qaef_fs()->add_filter('after_connect_url', 'qaef_fs_settings_url');
-	qaef_fs()->add_filter('after_pending_connect_url', 'qaef_fs_settings_url');}
+	qaef_fs()->add_filter( 'connect_url', 'qaef_fs_settings_url' );
+	qaef_fs()->add_filter( 'after_skip_url', 'qaef_fs_settings_url' );
+	qaef_fs()->add_filter( 'after_connect_url', 'qaef_fs_settings_url' );
+	qaef_fs()->add_filter( 'after_pending_connect_url', 'qaef_fs_settings_url' );
+}
 
 
 /**
