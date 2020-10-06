@@ -70,7 +70,8 @@ if ( ! function_exists( 'qaef_fs' ) ) {
 	qaef_fs()->add_filter( 'connect_url', 'qaef_fs_settings_url' );
 	qaef_fs()->add_filter( 'after_skip_url', 'qaef_fs_settings_url' );
 	qaef_fs()->add_filter( 'after_connect_url', 'qaef_fs_settings_url' );
-	qaef_fs()->add_filter( 'after_pending_connect_url', 'qaef_fs_settings_url' );}
+	qaef_fs()->add_filter( 'after_pending_connect_url', 'qaef_fs_settings_url' );
+}
 
 /**
  * Global Constants to be used throughout the plugin
