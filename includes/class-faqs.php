@@ -88,6 +88,8 @@ class FAQs  extends Utilities {
 		$plugin_admin = new Admin( $this->plugin_name, $this->version );
 		add_action( 'admin_enqueue_scripts', array( $plugin_admin, 'enqueue_admin_styles' ) );
 		add_action( 'admin_enqueue_scripts', array( $plugin_admin, 'enqueue_admin_scripts' ) );
+		add_action( 'wp_ajax_update-menu-order', array( $plugin_admin, 'update_menu_order' ) );
+		add_action( 'pre_get_posts', array( $plugin_admin, 'faqs_admin_posts_reorder' ) );
 
 		$classic_editor = new Classic_Editor();
 		add_filter( 'mce_external_plugins', array( $classic_editor, 'enqueue_plugin_scripts' ) );
@@ -132,10 +134,10 @@ class FAQs  extends Utilities {
 	/**
 	 * Display faqs using code
 	 *
-	 * @param   string  $style      'toggle' | 'accordion' | 'toggle-grouped' | 'accordion-grouped'
-	 * @param   array   $filter     true | false
-	 * @param   string  $orderby    'date' | 'title'
-	 * @param   string  $order      'ASC' | 'DESC'
+	 * @param   string $style      'toggle' | 'accordion' | 'toggle-grouped' | 'accordion-grouped'
+	 * @param   array  $filter     true | false
+	 * @param   string $orderby    'date' | 'title'
+	 * @param   string $order      'ASC' | 'DESC'
 	 *
 	 * @return bool true on success or false on failure.
 	 */

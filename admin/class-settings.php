@@ -132,7 +132,11 @@ class Settings extends Utilities{
 					'desc'  => sprintf( __( 'You can choose any free icon by visiting the %1$s You just need to add the Class like %2$s', 'quick-and-easy-faqs' ), '<a target="_blank" href="https://fontawesome.com/icons?d=gallery&m=free"><strong>' . __( 'Fontawesome Website', 'quick-and-easy-faqs' ) . '</strong></a><br/>', '<strong>fa fa-star<strong>' ),
 					'type'  => 'text',
 				),
-
+				array(
+					'name'  => 'enable_faqs_order_list',
+					'label' => __( 'Enable Custom Sorting', 'quick-and-easy-faqs' ),
+					'type'  => 'checkbox',
+				),
 			);
 		}
 
@@ -169,11 +173,6 @@ class Settings extends Utilities{
 			}
 
 			$settings_fields['qaef_sortable_list'] = array(
-				array(
-					'name'  => 'enable_faqs_order_list',
-					'label' => __( 'Enable Custom Sorting', 'quick-and-easy-faqs' ),
-					'type'  => 'checkbox',
-				),
 				array(
 					'name'    => 'faqs_order_list',
 					'label'   => __( 'FAQs reorder', 'quick-and-easy-faqs' ),

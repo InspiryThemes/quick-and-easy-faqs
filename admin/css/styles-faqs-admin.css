@@ -1,0 +1,32 @@
+.ui-sortable tr:hover {
+    cursor: move;
+}
+
+.ui-sortable tr.alternate {
+    background-color: #F9F9F9;
+}
+
+.ui-sortable tr.ui-sortable-helper {
+    background-color: #F9F9F9;
+    border-top: 1px solid #DFDFDF;
+}
+
+.ui-sortable tr td.page-title::before {
+    font-family: dashicons;
+    line-height: 18px;
+    font-style: normal;
+    speak: none;
+    text-decoration: inherit;
+    text-transform: none;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 20px;
+    vertical-align: top;
+    text-align: center;
+    transition: color .1s ease-in;
+    float: left;
+   content: "\f545";
+    margin-left: -8px;
+    margin-right: 5px;
+}
