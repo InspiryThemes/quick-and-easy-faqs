@@ -182,7 +182,11 @@ class FAQs_Query extends Utilities
                 $terms_slugs = $this->get_terms_slugs($faq_ids); ?>
 				
 					<li class="<?php echo esc_attr(implode(' ', $terms_slugs)); ?>">
-						<a href="#qaef-<?php echo esc_attr($faq_ids); ?>"><?php echo esc_html(get_the_title($faq_ids)); ?></a>
+						<?php if ($this->linksonly): ?>
+						<a href="<?php echo get_the_permalink($faq_ids); ?>"><?php echo esc_html(get_the_title($faq_ids)); ?></a>
+						<?php else: ?>
+							<a href="#qaef-<?php echo esc_attr($faq_ids); ?>"><?php echo esc_html(get_the_title($faq_ids)); ?></a>
+						<?php endif; ?>
 					</li>
 				
 				<?php
