@@ -94,7 +94,7 @@ class FAQs  extends Utilities {
 
 		$gutenberg_button = new Gutenberg_Editor();
 		if ( Admin::is_gutenberg_active() ) {
-			add_filter( 'block_categories', array( $gutenberg_button, 'add_faqs_block_category' ) );
+			add_filter( 'block_categories_all', array( $gutenberg_button, 'add_faqs_block_category' ) );
 			add_action( 'init', array( $gutenberg_button, 'add_all_faqs_block' ) );
 		}
 
