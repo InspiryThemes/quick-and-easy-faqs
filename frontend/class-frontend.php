@@ -76,7 +76,7 @@ class Frontend extends Utilities {
 		if ( is_rtl() ) {
 			wp_enqueue_style(
 				$this->plugin_name . '-rtl',
-				dirname( plugin_dir_url( __FILE__ ) ) . '/public/css/styles-public-rtl.css',
+				dirname( plugin_dir_url( __FILE__ ) ) . '/frontend/css/styles-public-rtl.css',
 				array(
 					$this->plugin_name,
 					'font-awesome',
