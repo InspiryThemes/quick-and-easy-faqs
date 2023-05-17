@@ -112,7 +112,7 @@ class Settings_API {
 			}
 			if ( isset( $section['desc'] ) && ! empty( $section['desc'] ) ) {
 
-				$section['desc'] = '<p class="inside faqs-desc">' . $section['desc'] . '</p>';
+				$section['desc'] = '<div class="inside">' . $section['desc'] . '</div>';
 
 				$callback = function () use ( $section ) {
 					if ( isset( $section['desc'] ) ) {
@@ -247,15 +247,14 @@ class Settings_API {
 		$value = $this->get_option( $args['id'], $args['section'], $args['std'] );
 		$html  = '<fieldset>';
 		$html .= sprintf( '<input type="hidden" name="%1$s[%2$s]" value="" />', $args['section'], $args['id'] );
-		$html .= '<div class="fieldset-wrapper clearfix">';
 		foreach ( $args['options'] as $key => $label ) {
 			$checked = isset( $value[ $key ] ) ? $value[ $key ] : '-1';
 			$html   .= sprintf( '<label for="wpuf-%1$s[%2$s][%3$s]">', $args['section'], $args['id'], $key );
 			$html   .= sprintf( '<input type="checkbox" class="checkbox" id="wpuf-%1$s[%2$s][%3$s]" name="%1$s[%2$s][%3$s]" value="%3$s" %4$s />', $args['section'], $args['id'], $key, checked( $checked, $key, false ) );
-			$html   .= sprintf( '%1$s</label>', $label );
+			$html   .= sprintf( '%1$s</label><br>', $label );
 		}
 		$html .= $this->get_field_description( $args );
-		$html .= '</div></fieldset>';
+		$html .= '</fieldset>';
 		echo $html;
 	}
 
@@ -470,7 +469,7 @@ class Settings_API {
 	 * Shows all the settings section labels as tab
 	 */
 	public function show_navigation() {
-		$html  = '<div class="nav-tab-wrapper">';
+		$html  = '<h2 class="nav-tab-wrapper">';
 		$count = count( $this->settings_sections );
 		// don't show the navigation if only one section exists.
 		if ( 1 === $count ) {
@@ -479,7 +478,7 @@ class Settings_API {
 		foreach ( $this->settings_sections as $tab ) {
 			$html .= sprintf( '<a href="#%1$s" class="nav-tab" id="%1$s-tab">%2$s</a>', $tab['id'], $tab['title'] );
 		}
-		$html .= '</div>';
+		$html .= '</h2>';
 		echo $html;
 	}
 

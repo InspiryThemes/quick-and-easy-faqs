@@ -59,13 +59,6 @@ class FAQs_Query extends Utilities {
 		$this->orderby = $orderby;
 		$this->order   = $order;
 
-		if ( qaef_fs()->is__premium_only() ) {
-
-			$filter = $this->get_option( 'faqs_hide_filters_manually', 'qaef_basics' );
-			if ( 'on' === $filter ) {
-				$this->filters = false;
-			}
-		}
 		if ( $this->filters && ! is_array( $this->filters ) ) {
 
 			$terms = get_terms(
@@ -104,16 +97,6 @@ class FAQs_Query extends Utilities {
 			);
 		}
 
-		if ( qaef_fs()->is__premium_only() ) {
-
-			$enable_sorted = $this->get_option( 'enable_faqs_order_list', 'qaef_basics' );
-
-			if ( 'on' === $enable_sorted ) {
-
-				$query['orderby'] = 'menu_order';
-				$query['order'] = 'ASC';
-			}
-		}
 		return $query;
 	}
 
@@ -239,7 +222,7 @@ class FAQs_Query extends Utilities {
 		if ( $this->filters ) {
 			?>
 			<ul class="qe-faqs-filters-container">
-				<li><a class="qe-faqs-filter" href="#" data-filter="*"><?php esc_html_e( 'All', 'quick-and-easy-faqs' ); ?></a></li>
+				<li class="active"><a class="qe-faqs-filter all-faqs" href="#" data-filter="*"><?php esc_html_e( 'All', 'quick-and-easy-faqs' ); ?></a></li>
 				<?php
 				foreach ( $this->filters as $term ) {
 					$term_object = get_term_by( 'slug', $term, 'faq-group' );
@@ -264,14 +247,6 @@ class FAQs_Query extends Utilities {
 			$class = 'fa fa-question-circle';
 		} else {
 			$class = 'fa fa-minus-circle';
-		}
-
-		if ( qaef_fs()->is__premium_only() ) {
-			$icon = $this->get_option( 'faqs_question_icon', 'qaef_basics' );
-
-			if ( $icon ) {
-				$class = $icon;
-			}
 		}
 
 		return '<i class="' . esc_attr( $class ) . '"></i> ';
@@ -356,9 +331,8 @@ class FAQs_Query extends Utilities {
 			$class = 'list';
 		}
 
-		if ( $faq_posts->have_posts() ) :
-			?>
-			<div class="qae-faqs-container qae-faqs-<?php echo esc_attr( $class ); ?>-container">
+		if ( $faq_posts->have_posts() ) : ?>
+            <div class="qae-faqs-container qae-faqs-<?php echo esc_attr( $class ); ?>-container">
 				<?php
 				$faqs_array     = $faq_posts->posts;
 				$faqs_posts_ids = wp_list_pluck( $faqs_array, 'ID' );
@@ -370,14 +344,13 @@ class FAQs_Query extends Utilities {
 				if ( 'accordion-grouped' === $this->display || 'toggle-grouped' === $this->display ) {
 					$this->render_faqs( $faqs_posts_ids );
 				} else {
-					while ( $faq_posts->have_posts() ) :
-						$faq_posts->the_post();
+					while ( $faq_posts->have_posts() ) : $faq_posts->the_post();
 						$this->render_faqs( get_the_ID() );
 					endwhile;
 				}
 				?>
-			</div>
-			<?php
+            </div>
+		<?php
 		endif;
 
 		// All the custom loops ends here so reset the query.

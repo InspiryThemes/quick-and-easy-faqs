@@ -57,7 +57,7 @@ class Frontend extends Utilities {
 		if ( 'on' !== $faqs_fa_style ) {
 			wp_enqueue_style(
 				'font-awesome',
-				dirname( plugin_dir_url( __FILE__ ) ) . '/frontend/css/all.min.css',
+				dirname( plugin_dir_url( __FILE__ ) ) . '/frontend/css/font-awesome.min.css',
 				array(),
 				$this->version,
 				'all'
@@ -76,7 +76,7 @@ class Frontend extends Utilities {
 		if ( is_rtl() ) {
 			wp_enqueue_style(
 				$this->plugin_name . '-rtl',
-				dirname( plugin_dir_url( __FILE__ ) ) . '/public/css/styles-public-rtl.css',
+				dirname( plugin_dir_url( __FILE__ ) ) . '/frontend/css/styles-public-rtl.css',
 				array(
 					$this->plugin_name,
 					'font-awesome',
@@ -194,25 +194,6 @@ class Frontend extends Utilities {
 					'value'    => $faqs_options['toggle_border_color'],
 				);
 			}
-
-			// Question Font Size.
-			if ( ! empty( $faqs_options['heading_font_size'] ) ) {
-				$faqs_custom_css[] = array(
-					'elements' => '.qe-faq-toggle .qe-toggle-title h4, .qe-faq-list .qe-list-title h4',
-					'property' => 'font-size',
-					'value'    => $faqs_options['heading_font_size'] . 'px !important',
-				);
-			}
-
-			// Answer Font Size.
-			if ( ! empty( $faqs_options['answer_font_size'] ) ) {
-				$faqs_custom_css[] = array(
-					'elements' => '.qe-faq-toggle .qe-toggle-content p, .qe-faq-list .qe-list-content p,  .qe-faq-list .qe-list-content ',
-					'property' => 'font-size',
-					'value'    => $faqs_options['answer_font_size'] . 'px !important',
-				);
-			}
-
 
 			// Generate css.
 			if ( 0 < count( $faqs_custom_css ) ) {

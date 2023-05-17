@@ -3,115 +3,15 @@
  * included in this file.
  */
 #qaef-settings-wrapper,
-.nav-tab-wrapper {
+.nav-tab-wrapper{
 	width: calc(65% - 30px);
 	margin-right: 30px;
 	float: left;
-	padding-left: 20px;
-	box-sizing: border-box;
 }
-
-#qaef-settings-wrapper {
-	padding-left: 25px;
-}
-
 #qaef-settings-wrapper .form-table th {
-	/* width: 300px; */
+	width: 300px;
 }
-
-#qaef-adv-section {
-	width: calc(35% - 25px);
+#qaef-adv-section{
+	width: 35%;
 	float: right;
-	margin-right: 25px;
-	box-sizing: border-box;
-}
-
-#qaef-adv-section>section {
-	border: 3px dashed #82878c;
-	background: #fff;
-	padding: 15px;
-}
-#qaef-adv-section p{
-	margin-left: 25px;
-}
-#qaef-adv-section h2 {
-	margin-top: 0;
-}
-#qaef-adv-section .features-list {
-	list-style: inside;
-	margin-left: 25px;
-}
-
-#qaef-adv-section .upgrade-now {
-	font-size: 16px;
-	margin-left: 10px;
-}
-
-#qaef-settings-wrapper form h2 {
-	display: none;
-}
-
-#qaef-settings-wrapper form .faqs-desc {
-	font-size: 15px;
-}
-
-.faqs-reorder-list .fieldset-wrapper label {
-	border: 1px dashed #82878c;
-	background: #fff;
-	padding: 10px;
-	display: block;
-}
-
-.faqs-reorder-list .fieldset-wrapper label:not(input) {
-	cursor: move;
-}
-
-#wpbody {
-	position: relative;
-	margin: 20px 20px 0 0;
-	font-size: 14px;
-	box-sizing: border-box;
-	border: 1px solid #e5e5e5;
-	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
-	background: #fff;
-}
-
-.wrap {
-	margin: 0;
-}
-
-.wrap h2 {
-	font-size: 18px !important;
-	font-weight: 600 !important;
-	padding: 15px 25px !important;
-	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-	box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-}
-
-.nav-tab-wrapper a {
-	width: auto;
-	margin: 0 5px 0;
-	padding: 10px 12px;
-	font-size: 14px;
-	font-weight: 600;
-	text-decoration: none;
-	white-space: nowrap;
-	transition: background 0.2s linear;
-	box-shadow: none;
-	border: 1px solid #ddd;
-	border-bottom: none;
-	background: #eee;
-	color: #000;
-}
-
-.nav-tab-wrapper .nav-tab-active {
-	margin-bottom: -1px;
-	background: #fff;
-	border-bottom: 1px solid #fff;
-}
-#wpfooter p {
-	margin-left: 25px;
-}
-#wpfooter p{
-	margin-right: 25px;
 }

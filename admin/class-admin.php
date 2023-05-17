@@ -8,8 +8,8 @@
  */
 
 namespace Quick_And_Easy_FAQs\Admin;
-use Quick_And_Easy_FAQs\Includes\Utilities;
-class Admin extends Utilities {
+
+class Admin {
 
 		/**
 		 * The ID of this plugin.
@@ -83,57 +83,9 @@ class Admin extends Utilities {
 		}
 	}
 
-	public function update_menu_order() {
-		global $wpdb;
-
-		parse_str( $_POST['order'], $data );
-
-		if ( ! is_array( $data ) ) {
-			return false;
-		}
-
-		$id_arr = array();
-		foreach ( $data as $key => $values ) {
-			foreach ( $values as $position => $id ) {
-				$id_arr[] = $id;
-			}
-		}
-
-		$menu_order_arr = array();
-		foreach ( $id_arr as $key => $id ) {
-			$results = $wpdb->get_results( "SELECT menu_order FROM $wpdb->posts WHERE ID = " . intval( $id ) );
-			foreach ( $results as $result ) {
-				$menu_order_arr[] = $result->menu_order;
-			}
-		}
-
-		sort( $menu_order_arr );
-
-		foreach ( $data as $key => $values ) {
-			foreach ( $values as $position => $id ) {
-				$wpdb->update( $wpdb->posts, array( 'menu_order' => $menu_order_arr[ $position ] ), array( 'ID' => intval( $id ) ) );
-			}
-		}
-	}
-
-	public function faqs_admin_posts_reorder( $wp_query ) {
-
-		if ( is_admin() && ! wp_doing_ajax() ) {
-			$screen = get_current_screen();
-			if ( 'edit-faq' === $screen->id && 'faq' === $screen->post_type ) {
-				if ( ! $wp_query->get( 'orderby' ) ) {
-					$wp_query->set( 'orderby', 'menu_order' );
-				}
-				if ( ! $wp_query->get( 'order' ) ) {
-					$wp_query->set( 'order', 'ASC' );
-				}
-			}
-		}
-	}
-
-	/**
-	 * Register the stylesheets for the admin area.
-	 */
+		/**
+		 * Register the stylesheets for the admin area.
+		 */
 	public function enqueue_admin_styles() {
 
 		$screen = get_current_screen();
@@ -151,42 +103,24 @@ class Admin extends Utilities {
 				'all'
 			);
 		}
-
-		$enable_faqs_order_list = $this->get_option( 'enable_faqs_order_list', 'qaef_basics' );
-
-		if ( 'edit-faq' === $screen->id && 'faq' === $screen->post_type && 'on' === $enable_faqs_order_list ) {
-
-			// plugin faqs admin list custom css file
-			wp_enqueue_style(
-				$this->plugin_name . '-faqs-list',
-				dirname( plugin_dir_url( __FILE__ ) ) . '/admin/css/styles-faqs-admin.css',
-				array(),
-				$this->version,
-				'all'
-			);
-		}
 	}
 
-	/**
-	 * Register the JavaScript for the admin area.
-	 */
+		/**
+		 * Register the JavaScript for the admin area.
+		 */
 	public function enqueue_admin_scripts() {
 
 		$screen = get_current_screen();
-		$enable_faqs_order_list = $this->get_option( 'enable_faqs_order_list', 'qaef_basics' );
 
-		if ( 'edit-faq' === $screen->id && 'faq' === $screen->post_type && 'on' === $enable_faqs_order_list ) {
-
-			wp_enqueue_script( 'jquery-ui-sortable' );
+		if ( 'faq_page_quick_and_easy_faqs' === $screen->id ) {
 
 			wp_enqueue_script(
 				$this->plugin_name,
 				dirname( plugin_dir_url( __FILE__ ) ) . '/admin/js/admin-scripts.js',
 				array( 'jquery', 'wp-color-picker' ),
 				$this->version,
-				true
+				false
 			);
-
 		}
 	}
 

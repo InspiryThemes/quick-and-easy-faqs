@@ -14,7 +14,6 @@ use Quick_And_Easy_FAQs\Admin\Admin;
 use Quick_And_Easy_FAQs\Admin\Settings;
 use Quick_And_Easy_FAQs\Admin\Gutenberg_Editor;
 use Quick_And_Easy_FAQs\Admin\Classic_Editor;
-use Quick_And_Easy_FAQs\Admin\FAQs_Widget;
 use Quick_And_Easy_FAQs\Admin\Register_Post_And_Taxonomy;
 use Quick_And_Easy_FAQs\Frontend\Frontend;
 use Quick_And_Easy_FAQs\Frontend\Shortcode;
@@ -88,8 +87,6 @@ class FAQs  extends Utilities {
 		$plugin_admin = new Admin( $this->plugin_name, $this->version );
 		add_action( 'admin_enqueue_scripts', array( $plugin_admin, 'enqueue_admin_styles' ) );
 		add_action( 'admin_enqueue_scripts', array( $plugin_admin, 'enqueue_admin_scripts' ) );
-		add_action( 'wp_ajax_update-menu-order', array( $plugin_admin, 'update_menu_order' ) );
-		add_action( 'pre_get_posts', array( $plugin_admin, 'faqs_admin_posts_reorder' ) );
 
 		$classic_editor = new Classic_Editor();
 		add_filter( 'mce_external_plugins', array( $classic_editor, 'enqueue_plugin_scripts' ) );
@@ -104,11 +101,6 @@ class FAQs  extends Utilities {
 		$faq_settings = new Settings();
 		add_action( 'admin_menu', array( $faq_settings, 'settings_init' ) );
 		add_action( 'admin_menu', array( $faq_settings, 'add_faqs_options_page' ) );
-
-		if ( qaef_fs()->is__premium_only() ) {
-			$faq_widget = new FAQs_Widget();
-			add_action( 'widgets_init', array( $faq_widget, 'register_faqs_widget' ) );
-		}
 	}
 
 	/**
@@ -134,10 +126,10 @@ class FAQs  extends Utilities {
 	/**
 	 * Display faqs using code
 	 *
-	 * @param   string $style      'toggle' | 'accordion' | 'toggle-grouped' | 'accordion-grouped'
-	 * @param   array  $filter     true | false
-	 * @param   string $orderby    'date' | 'title'
-	 * @param   string $order      'ASC' | 'DESC'
+	 * @param   string  $style      'toggle' | 'accordion' | 'toggle-grouped' | 'accordion-grouped'
+	 * @param   array   $filter     true | false
+	 * @param   string  $orderby    'date' | 'title'
+	 * @param   string  $order      'ASC' | 'DESC'
 	 *
 	 * @return bool true on success or false on failure.
 	 */
@@ -155,7 +147,7 @@ class FAQs  extends Utilities {
 		if ( 'on' !== $faqs_fa_style ) {
 			wp_enqueue_style(
 				'font-awesome',
-				dirname( plugin_dir_url( __FILE__ ) ) . '/frontend/css/all.min.css',
+				dirname( plugin_dir_url( __FILE__ ) ) . '/frontend/css/font-awesome.min.css',
 				array(),
 				$this->version,
 				'all'

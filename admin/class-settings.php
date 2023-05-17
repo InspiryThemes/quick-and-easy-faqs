@@ -10,9 +10,8 @@
 namespace Quick_And_Easy_FAQs\Admin;
 
 use Quick_And_Easy_FAQs\Includes\Settings_API;
-use Quick_And_Easy_FAQs\Includes\Utilities;
 
-class Settings extends Utilities{
+class Settings {
 
 	/**
 	 * FAQs options
@@ -81,11 +80,6 @@ class Settings extends Utilities{
 				'title' => __( 'Basic', 'quick-and-easy-faqs' ),
 			),
 			array(
-				'id'    => 'qaef_sortable_list',
-				'title' => __( 'FAQs Sorting', 'quick-and-easy-faqs' ),
-				'desc'  => esc_html__( 'You can sort the faqs by just drag and drop. You can also deselect the faqs which you don"t want to list.', 'quick-and-easy-faqs' ),
-			),
-			array(
 				'id'    => 'qaef_typography',
 				'title' => __( 'Typography', 'quick-and-easy-faqs' ),
 				'desc'  => esc_html__( 'These settings only applies to FAQs with toggle style. As FAQs with list style use colors inherited from currently active theme.', 'quick-and-easy-faqs' ),
@@ -102,7 +96,7 @@ class Settings extends Utilities{
 	 */
 	private function get_settings_fields() {
 
-		$free_settings = array(
+		$settings_fields['qaef_basics'] = array(
 			array(
 				'name'  => 'faqs_fontawesome_style',
 				'label' => __( 'FAQs Plugin Based Font Awesome Stylesheet', 'quick-and-easy-faqs' ),
@@ -117,82 +111,16 @@ class Settings extends Utilities{
 			),
 		);
 
-		$premium_settings = array();
-		if ( qaef_fs()->is__premium_only() ) {
-			$premium_settings = array(
-				array(
-					'name'  => 'faqs_hide_filters_manually',
-					'label' => __( 'Hide Filters Manually', 'quick-and-easy-faqs' ),
-					'desc'  => __( 'Hide', 'quick-and-easy-faqs' ),
-					'type'  => 'checkbox',
-				),
-				array(
-					'name'  => 'faqs_question_icon',
-					'label' => __( 'Faqs Question Icon', 'quick-and-easy-faqs' ),
-					'desc'  => sprintf( __( 'You can choose any free icon by visiting the %1$s You just need to add the Class like %2$s', 'quick-and-easy-faqs' ), '<a target="_blank" href="https://fontawesome.com/icons?d=gallery&m=free"><strong>' . __( 'Fontawesome Website', 'quick-and-easy-faqs' ) . '</strong></a><br/>', '<strong>fa fa-star<strong>' ),
-					'type'  => 'text',
-				),
-				array(
-					'name'  => 'enable_faqs_order_list',
-					'label' => __( 'Enable Custom Sorting', 'quick-and-easy-faqs' ),
-					'type'  => 'checkbox',
-				),
-			);
-		}
-
-		$settings_fields['qaef_basics'] = array_merge( $free_settings, $premium_settings );
-
-		if ( qaef_fs()->is__premium_only() ) {
-
-			$post_type_query = new \WP_Query(
-				array(
-					'post_type'      => 'faq',
-					'posts_per_page' => -1,
-				)
-			);
-
-			$posts_array      = $post_type_query->posts;
-			$post_title_array = wp_list_pluck( $posts_array, 'post_title', 'ID' );
-
-			$sorted_array = $this->get_option( 'faqs_order_list', 'qaef_sortable_list' );
-
-			if ( ! empty( $sorted_array ) && is_array( $sorted_array ) ) {
-				$array_intersect = array_intersect_key( $sorted_array, $post_title_array );
-
-				$temp = array_walk(
-					$array_intersect,
-					function( &$value, $key ) {
-						$value = get_the_title( $value );
-					}
-				);
-
-				$final_array = $array_intersect + $post_title_array;
-			} else {
-
-				$final_array = $post_title_array;
-			}
-
-			$settings_fields['qaef_sortable_list'] = array(
-				array(
-					'name'    => 'faqs_order_list',
-					'label'   => __( 'FAQs reorder', 'quick-and-easy-faqs' ),
-					'class'   => 'faqs-reorder-list',
-					'type'    => 'multicheck',
-					'options' => $final_array,
-				),
-			);
-		}
-
-		$free_settings = array(
+		$settings_fields['qaef_typography'] = array(
 			array(
 				'name'    => 'faqs_toggle_colors',
 				'label'   => __( 'FAQs toggle colors', 'quick-and-easy-faqs' ),
 				'default' => 'default',
-				'desc'    => __( 'Choose custom styles to apply colors provided in options below.', 'quick-and-easy-faqs' ),
+				'desc'    => __( 'Choose custom colors to apply colors provided in options below.', 'quick-and-easy-faqs' ),
 				'type'    => 'select',
 				'options' => array(
-					'default' => __( 'Default Styles', 'quick-and-easy-faqs' ),
-					'custom'  => __( 'Custom Styles', 'quick-and-easy-faqs' ),
+					'default' => __( 'Default Colors', 'quick-and-easy-faqs' ),
+					'custom'  => __( 'Custom Colors', 'quick-and-easy-faqs' ),
 				),
 			),
 			array(
@@ -244,24 +172,6 @@ class Settings extends Utilities{
 			),
 		);
 
-		$premium_settings = array();
-		if ( qaef_fs()->is__premium_only() ) {
-			$premium_settings = array(
-				array(
-					'name'  => 'heading_font_size',
-					'label' => __( 'Question Font Size', 'quick-and-easy-faqs' ),
-					'type'  => 'number',
-				),
-				array(
-					'name'  => 'answer_font_size',
-					'label' => __( 'Answer Font Size', 'quick-and-easy-faqs' ),
-					'type'  => 'number',
-				),
-			);
-		}
-
-		$settings_fields['qaef_typography'] = array_merge(  $free_settings, $premium_settings );
-
 		return $settings_fields;
 	}
 
@@ -278,26 +188,6 @@ class Settings extends Utilities{
 		$this->settings_api->show_forms();
 		echo '</div>';
 		echo '<div id="qaef-adv-section">';
-		if ( qaef_fs()->is_not_paying() ) {
-			?>
-			<section>
-			<h2><?php esc_html_e( ' Upgrade to FAQs PRO', 'quick-and-easy-faqs' ); ?></h2>
-			<p><?php esc_html_e( 'Please upgrade to the PRO plan to unlock more awesome features.', 'quick-and-easy-faqs' ); ?>  </p>
-			<ul class="features-list clearfix">
-				<li><?php esc_html_e( 'Show/Hide filters manually', 'quick-and-easy-faqs' ); ?></li>
-				<li><?php esc_html_e( 'Question icon change option', 'quick-and-easy-faqs' ); ?></li>
-				<li><?php esc_html_e( 'Tabs format in filtered faqs display', 'quick-and-easy-faqs' ); ?></li>
-				<li><?php esc_html_e( 'Custom Order Support', 'quick-and-easy-faqs' ); ?></li>
-				<li><?php esc_html_e( 'Font change options for heading and text', 'quick-and-easy-faqs' ); ?></li>
-				<li><?php esc_html_e( 'Social Sharing options', 'quick-and-easy-faqs' ); ?></li>
-				<li><?php esc_html_e( 'WordPress Default FAQs Widget', 'quick-and-easy-faqs' ); ?></li>
-			</ul>	
-			
-			<a class="upgrade-now button button-primary" href="<?php echo esc_url( qaef_fs()->get_upgrade_url() ); ?>"> <?php esc_html_e( 'Upgrade Now!', 'quick-and-easy-faqs' ); ?> </a>
-			
-		</section>
-			<?php
-		}
 		echo '</div>';
 		echo '</div>';
 	}
