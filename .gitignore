@@ -1,2 +1,4 @@
 prepros.cfg
 .DS_Store
+.idea
+.idea/*
