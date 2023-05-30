@@ -2,8 +2,8 @@
 Contributors: inspirythemes, saqibsarwar, usmanaliqureshi, fahidjavid
 Tags: FAQs, FAQ, FAQs list, accordion FAQs, toggle FAQs, filtered FAQs, grouped FAQs, FAQs Block, Gutenberg FAQs, FAQs Order, FAQs Sorting
 Requires at least: 5.0
-Tested up to: 6.1.1
-Stable tag: 1.3.7
+Tested up to: 6.2.2
+Stable tag: 1.3.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -84,6 +84,12 @@ This plugin provides a quick and easy way add FAQs using custom post type and la
 9. FAQs Accordion
 
 == Changelog ==
+
+= 1.3.8 =
+* Removed freemius modal of the plugin
+* Improved plugin version utilization system
+* Updated language files
+* Tested plugin with WordPress 6.2.2
 
 = 1.3.7 =
 * Tested for WordPress 6.1.1
