@@ -45,7 +45,7 @@ class FAQs_Query extends Utilities {
 	protected $order;
 
 	/**
-	 * How many faqs show (limit).
+	 * The number of faqs to show
 	 *
 	 * @var int $limit
 	 */
