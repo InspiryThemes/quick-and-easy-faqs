@@ -35,7 +35,7 @@ class Register_Post_And_Taxonomy {
 			'label'               => __( 'faq', 'quick-and-easy-faqs' ),
 			'description'         => __( 'Frequently Asked Questions', 'quick-and-easy-faqs' ),
 			'labels'              => apply_filters( 'inspiry_faq_labels', $labels ),
-			'supports'            => apply_filters( 'inspiry_faq_supports', array( 'title', 'editor' ) ),
+			'supports'            => apply_filters( 'inspiry_faq_supports', array( 'title', 'editor', 'author' ) ),
 			'hierarchical'        => false,
 			'public'              => true,
 			'exclude_from_search' => false,

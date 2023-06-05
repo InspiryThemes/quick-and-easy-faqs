@@ -45,7 +45,7 @@ class FAQs_Query extends Utilities {
 	protected $order;
 
 	/**
-	 * How many faqs show (limit).
+	 * The number of faqs to show
 	 *
 	 * @var int $limit
 	 */
@@ -231,7 +231,7 @@ class FAQs_Query extends Utilities {
 		if ( $this->filters ) {
 			?>
 			<ul class="qe-faqs-filters-container">
-				<li><a class="qe-faqs-filter" href="#" data-filter="*"><?php esc_html_e( 'All', 'quick-and-easy-faqs' ); ?></a></li>
+				<li class="active"><a class="qe-faqs-filter all-faqs" href="#" data-filter="*"><?php esc_html_e( 'All', 'quick-and-easy-faqs' ); ?></a></li>
 				<?php
 				foreach ( $this->filters as $term ) {
 					$term_object = get_term_by( 'slug', $term, 'faq-group' );
