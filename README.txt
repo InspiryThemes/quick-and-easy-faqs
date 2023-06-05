@@ -1,5 +1,5 @@
 === Quick and Easy FAQs ===
-Contributors: inspirythemes, saqibsarwar, usmanaliqureshi, fahidjavid
+Contributors: inspirythemes, saqibsarwar, usmanaliqureshi, fahidjavid, gioxx
 Tags: FAQs, FAQ, FAQs list, accordion FAQs, toggle FAQs, filtered FAQs, grouped FAQs, FAQs Block, Gutenberg FAQs, FAQs Order, FAQs Sorting
 Requires at least: 5.0
 Tested up to: 6.2.2
