@@ -22,6 +22,10 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Global Constants to be used throughout the plugin
  */
+if ( ! function_exists( 'get_plugin_data' ) ) {
+	require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+}
+
 define( 'QUICK_AND_EASY_FAQS_VERSION', get_plugin_data( __FILE__ )['Version'] );
 
 /**
