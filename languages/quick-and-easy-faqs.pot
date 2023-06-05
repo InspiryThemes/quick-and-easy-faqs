@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Quick and Easy FAQs\n"
-"POT-Creation-Date: 2023-05-29 22:11+0500\n"
+"POT-Creation-Date: 2023-06-05 12:06+0500\n"
 "PO-Revision-Date: 2019-04-04 18:28+0500\n"
 "Last-Translator: M Saqib Sarwar <saqib@inspirythemes.com>\n"
 "Language-Team: M Saqib Sarwar <saqib@inspirythemes.com>\n"
@@ -22,7 +22,7 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
 #. Plugin Name of the plugin/theme
-#: admin/class-gutenberg-editor.php:17 frontend/class-shortcode.php:133
+#: admin/class-gutenberg-editor.php:17 frontend/class-shortcode.php:134
 msgid "Quick and Easy FAQs"
 msgstr ""
 
@@ -261,35 +261,35 @@ msgstr ""
 msgid "Quick and Easy FAQs Settings"
 msgstr ""
 
-#: frontend/class-shortcode.php:134
+#: frontend/class-shortcode.php:135
 msgid "Quick and Easy FAQs Plugin"
 msgstr ""
 
-#: frontend/class-shortcode.php:136
+#: frontend/class-shortcode.php:137
 msgid "Content"
 msgstr ""
 
-#: frontend/class-shortcode.php:140
+#: frontend/class-shortcode.php:141
 msgid "Display Style"
 msgstr ""
 
-#: frontend/class-shortcode.php:154
+#: frontend/class-shortcode.php:155
 msgid "FAQs Filters"
 msgstr ""
 
-#: frontend/class-shortcode.php:165
+#: frontend/class-shortcode.php:166
 msgid "FAQs Order"
 msgstr ""
 
-#: frontend/class-shortcode.php:176
+#: frontend/class-shortcode.php:177
 msgid "FAQs Order By"
 msgstr ""
 
-#: includes/class-faqs-query.php:225
+#: includes/class-faqs-query.php:234
 msgid "All"
 msgstr ""
 
-#: includes/class-faqs-query.php:290
+#: includes/class-faqs-query.php:299
 msgid "Back to Index"
 msgstr ""
 
