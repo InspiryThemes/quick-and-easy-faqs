@@ -103,6 +103,14 @@ class Shortcode extends Utilities {
 		$faqs_query = new FAQs_Query( $style, $filter, $orderby, $order, $limit );
 		$faqs_query->render();
 
+		wp_register_script(
+			$this->plugin_name,
+			dirname( plugin_dir_url( __FILE__ ) ) . '/frontend/js/scripts.js',
+			array( 'jquery' ),
+			$this->version,
+			true
+		);
+		
 		wp_localize_script(
 			$this->plugin_name,
 			'qaef_object',
