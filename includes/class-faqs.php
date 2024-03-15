@@ -219,9 +219,9 @@ class FAQs  extends Utilities {
 	 */
 	public function plugin_action_links( $links ) {
 		$settings_link      = sprintf( '<a href="%1$s">%2$s</a>', admin_url( 'edit.php?post_type=faq&page=quick_and_easy_faqs' ), esc_html__( 'Settings', 'quick-and-easy-faqs' ) );
-		$github_link = sprintf( '<a href="%1$s" target="_blank">%2$s</a>', 'https://github.com/inspirythemes/quick-and-easy-faqs', esc_html__( 'Opt In', 'quick-and-easy-faqs' ) );
+		$documentation_link = sprintf( '<a href="%1$s" target="_blank">%2$s</a>', 'https://github.com/inspirythemes/quick-and-easy-faqs?tab=readme-ov-file#documentation', esc_html__( 'Documentation', 'quick-and-easy-faqs' ) );
 
-		array_unshift( $links, $settings_link, $github_link );
+		array_unshift( $links, $settings_link, $documentation_link );
 
 		return $links;
 	}
