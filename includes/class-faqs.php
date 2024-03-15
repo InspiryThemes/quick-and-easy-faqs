@@ -101,6 +101,9 @@ class FAQs  extends Utilities {
 		$faq_settings = new Settings();
 		add_action( 'admin_menu', array( $faq_settings, 'settings_init' ) );
 		add_action( 'admin_menu', array( $faq_settings, 'add_faqs_options_page' ) );
+
+		// Adding action links to admin plugins list page
+		add_filter( 'plugin_action_links_' . QUICK_AND_EASY_FAQS_BASENAME, [ $this, 'plugin_action_links' ] );
 	}
 
 	/**
@@ -199,5 +202,27 @@ class FAQs  extends Utilities {
 
 		return ob_get_clean();
 
+	}
+
+	/**
+	 * Plugin action links.
+	 *
+	 * Adds action links to the plugin list table
+	 *
+	 * Fired by `plugin_action_links` filter.
+	 *
+	 * @since 1.3.10
+	 *
+	 * @param array $links An array of plugin action links.
+	 *
+	 * @return array An array of plugin action links.
+	 */
+	public function plugin_action_links( $links ) {
+		$settings_link      = sprintf( '<a href="%1$s">%2$s</a>', admin_url( 'edit.php?post_type=faq&page=quick_and_easy_faqs' ), esc_html__( 'Settings', 'quick-and-easy-faqs' ) );
+		$documentation_link = sprintf( '<a href="%1$s" target="_blank">%2$s</a>', 'https://github.com/inspirythemes/quick-and-easy-faqs?tab=readme-ov-file#documentation', esc_html__( 'Documentation', 'quick-and-easy-faqs' ) );
+
+		array_unshift( $links, $settings_link, $documentation_link );
+
+		return $links;
 	}
 }

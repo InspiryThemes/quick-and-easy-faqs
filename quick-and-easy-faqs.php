@@ -27,6 +27,7 @@ if ( ! function_exists( 'get_plugin_data' ) ) {
 }
 
 define( 'QUICK_AND_EASY_FAQS_VERSION', get_plugin_data( __FILE__ )['Version'] );
+define( 'QUICK_AND_EASY_FAQS_BASENAME', plugin_basename( __FILE__ ) );
 
 /**
  * The core plugin class that is used to define all site hooks.
