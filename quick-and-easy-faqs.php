@@ -1,12 +1,12 @@
 <?php
 /**
  * Plugin Name:       Quick and Easy FAQs
- * Plugin URI:        https://github.com/inspirythemes/quick-and-easy-faqs
+ * Plugin URI:        https://wordpress.org/plugins/quick-and-easy-faqs/
  * Description:       A quick and easy way to add FAQs to your site.
- * Version:           1.3.9
- * Tested up to:      6.2.2
+ * Version:           1.3.10
+ * Tested up to:      6.5.2
  * Requires PHP:      5.6
- * Author:            Inspiry Themes
+ * Author:            InspiryThemes
  * Author URI:        https://inspirythemes.com/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
