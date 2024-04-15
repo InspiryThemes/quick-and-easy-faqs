@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Quick and Easy FAQs\n"
-"POT-Creation-Date: 2023-06-05 12:06+0500\n"
+"POT-Creation-Date: 2024-04-15 23:40+0500\n"
 "PO-Revision-Date: 2019-04-04 18:28+0500\n"
 "Last-Translator: M Saqib Sarwar <saqib@inspirythemes.com>\n"
 "Language-Team: M Saqib Sarwar <saqib@inspirythemes.com>\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"X-Generator: Poedit 3.3.1\n"
+"X-Generator: Poedit 3.4.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: quick-and-easy-faqs.php\n"
@@ -22,7 +22,7 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
 #. Plugin Name of the plugin/theme
-#: admin/class-gutenberg-editor.php:17 frontend/class-shortcode.php:134
+#: admin/class-gutenberg-editor.php:17 frontend/class-shortcode.php:139
 msgid "Quick and Easy FAQs"
 msgstr ""
 
@@ -175,7 +175,7 @@ msgstr ""
 msgid "Quick & Easy Settings"
 msgstr ""
 
-#: admin/class-settings.php:63
+#: admin/class-settings.php:63 includes/class-faqs.php:221
 msgid "Settings"
 msgstr ""
 
@@ -261,27 +261,27 @@ msgstr ""
 msgid "Quick and Easy FAQs Settings"
 msgstr ""
 
-#: frontend/class-shortcode.php:135
+#: frontend/class-shortcode.php:140
 msgid "Quick and Easy FAQs Plugin"
 msgstr ""
 
-#: frontend/class-shortcode.php:137
+#: frontend/class-shortcode.php:142
 msgid "Content"
 msgstr ""
 
-#: frontend/class-shortcode.php:141
+#: frontend/class-shortcode.php:146
 msgid "Display Style"
 msgstr ""
 
-#: frontend/class-shortcode.php:155
+#: frontend/class-shortcode.php:160
 msgid "FAQs Filters"
 msgstr ""
 
-#: frontend/class-shortcode.php:166
+#: frontend/class-shortcode.php:171
 msgid "FAQs Order"
 msgstr ""
 
-#: frontend/class-shortcode.php:177
+#: frontend/class-shortcode.php:182
 msgid "FAQs Order By"
 msgstr ""
 
@@ -291,6 +291,10 @@ msgstr ""
 
 #: includes/class-faqs-query.php:299
 msgid "Back to Index"
+msgstr ""
+
+#: includes/class-faqs.php:222
+msgid "Documentation"
 msgstr ""
 
 #: includes/class-settings-api.php:350
