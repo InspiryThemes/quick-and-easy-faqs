@@ -53,13 +53,13 @@ If you want to display FAQs using custom code in php template then you can use t
 
 ## Installation
 
-# Method 1: Manual Installation via FTP
+### Method 1: Manual Installation via FTP
 
 1. **Extract the Contents**: Locate the downloaded `quick-and-easy-faqs.zip` file and extract its contents using your preferred file decompression tool.
 2. **Upload to WordPress**: Using an FTP client or your web hosting control panel's file manager, upload the extracted `quick-and-easy-faqs` folder to the `/wp-content/plugins/` directory on your WordPress website's server.
 3. **Activate the Plugin**: Log in to your WordPress dashboard, navigate to the 'Plugins' menu, and find `Quick and Easy FAQs` in the list of available plugins. Click 'Activate' to enable the plugin's features on your site.
 
-# Method 2: Install Directly Through WordPress
+### Method 2: Install Directly Through WordPress
 
 1. **Access the WordPress Dashboard**: Log in to your WordPress site's backend.
 2. **Navigate to Plugins**: On the dashboard menu, click on 'Plugins', then select 'Add New'.
