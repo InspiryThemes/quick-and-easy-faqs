@@ -1,6 +1,6 @@
 === Quick and Easy FAQs ===
 Contributors: inspirythemes, saqibsarwar, usmanaliqureshi, fahidjavid
-Tags: FAQs, FAQ, FAQs list, accordion FAQs, toggle FAQs, filtered FAQs, grouped FAQs, FAQs Block, Gutenberg FAQs, FAQs Order, FAQs Sorting
+Tags: FAQs, FAQ, Accordion FAQs, Gutenberg FAQs, Filtered FAQs
 Requires at least: 5.0
 Tested up to: 6.5.2
 Stable tag: 1.3.10
