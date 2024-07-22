@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Quick and Easy FAQs\n"
-"POT-Creation-Date: 2024-04-15 23:40+0500\n"
+"POT-Creation-Date: 2024-07-22 17:27+0500\n"
 "PO-Revision-Date: 2019-04-04 18:28+0500\n"
 "Last-Translator: M Saqib Sarwar <saqib@inspirythemes.com>\n"
 "Language-Team: M Saqib Sarwar <saqib@inspirythemes.com>\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.4.4\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: quick-and-easy-faqs.php\n"
@@ -302,7 +302,7 @@ msgid "Choose File"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "https://github.com/inspirythemes/quick-and-easy-faqs"
+msgid "https://wordpress.org/plugins/quick-and-easy-faqs/"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -310,7 +310,7 @@ msgid "A quick and easy way to add FAQs to your site."
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "Inspiry Themes"
+msgid "InspiryThemes"
 msgstr ""
 
 #. Author URI of the plugin/theme
