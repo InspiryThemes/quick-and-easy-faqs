@@ -98,6 +98,7 @@ This plugin provides a quick and easy way add FAQs using custom post type and la
 == Changelog ==
 
 = 1.3.11 =
+* Improved some code validation
 * Improved readme.txt and readme.md files
 * Updated language file
 * Tested plugin with WordPress 6.6.0
