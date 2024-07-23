@@ -3,8 +3,8 @@
  * Plugin Name:       Quick and Easy FAQs
  * Plugin URI:        https://wordpress.org/plugins/quick-and-easy-faqs/
  * Description:       A quick and easy way to add FAQs to your site.
- * Version:           1.3.10
- * Tested up to:      6.5.2
+ * Version:           1.3.11
+ * Tested up to:      6.6.0
  * Requires PHP:      5.6
  * Author:            InspiryThemes
  * Author URI:        https://inspirythemes.com/
