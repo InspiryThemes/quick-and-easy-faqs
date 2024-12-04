@@ -19,7 +19,7 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-define( 'QUICK_AND_EASY_FAQS_VERSION', rcs_get_plugin_details() );
+define( 'QUICK_AND_EASY_FAQS_VERSION', qefaq_get_plugin_details() );
 define( 'QUICK_AND_EASY_FAQS_BASENAME', plugin_basename( __FILE__ ) );
 
 /**
@@ -31,7 +31,7 @@ define( 'QUICK_AND_EASY_FAQS_BASENAME', plugin_basename( __FILE__ ) );
  *
  * @return string|mixed
  */
-function rcs_get_plugin_details( $key = 'Version' ) {
+function qefaq_get_plugin_details( $key = 'Version' ) {
 	require_once ABSPATH . 'wp-admin/includes/plugin.php';
 
 	// Prevent early translation call by setting $translate to false.
