@@ -19,15 +19,26 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-/**
- * Global Constants to be used throughout the plugin
- */
-if ( ! function_exists( 'get_plugin_data' ) ) {
-	require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-}
-
-define( 'QUICK_AND_EASY_FAQS_VERSION', get_plugin_data( __FILE__ )['Version'] );
+define( 'QUICK_AND_EASY_FAQS_VERSION', qefaq_get_plugin_details() );
 define( 'QUICK_AND_EASY_FAQS_BASENAME', plugin_basename( __FILE__ ) );
+
+/**
+ * Get plugin details safely
+ *
+ * @since 1.3.12
+ *
+ * @param string $key   Key to fetch plugin detail
+ *
+ * @return string|mixed
+ */
+function qefaq_get_plugin_details( $key = 'Version' ) {
+	require_once ABSPATH . 'wp-admin/includes/plugin.php';
+
+	// Prevent early translation call by setting $translate to false.
+	$plugin_data = get_plugin_data( __FILE__,false,false );
+
+	return $plugin_data[$key];
+}
 
 /**
  * The core plugin class that is used to define all site hooks.
