@@ -1,9 +1,9 @@
 === Quick and Easy FAQs ===
 Contributors: inspirythemes, saqibsarwar, usmanaliqureshi, fahidjavid
 Tags: FAQs, FAQ, Accordion FAQs, Gutenberg FAQs, Filtered FAQs
-Requires at least: 5.0
-Tested up to: 6.6.0
-Stable tag: 1.3.11
+Requires at least: 6.0
+Tested up to: 6.7.1
+Stable tag: 1.3.12
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -96,6 +96,11 @@ This plugin provides a quick and easy way add FAQs using custom post type and la
 9. FAQs Accordion
 
 == Changelog ==
+
+= 1.3.12 =
+* Fixed text-domain notice
+* Updated language file
+* Tested plugin with WordPress 6.7.1
 
 = 1.3.11 =
 * Improved some code validation
