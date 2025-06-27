@@ -231,7 +231,7 @@ class FAQs_Query extends Utilities {
 		if ( $this->filters ) {
 			?>
 			<ul class="qe-faqs-filters-container">
-				<li class="active"><a class="qe-faqs-filter all-faqs" href="#" data-filter="*"><?php esc_html_e( 'All', 'quick-and-easy-faqs' ); ?></a></li>
+				<li class="active"><a class="qe-faqs-filter all-faqs" href="#" data-filter="*"><?php esc_html_e( 'All', QAEF_TEXT_DOMAIN ); ?></a></li>
 				<?php
 				foreach ( $this->filters as $term ) {
 					$term_object = get_term_by( 'slug', $term, 'faq-group' );
@@ -296,7 +296,7 @@ class FAQs_Query extends Utilities {
 				$content      = str_replace( ']]>', ']]&gt;', $content );
 				echo wp_kses_post( $content );
 				if ( ( empty( $this->display ) || 'grouped' === $this->display ) && 'on' !== $back_to_index ) {
-					echo '<br /><a class="qe-faq-top" href="#qe-faqs-index"><i class="fa fa-angle-up"></i> ' . esc_html__( 'Back to Index', 'quick-and-easy-faqs' ) . '</a>';
+					echo '<br /><a class="qe-faq-top" href="#qe-faqs-index"><i class="fa fa-angle-up"></i> ' . esc_html__( 'Back to Index', QAEF_TEXT_DOMAIN ) . '</a>';
 				}
 				?>
 			</div>

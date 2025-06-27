@@ -49,7 +49,7 @@ spl_autoload_register(
 			include_once $filepath;
 		} else {
 			wp_die(
-				esc_html__( "The file attempting to be loaded at $filepath does not exist.", 'quick-and-easy-faqs' )
+				esc_html__( "The file attempting to be loaded at $filepath does not exist.", QAEF_TEXT_DOMAIN )
 			);
 		}
 	}
