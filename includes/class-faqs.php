@@ -69,14 +69,14 @@ class FAQs  extends Utilities {
 	public function set_locale() {
 
 		load_plugin_textdomain(
-			'quick-and-easy-faqs',
+			QAEF_TEXT_DOMAIN,
 			false,
 			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);
 	}
 
 	/**
-	 * Register all of the hooks related to the admin area functionality of the plugin.
+	 * Register all the hooks related to the admin area functionality of the plugin.
 	 */
 	private function define_admin_hooks() {
 
