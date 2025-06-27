@@ -22,6 +22,7 @@ if ( ! defined( 'WPINC' ) ) {
 
 define( 'QUICK_AND_EASY_FAQS_VERSION', qefaq_get_plugin_details() );
 define( 'QUICK_AND_EASY_FAQS_BASENAME', plugin_basename( __FILE__ ) );
+define( 'QAEF_TEXT_DOMAIN', 'quick-and-easy-faqs' );
 
 /**
  * Get plugin details safely
