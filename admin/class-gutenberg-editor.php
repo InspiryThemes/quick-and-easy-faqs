@@ -14,7 +14,7 @@ class Gutenberg_Editor {
 
 		$categories[] = array(
 			'slug'  => 'quick-and-easy-faqs',
-			'title' => __( 'Quick and Easy FAQs', 'quick-and-easy-faqs' ),
+			'title' => __( 'Quick and Easy FAQs', QAEF_TEXT_DOMAIN ),
 		);
 
 		return $categories;
