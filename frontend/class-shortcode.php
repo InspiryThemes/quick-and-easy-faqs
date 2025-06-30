@@ -136,14 +136,14 @@ class Shortcode extends Utilities {
 
 		vc_map(
 			array(
-				'name'        => __( 'Quick and Easy FAQs', 'quick-and-easy-faqs' ),
-				'description' => __( 'Quick and Easy FAQs Plugin', 'quick-and-easy-faqs' ),
+				'name'        => __( 'Quick and Easy FAQs', QAEF_TEXT_DOMAIN ),
+				'description' => __( 'Quick and Easy FAQs Plugin', QAEF_TEXT_DOMAIN ),
 				'base'        => 'faqs',
-				'category'    => __( 'Content', 'quick-and-easy-faqs' ),
+				'category'    => __( 'Content', QAEF_TEXT_DOMAIN ),
 				'params'      => array(
 					array(
 						'type'        => 'dropdown',
-						'heading'     => __( 'Display Style', 'quick-and-easy-faqs' ),
+						'heading'     => __( 'Display Style', QAEF_TEXT_DOMAIN ),
 						'param_name'  => 'style',
 						'value'       => array(
 							'Default'           => '',
@@ -157,7 +157,7 @@ class Shortcode extends Utilities {
 					),
 					array(
 						'type'        => 'dropdown',
-						'heading'     => __( 'FAQs Filters', 'quick-and-easy-faqs' ),
+						'heading'     => __( 'FAQs Filters', QAEF_TEXT_DOMAIN ),
 						'param_name'  => 'filter',
 						'value'       => array(
 							'Default' => '',
@@ -168,7 +168,7 @@ class Shortcode extends Utilities {
 					),
 					array(
 						'type'        => 'dropdown',
-						'heading'     => __( 'FAQs Order', 'quick-and-easy-faqs' ),
+						'heading'     => __( 'FAQs Order', QAEF_TEXT_DOMAIN ),
 						'param_name'  => 'order',
 						'value'       => array(
 							'Default'    => '',
@@ -179,7 +179,7 @@ class Shortcode extends Utilities {
 					),
 					array(
 						'type'        => 'dropdown',
-						'heading'     => __( 'FAQs Order By', 'quick-and-easy-faqs' ),
+						'heading'     => __( 'FAQs Order By', QAEF_TEXT_DOMAIN ),
 						'param_name'  => 'orderby',
 						'value'       => array(
 							'Default'  => '',

@@ -69,14 +69,14 @@ class FAQs  extends Utilities {
 	public function set_locale() {
 
 		load_plugin_textdomain(
-			'quick-and-easy-faqs',
+			QAEF_TEXT_DOMAIN,
 			false,
 			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);
 	}
 
 	/**
-	 * Register all of the hooks related to the admin area functionality of the plugin.
+	 * Register all the hooks related to the admin area functionality of the plugin.
 	 */
 	private function define_admin_hooks() {
 
@@ -218,8 +218,8 @@ class FAQs  extends Utilities {
 	 * @return array An array of plugin action links.
 	 */
 	public function plugin_action_links( $links ) {
-		$settings_link      = sprintf( '<a href="%1$s">%2$s</a>', admin_url( 'edit.php?post_type=faq&page=quick_and_easy_faqs' ), esc_html__( 'Settings', 'quick-and-easy-faqs' ) );
-		$documentation_link = sprintf( '<a href="%1$s" target="_blank">%2$s</a>', 'https://github.com/inspirythemes/quick-and-easy-faqs?tab=readme-ov-file#documentation', esc_html__( 'Documentation', 'quick-and-easy-faqs' ) );
+		$settings_link      = sprintf( '<a href="%1$s">%2$s</a>', admin_url( 'edit.php?post_type=faq&page=quick_and_easy_faqs' ), esc_html__( 'Settings', QAEF_TEXT_DOMAIN ) );
+		$documentation_link = sprintf( '<a href="%1$s" target="_blank">%2$s</a>', 'https://github.com/inspirythemes/quick-and-easy-faqs?tab=readme-ov-file#documentation', esc_html__( 'Documentation', QAEF_TEXT_DOMAIN ) );
 
 		array_unshift( $links, $settings_link, $documentation_link );
 

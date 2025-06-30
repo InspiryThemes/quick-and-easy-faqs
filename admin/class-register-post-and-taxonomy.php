@@ -14,26 +14,26 @@ class Register_Post_And_Taxonomy {
 	public function register_faqs_post_type() {
 
 		$labels = array(
-			'name'               => _x( 'FAQs', 'Post Type General Name', 'quick-and-easy-faqs' ),
-			'singular_name'      => _x( 'FAQ', 'Post Type Singular Name', 'quick-and-easy-faqs' ),
-			'menu_name'          => __( 'FAQs', 'quick-and-easy-faqs' ),
-			'name_admin_bar'     => __( 'FAQ', 'quick-and-easy-faqs' ),
-			'parent_item_colon'  => __( 'Parent FAQ:', 'quick-and-easy-faqs' ),
-			'all_items'          => __( 'FAQs', 'quick-and-easy-faqs' ),
-			'add_new_item'       => __( 'Add New FAQ', 'quick-and-easy-faqs' ),
-			'add_new'            => __( 'Add New', 'quick-and-easy-faqs' ),
-			'new_item'           => __( 'New FAQ', 'quick-and-easy-faqs' ),
-			'edit_item'          => __( 'Edit FAQ', 'quick-and-easy-faqs' ),
-			'update_item'        => __( 'Update FAQ', 'quick-and-easy-faqs' ),
-			'view_item'          => __( 'View FAQ', 'quick-and-easy-faqs' ),
-			'search_items'       => __( 'Search FAQ', 'quick-and-easy-faqs' ),
-			'not_found'          => __( 'Not found', 'quick-and-easy-faqs' ),
-			'not_found_in_trash' => __( 'Not found in Trash', 'quick-and-easy-faqs' ),
+			'name'               => _x( 'FAQs', 'Post Type General Name', QAEF_TEXT_DOMAIN ),
+			'singular_name'      => _x( 'FAQ', 'Post Type Singular Name', QAEF_TEXT_DOMAIN ),
+			'menu_name'          => __( 'FAQs', QAEF_TEXT_DOMAIN ),
+			'name_admin_bar'     => __( 'FAQ', QAEF_TEXT_DOMAIN ),
+			'parent_item_colon'  => __( 'Parent FAQ:', QAEF_TEXT_DOMAIN ),
+			'all_items'          => __( 'FAQs', QAEF_TEXT_DOMAIN ),
+			'add_new_item'       => __( 'Add New FAQ', QAEF_TEXT_DOMAIN ),
+			'add_new'            => __( 'Add New', QAEF_TEXT_DOMAIN ),
+			'new_item'           => __( 'New FAQ', QAEF_TEXT_DOMAIN ),
+			'edit_item'          => __( 'Edit FAQ', QAEF_TEXT_DOMAIN ),
+			'update_item'        => __( 'Update FAQ', QAEF_TEXT_DOMAIN ),
+			'view_item'          => __( 'View FAQ', QAEF_TEXT_DOMAIN ),
+			'search_items'       => __( 'Search FAQ', QAEF_TEXT_DOMAIN ),
+			'not_found'          => __( 'Not found', QAEF_TEXT_DOMAIN ),
+			'not_found_in_trash' => __( 'Not found in Trash', QAEF_TEXT_DOMAIN ),
 		);
 
 		$args = array(
-			'label'               => __( 'faq', 'quick-and-easy-faqs' ),
-			'description'         => __( 'Frequently Asked Questions', 'quick-and-easy-faqs' ),
+			'label'               => __( 'faq', QAEF_TEXT_DOMAIN ),
+			'description'         => __( 'Frequently Asked Questions', QAEF_TEXT_DOMAIN ),
 			'labels'              => apply_filters( 'inspiry_faq_labels', $labels ),
 			'supports'            => apply_filters( 'inspiry_faq_supports', array( 'title', 'editor', 'author' ) ),
 			'hierarchical'        => false,
@@ -50,7 +50,7 @@ class Register_Post_And_Taxonomy {
 			'publicly_queryable'  => true,
 			'capability_type'     => 'post',
 			'show_in_rest'        => true,
-			'rest_base'           => apply_filters( 'inspiry_faq_rest_base', __( 'faqs', 'quick-and-easy-faqs' ) ),
+			'rest_base'           => apply_filters( 'inspiry_faq_rest_base', __( 'faqs', QAEF_TEXT_DOMAIN ) ),
 		);
 
 		register_post_type( 'faq', apply_filters( 'inspiry_register_faq_arguments', $args ) );
@@ -63,23 +63,23 @@ class Register_Post_And_Taxonomy {
 	public function register_faqs_group_taxonomy() {
 
 		$labels = array(
-			'name'                       => _x( 'FAQ Groups', 'Taxonomy General Name', 'quick-and-easy-faqs' ),
-			'singular_name'              => _x( 'FAQ Group', 'Taxonomy Singular Name', 'quick-and-easy-faqs' ),
-			'menu_name'                  => __( 'Groups', 'quick-and-easy-faqs' ),
-			'all_items'                  => __( 'All FAQ Groups', 'quick-and-easy-faqs' ),
-			'parent_item'                => __( 'Parent FAQ Group', 'quick-and-easy-faqs' ),
-			'parent_item_colon'          => __( 'Parent FAQ Group:', 'quick-and-easy-faqs' ),
-			'new_item_name'              => __( 'New FAQ Group Name', 'quick-and-easy-faqs' ),
-			'add_new_item'               => __( 'Add New FAQ Group', 'quick-and-easy-faqs' ),
-			'edit_item'                  => __( 'Edit FAQ Group', 'quick-and-easy-faqs' ),
-			'update_item'                => __( 'Update FAQ Group', 'quick-and-easy-faqs' ),
-			'view_item'                  => __( 'View FAQ Group', 'quick-and-easy-faqs' ),
-			'separate_items_with_commas' => __( 'Separate FAQ Groups with commas', 'quick-and-easy-faqs' ),
-			'add_or_remove_items'        => __( 'Add or remove FAQ Groups', 'quick-and-easy-faqs' ),
-			'choose_from_most_used'      => __( 'Choose from the most used', 'quick-and-easy-faqs' ),
-			'popular_items'              => __( 'Popular FAQ Groups', 'quick-and-easy-faqs' ),
-			'search_items'               => __( 'Search FAQ Groups', 'quick-and-easy-faqs' ),
-			'not_found'                  => __( 'Not Found', 'quick-and-easy-faqs' ),
+			'name'                       => _x( 'FAQ Groups', 'Taxonomy General Name', QAEF_TEXT_DOMAIN ),
+			'singular_name'              => _x( 'FAQ Group', 'Taxonomy Singular Name', QAEF_TEXT_DOMAIN ),
+			'menu_name'                  => __( 'Groups', QAEF_TEXT_DOMAIN ),
+			'all_items'                  => __( 'All FAQ Groups', QAEF_TEXT_DOMAIN ),
+			'parent_item'                => __( 'Parent FAQ Group', QAEF_TEXT_DOMAIN ),
+			'parent_item_colon'          => __( 'Parent FAQ Group:', QAEF_TEXT_DOMAIN ),
+			'new_item_name'              => __( 'New FAQ Group Name', QAEF_TEXT_DOMAIN ),
+			'add_new_item'               => __( 'Add New FAQ Group', QAEF_TEXT_DOMAIN ),
+			'edit_item'                  => __( 'Edit FAQ Group', QAEF_TEXT_DOMAIN ),
+			'update_item'                => __( 'Update FAQ Group', QAEF_TEXT_DOMAIN ),
+			'view_item'                  => __( 'View FAQ Group', QAEF_TEXT_DOMAIN ),
+			'separate_items_with_commas' => __( 'Separate FAQ Groups with commas', QAEF_TEXT_DOMAIN ),
+			'add_or_remove_items'        => __( 'Add or remove FAQ Groups', QAEF_TEXT_DOMAIN ),
+			'choose_from_most_used'      => __( 'Choose from the most used', QAEF_TEXT_DOMAIN ),
+			'popular_items'              => __( 'Popular FAQ Groups', QAEF_TEXT_DOMAIN ),
+			'search_items'               => __( 'Search FAQ Groups', QAEF_TEXT_DOMAIN ),
+			'not_found'                  => __( 'Not Found', QAEF_TEXT_DOMAIN ),
 		);
 
 		$args = array(
@@ -94,7 +94,7 @@ class Register_Post_And_Taxonomy {
 			'show_in_nav_menus'   => true,
 			'show_tagcloud'       => false,
 			'show_in_rest'        => true,
-			'rest_base'           => apply_filters( 'inspiry_faq_group_rest_base', __( 'faq_groups', 'quick-and-easy-faqs' ) ),
+			'rest_base'           => apply_filters( 'inspiry_faq_group_rest_base', __( 'faq_groups', QAEF_TEXT_DOMAIN ) ),
 		);
 
 		register_taxonomy( 'faq-group', array( 'faq' ), apply_filters( 'inspiry_register_faq_group_arguments', $args ) );
