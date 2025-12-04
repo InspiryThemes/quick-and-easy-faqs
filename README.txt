@@ -2,8 +2,9 @@
 Contributors: inspirythemes, saqibsarwar, usmanaliqureshi, fahidjavid
 Tags: FAQs, FAQ, Accordion FAQs, Gutenberg FAQs, Filtered FAQs
 Requires at least: 6.0
-Tested up to: 6.8.1
-Stable tag: 1.3.13
+Tested up to: 6.9
+Requires PHP: 8.3
+Stable tag: 1.3.14
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -96,6 +97,12 @@ This plugin provides a quick and easy way add FAQs using custom post type and la
 9. FAQs Accordion
 
 == Changelog ==
+
+= 1.3.14 =
+* WordPress 6.9 compatibility confirmed
+* Updated minimum PHP requirement to 8.3 (recommended by WordPress.org)
+* Updated translation files for multilingual support
+* General code improvements
 
 = 1.3.13 =
 * Improved the text-domain functionality for better compatibility
