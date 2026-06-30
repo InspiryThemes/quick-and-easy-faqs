@@ -86,15 +86,15 @@ This plugin provides a quick and easy way add FAQs using custom post type and la
 == Frequently Asked Questions ==
 
 == Screenshots ==
-1. FAQs
-2. Add/Edit FAQ
-3. FAQ Groups
-4. FAQs Settings
-5. FAQs Settings
-6. Simple FAQs
-7. Grouped FAQs
-8. FAQs Toggle
-9. FAQs Accordion
+1. Add/Edit FAQ
+2. FAQs Settings
+3. FAQs Settings
+4. FAQs Toggle
+5. FAQs Toggle Grouped
+6. FAQs Accordion
+7. FAQs Filters
+8. FAQs Grouped List
+9. FAQs Simple List
 
 == Changelog ==
 
