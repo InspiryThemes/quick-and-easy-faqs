@@ -93,10 +93,19 @@ class FAQs  extends Utilities {
 		add_filter( 'mce_buttons', array( $classic_editor, 'register_buttons_editor' ) );
 
 		$gutenberg_button = new Gutenberg_Editor();
-		if ( Admin::is_gutenberg_active() ) {
-			add_filter( 'block_categories_all', array( $gutenberg_button, 'add_faqs_block_category' ) );
-			add_action( 'init', array( $gutenberg_button, 'add_all_faqs_block' ) );
-		}
+
+		/*
+		 * Blocks are registered unconditionally, regardless of which editor is in
+		 * use. Gating this on Admin::is_gutenberg_active() returns false whenever
+		 * the Classic Editor plugin is active, which left all 14 blocks
+		 * unregistered. Any FAQ post already holding this block markup then
+		 * references an unregistered block, which WordPress reports as "Your site
+		 * doesn't include support for the block" and stops rendering on the front
+		 * end. Block registration is also what allows the block editor to
+		 * validate and save the markup, so it cannot depend on editor preference.
+		 */
+		add_filter( 'block_categories_all', array( $gutenberg_button, 'add_faqs_block_category' ) );
+		add_action( 'init', array( $gutenberg_button, 'add_all_faqs_block' ) );
 
 		$faq_settings = new Settings();
 		add_action( 'admin_menu', array( $faq_settings, 'settings_init' ) );
